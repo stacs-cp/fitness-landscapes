@@ -25,9 +25,11 @@ find rse_witnesses_Explicit_2: matrix indexed by [int(1..nb_rse_faces)] of int(0
 find rse_witnesses_Explicit_3: matrix indexed by [int(1..nb_rse_faces)] of int(0..let7)
 find rse_witnesses_Explicit_4: matrix indexed by [int(1..nb_rse_faces)] of int(0..let8)
 given nb_peaks: int
+letting let9 be nb_nodes - 1
+find peak_witnesses_Explicit: matrix indexed by [int(1..nb_peaks)] of int(0..let9)
 branching on [g]
 such that
-    and([table([i, j; int(1..2)], [[edges_Explicit_1[q7], edges_Explicit_2[q7]; int(1..2)] | q7 : int(1..fin1)]) ->
+    and([table([i, j; int(1..2)], [[edges_Explicit_1[q9], edges_Explicit_2[q9]; int(1..2)] | q9 : int(1..fin1)]) ->
          1 = (toInt(g[i, j]) + toInt(g[j, i])) % 2
              | i : int(0..nb_nodes - 1), j : int(0..nb_nodes - 1)]),
     and([g[i, j] \/ g[j, i] ->
@@ -40,13 +42,14 @@ such that
     and([and([allDiff([a, b, c, d; int(1..4)]), a < d, b < c, g[a, b] \/ g[b, a], g[a, c] \/ g[c, a],
               g[b, d] \/ g[d, b], g[c, d] \/ g[d, c], g[a, b] /\ g[a, c] /\ g[d, b] /\ g[d, c];
                   int(1..8)])
-         ->
-         or([and([rse_witnesses_Explicit_1[q9] = a, rse_witnesses_Explicit_2[q9] = b, rse_witnesses_Explicit_3[q9] = c,
-                  rse_witnesses_Explicit_4[q9] = d;
+         <->
+         or([and([rse_witnesses_Explicit_1[q11] = a, rse_witnesses_Explicit_2[q11] = b,
+                  rse_witnesses_Explicit_3[q11] = c, rse_witnesses_Explicit_4[q11] = d;
                       int(1..4)])
-                 | q9 : int(1..nb_rse_faces)])
+                 | q11 : int(1..nb_rse_faces)])
              | a : int(0..nb_nodes - 1), b : int(0..nb_nodes - 1), c : int(0..nb_nodes - 1), d : int(0..nb_nodes - 1)]),
-    nb_peaks = sum([toInt(and([!g[i, j] | j : int(0..nb_nodes - 1)])) | i : int(0..nb_nodes - 1)]),
+    and([and([!g[i, j] | j : int(0..nb_nodes - 1)]) <-> or([peak_witnesses_Explicit[q13] = i | q13 : int(1..nb_peaks)])
+             | i : int(0..nb_nodes - 1)]),
     and([flatten([[rse_witnesses_Explicit_1[q5]; int(1)], [rse_witnesses_Explicit_2[q5]; int(1)],
                   [rse_witnesses_Explicit_3[q5]; int(1)], [rse_witnesses_Explicit_4[q5]; int(1)];
                       int(1..4)])
@@ -54,10 +57,11 @@ such that
          flatten([[rse_witnesses_Explicit_1[q5 + 1]; int(1)], [rse_witnesses_Explicit_2[q5 + 1]; int(1)],
                   [rse_witnesses_Explicit_3[q5 + 1]; int(1)], [rse_witnesses_Explicit_4[q5 + 1]; int(1)];
                       int(1..4)])
-             | q5 : int(1..nb_rse_faces - 1)])
+             | q5 : int(1..nb_rse_faces - 1)]),
+    and([peak_witnesses_Explicit[q7] < peak_witnesses_Explicit[q7 + 1] | q7 : int(1..nb_peaks - 1)])
 
 $ Conjure's
-$ {"finds": [{"Name": "g"}, {"Name": "w"}, {"Name": "rse_witnesses"}],
+$ {"finds": [{"Name": "g"}, {"Name": "w"}, {"Name": "rse_witnesses"}, {"Name": "peak_witnesses"}],
 $  "givens": [{"Name": "nb_bits"}, {"Name": "edges"}, {"Name": "nb_rse_faces"}, {"Name": "nb_peaks"}], "enumGivens": [],
 $  "enumLettings": [],
 $  "lettings":
@@ -210,15 +214,30 @@ $                                              [{"Name": "nb_bits"},
 $                                               {"DeclNoRepr":
 $                                                    ["Given", {"Name": "nb_bits"}, {"DomainInt": [{"TagInt": []}, []]},
 $                                                     {"NoRegion": []}]}]}]}}}]},
+$                   {"Constant": {"ConstantInt": [{"TagInt": []}, 1]}}]}}],
+$       [{"MachineName": ["let", 9, []]},
+$        {"Op":
+$             {"MkOpMinus":
+$                  [{"Reference":
+$                        [{"Name": "nb_nodes"},
+$                         {"Alias":
+$                              {"Op":
+$                                   {"MkOpPow":
+$                                        [{"Constant": {"ConstantInt": [{"TagInt": []}, 2]}},
+$                                         {"Reference":
+$                                              [{"Name": "nb_bits"},
+$                                               {"DeclNoRepr":
+$                                                    ["Given", {"Name": "nb_bits"}, {"DomainInt": [{"TagInt": []}, []]},
+$                                                     {"NoRegion": []}]}]}]}}}]},
 $                   {"Constant": {"ConstantInt": [{"TagInt": []}, 1]}}]}}]],
 $  "unnameds": [], "strategyQ": {"PickFirst": []}, "strategyA": {"Compact": []},
 $  "trailCompact":
 $      [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1],
 $       [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1],
+$       [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 2], [1, 1, 1], [1, 1, 1],
 $       [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1],
-$       [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1],
-$       [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1]],
-$  "nameGenState": [["fin", 6], ["let", 9], ["q", 10]], "nbExtraGivens": 5,
+$       [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1]],
+$  "nameGenState": [["fin", 6], ["let", 10], ["q", 14]], "nbExtraGivens": 5,
 $  "representations":
 $      [[{"MachineName": ["fin", 1, []]}, {"DomainInt": [{"TagInt": []}, []]}],
 $       [{"MachineName": ["fin", 2, []]}, {"DomainInt": [{"TagInt": []}, []]}],
@@ -466,7 +485,37 @@ $                                                                               
 $                                                                                               []]}]}]}]}}}]},
 $                                                       {"Constant":
 $                                                            {"ConstantInt": [{"TagInt": []}, 1]}}]}}}]}]}]]}]}]}],
-$       [{"Name": "nb_peaks"}, {"DomainInt": [{"TagInt": []}, []]}]],
+$       [{"Name": "nb_peaks"}, {"DomainInt": [{"TagInt": []}, []]}],
+$       [{"Name": "peak_witnesses"},
+$        {"DomainSet":
+$             [{"Set_Explicit": []},
+$              {"SizeAttr_Size":
+$                   {"Reference":
+$                        [{"Name": "nb_peaks"},
+$                         {"DeclHasRepr": ["Given", {"Name": "nb_peaks"}, {"DomainInt": [{"TagInt": []}, []]}]}]}},
+$              {"DomainInt":
+$                   [{"TagInt": []},
+$                    [{"RangeBounded":
+$                          [{"Constant": {"ConstantInt": [{"TagInt": []}, 0]}},
+$                           {"Reference":
+$                                [{"MachineName": ["let", 9, []]},
+$                                 {"Alias":
+$                                      {"Op":
+$                                           {"MkOpMinus":
+$                                                [{"Reference":
+$                                                      [{"Name": "nb_nodes"},
+$                                                       {"Alias":
+$                                                            {"Op":
+$                                                                 {"MkOpPow":
+$                                                                      [{"Constant":
+$                                                                            {"ConstantInt": [{"TagInt": []}, 2]}},
+$                                                                       {"Reference":
+$                                                                            [{"Name": "nb_bits"},
+$                                                                             {"DeclHasRepr":
+$                                                                                  ["Given", {"Name": "nb_bits"},
+$                                                                                   {"DomainInt":
+$                                                                                        [{"TagInt": []}, []]}]}]}]}}}]},
+$                                                 {"Constant": {"ConstantInt": [{"TagInt": []}, 1]}}]}}}]}]}]]}]}]],
 $  "representationsTree":
 $      [[{"Name": "edges"},
 $        [{"rootLabel": {"Set_Explicit": []},
@@ -483,6 +532,8 @@ $        [{"rootLabel": null, "subForest": [{"rootLabel": null, "subForest": [{"
 $       [{"Name": "nb_bits"}, [{"rootLabel": null, "subForest": []}]],
 $       [{"Name": "nb_peaks"}, [{"rootLabel": null, "subForest": []}]],
 $       [{"Name": "nb_rse_faces"}, [{"rootLabel": null, "subForest": []}]],
+$       [{"Name": "peak_witnesses"},
+$        [{"rootLabel": {"Set_Explicit": []}, "subForest": [{"rootLabel": null, "subForest": []}]}]],
 $       [{"Name": "rse_witnesses"},
 $        [{"rootLabel": {"Set_Explicit": []},
 $          "subForest":
@@ -548,21 +599,31 @@ $                         [{"TagInt": []},
 $                          [{"RangeBounded":
 $                                [{"Constant": {"ConstantInt": [{"TagInt": []}, 0]}},
 $                                 {"Reference": [{"MachineName": ["let", 8, []]}, null]}]}]]}]}]}],
-$       [{"Name": "nb_peaks"}, {"DomainInt": [{"TagInt": []}, []]}]],
+$       [{"Name": "nb_peaks"}, {"DomainInt": [{"TagInt": []}, []]}],
+$       [{"Name": "peak_witnesses"},
+$        {"DomainSet":
+$             [[], {"SizeAttr_Size": {"Reference": [{"Name": "nb_peaks"}, null]}},
+$              {"DomainInt":
+$                   [{"TagInt": []},
+$                    [{"RangeBounded":
+$                          [{"Constant": {"ConstantInt": [{"TagInt": []}, 0]}},
+$                           {"Reference": [{"MachineName": ["let", 9, []]}, null]}]}]]}]}]],
 $  "trailGeneralised":
-$      [[-7139479240415672079, -7838549766258726104], [7466568798070693658, 7566667201400726643],
-$       [-623930610013707768, 2279863168521983501], [1037166237003960456, 7418519773750798076],
-$       [-438286425890239207, 5435854207187046742], [-2420148355332656397, 5609627527233998260],
-$       [-6282007322911948703, 3837608985231782988], [8228832359698301460, 3700877795925876066],
-$       [-2625702663977624897, -8976817868387092530], [-3989587291456480655, -8075778818548965169],
-$       [-8312717043585809093, 369044932116697218], [6487236538883209138, 2259535893123317086],
+$      [[-4767276184531488972, 7466229593639893649], [-7139479240415672079, -7838549766258726104],
+$       [7466568798070693658, 7566667201400726643], [-623930610013707768, 2279863168521983501],
+$       [5422214894005017032, -1367700302567053622], [442632276577456188, -4707497402571207241],
+$       [-5519337936470885115, -7357614960211409663], [-7962463873094512901, 3936320573335010814],
+$       [5190327598408860355, -3166987039626221616], [7751712734651849448, 160290844746943644],
+$       [6307279385977455874, -4061684863497399652], [6749933721882922225, -8976817868387092530],
+$       [-8720612661962840713, -2085599619582282857], [-8312717043585809093, -5645814793064429496],
+$       [-1293971268239582028, -797711923497704340], [-168936660258578461, -8254592798088050469],
+$       [4388696217541062484, 2824795704435793375], [6487236538883209138, 2259535893123317086],
 $       [-4940991215443556673, -2061496458666660899], [-403584203930889960, 4025332234075579845],
-$       [2601521699960760702, -5366602063362780924], [8919448791946388454, -8438055240862190397],
-$       [-8548435063433927687, -8985739086960977763], [8667831140340652909, -7114659343983858978],
-$       [-3177069500892571847, -7554613915294174734], [721878067558351176, -1223382022370678790],
-$       [2127830467199702026, 78196945698353830], [827764277037783012, 6951767498064497290],
-$       [-3751248080763136796, 1187839557030554048], [7797155910855969412, 815705643210993548],
-$       [-6164875538460296064, 2556879252749957746], [1474645562572421688, 3528783131432077590],
+$       [4448278373024421105, -6168237375774534724], [5945071012113418822, -7114659343983858978],
+$       [-5750115628473665312, 5223124416661398827], [3814780962171398953, -1223382022370678790],
+$       [1694694222051979767, 78196945698353830], [6558453411200512212, -6934692137625454714],
+$       [-2275191160273102372, -1267800813951977016], [6955797899989604404, 5888485154961014340],
+$       [-3838570839128506676, 9005047655140824134], [1474645562572421688, 3528783131432077590],
 $       [4707547122385308946, 4775859097312322255], [6906912837980301828, 5737656280593428437],
 $       [7792328164453097863, 6697916400009863856], [1253199063700818020, -3040091700879446262],
 $       [3519009051092687336, -6017267484051456505], [6656014477728956354, -8752270034484997890],
