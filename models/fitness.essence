@@ -1,0 +1,47 @@
+
+given nb_bits : int
+
+given edges : set of (int, int)
+
+letting nb_nodes be 2 ** nb_bits
+letting N be domain int(0..nb_nodes-1)
+
+$ graph
+find g : matrix [N, N] of bool
+
+$ find the orientation for the given edges
+such that forAll i,j : N . (i,j) in edges -> xor([g[i,j], g[j,i]])
+such that forAll i,j : N , i <= j . g[i,j] \/ g[j,i] -> (i,j) in edges
+
+$ 0 is a valley, there can be other valleys too
+such that forAll i : N . !g[i,0]
+
+$ weights
+$ this is to achieve acyclicity
+find w : matrix [N] of N
+such that w[0] = 0, allDiff(w)
+such that forAll i,j : N . g[i,j] -> w[i] < w[j]
+
+$ rse faces
+given nb_rse_faces : int
+find rse_witnesses : set (size nb_rse_faces) of (N,N,N,N)
+such that
+    forAll a, b, c, d : N ,
+        and([ allDiff([a,b,c,d])        $ they are distinct nodes
+            , a < d, b < c              $                                  a
+            , g[a,b] \/ g[b,a]          $ they form a diamond            /   \
+            , g[a,c] \/ g[c,a]          $                               b     c
+            , g[b,d] \/ g[d,b]          $                                \   /
+            , g[c,d] \/ g[d,c]          $                                  d
+            , g[a,b] /\ g[a,c] /\ g[d,b] /\ g[d,c] $ enforcing directionality
+            ]) .
+        (a,b,c,d) in rse_witnesses
+
+$ peaks
+given nb_peaks : int
+such that nb_peaks = sum([ 1
+                         | i : N
+                         , forAll j : N . !g[i,j]
+                         ])
+
+branching on [g]
