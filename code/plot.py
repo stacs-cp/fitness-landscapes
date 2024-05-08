@@ -13,6 +13,11 @@ with open(sys.argv[1], "r", encoding="utf8") as f:
         g = solution["g"]
         w = solution["w"]
         rse_witnesses = solution["rse_witnesses"]
+
+        for i, iVals in g.items():
+            if len(rse_witnesses) > 0 and int(i) in rse_witnesses[0]:
+                d.node(f'{i} (w {w[i]})', style='filled', fillcolor='yellow')
+
         for i, iVals in g.items():
             for j, jVal in iVals.items():
                 if jVal:
