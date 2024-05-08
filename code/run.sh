@@ -20,10 +20,10 @@ parallel --no-notice -j1 python3 code/make_param.py \
 rm -f conjure-output/*.solution*
 
 function one {
-    if [[ $1 == *"solutions.json" ]] || [[ $1 == *"stats.json" ]] ; then
+    if [[ $1 == *".solutions.json" ]] || [[ $1 == *".stats.json" ]] ; then
         echo "Skipping $1"
     else
-        conjure solve models/fitness.essence $2.json --output-format=json --number-of-solutions=all --solutions-in-one-file
+        conjure solve models/fitness.essence $2.json --solver=kissat --output-format=json --number-of-solutions=all --solutions-in-one-file
         mv conjure-output/model000001-$3.solutions.json $2.solutions.json
         mv conjure-output/model000001-$3.stats.json $2.stats.json
         python3 code/plot.py $2.solutions.json $2
