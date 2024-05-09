@@ -7,12 +7,12 @@ pip install -qr code/requirements.txt
 
 mkdir -p data
 
-parallel --no-notice -j1 python3 code/make_param.py \
+parallel --no-notice python3 code/make_param.py \
     ::: 3 \
     ::: $(seq 0 4) \
     ::: $(seq 0 6)
 
-parallel --no-notice -j1 python3 code/make_param.py \
+parallel --no-notice python3 code/make_param.py \
     ::: 4 \
     ::: $(seq 0 8) \
     ::: $(seq 0 24) \
@@ -23,7 +23,7 @@ function one {
     if [[ $1 == *".solutions.json" ]] || [[ $1 == *".stats.json" ]] ; then
         echo "Skipping $1"
     else
-        conjure solve models/fitness.essence $2.json --solver=kissat --output-format=json --number-of-solutions=all --solutions-in-one-file
+        conjure solve models/fitness.essence $2.json --solver=kissat --output-format=json --number-of-solutions=1 --solutions-in-one-file
         mv conjure-output/model000001-$3.solutions.json $2.solutions.json
         mv conjure-output/model000001-$3.stats.json $2.stats.json
         python3 code/plot.py $2.solutions.json $2
@@ -33,9 +33,9 @@ function one {
 
 export -f one;
 
-parallel --no-notice -j1 \
+parallel --no-notice \
     one {} {.} {/.} \
-    ::: data/*.json
+    ::: data/04*.json
 
 
 
