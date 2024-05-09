@@ -33,7 +33,7 @@ function one {
 
 export -f one;
 
-parallel --no-notice \
+parallel --no-notice --eta \
     one {} {.} {/.} \
     ::: data/04*.json
 
