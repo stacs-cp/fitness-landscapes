@@ -24,6 +24,7 @@ function one {
         echo "Skipping $1"
     elif [ -f $2.stats.json ]; then
         echo "Skipping $1, stats.json exists already"
+    else
         conjure solve models/fitness.essence $2.json --solver=kissat --output-format=json --number-of-solutions=1 --solutions-in-one-file
         mv conjure-output/model000001-$3.solutions.json $2.solutions.json
         mv conjure-output/model000001-$3.stats.json $2.stats.json
