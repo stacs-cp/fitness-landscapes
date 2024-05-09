@@ -40,7 +40,7 @@ parallel --no-notice --eta --results gnuparallel-results --joblog gnuparallel-jo
     ::: data/04*.json
 
 mkdir -p stats
-echo "Instance, Number of solutions" > stats/counts.csv
+echo "Instance, Number of solutions (counting up to 1)" > stats/counts.csv
 jq -j '.essenceParams[0], ", ", .savilerowInfo.SolverSatisfiable, "\n"' data/*.stats.json >> stats/counts.csv
 
 
