@@ -34,7 +34,7 @@ function one {
 
 export -f one;
 
-parallel --no-notice --eta \
+parallel --no-notice --eta --results gnuparallel-results --joblog gnuparallel-joblog.tsv \
     one {} {.} {/.} \
     ::: data/04*.json
 
