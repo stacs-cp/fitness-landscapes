@@ -39,8 +39,9 @@ parallel --no-notice --eta --results gnuparallel-results --joblog gnuparallel-jo
     one {} {.} {/.} \
     ::: data/04*.json
 
-echo "Instance, Number of solutions" > data/counts.csv
-jq -j '.essenceParams[0], ", ", .savilerowInfo.SolverSatisfiable, "\n"' data/*.stats.json >> data/counts.csv
+mkdir -p stats
+echo "Instance, Number of solutions" > stats/counts.csv
+jq -j '.essenceParams[0], ", ", .savilerowInfo.SolverSatisfiable, "\n"' data/*.stats.json >> stats/counts.csv
 
 
 
