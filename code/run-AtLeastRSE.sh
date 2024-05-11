@@ -7,17 +7,17 @@ pip install -qr code/requirements.txt
 
 mkdir -p data-AtLeastRSE
 
-parallel --no-notice python3 code/make_param.py \
+parallel --no-notice python3 code/make_param.py data-AtLeastRSE \
     ::: 3 \
     ::: $(seq 0 4) \
     ::: $(seq 0 6)
 
-parallel --no-notice python3 code/make_param.py \
+parallel --no-notice python3 code/make_param.py data-AtLeastRSE \
     ::: 4 \
     ::: $(seq 0 8) \
     ::: $(seq 0 24) \
 
-parallel --no-notice python3 code/make_param.py \
+parallel --no-notice python3 code/make_param.py data-AtLeastRSE \
     ::: 5 \
     ::: $(seq 0 16) \
     ::: $(seq 0 80) \
