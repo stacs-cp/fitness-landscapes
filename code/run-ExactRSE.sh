@@ -5,7 +5,7 @@ pip install -qr code/requirements.txt
 
 
 
-mkdir -p data
+mkdir -p data-ExactRSE
 
 parallel --no-notice python3 code/make_param.py \
     ::: 3 \
@@ -30,7 +30,7 @@ function one {
     elif [ -f $2.stats.json ]; then
         echo "Skipping $1, stats.json exists already"
     else
-        conjure solve models/fitness.essence $2.json --solver=kissat --output-format=json --number-of-solutions=1 --solutions-in-one-file
+        conjure solve models/fitness-ExactRSE.essence $2.json --solver=kissat --output-format=json --number-of-solutions=1 --solutions-in-one-file
         mv conjure-output/model000001-$3.solutions.json $2.solutions.json
         mv conjure-output/model000001-$3.stats.json $2.stats.json
         python3 code/plot.py $2.solutions.json $2
@@ -42,12 +42,15 @@ export -f one;
 
 parallel --no-notice --eta --results gnuparallel-results --joblog gnuparallel-joblog.tsv \
     one {} {.} {/.} \
+<<<<<<< HEAD:code/run.sh
     ::: data/*.json
+=======
+    ::: data-ExactRSE/*.json
+>>>>>>> 8ac8771e1836c64ffdd425b9639435a475a27349:code/run-ExactRSE.sh
 
 mkdir -p stats
-echo "Instance, Number of solutions (counting up to 1)" > stats/counts.csv
-jq -j '.essenceParams[0], ", ", .savilerowInfo.SolverSatisfiable, "\n"' data/*.stats.json >> stats/counts.csv
-
+echo "Instance, SR Time, Solver Time, Number of solutions (counting up to 1)" > stats/counts-ExactRSE.csv
+jq -j '.essenceParams[0], ", ", .savilerowInfo.SavileRowTotalTime, ", ", .savilerowInfo.SolverTotalTime, ", ", .savilerowInfo.SolverSatisfiable, "\n"' data-ExactRSE/*.stats.json >> stats/counts-ExactRSE.csv
 
 
 deactivate
