@@ -27,15 +27,15 @@ given nb_rse_faces : int
 find rse_witnesses : set (size nb_rse_faces) of (N,N,N,N)
 such that
     forAll a, b, c, d : N .
-        !and([ allDiff([a,b,c,d])        $ they are distinct nodes
+        and([ allDiff([a,b,c,d])        $ they are distinct nodes
             , a < d, b < c              $                                  a
             , g[a,b] \/ g[b,a]          $ they form a diamond            /   \
             , g[a,c] \/ g[c,a]          $                               b     c
             , g[b,d] \/ g[d,b]          $                                \   /
             , g[c,d] \/ g[d,c]          $                                  d
             , g[a,b] /\ g[a,c] /\ g[d,b] /\ g[d,c] $ enforcing directionality
-            ]) ->
-        !((a,b,c,d) in rse_witnesses)
+            ]) <->
+        ((a,b,c,d) in rse_witnesses)
 
 $ peaks
 given nb_peaks : int

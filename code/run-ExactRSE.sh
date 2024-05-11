@@ -42,11 +42,7 @@ export -f one;
 
 parallel --no-notice --eta --results gnuparallel-results --joblog gnuparallel-joblog.tsv \
     one {} {.} {/.} \
-<<<<<<< HEAD:code/run.sh
-    ::: data/*.json
-=======
     ::: data-ExactRSE/*.json
->>>>>>> 8ac8771e1836c64ffdd425b9639435a475a27349:code/run-ExactRSE.sh
 
 mkdir -p stats
 echo "Instance, SR Time, Solver Time, Number of solutions (counting up to 1)" > stats/counts-ExactRSE.csv
