@@ -17,6 +17,11 @@ parallel --no-notice python3 code/make_param.py \
     ::: $(seq 0 8) \
     ::: $(seq 0 24) \
 
+parallel --no-notice python3 code/make_param.py \
+    ::: 5 \
+    ::: $(seq 0 16) \
+    ::: $(seq 0 80) \
+
 rm -f conjure-output/*.solution*
 
 function one {
@@ -37,7 +42,7 @@ export -f one;
 
 parallel --no-notice --eta --results gnuparallel-results --joblog gnuparallel-joblog.tsv \
     one {} {.} {/.} \
-    ::: data/04*.json
+    ::: data/*.json
 
 mkdir -p stats
 echo "Instance, Number of solutions (counting up to 1)" > stats/counts.csv
