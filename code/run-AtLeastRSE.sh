@@ -22,7 +22,7 @@ parallel --no-notice python3 code/make_param.py data-AtLeastRSE \
     ::: $(seq 0 16) \
     ::: $(seq 0 80) \
 
-rm -f conjure-output/*.solution*
+rm -f conjure-output/AtLeastRSE/*.solution*
 
 function one {
     if [[ $1 == *".solutions.json" ]] || [[ $1 == *".stats.json" ]] ; then
@@ -31,8 +31,8 @@ function one {
         echo "Skipping $1, stats.json exists already"
     else
         conjure solve models/fitness-AtLeastRSE.essence $2.json --solver=kissat --output-format=json --number-of-solutions=1 --solutions-in-one-file
-        mv conjure-output/model000001-$3.solutions.json $2.solutions.json
-        mv conjure-output/model000001-$3.stats.json $2.stats.json
+        mv conjure-output/AtLeastRSE/model000001-$3.solutions.json $2.solutions.json
+        mv conjure-output/AtLeastRSE/model000001-$3.stats.json $2.stats.json
         python3 code/plot.py $2.solutions.json $2
         rm -f $2
     fi
