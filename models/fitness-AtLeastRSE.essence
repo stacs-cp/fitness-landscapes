@@ -27,9 +27,9 @@ given nb_rse_faces : int
 find rse_witnesses : set (size nb_rse_faces) of (N,N,N,N)
 such that
     forAll (a,b,c,d) in rse_witnesses .
-        and([ allDiff([a,b,c,d])        $ they are distinct nodes
-            , a < d, b < c              $                                  a
-            , g[a,b] /\ g[a,c] /\ g[d,b] /\ g[d,c] $ enforcing directionality
+        and([ allDiff([a,b,c,d])                    $ they are distinct nodes
+            , a < d, b < c                          $ symmetry
+            , g[a,b] /\ g[a,c] /\ g[d,b] /\ g[d,c]  $ RSE directionality
             ])
 
 
