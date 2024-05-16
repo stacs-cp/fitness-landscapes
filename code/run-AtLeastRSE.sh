@@ -48,5 +48,7 @@ mkdir -p stats
 echo "Instance, SR Time, Solver Time, Number of solutions (counting up to 1)" > stats/counts-AtLeastRSE.csv
 jq -j '.essenceParams[0], ", ", .savilerowInfo.SavileRowTotalTime, ", ", .savilerowInfo.SolverTotalTime, ", ", .savilerowInfo.SolverSatisfiable, "\n"' data-AtLeastRSE/*.stats.json >> stats/counts-AtLeastRSE.csv
 
+cat stats/counts-AtLeastRSE.csv | sed 's/data-AtLeastRSE\///g' | sed 's/\.json//g' > stats/counts-AtLeastRSE.csv.tmp
+mv stats/counts-AtLeastRSE.csv.tmp stats/counts-AtLeastRSE.csv
 
 deactivate

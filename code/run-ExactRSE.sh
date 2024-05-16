@@ -48,5 +48,7 @@ mkdir -p stats
 echo "Instance, SR Time, Solver Time, Number of solutions (counting up to 1)" > stats/counts-ExactRSE.csv
 jq -j '.essenceParams[0], ", ", .savilerowInfo.SavileRowTotalTime, ", ", .savilerowInfo.SolverTotalTime, ", ", .savilerowInfo.SolverSatisfiable, "\n"' data-ExactRSE/*.stats.json >> stats/counts-ExactRSE.csv
 
+cat stats/counts-ExactRSE.csv | sed 's/data-ExactRSE\///g' | sed 's/\.json//g' > stats/counts-ExactRSE.csv.tmp
+mv stats/counts-ExactRSE.csv.tmp stats/counts-ExactRSE.csv
 
 deactivate
