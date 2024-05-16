@@ -30,7 +30,7 @@ function one {
     elif [ -f $2.stats.json ]; then
         echo "Skipping $1, stats.json exists already"
     else
-        conjure solve models/fitness-ExactRSE.essence $2.json --solver=kissat --output-format=json --number-of-solutions=1 --solutions-in-one-file
+        conjure solve models/fitness-ExactRSE.essence $2.json --solver=kissat --output-format=json --number-of-solutions=1 --solutions-in-one-fil -o conjure-output/ExactRSE
         mv conjure-output/ExactRSE/model000001-$3.solutions.json $2.solutions.json
         mv conjure-output/ExactRSE/model000001-$3.stats.json $2.stats.json
         python3 code/plot.py $2.solutions.json $2
