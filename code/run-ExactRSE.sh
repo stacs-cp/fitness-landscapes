@@ -40,7 +40,12 @@ function one {
 
 export -f one;
 
-parallel --no-notice --eta --results gnuparallel-results --joblog gnuparallel-joblog.tsv \
+parallel --no-notice --eta \
+    --memfree 50G \
+    --noswap \
+    --load 90% \
+    --results gnuparallel-results \
+    --joblog gnuparallel-joblog.tsv \
     one {} {.} {/.} \
     ::: data-ExactRSE/*.json
 
