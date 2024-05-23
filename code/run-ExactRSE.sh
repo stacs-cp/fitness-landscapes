@@ -41,9 +41,9 @@ function one {
 export -f one;
 
 parallel --no-notice --eta \
-    --memfree 50G \
+    --memfree 250G \
     --noswap \
-    --load 90% \
+    --load 70% \
     --results gnuparallel-results \
     --joblog gnuparallel-joblog.tsv \
     one {} {.} {/.} \
