@@ -1,0 +1,43 @@
+
+given nb_bits : int
+
+given edges : set of (int, int)
+
+letting nb_nodes be 2 ** nb_bits
+letting N be domain int(0..nb_nodes-1)
+
+$ graph
+find g : matrix [N, N] of bool
+
+$ find the orientation for the given edges
+such that forAll i,j : N . (i,j) in edges -> xor([g[i,j], g[j,i]])
+such that forAll i,j : N , i <= j . g[i,j] \/ g[j,i] -> (i,j) in edges
+
+$ 0 is a valley, there can be other valleys too
+such that forAll i : N . !g[i,0]
+
+$ weights
+$ this is to achieve acyclicity
+find w : matrix [N] of N
+such that w[0] = 0, allDiff(w)
+such that forAll i,j : N . g[i,j] -> w[i] < w[j]
+
+$ se faces
+given nb_se_faces : int
+find se_witnesses : set (size nb_se_faces) of (N,N,N,N)
+such that
+    forAll a, b, c, d : N .
+        and([ allDiff([a,b,c,d])                  $ they are distinct nodes
+        , a < d, b < c                            $ symmetry
+        , g[a,b] , g[a,c] , xor([(g[d,b] /\ g[c,d]), (g[b,d] /\ g[d,c])])  $ SE directionality
+        ]) <->
+        ((a,b,c,d) in se_witnesses)
+
+$ peaks
+given nb_peaks : int
+find peak_witnesses : set (size nb_peaks) of N
+such that
+    forAll i : N .
+        (forAll j : N . !g[i,j]) <-> i in peak_witnesses
+
+branching on [g]
