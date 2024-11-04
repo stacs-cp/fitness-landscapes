@@ -28,12 +28,18 @@ find rse_witnesses : set (size nb_rse_faces) of (N,N,N,N,N,N,N,N)
 such that
     forAll n000, n001, n010, n100, n011, n101, n110, n111 : N .
         and([ allDiff([n000, n001, n010, n100, n011, n101, n110, n111])         $ they are distinct nodes
-            , n000 < n111                                                       $ symmetry
+            , n000 < n111                                                       $ symmetry, we are quite sure of this one
+
+            , n001 < n010                                                       $ this set if more speculative (by Ruth)
+            , n001 < n100
+            , n010 < n100
+            , n011 < n101
+            , n001 < n110
+            , n101 < n110
 
             , g[n000, n001]                                                     $ 3D RSE directionality
             , g[n000, n010]
             , g[n000, n100]
-
             , g[n111, n101]
             , g[n111, n110]
             , g[n111, n100]
