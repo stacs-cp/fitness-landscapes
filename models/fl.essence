@@ -5,6 +5,21 @@ such that forAll (node, node_w) in w . and([ bit = false | (_, bit) <- node ]) -
 
 letting PROP_TYPE be new type enum {SE, RSE}
 
+$ -1 means ignore
+given nb_peaks : int
+
+$ node p is a peak if for all its neighbours its weight is
+such that
+    nb_peaks >= 0 ->
+    nb_peaks =
+    sum([ toInt(and([ w(p) > w(x)
+                    | x : sequence (size dimension) of bool
+                    $ neighbour is a node who has only 1 bit different from p
+                    , 1 = sum i : int(1..dimension) . toInt(p(i) != x(i))
+                    ]))
+        | p : sequence (size dimension) of bool
+        ])
+
 $ dimensionality of the face
 $ 1x1 or 2x1 etc
 given props : set of
