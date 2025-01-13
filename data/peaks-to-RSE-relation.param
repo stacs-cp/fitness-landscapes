@@ -1,8 +1,10 @@
 $ Relation of peaks to higher dimension RSE 
 $ (this needs automating over the range of peaks [1..2**(dimension-1)]) 
 $ we need that phase transition/almond shaped table.
-letting dimension be 4
-letting nb_peaks be 2
+$ loop over landscape_dim= 4..6
+$ loop over nb_peaks= 1 .. landscape_dim -1
+letting dimension be landscape_dim
+letting nb_peaks be nb_peaks
 letting props be
 {
     (2,1,RSE,-1)
