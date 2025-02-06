@@ -9,6 +9,6 @@ parallel --no-notice \
     --eta \
     --joblog gnuparallel-joblog.tsv \
     --results gnuparallel-results \
-    "conjure solve models/fl.essence {} --savilerow-options=-O0 --solver=or-tools --line-width=60" \
+    "conjure solve models/fl.essence {} --savilerow-options=-O0 --solver=or-tools --solver-options='--threads=8' --line-width=60" \
     ::: data/peaks-to*param
 
