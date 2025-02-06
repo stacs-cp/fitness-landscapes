@@ -1,6 +1,6 @@
 
 for dimension in [3,4,5]:
-    for nb_peaks in range(1, 2**(dimension-1)+1):
+    for nb_peaks in range(0, 2**(dimension-1)+1):
         for prop in ["RSE", "SE"]:
             for edim in range(1, dimension):
                 with open(f"data/peaks-to-{prop}-dimension{dimension}-edim{edim}-peaks{nb_peaks}.param", "w", encoding="utf8") as f:
