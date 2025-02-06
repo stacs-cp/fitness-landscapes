@@ -11,7 +11,7 @@ function one {
         echo "Skipping, conjure-output/model000001-$basename.stats.json exists"
     else
         conjure solve \
-            models/fl.essence {} \
+            models/fl.essence $1 \
             --savilerow-options=-O0 \
             --solver=or-tools \
             --solver-options='--threads=8' \
