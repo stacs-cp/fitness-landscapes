@@ -3,6 +3,8 @@
 
 python3 data/gen-params-for-peaks-to-table.py
 
+conjure modelling -ac models/fl.essence
+
 parallel --no-notice \
     --eta \
     --joblog gnuparallel-joblog.tsv \
