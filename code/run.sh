@@ -6,10 +6,12 @@ python3 data/gen-params-for-peaks-to-table.py
 conjure modelling -ac models/fl.essence
 
 function one {
-    basename=$(basename -- "$1")
-    if [ -e conjure-output/model000001-$basename.stats.json ]; then
-        echo "Skipping, conjure-output/model000001-$basename.stats.json exists"
+    paramname=$(basename -- "$1")
+    paramname="${paramname%.*}"
+    if [ -e conjure-output/model000001-$paramname.stats.json ]; then
+        echo "Skipping, conjure-output/model000001-$paramname.stats.json exists"
     else
+        echo "Running, conjure-output/model000001-$paramname.stats.json doesn't exist"
         conjure solve \
             models/fl.essence $1 \
             --savilerow-options=-O0 \
