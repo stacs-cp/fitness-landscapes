@@ -1,7 +1,15 @@
 given dimension : int
 
-find w : function (total, injective) sequence (size dimension) of bool --> int(1..2**dimension)
-such that forAll (node, node_w) in w . and([ bit = false | (_, bit) <- node ]) -> node_w = 1
+letting DIM be domain int(1..dimension)
+letting NODE be domain matrix [DIM] of bool
+
+$ find w : function (total, injective) NODE --> int(1..2**dimension)
+find w : matrix [matrix [DIM] of bool] of int(1..2**dimension)
+
+$ injective
+such that forAll n1,n2 : NODE . n1 <lex n2 -> w[n1] != w[n2]
+
+such that forAll node : NODE . and([ bit = false | d : DIM, letting bit be node[d] ]) -> w[node] = 1
 
 letting PROP_TYPE be new type enum {SE, RSE}
 
@@ -12,12 +20,12 @@ $ a node is a peak if its weight is larger  than all of its neighbours' weights
 such that
     nb_peaks >= 0 ->
     nb_peaks =
-    sum([ toInt(and([ w(p) > w(x)
-                    | x : sequence (size dimension) of bool
+    sum([ toInt(and([ w[p] > w[x]
+                    | x : NODE
                     $ neighbour is a node who has only 1 bit different from p
-                    , 1 = sum i : int(1..dimension) . toInt(p(i) != x(i))
+                    , 1 = sum i : int(1..dimension) . toInt(p[i] != x[i])
                     ]))
-        | p : sequence (size dimension) of bool
+        | p : NODE
         ])
 
 $ dimensionality of the face
@@ -33,12 +41,12 @@ given props : set of
 
 
 $ This is all the (a,b,c,d) tuples we will consider
-$ Symmetry break 1. w(a) is smallest of them all. 
-$ Symmetry break 2. w(b) < w(c).
+$ Symmetry break 1. w[a] is smallest of them all. 
+$ Symmetry break 2. w[b] < w[c].
 
 $ This is how we decide whether (a,b,c,d) has the given property
-$ RSE w(a) < w(b) /\ w(a) < w(c) /\ w(d) < w(b) /\ w(d) < w(c)
-$ SE  w(a) < w(b) /\ w(a) < w(c) /\ w(d) > w(b) /\ w(d) < w(c)
+$ RSE w[a] < w[b] /\ w[a] < w[c] /\ w[d] < w[b] /\ w[d] < w[c]
+$ SE  w[a] < w[b] /\ w[a] < w[c] /\ w[d] > w[b] /\ w[d] < w[c]
 
 
 $ --------------------------------------------------------------------------------
@@ -49,7 +57,7 @@ such that
 or([
 
     $ SE definition
-    w(a) < w(b) /\ w(a) < w(c) /\ w(d) > w(b) /\ w(d) < w(c)
+    w[a] < w[b] /\ w[a] < w[c] /\ w[d] > w[b] /\ w[d] < w[c]
 
     $ the index of n bits that are different in the n dimension
     $ for n=2, diff_n will be (1,2), (1,3), (2,3)
@@ -70,20 +78,20 @@ or([
     $ enforce a property on a 4 nodes
     $ a, b, c d
 
-    , a,b,c,d : sequence (size dimension) of bool
+    , a,b,c,d : NODE
 
     $ b is flipping the diff_n bits of a
-    , forAll i : int(1..dimension) . b(i) = [ a(i), !a(i) ; int(0..1)][toInt(i in diff_n)]
+    , forAll i : DIM . b[i] = [ a[i], !a[i] ; int(0..1)][toInt(i in diff_n)]
 
     $ c is flipping the diff_m bits of a
-    , forAll i : int(1..dimension) . c(i) = [ a(i), !a(i) ; int(0..1)][toInt(i in diff_m)]
+    , forAll i : DIM . c[i] = [ a[i], !a[i] ; int(0..1)][toInt(i in diff_m)]
 
     $ d is flipping the diff_n and diff_m bits of a
-    , forAll i : int(1..dimension) . d(i) = [ a(i), !a(i) ; int(0..1)][toInt(i in diff_n union diff_m)]
+    , forAll i : DIM . d[i] = [ a[i], !a[i] ; int(0..1)][toInt(i in diff_n union diff_m)]
 
     $ symmetry breaking
-    , w(a) < w(b), w(a) < w(c), w(a) < w(d)
-    , w(b) < w(c)
+    , w[a] < w[b], w[a] < w[c], w[a] < w[d]
+    , w[b] < w[c]
     ])
 
 | (n, m, prop_type, count) <- props
@@ -100,7 +108,7 @@ such that
 and([
 
     $ SE definition
-    w(a) < w(b) /\ w(a) < w(c) /\ w(d) > w(b) /\ w(d) < w(c)
+    w[a] < w[b] /\ w[a] < w[c] /\ w[d] > w[b] /\ w[d] < w[c]
 
     $ the index of n bits that are different in the n dimension
     $ for n=2, diff_n will be (1,2), (1,3), (2,3)
@@ -121,20 +129,20 @@ and([
     $ enforce a property on a 4 nodes
     $ a, b, c d
 
-    , a,b,c,d : sequence (size dimension) of bool
+    , a,b,c,d : NODE
 
     $ b is flipping the diff_n bits of a
-    , forAll i : int(1..dimension) . b(i) = [ a(i), !a(i) ; int(0..1)][toInt(i in diff_n)]
+    , forAll i : DIM . b[i] = [ a[i], !a[i] ; int(0..1)][toInt(i in diff_n)]
 
     $ c is flipping the diff_m bits of a
-    , forAll i : int(1..dimension) . c(i) = [ a(i), !a(i) ; int(0..1)][toInt(i in diff_m)]
+    , forAll i : DIM . c[i] = [ a[i], !a[i] ; int(0..1)][toInt(i in diff_m)]
 
     $ d is flipping the diff_n and diff_m bits of a
-    , forAll i : int(1..dimension) . d(i) = [ a(i), !a(i) ; int(0..1)][toInt(i in diff_n union diff_m)]
+    , forAll i : DIM . d[i] = [ a[i], !a[i] ; int(0..1)][toInt(i in diff_n union diff_m)]
 
     $ symmetry breaking
-    , w(a) < w(b), w(a) < w(c), w(a) < w(d)
-    , w(b) < w(c)
+    , w[a] < w[b], w[a] < w[c], w[a] < w[d]
+    , w[b] < w[c]
     ])
 
 | (n, m, prop_type, count) <- props
@@ -151,7 +159,7 @@ such that
 count = sum([
 
     $ SE definition
-    toInt(w(a) < w(b) /\ w(a) < w(c) /\ w(d) > w(b) /\ w(d) < w(c))
+    toInt(w[a] < w[b] /\ w[a] < w[c] /\ w[d] > w[b] /\ w[d] < w[c])
 
     $ the index of n bits that are different in the n dimension
     $ for n=2, diff_n will be (1,2), (1,3), (2,3)
@@ -172,20 +180,20 @@ count = sum([
     $ enforce a property on a 4 nodes
     $ a, b, c d
 
-    , a,b,c,d : sequence (size dimension) of bool
+    , a,b,c,d : NODE
 
     $ b is flipping the diff_n bits of a
-    , forAll i : int(1..dimension) . b(i) = [ a(i), !a(i) ; int(0..1)][toInt(i in diff_n)]
+    , forAll i : DIM . b[i] = [ a[i], !a[i] ; int(0..1)][toInt(i in diff_n)]
 
     $ c is flipping the diff_m bits of a
-    , forAll i : int(1..dimension) . c(i) = [ a(i), !a(i) ; int(0..1)][toInt(i in diff_m)]
+    , forAll i : DIM . c[i] = [ a[i], !a[i] ; int(0..1)][toInt(i in diff_m)]
 
     $ d is flipping the diff_n and diff_m bits of a
-    , forAll i : int(1..dimension) . d(i) = [ a(i), !a(i) ; int(0..1)][toInt(i in diff_n union diff_m)]
+    , forAll i : DIM . d[i] = [ a[i], !a[i] ; int(0..1)][toInt(i in diff_n union diff_m)]
 
     $ symmetry breaking
-    , w(a) < w(b), w(a) < w(c), w(a) < w(d)
-    , w(b) < w(c)
+    , w[a] < w[b], w[a] < w[c], w[a] < w[d]
+    , w[b] < w[c]
     ])
 
 | (n, m, prop_type, count) <- props
@@ -204,7 +212,7 @@ such that
 or([
 
     $ RSE definition
-    w(a) < w(b) /\ w(a) < w(c) /\ w(d) < w(b) /\ w(d) < w(c)
+    w[a] < w[b] /\ w[a] < w[c] /\ w[d] < w[b] /\ w[d] < w[c]
 
     $ the index of n bits that are different in the n dimension
     $ for n=2, diff_n will be (1,2), (1,3), (2,3)
@@ -225,20 +233,20 @@ or([
     $ enforce a property on a 4 nodes
     $ a, b, c d
 
-    , a,b,c,d : sequence (size dimension) of bool
+    , a,b,c,d : NODE
 
     $ b is flipping the diff_n bits of a
-    , forAll i : int(1..dimension) . b(i) = [ a(i), !a(i) ; int(0..1)][toInt(i in diff_n)]
+    , forAll i : DIM . b[i] = [ a[i], !a[i] ; int(0..1)][toInt(i in diff_n)]
 
     $ c is flipping the diff_m bits of a
-    , forAll i : int(1..dimension) . c(i) = [ a(i), !a(i) ; int(0..1)][toInt(i in diff_m)]
+    , forAll i : DIM . c[i] = [ a[i], !a[i] ; int(0..1)][toInt(i in diff_m)]
 
     $ d is flipping the diff_n and diff_m bits of a
-    , forAll i : int(1..dimension) . d(i) = [ a(i), !a(i) ; int(0..1)][toInt(i in diff_n union diff_m)]
+    , forAll i : DIM . d[i] = [ a[i], !a[i] ; int(0..1)][toInt(i in diff_n union diff_m)]
 
     $ symmetry breaking
-    , w(a) < w(b), w(a) < w(c), w(a) < w(d)
-    , w(b) < w(c)
+    , w[a] < w[b], w[a] < w[c], w[a] < w[d]
+    , w[b] < w[c]
     ])
 
 | (n, m, prop_type, count) <- props
@@ -255,7 +263,7 @@ such that
 and([
 
     $ RSE definition
-    w(a) < w(b) /\ w(a) < w(c) /\ w(d) < w(b) /\ w(d) < w(c)
+    w[a] < w[b] /\ w[a] < w[c] /\ w[d] < w[b] /\ w[d] < w[c]
 
     $ the index of n bits that are different in the n dimension
     $ for n=2, diff_n will be (1,2), (1,3), (2,3)
@@ -276,20 +284,20 @@ and([
     $ enforce a property on a 4 nodes
     $ a, b, c d
 
-    , a,b,c,d : sequence (size dimension) of bool
+    , a,b,c,d : NODE
 
     $ b is flipping the diff_n bits of a
-    , forAll i : int(1..dimension) . b(i) = [ a(i), !a(i) ; int(0..1)][toInt(i in diff_n)]
+    , forAll i : DIM . b[i] = [ a[i], !a[i] ; int(0..1)][toInt(i in diff_n)]
 
     $ c is flipping the diff_m bits of a
-    , forAll i : int(1..dimension) . c(i) = [ a(i), !a(i) ; int(0..1)][toInt(i in diff_m)]
+    , forAll i : DIM . c[i] = [ a[i], !a[i] ; int(0..1)][toInt(i in diff_m)]
 
     $ d is flipping the diff_n and diff_m bits of a
-    , forAll i : int(1..dimension) . d(i) = [ a(i), !a(i) ; int(0..1)][toInt(i in diff_n union diff_m)]
+    , forAll i : DIM . d[i] = [ a[i], !a[i] ; int(0..1)][toInt(i in diff_n union diff_m)]
 
     $ symmetry breaking
-    , w(a) < w(b), w(a) < w(c), w(a) < w(d)
-    , w(b) < w(c)
+    , w[a] < w[b], w[a] < w[c], w[a] < w[d]
+    , w[b] < w[c]
     ])
 
 | (n, m, prop_type, count) <- props
@@ -306,7 +314,7 @@ such that
 count = sum([
 
     $ RSE definition
-    toInt(w(a) < w(b) /\ w(a) < w(c) /\ w(d) < w(b) /\ w(d) < w(c))
+    toInt(w[a] < w[b] /\ w[a] < w[c] /\ w[d] < w[b] /\ w[d] < w[c])
 
     $ the index of n bits that are different in the n dimension
     $ for n=2, diff_n will be (1,2), (1,3), (2,3)
@@ -327,20 +335,20 @@ count = sum([
     $ enforce a property on a 4 nodes
     $ a, b, c d
 
-    , a,b,c,d : sequence (size dimension) of bool
+    , a,b,c,d : NODE
 
     $ b is flipping the diff_n bits of a
-    , forAll i : int(1..dimension) . b(i) = [ a(i), !a(i) ; int(0..1)][toInt(i in diff_n)]
+    , forAll i : DIM . b[i] = [ a[i], !a[i] ; int(0..1)][toInt(i in diff_n)]
 
     $ c is flipping the diff_m bits of a
-    , forAll i : int(1..dimension) . c(i) = [ a(i), !a(i) ; int(0..1)][toInt(i in diff_m)]
+    , forAll i : DIM . c[i] = [ a[i], !a[i] ; int(0..1)][toInt(i in diff_m)]
 
     $ d is flipping the diff_n and diff_m bits of a
-    , forAll i : int(1..dimension) . d(i) = [ a(i), !a(i) ; int(0..1)][toInt(i in diff_n union diff_m)]
+    , forAll i : DIM . d[i] = [ a[i], !a[i] ; int(0..1)][toInt(i in diff_n union diff_m)]
 
     $ symmetry breaking
-    , w(a) < w(b), w(a) < w(c), w(a) < w(d)
-    , w(b) < w(c)
+    , w[a] < w[b], w[a] < w[c], w[a] < w[d]
+    , w[b] < w[c]
     ])
 
 | (n, m, prop_type, count) <- props
