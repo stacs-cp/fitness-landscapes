@@ -11,12 +11,14 @@ function one {
     if [ -e conjure-output/model000001-$paramname.stats.json ]; then
         echo "Skipping, conjure-output/model000001-$paramname.stats.json exists"
     else
-        echo "Running, conjure-output/model000001-$paramname.stats.json doesn't exist"
+        echo "Running, conjure-output/model000001-$paramname.stats.json"
         conjure solve \
             models/fl.essence $1 \
-            --savilerow-options=-O0 \
+            --use-existing-models=conjure-output/model000001.eprime \
+            --savilerow-options=-O1 \
             --solver=or-tools \
             --solver-options='--threads=8' \
+            --copy-solutions=no \
             --output-format=json
     fi
 }

@@ -1,0 +1,614 @@
+language ESSENCE' 1.0
+
+given dimension: int
+letting let1 be 2 ** dimension
+find w: matrix indexed by [matrix indexed by [int(1..dimension)] of bool] of int(1..let1)
+given nb_peaks: int
+given fin1: int
+given fin2: int
+given fin3: int
+given fin4: int
+given fin5: int
+given fin6: int
+given fin7: int
+given props_Explicit_1: matrix indexed by [int(1..fin1)] of int(fin2..fin3)
+given props_Explicit_2: matrix indexed by [int(1..fin1)] of int(fin4..fin5)
+given props_Explicit_3: matrix indexed by [int(1..fin1)] of int(1..2)
+given props_Explicit_4: matrix indexed by [int(1..fin1)] of int(fin6..fin7)
+branching on [w]
+such that
+    and([n1 <lex n2 -> w[n1] != w[n2]
+             | n1 : matrix indexed by [int(1..dimension)] of bool, n2 : matrix indexed by [int(1..dimension)] of bool]),
+    and([and([node[d] = false | d : int(1..dimension)]) -> w[node] = 1
+             | node : matrix indexed by [int(1..dimension)] of bool]),
+    nb_peaks >= 0 ->
+    nb_peaks =
+    sum([toInt(and([w[p] > w[x]
+                        | x : matrix indexed by [int(1..dimension)] of bool,
+                          1 = sum([toInt(p[i] != x[i]) | i : int(1..dimension)])]))
+             | p : matrix indexed by [int(1..dimension)] of bool]),
+    and([or([and([w[a] < w[b], w[a] < w[c], w[a] < w[d], w[b] < w[c]; int(1..4)]) /\
+             (w[a] < w[b] /\ w[a] < w[c] /\ w[d] > w[b] /\ w[d] < w[c])
+                 | diff_n_Explicit : matrix indexed by [int(1..props_Explicit_1[q81])] of int(1..dimension),
+                   diff_m_Explicit : matrix indexed by [int(1..props_Explicit_2[q81])] of int(1..dimension),
+                   a : matrix indexed by [int(1..dimension)] of bool, b : matrix indexed by [int(1..dimension)] of bool,
+                   c : matrix indexed by [int(1..dimension)] of bool, d : matrix indexed by [int(1..dimension)] of bool,
+                   and([diff_n_Explicit[q1] < diff_n_Explicit[q1 + 1] | q1 : int(1..props_Explicit_1[q81] - 1)]),
+                   and([diff_m_Explicit[q3] < diff_m_Explicit[q3 + 1] | q3 : int(1..props_Explicit_2[q81] - 1)]),
+                   sum([1   | q77 : int(1..props_Explicit_1[q81]),
+                              or([diff_m_Explicit[q79] = diff_n_Explicit[q77] | q79 : int(1..props_Explicit_2[q81])])])
+                   = 0,
+                   and([b[i] =
+                        [a[i], !a[i]; int(0..1)]
+                            [toInt(or([diff_n_Explicit[q68] = i | q68 : int(1..props_Explicit_1[q81])]))]
+                            | i : int(1..dimension)]),
+                   and([c[i] =
+                        [a[i], !a[i]; int(0..1)]
+                            [toInt(or([diff_m_Explicit[q70] = i | q70 : int(1..props_Explicit_2[q81])]))]
+                            | i : int(1..dimension)]),
+                   and([d[i] =
+                        [a[i], !a[i]; int(0..1)]
+                            [toInt(or([diff_n_Explicit[q72] = i | q72 : int(1..props_Explicit_1[q81])]) \/
+                                   or([diff_m_Explicit[q73] = i
+                                           | q73 : int(1..props_Explicit_2[q81]),
+                                             !or([diff_n_Explicit[q75] = diff_m_Explicit[q73]
+                                                      | q75 : int(1..props_Explicit_1[q81])])]))]
+                            | i : int(1..dimension)])])
+             | q81 : int(1..fin1), props_Explicit_4[q81] = -1, props_Explicit_3[q81] = 1]),
+    and([and([and([w[a] < w[b], w[a] < w[c], w[a] < w[d], w[b] < w[c]; int(1..4)]) ->
+              w[a] < w[b] /\ w[a] < w[c] /\ w[d] > w[b] /\ w[d] < w[c]
+                  | diff_n_Explicit : matrix indexed by [int(1..props_Explicit_1[q96])] of int(1..dimension),
+                    diff_m_Explicit : matrix indexed by [int(1..props_Explicit_2[q96])] of int(1..dimension),
+                    a : matrix indexed by [int(1..dimension)] of bool,
+                    b : matrix indexed by [int(1..dimension)] of bool,
+                    c : matrix indexed by [int(1..dimension)] of bool,
+                    d : matrix indexed by [int(1..dimension)] of bool,
+                    and([diff_n_Explicit[q10] < diff_n_Explicit[q10 + 1] | q10 : int(1..props_Explicit_1[q96] - 1)]),
+                    and([diff_m_Explicit[q12] < diff_m_Explicit[q12 + 1] | q12 : int(1..props_Explicit_2[q96] - 1)]),
+                    sum([1   | q92 : int(1..props_Explicit_1[q96]),
+                               or([diff_m_Explicit[q94] = diff_n_Explicit[q92] | q94 : int(1..props_Explicit_2[q96])])])
+                    = 0,
+                    and([b[i] =
+                         [a[i], !a[i]; int(0..1)]
+                             [toInt(or([diff_n_Explicit[q83] = i | q83 : int(1..props_Explicit_1[q96])]))]
+                             | i : int(1..dimension)]),
+                    and([c[i] =
+                         [a[i], !a[i]; int(0..1)]
+                             [toInt(or([diff_m_Explicit[q85] = i | q85 : int(1..props_Explicit_2[q96])]))]
+                             | i : int(1..dimension)]),
+                    and([d[i] =
+                         [a[i], !a[i]; int(0..1)]
+                             [toInt(or([diff_n_Explicit[q87] = i | q87 : int(1..props_Explicit_1[q96])]) \/
+                                    or([diff_m_Explicit[q88] = i
+                                            | q88 : int(1..props_Explicit_2[q96]),
+                                              !or([diff_n_Explicit[q90] = diff_m_Explicit[q88]
+                                                       | q90 : int(1..props_Explicit_1[q96])])]))]
+                             | i : int(1..dimension)])])
+             | q96 : int(1..fin1), props_Explicit_4[q96] = -2, props_Explicit_3[q96] = 1]),
+    and([props_Explicit_4[q119] =
+         sum([toInt(and([w[a] < w[b], w[a] < w[c], w[a] < w[d], w[b] < w[c]; int(1..4)])) *
+              catchUndef(toInt(w[a] < w[b] /\ w[a] < w[c] /\ w[d] > w[b] /\ w[d] < w[c]), 0)
+                  | diff_n_Explicit : matrix indexed by [int(1..props_Explicit_1[q119])] of int(1..dimension),
+                    diff_m_Explicit : matrix indexed by [int(1..props_Explicit_2[q119])] of int(1..dimension),
+                    a : matrix indexed by [int(1..dimension)] of bool,
+                    b : matrix indexed by [int(1..dimension)] of bool,
+                    c : matrix indexed by [int(1..dimension)] of bool,
+                    d : matrix indexed by [int(1..dimension)] of bool,
+                    and([diff_n_Explicit[q97] < diff_n_Explicit[q97 + 1] | q97 : int(1..props_Explicit_1[q119] - 1)]),
+                    and([diff_m_Explicit[q99] < diff_m_Explicit[q99 + 1] | q99 : int(1..props_Explicit_2[q119] - 1)]),
+                    sum([1   | q115 : int(1..props_Explicit_1[q119]),
+                               or([diff_m_Explicit[q117] = diff_n_Explicit[q115]
+                                       | q117 : int(1..props_Explicit_2[q119])])])
+                    = 0,
+                    and([b[i] =
+                         [a[i], !a[i]; int(0..1)]
+                             [toInt(or([diff_n_Explicit[q106] = i | q106 : int(1..props_Explicit_1[q119])]))]
+                             | i : int(1..dimension)]),
+                    and([c[i] =
+                         [a[i], !a[i]; int(0..1)]
+                             [toInt(or([diff_m_Explicit[q108] = i | q108 : int(1..props_Explicit_2[q119])]))]
+                             | i : int(1..dimension)]),
+                    and([d[i] =
+                         [a[i], !a[i]; int(0..1)]
+                             [toInt(or([diff_n_Explicit[q110] = i | q110 : int(1..props_Explicit_1[q119])]) \/
+                                    or([diff_m_Explicit[q111] = i
+                                            | q111 : int(1..props_Explicit_2[q119]),
+                                              !or([diff_n_Explicit[q113] = diff_m_Explicit[q111]
+                                                       | q113 : int(1..props_Explicit_1[q119])])]))]
+                             | i : int(1..dimension)])])
+             | q119 : int(1..fin1), props_Explicit_4[q119] >= 0, props_Explicit_3[q119] = 1]),
+    and([or([and([w[a] < w[b], w[a] < w[c], w[a] < w[d], w[b] < w[c]; int(1..4)]) /\
+             (w[a] < w[b] /\ w[a] < w[c] /\ w[d] < w[b] /\ w[d] < w[c])
+                 | diff_n_Explicit : matrix indexed by [int(1..props_Explicit_1[q144])] of int(1..dimension),
+                   diff_m_Explicit : matrix indexed by [int(1..props_Explicit_2[q144])] of int(1..dimension),
+                   a : matrix indexed by [int(1..dimension)] of bool, b : matrix indexed by [int(1..dimension)] of bool,
+                   c : matrix indexed by [int(1..dimension)] of bool, d : matrix indexed by [int(1..dimension)] of bool,
+                   and([diff_n_Explicit[q18] < diff_n_Explicit[q18 + 1] | q18 : int(1..props_Explicit_1[q144] - 1)]),
+                   and([diff_m_Explicit[q20] < diff_m_Explicit[q20 + 1] | q20 : int(1..props_Explicit_2[q144] - 1)]),
+                   sum([1   | q36 : int(1..props_Explicit_1[q144]),
+                              or([diff_m_Explicit[q38] = diff_n_Explicit[q36] | q38 : int(1..props_Explicit_2[q144])])])
+                   = 0,
+                   and([b[i] =
+                        [a[i], !a[i]; int(0..1)]
+                            [toInt(or([diff_n_Explicit[q27] = i | q27 : int(1..props_Explicit_1[q144])]))]
+                            | i : int(1..dimension)]),
+                   and([c[i] =
+                        [a[i], !a[i]; int(0..1)]
+                            [toInt(or([diff_m_Explicit[q29] = i | q29 : int(1..props_Explicit_2[q144])]))]
+                            | i : int(1..dimension)]),
+                   and([d[i] =
+                        [a[i], !a[i]; int(0..1)]
+                            [toInt(or([diff_n_Explicit[q31] = i | q31 : int(1..props_Explicit_1[q144])]) \/
+                                   or([diff_m_Explicit[q32] = i
+                                           | q32 : int(1..props_Explicit_2[q144]),
+                                             !or([diff_n_Explicit[q34] = diff_m_Explicit[q32]
+                                                      | q34 : int(1..props_Explicit_1[q144])])]))]
+                            | i : int(1..dimension)])])
+             | q144 : int(1..fin1), props_Explicit_4[q144] = -1, props_Explicit_3[q144] = 2]),
+    and([and([and([w[a] < w[b], w[a] < w[c], w[a] < w[d], w[b] < w[c]; int(1..4)]) ->
+              w[a] < w[b] /\ w[a] < w[c] /\ w[d] < w[b] /\ w[d] < w[c]
+                  | diff_n_Explicit : matrix indexed by [int(1..props_Explicit_1[q61])] of int(1..dimension),
+                    diff_m_Explicit : matrix indexed by [int(1..props_Explicit_2[q61])] of int(1..dimension),
+                    a : matrix indexed by [int(1..dimension)] of bool,
+                    b : matrix indexed by [int(1..dimension)] of bool,
+                    c : matrix indexed by [int(1..dimension)] of bool,
+                    d : matrix indexed by [int(1..dimension)] of bool,
+                    and([diff_n_Explicit[q39] < diff_n_Explicit[q39 + 1] | q39 : int(1..props_Explicit_1[q61] - 1)]),
+                    and([diff_m_Explicit[q41] < diff_m_Explicit[q41 + 1] | q41 : int(1..props_Explicit_2[q61] - 1)]),
+                    sum([1   | q57 : int(1..props_Explicit_1[q61]),
+                               or([diff_m_Explicit[q59] = diff_n_Explicit[q57] | q59 : int(1..props_Explicit_2[q61])])])
+                    = 0,
+                    and([b[i] =
+                         [a[i], !a[i]; int(0..1)]
+                             [toInt(or([diff_n_Explicit[q48] = i | q48 : int(1..props_Explicit_1[q61])]))]
+                             | i : int(1..dimension)]),
+                    and([c[i] =
+                         [a[i], !a[i]; int(0..1)]
+                             [toInt(or([diff_m_Explicit[q50] = i | q50 : int(1..props_Explicit_2[q61])]))]
+                             | i : int(1..dimension)]),
+                    and([d[i] =
+                         [a[i], !a[i]; int(0..1)]
+                             [toInt(or([diff_n_Explicit[q52] = i | q52 : int(1..props_Explicit_1[q61])]) \/
+                                    or([diff_m_Explicit[q53] = i
+                                            | q53 : int(1..props_Explicit_2[q61]),
+                                              !or([diff_n_Explicit[q55] = diff_m_Explicit[q53]
+                                                       | q55 : int(1..props_Explicit_1[q61])])]))]
+                             | i : int(1..dimension)])])
+             | q61 : int(1..fin1), props_Explicit_4[q61] = -2, props_Explicit_3[q61] = 2]),
+    and([props_Explicit_4[q142] =
+         sum([toInt(and([w[a] < w[b], w[a] < w[c], w[a] < w[d], w[b] < w[c]; int(1..4)])) *
+              catchUndef(toInt(w[a] < w[b] /\ w[a] < w[c] /\ w[d] < w[b] /\ w[d] < w[c]), 0)
+                  | diff_n_Explicit : matrix indexed by [int(1..props_Explicit_1[q142])] of int(1..dimension),
+                    diff_m_Explicit : matrix indexed by [int(1..props_Explicit_2[q142])] of int(1..dimension),
+                    a : matrix indexed by [int(1..dimension)] of bool,
+                    b : matrix indexed by [int(1..dimension)] of bool,
+                    c : matrix indexed by [int(1..dimension)] of bool,
+                    d : matrix indexed by [int(1..dimension)] of bool,
+                    and([diff_n_Explicit[q120] < diff_n_Explicit[q120 + 1]
+                             | q120 : int(1..props_Explicit_1[q142] - 1)]),
+                    and([diff_m_Explicit[q122] < diff_m_Explicit[q122 + 1]
+                             | q122 : int(1..props_Explicit_2[q142] - 1)]),
+                    sum([1   | q138 : int(1..props_Explicit_1[q142]),
+                               or([diff_m_Explicit[q140] = diff_n_Explicit[q138]
+                                       | q140 : int(1..props_Explicit_2[q142])])])
+                    = 0,
+                    and([b[i] =
+                         [a[i], !a[i]; int(0..1)]
+                             [toInt(or([diff_n_Explicit[q129] = i | q129 : int(1..props_Explicit_1[q142])]))]
+                             | i : int(1..dimension)]),
+                    and([c[i] =
+                         [a[i], !a[i]; int(0..1)]
+                             [toInt(or([diff_m_Explicit[q131] = i | q131 : int(1..props_Explicit_2[q142])]))]
+                             | i : int(1..dimension)]),
+                    and([d[i] =
+                         [a[i], !a[i]; int(0..1)]
+                             [toInt(or([diff_n_Explicit[q133] = i | q133 : int(1..props_Explicit_1[q142])]) \/
+                                    or([diff_m_Explicit[q134] = i
+                                            | q134 : int(1..props_Explicit_2[q142]),
+                                              !or([diff_n_Explicit[q136] = diff_m_Explicit[q134]
+                                                       | q136 : int(1..props_Explicit_1[q142])])]))]
+                             | i : int(1..dimension)])])
+             | q142 : int(1..fin1), props_Explicit_4[q142] >= 0, props_Explicit_3[q142] = 2])
+
+$ Conjure's
+$ {"finds": [{"Name": "w"}], "givens": [{"Name": "dimension"}, {"Name": "nb_peaks"}, {"Name": "props"}], "enumGivens": [],
+$  "enumLettings": [{"LettingDomainDefnEnum": [{"Name": "PROP_TYPE"}, [{"Name": "SE"}, {"Name": "RSE"}]]}],
+$  "lettings":
+$      [[{"Name": "DIM"},
+$        {"Domain":
+$             {"DomainInt":
+$                  [{"TagInt": []},
+$                   [{"RangeBounded":
+$                         [{"Constant": {"ConstantInt": [{"TagInt": []}, 1]}},
+$                          {"Reference":
+$                               [{"Name": "dimension"},
+$                                {"DeclNoRepr":
+$                                     ["Given", {"Name": "dimension"}, {"DomainInt": [{"TagInt": []}, []]},
+$                                      {"NoRegion": []}]}]}]}]]}}],
+$       [{"Name": "NODE"},
+$        {"Domain":
+$             {"DomainMatrix":
+$                  [{"DomainInt":
+$                        [{"TagInt": []},
+$                         [{"RangeBounded":
+$                               [{"Constant": {"ConstantInt": [{"TagInt": []}, 1]}},
+$                                {"Reference":
+$                                     [{"Name": "dimension"},
+$                                      {"DeclNoRepr":
+$                                           ["Given", {"Name": "dimension"}, {"DomainInt": [{"TagInt": []}, []]},
+$                                            {"NoRegion": []}]}]}]}]]},
+$                   {"DomainBool": []}]}}],
+$       [{"MachineName": ["let", 1, []]},
+$        {"Op":
+$             {"MkOpPow":
+$                  [{"Constant": {"ConstantInt": [{"TagInt": []}, 2]}},
+$                   {"Reference":
+$                        [{"Name": "dimension"},
+$                         {"DeclNoRepr":
+$                              ["Given", {"Name": "dimension"}, {"DomainInt": [{"TagInt": []}, []]},
+$                               {"NoRegion": []}]}]}]}}],
+$       [{"Name": "PROP_TYPE_EnumSize"}, {"Constant": {"ConstantInt": [{"TagInt": []}, 2]}}],
+$       [{"Name": "PROP_TYPE"},
+$        {"Domain":
+$             {"DomainInt":
+$                  [{"TagEnum": "PROP_TYPE"},
+$                   [{"RangeBounded":
+$                         [{"Constant": {"ConstantInt": [{"TagEnum": "PROP_TYPE"}, 1]}},
+$                          {"Constant": {"ConstantInt": [{"TagEnum": "PROP_TYPE"}, 2]}}]}]]}}]],
+$  "unnameds": [], "strategyQ": {"PickFirst": []}, "strategyA": {"Compact": []},
+$  "trailCompact":
+$      [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1],
+$       [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1],
+$       [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1],
+$       [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1],
+$       [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1],
+$       [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1],
+$       [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1],
+$       [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1],
+$       [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1],
+$       [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1],
+$       [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1],
+$       [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1],
+$       [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1],
+$       [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1],
+$       [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1],
+$       [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1],
+$       [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1],
+$       [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1],
+$       [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1],
+$       [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1],
+$       [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1],
+$       [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1],
+$       [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1],
+$       [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1],
+$       [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1],
+$       [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1],
+$       [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1],
+$       [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1],
+$       [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1],
+$       [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1],
+$       [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1],
+$       [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1],
+$       [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1],
+$       [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1],
+$       [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1],
+$       [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1],
+$       [1, 1, 1], [1, 1, 1]],
+$  "nameGenState": [["fin", 8], ["let", 2], ["q", 145]], "nbExtraGivens": 7,
+$  "representations":
+$      [[{"Name": "w"},
+$        {"DomainMatrix":
+$             [{"DomainMatrix":
+$                   [{"DomainInt":
+$                         [{"TagInt": []},
+$                          [{"RangeBounded":
+$                                [{"Constant": {"ConstantInt": [{"TagInt": []}, 1]}},
+$                                 {"Reference":
+$                                      [{"Name": "dimension"},
+$                                       {"DeclNoRepr":
+$                                            ["Given", {"Name": "dimension"}, {"DomainInt": [{"TagInt": []}, []]},
+$                                             {"NoRegion": []}]}]}]}]]},
+$                    {"DomainBool": []}]},
+$              {"DomainInt":
+$                   [{"TagInt": []},
+$                    [{"RangeBounded":
+$                          [{"Constant": {"ConstantInt": [{"TagInt": []}, 1]}},
+$                           {"Reference":
+$                                [{"MachineName": ["let", 1, []]},
+$                                 {"Alias":
+$                                      {"Op":
+$                                           {"MkOpPow":
+$                                                [{"Constant": {"ConstantInt": [{"TagInt": []}, 2]}},
+$                                                 {"Reference":
+$                                                      [{"Name": "dimension"},
+$                                                       {"DeclNoRepr":
+$                                                            ["Given", {"Name": "dimension"},
+$                                                             {"DomainInt": [{"TagInt": []}, []]},
+$                                                             {"NoRegion": []}]}]}]}}}]}]}]]}]}],
+$       [{"Name": "dimension"}, {"DomainInt": [{"TagInt": []}, []]}],
+$       [{"Name": "props"},
+$        {"DomainSet":
+$             [{"Set_Explicit": []},
+$              {"SizeAttr_Size":
+$                   {"Reference":
+$                        [{"MachineName": ["fin", 1, []]},
+$                         {"DeclNoRepr":
+$                              ["Given", {"MachineName": ["fin", 1, []]}, {"DomainInt": [{"TagInt": []}, []]},
+$                               {"NoRegion": []}]}]}},
+$              {"DomainTuple":
+$                   [{"DomainInt":
+$                         [{"TagInt": []},
+$                          [{"RangeBounded":
+$                                [{"Reference":
+$                                      [{"MachineName": ["fin", 2, []]},
+$                                       {"DeclNoRepr":
+$                                            ["Given", {"MachineName": ["fin", 2, []]},
+$                                             {"DomainInt": [{"TagInt": []}, []]}, {"NoRegion": []}]}]},
+$                                 {"Reference":
+$                                      [{"MachineName": ["fin", 3, []]},
+$                                       {"DeclNoRepr":
+$                                            ["Given", {"MachineName": ["fin", 3, []]},
+$                                             {"DomainInt": [{"TagInt": []}, []]}, {"NoRegion": []}]}]}]}]]},
+$                    {"DomainInt":
+$                         [{"TagInt": []},
+$                          [{"RangeBounded":
+$                                [{"Reference":
+$                                      [{"MachineName": ["fin", 4, []]},
+$                                       {"DeclNoRepr":
+$                                            ["Given", {"MachineName": ["fin", 4, []]},
+$                                             {"DomainInt": [{"TagInt": []}, []]}, {"NoRegion": []}]}]},
+$                                 {"Reference":
+$                                      [{"MachineName": ["fin", 5, []]},
+$                                       {"DeclNoRepr":
+$                                            ["Given", {"MachineName": ["fin", 5, []]},
+$                                             {"DomainInt": [{"TagInt": []}, []]}, {"NoRegion": []}]}]}]}]]},
+$                    {"DomainInt":
+$                         [{"TagEnum": "PROP_TYPE"},
+$                          [{"RangeBounded":
+$                                [{"Constant": {"ConstantInt": [{"TagEnum": "PROP_TYPE"}, 1]}},
+$                                 {"Constant": {"ConstantInt": [{"TagEnum": "PROP_TYPE"}, 2]}}]}]]},
+$                    {"DomainInt":
+$                         [{"TagInt": []},
+$                          [{"RangeBounded":
+$                                [{"Reference":
+$                                      [{"MachineName": ["fin", 6, []]},
+$                                       {"DeclNoRepr":
+$                                            ["Given", {"MachineName": ["fin", 6, []]},
+$                                             {"DomainInt": [{"TagInt": []}, []]}, {"NoRegion": []}]}]},
+$                                 {"Reference":
+$                                      [{"MachineName": ["fin", 7, []]},
+$                                       {"DeclNoRepr":
+$                                            ["Given", {"MachineName": ["fin", 7, []]},
+$                                             {"DomainInt": [{"TagInt": []}, []]}, {"NoRegion": []}]}]}]}]]}]}]}],
+$       [{"MachineName": ["fin", 1, []]}, {"DomainInt": [{"TagInt": []}, []]}],
+$       [{"Name": "nb_peaks"}, {"DomainInt": [{"TagInt": []}, []]}],
+$       [{"MachineName": ["fin", 2, []]}, {"DomainInt": [{"TagInt": []}, []]}],
+$       [{"MachineName": ["fin", 3, []]}, {"DomainInt": [{"TagInt": []}, []]}],
+$       [{"MachineName": ["fin", 4, []]}, {"DomainInt": [{"TagInt": []}, []]}],
+$       [{"MachineName": ["fin", 5, []]}, {"DomainInt": [{"TagInt": []}, []]}],
+$       [{"MachineName": ["fin", 6, []]}, {"DomainInt": [{"TagInt": []}, []]}],
+$       [{"MachineName": ["fin", 7, []]}, {"DomainInt": [{"TagInt": []}, []]}]],
+$  "representationsTree":
+$      [[{"Name": "dimension"}, [{"rootLabel": null, "subForest": []}]],
+$       [{"MachineName": ["fin", 1, []]}, [{"rootLabel": null, "subForest": []}]],
+$       [{"MachineName": ["fin", 2, []]}, [{"rootLabel": null, "subForest": []}]],
+$       [{"MachineName": ["fin", 3, []]}, [{"rootLabel": null, "subForest": []}]],
+$       [{"MachineName": ["fin", 4, []]}, [{"rootLabel": null, "subForest": []}]],
+$       [{"MachineName": ["fin", 5, []]}, [{"rootLabel": null, "subForest": []}]],
+$       [{"MachineName": ["fin", 6, []]}, [{"rootLabel": null, "subForest": []}]],
+$       [{"MachineName": ["fin", 7, []]}, [{"rootLabel": null, "subForest": []}]],
+$       [{"Name": "nb_peaks"}, [{"rootLabel": null, "subForest": []}]],
+$       [{"Name": "props"},
+$        [{"rootLabel": {"Set_Explicit": []},
+$          "subForest":
+$              [{"rootLabel": null,
+$                "subForest":
+$                    [{"rootLabel": null, "subForest": []}, {"rootLabel": null, "subForest": []},
+$                     {"rootLabel": null, "subForest": []}, {"rootLabel": null, "subForest": []}]}]}]],
+$       [{"Name": "w"}, [{"rootLabel": null, "subForest": [{"rootLabel": null, "subForest": []}]}]]],
+$  "originalDomains":
+$      [[{"Name": "dimension"}, {"DomainInt": [{"TagInt": []}, []]}],
+$       [{"Name": "w"},
+$        {"DomainMatrix":
+$             [{"DomainMatrix":
+$                   [{"DomainInt":
+$                         [{"TagInt": []},
+$                          [{"RangeBounded":
+$                                [{"Constant": {"ConstantInt": [{"TagInt": []}, 1]}},
+$                                 {"Reference": [{"Name": "dimension"}, null]}]}]]},
+$                    {"DomainBool": []}]},
+$              {"DomainInt":
+$                   [{"TagInt": []},
+$                    [{"RangeBounded":
+$                          [{"Constant": {"ConstantInt": [{"TagInt": []}, 1]}},
+$                           {"Reference": [{"MachineName": ["let", 1, []]}, null]}]}]]}]}],
+$       [{"Name": "nb_peaks"}, {"DomainInt": [{"TagInt": []}, []]}],
+$       [{"Name": "props"},
+$        {"DomainSet":
+$             [[], {"SizeAttr_None": []},
+$              {"DomainTuple":
+$                   [{"DomainInt": [{"TagInt": []}, []]}, {"DomainInt": [{"TagInt": []}, []]},
+$                    {"DomainEnum": [{"Name": "PROP_TYPE"}, null, null]}, {"DomainInt": [{"TagInt": []}, []]}]}]}]],
+$  "trailGeneralised":
+$      [[-5903590650378206444, 8812464804319173583], [-4761737823699880594, -3617277178370215219],
+$       [-2062669295470014845, 7430952365060874544], [4225612936203115365, -3857493193094461037],
+$       [450929230003133027, 7430952365060874544], [2236561781249513108, -3857493193094461037],
+$       [-5732365901284309860, 7430952365060874544], [8603039747521275770, -3857493193094461037],
+$       [-2193315960345343901, 7430952365060874544], [6697103526413966047, -3857493193094461037],
+$       [-7413747791465714241, 7430952365060874544], [1247930537911797418, -3857493193094461037],
+$       [3476610096109072307, 7430952365060874544], [-1777317247478043318, 6800692473499324020],
+$       [7929072243777074642, -3801706935623607500], [-1626275382942023814, 5584755888936793224],
+$       [4329436897798017906, 7204737019963651663], [7983036162529191271, -6440457178796338011],
+$       [-3855080348108278074, 5938073546242990420], [5856776373405909239, 7428953775931856863],
+$       [2059582450441141021, 5938073546242990420], [-130459917958319332, 7428953775931856863],
+$       [479009008617955432, 5938073546242990420], [4971883015717457035, 7428953775931856863],
+$       [-2835702214313856348, 5938073546242990420], [-6329349008969815234, 7428953775931856863],
+$       [8392344493170588986, 5938073546242990420], [-9195547214464686031, 7428953775931856863],
+$       [1442763484481513592, 5938073546242990420], [-5713236426101784816, -7856886008666638175],
+$       [-5639347533409951494, -888082789578578373], [4729203830967439825, 5356002687682666025],
+$       [2981246412485519115, -725248137842069568], [4242912891164727435, 4820952531868423647],
+$       [6272672337967271010, -725248137842069568], [7199940789842053341, 4820952531868423647],
+$       [6998016592998270496, -725248137842069568], [-7606354465990466860, 4820952531868423647],
+$       [4147893453010535146, -725248137842069568], [-7248690113557885874, 4820952531868423647],
+$       [100171881208785127, -725248137842069568], [-5652440499781296390, 4820952531868423647],
+$       [2274718102786256908, -725248137842069568], [1497191032477446452, 5356002687682666025],
+$       [315432829305328936, 3219406237592267813], [8424741775590803096, -188429399119684135],
+$       [-7557678281888169050, -4661204226514514692], [1785131116022070298, 639007074238414338],
+$       [3307641663141790794, -2720137917002832254], [3408594471481293017, 2612571655307092358],
+$       [-1099678912877094359, 5659551962095719984], [1905837535673665276, -511889768234156733],
+$       [-7762753145792477148, 3310927144731216854], [-4287951288829482442, -3769551520194624919],
+$       [-7007461598183988042, 3665949061107580606], [-6563280750105092018, -7615502619403569087],
+$       [5004997253651939337, 2069079446115445962], [1640056293086240071, -4180455148197120332],
+$       [8973644384005860411, -7131783453181046375], [-4108779765116551910, -1599802991276270498],
+$       [6191322706563082282, 5826306745640011001], [8493259150707309666, 7316144690344277006],
+$       [-118459547304348992, -4111236795751177928], [7456755075433026938, -1084950391434077805],
+$       [3895163557943105509, 4836022003507098474], [-2163113353849728936, -3463321249082665257],
+$       [-6210695573584282351, 9077111571744580127], [-6556108841550823735, 7460885035793784398],
+$       [-2501979882168281831, 4330601123283896050], [-910602507490816221, -5076050383211482096],
+$       [-7180966789259957474, 6564494157683160655], [7522428481156714077, -7704713475542641632],
+$       [5725130871961352983, -1487903521729609013], [-8530282165777949812, 4918369110250249111],
+$       [-4700807547505546593, 3868372280615489055], [4015572057301849227, -8904035831343865250],
+$       [-1806204722210800133, -3786728676131617085], [3107113775141526665, -2880426295827646493],
+$       [-1186756286508103067, 8668962815645158090], [492795980867994633, 435406516345416459],
+$       [-806881631820245265, -5038473274851942311], [1290981325912912807, -8198352032181597622],
+$       [4625319214640668207, -4612155231882336592], [-2682894575203940331, -3696093953284778402],
+$       [-5314916934148109759, -2890752475341363620], [-7758414420286144490, -2413879576216775999],
+$       [6013830010215541114, -5839801951028733266], [-3972563181947042647, -2246007211106334925],
+$       [2411792770266622273, 458258548535167289], [-2012219979034707851, 255143397436765340],
+$       [-2216979345962028384, 5676141252962048683], [-3826456049160325365, 255143397436765340],
+$       [1188446936186699758, 5676141252962048683], [1381558419153186105, 255143397436765340],
+$       [-4866311000452263896, 5676141252962048683], [-6753689617023860496, 255143397436765340],
+$       [4822944047214948800, 5676141252962048683], [-5356991958233064071, 255143397436765340],
+$       [120107935504244956, 5676141252962048683], [8513045744959345748, 255143397436765340],
+$       [-1547096468217907040, 458258548535167289], [2170678501818560296, -1986615143765628259],
+$       [4559467811532031440, -7310621041561861499], [4426142212742445130, -442432266987297607],
+$       [5116037514699357348, 7573794052326987914], [5619520546918836338, -2422758861634666804],
+$       [-5883949103339365359, 1977511916059811056], [-4753935745177543547, 7947431369903149124],
+$       [-5417562624627068704, -5377439132565802386], [-4356810263520780030, 810213483808005312],
+$       [7874881892063944784, 5972108845382887989], [3992983215313752712, 5131117115948743290],
+$       [-6256601510876192016, 8753048052558034190], [280991086153909703, 5019326780894712640],
+$       [4504605106473934752, -4546511110184043154], [7320504467345515054, -819817531643881807],
+$       [4733648199857698094, 399539591098489567], [-5896182530610260678, -4632811067715537337],
+$       [2992568677174991846, -56693225903764760], [7476047838180852644, -8991199627434087942],
+$       [875633169816059846, -3424752627975131105], [2939619460273486502, -9115977418053012259],
+$       [-275979710079758603, -6020983180384980092], [2206145154085526248, 9077111571744580127],
+$       [15275091584967189, 5528154167559574420], [-3002269202603725915, -3846937587723749878],
+$       [-8766281534026159569, -3636094204135652937], [3439258013141338584, 6564494157683160655],
+$       [5553458000324179878, -7547817539822551406], [4844995592340743944, 1717110401053972351],
+$       [1880113511920333253, 4297183646016636344], [-8497588408108539946, 3868372280615489055],
+$       [5138101670834069248, 3401594700700645266], [4967447578158486940, -4949583093960258837],
+$       [-7559180996992337358, 2997522959756990449], [-605354663987547418, -8021523804703200226],
+$       [4899312750090534050, -2289254187347292813], [-2924017739357546836, 2872192607473228979],
+$       [-5618877290425481150, -1876491054171976740], [7240296205086665852, 5936807150639065492],
+$       [-2854986741855573964, 1691364543132172702], [-6018208898860824688, -184281681721276734],
+$       [6482901066024416636, 469506663330313818], [5899648183129913443, 9107494370427822331],
+$       [-3304056121011043483, 1328660870794785487], [7931295195688177275, 8001884503244274093],
+$       [-4575219361478613958, 6978735224784708848], [2170581062003753584, 3219369167431367795],
+$       [-4934723346122551174, 6978735224784708848], [-7721916366043561495, 3219369167431367795],
+$       [-7120381634934068075, 6978735224784708848], [7642848446182356595, 3219369167431367795],
+$       [1090708567379210630, 6978735224784708848], [580615436040434246, 3219369167431367795],
+$       [-2110709174172421830, 6978735224784708848], [-6464394147957618661, 3219369167431367795],
+$       [7304210771025224726, 6978735224784708848], [-6079705496109309924, 1190741124244325378],
+$       [6546971136522755390, 8760784287113542692], [-3353417688955736410, -6555596872509278918],
+$       [-7814081108267195724, -7406091142820488317], [-347321507322001032, -7119129048345925562],
+$       [6050483453131583391, -7869301609776397182], [1330488192807245172, 5279001735654752536],
+$       [-5156253342783961085, -7142911344285749803], [3716671303030626627, -3180827940436712694],
+$       [4629053555903638019, 2803955333768518229], [2069273596787336301, -7256225076777167526],
+$       [1578549610334599518, -4813273927627818289], [1754805871919310844, 4277349222156965678],
+$       [-431562063079527902, -6540410120267183392], [5115916328312045856, -8571971155516978043],
+$       [-7512772012949041760, -5562879332237909176], [-5195545805494753703, -8058213048959094867],
+$       [2659731645986116140, -1667952631181361706], [-2299578698348836396, 4101384404302860656],
+$       [-5927960657681199870, -6898685522130658449], [4772946618136523363, 7434533559682752568],
+$       [-3662106091406481124, 1142200430071983517], [7488054202959002800, 9077111571744580127],
+$       [-4113748053224170278, 3525062370086032806], [-2446019130109136795, -4586920116008636350],
+$       [-7292567174598729124, -5273113654685700394], [583866281965658452, 6564494157683160655],
+$       [-8198216173628146619, 6476283449663916824], [8931443346040387411, 9067031808420203951],
+$       [4405212223447933552, 7399761249762901109], [820215539411396396, 3868372280615489055],
+$       [6594803314669840842, -2569074776903526918], [-6820639395236403419, -45249466663246965],
+$       [-2631000723488738634, -1785112263585621461], [-856755486186014808, 957337207572059094],
+$       [320425912453838015, -2868613257364987893], [-7451162190692436328, 7293978843781466489],
+$       [-6868511591019219681, 6147244757974496191], [-4401128055729815562, -7843375274720099067],
+$       [-2724424237472303081, -5144846466452893996], [7075852084113505630, 3428661143331188879],
+$       [-5062908752497119376, -5144846466452893996], [-2573138170673875167, 3428661143331188879],
+$       [-6669001445154423415, -5144846466452893996], [-2365744687469209902, 3428661143331188879],
+$       [5213423443589866085, -5144846466452893996], [-1671946423239047925, 3428661143331188879],
+$       [7122318085807620887, -5144846466452893996], [2575904840795828300, 3428661143331188879],
+$       [9164541651668484817, -5144846466452893996], [3967436055928886906, -8003605270264233396],
+$       [-5907523713196472210, -3058002579381511788], [-2114932942487736946, -4794635741163564787],
+$       [-3455369495056405487, 8570412608028879432], [-7423575802995899959, -4800014306869306488],
+$       [4118085596621231542, 6502185630000257256], [-8116653053388204493, 1441832005184736572],
+$       [3639475408557266775, -7045892622000940208], [-8573874450237015891, 2086347613063804312],
+$       [680500846676360279, 1874087795825542249], [6175424955074485039, -8416631474842260778],
+$       [6127281480059255351, 3190833636453344508], [-1365380574139626291, -6328543029489207848],
+$       [-9056455290209905242, -2930166775367106530], [8219247820879086948, 7897235839619515957],
+$       [-1816834676710938130, 6634435896318940873], [310638618406305887, -3637506901141503073],
+$       [-827301367670083866, 7588417692524694908], [5300333842820477566, -2732544055559286618],
+$       [-5725224846216023810, -4169123774976877293], [5859606468619750913, 7792505784940388747],
+$       [6008037620221411159, 8136583776662941306], [6967975061725715721, 9077111571744580127],
+$       [-3735306448081643926, -5939154835959489824], [773551135576684895, 2611902884227438122],
+$       [-3349996669876304397, -318873180076969675], [-345107111840842171, 6564494157683160655],
+$       [4185594118619256101, -687873882169992602], [6451244607963954289, -4183824410907251221],
+$       [-2034485065093819409, 1441586685583691150], [5368084677421643721, 3868372280615489055],
+$       [-3593053866102021863, -4701597389448440366], [-6033755589030521078, 5857066564681232043],
+$       [-4613444631518915895, 677686645749062193], [9036168492331939371, -1287852277790297698],
+$       [-5430650668453042880, 7224971202608308595], [-4970476081657380617, 4370984711479687283],
+$       [-5615676392060802058, -8807052422931912332], [5337321014454198845, 5778719259770357248],
+$       [-4894401536737872996, 5668485079573765364], [-3254467883099200877, -5420071290108198448],
+$       [-8940990002979762542, 4110457826774952372], [-3722262881154758639, 6794018145404485952],
+$       [-3520164051191727753, 4414858049178759601], [3712731304134110583, -4477437038502945524],
+$       [9051274734100984348, -3868586602610611904], [-2896307979736644158, -1223382022370678790],
+$       [-2111897143369874835, 5379147833836143550], [-4723443399622712194, 3429064586073184355],
+$       [7767673644503267236, -5322829927342962928], [-8625017678499032860, -8357533471426101386],
+$       [5259138263351645092, -7701713385511869214], [6485249930069491608, -2717752761680935708],
+$       [2225926067443639774, -7701124179781364208], [9155727317876729042, 8197736261081381253],
+$       [3738249389751828430, -8640330172792650715], [-4795046108111150704, 8448829503268728523],
+$       [-5870584636096279084, -141979778979458340], [-7507266627329840749, 5567713727459681214],
+$       [-8379982011941665625, -8447581037357907481], [1966352998589008415, -7634105363807734955],
+$       [-5016633449457289058, 2726680562443402872], [-5515002491819234397, 4017073693803528450],
+$       [-8057220903539181688, 7213815402437289367], [-7013535367257019370, 6032909604520745272],
+$       [9103813393156659220, -600094019653375162], [-5210734755685995828, -2508428323262001964],
+$       [7269870119807897538, -8871771922530470006], [-4811227298101027937, -6895320537473973444],
+$       [-1748045021375753278, 6366912396963272323], [6868010452908762497, -6570029126582634074],
+$       [-5677423871458833046, -632538399414097412], [8532464869718150415, -3025499517580437548],
+$       [-8848648339109444964, 7788996144367397835], [3918277897068516580, 7872963034440628018],
+$       [6253781370604013272, 1732238995944668871], [3415961583993909362, -8361261509732995666],
+$       [3281141021743936020, -4615486679714603779], [-6825127404819994122, 6588205264486410016],
+$       [-8001466520724901644, -1294249676846930665], [7823886752236164541, 3509559603659824604],
+$       [7522344018616762666, 1997024767956957668], [-2320496775220314674, 2171113525432990079],
+$       [-4619220514063751080, -4509564908890753605], [-8259151795491041182, 7584257597336788358],
+$       [-5894304923715340083, 801613470644887307], [2200055170924730922, -3391186298434441297],
+$       [6788634700249396584, 6244170327893101482], [-6961612470039207137, -3925156151980593861],
+$       [3714099965605765316, -3208958134777235939], [-8277236716714626128, 6410053318539437124],
+$       [5399378444449868920, 5029885110915796996], [419635460748081920, -907757590961327912],
+$       [4115457191055995296, 5654454636692708442], [-5136722750482491172, -8072246902993762745],
+$       [4460899218407247172, 4464695937234133908], [4201396517631811034, 1606938838356321938],
+$       [5461607863706158231, 3111258103121085190], [-228991950821759393, 3284603784554720088],
+$       [4256524167706942739, -4545325762640838282], [8557602587647723684, 8966496904530114038],
+$       [8760988138898601207, 5063110875150071738], [1997316917697100200, -8291436700262150537],
+$       [-8301818961902566474, -4146931039448418558], [-2034610673764451188, -5592536916632510457],
+$       [-739920769769653036, 241803930508465288], [4854518720481779601, 1947039298152197431],
+$       [-731521655536097383, 8562080260321724230], [2382764478909238805, 960168150662753416],
+$       [-5297422716164507465, 849312016079022179], [367459571644939375, 6194794757712101518],
+$       [-3390773260347343404, -8409243748091375979], [7113494455579379275, -3515667391484960382],
+$       [-7535212013486944471, 6871636441324480828], [3173580644613850609, 2813905637289312709],
+$       [3035744294736355488, 4722787521504568712], [-4382994875381920381, 7362185680956217673],
+$       [-860306659966903595, -3814945176063928545], [8090501827633591425, -6368210849155734038],
+$       [8036628594498083122, -2410977441924214168], [7744018860195555785, 8650276934093683748],
+$       [-7941988679637519977, -6559639835316349309], [6975737917822016812, 205642449978067292],
+$       [-7401630187242653808, 3502191725955081701], [-6853912544910518373, -3503655557173501349],
+$       [9169774727666088877, -2260756706067370961], [7145103671194987839, -133898678882981478],
+$       [-3646085884700154818, -9005790901429964981], [2106796345513796895, 5764253669298899803],
+$       [-2873829007435111167, -404928714973234506], [-8027618622220863308, 2197654344645934171],
+$       [5828552287405134861, -9076614303401861131], [-8315632270273002567, 7580626404610183236],
+$       [-8166671018498915587, 7562310128945621926], [-180600501486749031, 3918014687655635704],
+$       [8548629573272982553, 6211130792619520490], [990029446982601623, 4177960143233615849],
+$       [-6041309101063420721, 5936251490963222540], [-1225818825719581465, -2662749901204029632],
+$       [-8582407009928265819, -8749541606993575428], [7709448457792886628, 7415970417662448966],
+$       [4154431477038155352, 1718331561098080108], [7019495268988894320, -6047182324256634008],
+$       [3837535374541835352, -5331868005873587804], [-7351230327532214458, 4847771348472112165],
+$       [5043719081655818094, -4506617215842331192], [8945330769757288929, 1606938838356321938],
+$       [1060797330342591010, -5809642851062480880], [-4900440691742086337, 5282143105650217650],
+$       [6486075784313351167, 8507547798028140988], [8592317457974066995, -2210225428773513806],
+$       [-4749162138127234081, 3293391372326439138], [1813308160746040007, -7149834496783924742],
+$       [5959949013787016265, -3774762176313214607], [6422853985958223651, -2662749901204029632]],
+$  "trailVerbose": [], "trailRewrites": []}
