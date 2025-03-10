@@ -4,7 +4,7 @@ letting DIM be domain int(1..dimension)
 letting NODE be domain matrix [DIM] of bool
 
 $ find w : function (total, injective) NODE --> int(1..2**dimension)
-find w : matrix [matrix [DIM] of bool] of int(1..2**dimension)
+find w : matrix [NODE] of int(1..2**dimension)
 
 $ injective
 such that forAll n1,n2 : NODE . n1 <lex n2 -> w[n1] != w[n2]
@@ -48,6 +48,23 @@ $ This is how we decide whether (a,b,c,d) has the given property
 $ RSE w[a] < w[b] /\ w[a] < w[c] /\ w[d] < w[b] /\ w[d] < w[c]
 $ SE  w[a] < w[b] /\ w[a] < w[c] /\ w[d] > w[b] /\ w[d] < w[c]
 
+$ --------------------------------------------------------------------------------
+$ direction
+
+$ we only care about the direction of the nodes when counting
+
+find direction : matrix [NODE, NODE] of bool
+
+such that
+    forAll n1, n2 : NODE
+        , sum([1 | i : DIM, n1[i] != n2[i]]) = 1
+        . direction[n1, n2] <-> w[n1] <= w[n2]
+such that
+    forAll n1, n2 : NODE
+        , sum([1 | i : DIM, n1[i] != n2[i]]) != 1
+        . direction[n1, n2] = false
+
+branching on [direction]
 
 $ --------------------------------------------------------------------------------
 $ SE, at least one
