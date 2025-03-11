@@ -331,7 +331,9 @@ such that
 count = sum([
 
     $ RSE definition
-    toInt(w[a] < w[b] /\ w[a] < w[c] /\ w[d] < w[b] /\ w[d] < w[c])
+    toInt((w[a] < w[b] /\ w[a] < w[c] /\ w[d] < w[b] /\ w[d] < w[c])
+    \/ (w[b] < w[a] /\ w[b] < w[d] /\ w[c] < w[a] /\ w[c] < w[d]))
+
 
     | a,b,c,d : NODE
     , forAll i : DIM . a[i] != b[i] <-> c[i] != d[i]
@@ -341,9 +343,9 @@ count = sum([
     , sum([1 | i : DIM, a[i] != d[i]])= n + m
 
     $ symmetry breaking
-    , w[a] < w[d]
-    , w[b] < w[c]
-    , a <lex d
+    , a <lex b
+    , b <lex c
+    , c <lex d
     ])
 
 | (n, m, prop_type, count) <- props
