@@ -335,17 +335,39 @@ count = sum([
     \/ (w[b] < w[a] /\ w[b] < w[d] /\ w[c] < w[a] /\ w[c] < w[d]))
 
 
-    | a,b,c,d : NODE
-    , forAll i : DIM . a[i] != b[i] <-> c[i] != d[i]
-    , forAll i : DIM . a[i] != c[i] <-> b[i] != d[i]
-    , sum([1 | i : DIM, a[i] != b[i]])= n
-    , sum([1 | i : DIM, a[i] != c[i]])= m
-    , sum([1 | i : DIM, a[i] != d[i]])= n + m
+    $ the index of n bits that are different in the n dimension
+    $ for n=2, diff_n will be (1,2), (1,3), (2,3)
+    | diff_n : set (size n) of int(1..dimension)
+
+    $ the index of m bits that are different in the m dimension
+    $ for m=1, diff_m will be 1,2,3
+    , diff_m : set (size m) of int(1..dimension)
+
+    $ diff_n and diff_m have to be disjoint
+    $ the combinations are
+    $ each one is a kind of face
+    $ (1,2), 3
+    $ (1,3), 2
+    $ (2,3), 1
+    , |diff_n intersect diff_m| = 0
+
+    $ enforce a property on a 4 nodes
+    $ a, b, c d
+
+    , a,b,c,d : NODE
+
+    $ b is flipping the diff_n bits of a
+    , forAll i : DIM . b[i] = [ a[i], !a[i] ; int(0..1)][toInt(i in diff_n)]
+
+    $ c is flipping the diff_m bits of a
+    , forAll i : DIM . c[i] = [ a[i], !a[i] ; int(0..1)][toInt(i in diff_m)]
+
+    $ d is flipping the diff_n and diff_m bits of a
+    , forAll i : DIM . d[i] = [ a[i], !a[i] ; int(0..1)][toInt(i in diff_n union diff_m)]
 
     $ symmetry breaking
-    , a <lex b
-    , b <lex c
-    , c <lex d
+    , w[a] < w[b], w[a] < w[c], w[a] < w[d]
+    , w[b] < w[c]
     ])
 
 | (n, m, prop_type, count) <- props
