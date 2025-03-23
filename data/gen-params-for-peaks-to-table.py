@@ -3,10 +3,10 @@ peak_counts = {3: range(1, 6+1),
                4: range(1, 24+1),
                5: range(1, 80+1)}
 
-for dimension in [3, 4, 5]:
+for dimension in [3, 4]:
     for nb_peaks in range(0, 2**(dimension-1)+1):
         for prop in ["RSE", "SE"]:
-            for edim in range(1, dimension):
+            for edim in [1]:
                 filename = f"data/peaks-to-{prop}-"
                 filename += f"dimension{dimension}-"
                 filename += f"edim{edim}-"
