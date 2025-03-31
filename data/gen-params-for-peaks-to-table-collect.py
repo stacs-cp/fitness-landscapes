@@ -1,9 +1,9 @@
 
 import json
 
-peak_counts = {3: range(1, 6+1),
-               4: range(1, 24+1),
-               5: range(1, 80+1)}
+peak_counts = {3: range(0, 6+1),
+               4: range(0, 24+1),
+               5: range(0, 80+1)}
 
 
 def doOne(dimension_, edim_, nb_peaks_, peak_count_):
