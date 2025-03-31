@@ -8,6 +8,7 @@ find w : matrix [NODE] of int(1..2**dimension)
 
 $ injective
 such that forAll n1,n2 : NODE . n1 <lex n2 -> w[n1] != w[n2]
+such that forAll weight : int(1..2**dimension) . exists n : NODE . w[n] = weight
 
 such that forAll node : NODE . and([ bit = false | d : DIM, letting bit be node[d] ]) -> w[node] = 1
 
@@ -270,3 +271,4 @@ count = sum([
 , count >= 0
 , prop_type = RSE
 ]
+
