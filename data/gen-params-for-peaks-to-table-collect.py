@@ -1,9 +1,9 @@
 
 import json
 
-peak_counts = {3: range(1, 6+1),
-               4: range(1, 24+1),
-               5: range(1, 80+1)}
+face_counts = {3: range(0, 6+1),
+               4: range(0, 24+1),
+               5: range(0, 80+1)}
 
 
 def doOne(dimension_, edim_, nb_peaks_, peak_count_):
@@ -35,7 +35,7 @@ for dimension in [3, 4, 5]:
                 print("Faces/Peaks,"+",".join([str(nb_peaks)
                       for nb_peaks in range(0, 2**(dimension-1)+1)]), file=out)
 
-                for peak_count in peak_counts[dimension]:
+                for peak_count in face_counts[dimension]:
 
                     print(peak_count, end=",", file=out)
 
