@@ -1,0 +1,161 @@
+given dimension : int
+
+letting DIM be domain int(1..dimension)
+letting NODE be domain matrix [DIM] of bool
+
+$ find w : function (total, injective) NODE --> int(1..2**dimension)
+find w : matrix [NODE] of int(1..2**dimension)
+
+$ injective
+such that forAll n1,n2 : NODE . n1 <lex n2 -> w[n1] != w[n2]
+such that forAll weight : int(1..2**dimension) . exists n : NODE . w[n] = weight
+
+such that forAll node : NODE . and([ bit = false | d : DIM, letting bit be node[d] ]) -> w[node] = 1
+
+letting PROP_TYPE be new type enum {SE, RSE}
+
+find nb_peaks : int(0..sum([1 | x : NODE]))
+
+$ a node is a peak if its weight is larger  than all of its neighbours' weights
+such that
+    nb_peaks =
+    sum([ toInt(and([ w[p] > w[x]
+                    | x : NODE
+                    $ neighbour is a node who has only 1 bit different from p
+                    , 1 = sum i : int(1..dimension) . toInt(p[i] != x[i])
+                    ]))
+        | p : NODE
+        ])
+
+
+
+$ --------------------------------------------------------------------------------
+$ direction
+
+$ we only care about the direction of the nodes when counting
+
+find direction : matrix [NODE, NODE] of bool
+
+such that
+    forAll n1, n2 : NODE
+        , sum([1 | i : DIM, n1[i] != n2[i]]) = 1
+        . direction[n1, n2] <-> w[n1] <= w[n2]
+such that
+    forAll n1, n2 : NODE
+        , sum([1 | i : DIM, n1[i] != n2[i]]) != 1
+        . direction[n1, n2] = false
+
+branching on [direction]
+
+
+$ --------------------------------------------------------------------------------
+$ SE, exact count
+find nb_se_faces_with_lex : int(0..1000000)
+such that nb_se_faces_with_lex =
+sum([
+
+    $ SE definition
+    toInt((w[a] < w[b] /\ w[a] < w[c] /\ w[b] < w[d] /\ w[d] < w[c])
+    $\/ (w[a] < w[b] /\ w[a] < w[c] /\ w[c] < w[d] /\ w[d] < w[b])
+    \/ (w[b] < w[a] /\ w[b] < w[d] /\ w[d] < w[c] /\ w[c] < w[a])
+    $\/ (w[b] < w[a] /\ w[b] < w[d] /\ w[a] < w[c] /\ w[c] < w[d]) 
+    \/ (w[d] < w[b] /\ w[d] < w[c] /\ w[c] < w[a] /\ w[a] < w[b])
+    $\/ (w[d] < w[b] /\ w[d] < w[c] /\ w[b] < w[a] /\ w[a] < w[c])
+    \/ (w[c] < w[a] /\ w[c] < w[d] /\ w[a] < w[b] /\ w[b] < w[d])
+    $\/ (w[c] < w[a] /\ w[c] < w[d] /\ w[d] < w[b] /\ w[b] < w[a])
+    )
+
+    | a,b,c,d : NODE
+    , forAll i : DIM . a[i] != b[i] <-> c[i] != d[i]
+    , forAll i : DIM . a[i] != c[i] <-> b[i] != d[i]
+    , sum([1 | i : DIM, a[i] != b[i]])= 1
+    , sum([1 | i : DIM, a[i] != c[i]])= 1
+    , sum([1 | i : DIM, a[i] != d[i]])= 2
+
+    $ symmetry breaking, this will look for 1xn faces, which we believe to be equivalent to nx1 faces??
+    , a <lex b
+    , b <lex c
+    , c <lex d
+    ])
+
+find nb_se_faces_no_lex : int(0..1000000)
+such that nb_se_faces_no_lex =
+sum([
+
+    $ SE definition
+    toInt((w[a] < w[b] /\ w[a] < w[c] /\ w[b] < w[d] /\ w[d] < w[c])
+    $\/ (w[a] < w[b] /\ w[a] < w[c] /\ w[c] < w[d] /\ w[d] < w[b])
+    \/ (w[b] < w[a] /\ w[b] < w[d] /\ w[d] < w[c] /\ w[c] < w[a])
+    $\/ (w[b] < w[a] /\ w[b] < w[d] /\ w[a] < w[c] /\ w[c] < w[d]) 
+    \/ (w[d] < w[b] /\ w[d] < w[c] /\ w[c] < w[a] /\ w[a] < w[b])
+    $\/ (w[d] < w[b] /\ w[d] < w[c] /\ w[b] < w[a] /\ w[a] < w[c])
+    \/ (w[c] < w[a] /\ w[c] < w[d] /\ w[a] < w[b] /\ w[b] < w[d])
+    $\/ (w[c] < w[a] /\ w[c] < w[d] /\ w[d] < w[b] /\ w[b] < w[a])
+    )
+
+    | a,b,c,d : NODE
+    , forAll i : DIM . a[i] != b[i] <-> c[i] != d[i]
+    , forAll i : DIM . a[i] != c[i] <-> b[i] != d[i]
+    , sum([1 | i : DIM, a[i] != b[i]])= 1
+    , sum([1 | i : DIM, a[i] != c[i]])= 1
+    , sum([1 | i : DIM, a[i] != d[i]])= 2
+
+    $ symmetry breaking, this will look for 1xn faces, which we believe to be equivalent to nx1 faces??
+    $ , a <lex b
+    $ , b <lex c
+    $ , c <lex d
+    ])
+
+$ --------------------------------------------------------------------------------
+$ SE, exact count
+find nb_se_faces_with_lex_all : int(0..1000000)
+such that nb_se_faces_with_lex_all =
+sum([
+
+    $ SE definition
+    toInt((w[a] < w[b] /\ w[a] < w[c] /\ w[b] < w[d] /\ w[d] < w[c])
+    \/ (w[a] < w[b] /\ w[a] < w[c] /\ w[c] < w[d] /\ w[d] < w[b])
+    \/ (w[b] < w[a] /\ w[b] < w[d] /\ w[d] < w[c] /\ w[c] < w[a])
+    \/ (w[b] < w[a] /\ w[b] < w[d] /\ w[a] < w[c] /\ w[c] < w[d]) 
+    \/ (w[d] < w[b] /\ w[d] < w[c] /\ w[c] < w[a] /\ w[a] < w[b])
+    \/ (w[d] < w[b] /\ w[d] < w[c] /\ w[b] < w[a] /\ w[a] < w[c])
+    \/ (w[c] < w[a] /\ w[c] < w[d] /\ w[a] < w[b] /\ w[b] < w[d])
+    \/ (w[c] < w[a] /\ w[c] < w[d] /\ w[d] < w[b] /\ w[b] < w[a])
+    )
+
+    | a,b,c,d : NODE
+    , forAll i : DIM . a[i] != b[i] <-> c[i] != d[i]
+    , forAll i : DIM . a[i] != c[i] <-> b[i] != d[i]
+    , sum([1 | i : DIM, a[i] != b[i]])= 1
+    , sum([1 | i : DIM, a[i] != c[i]])= 1
+    , sum([1 | i : DIM, a[i] != d[i]])= 2
+
+    $ symmetry breaking, this will look for 1xn faces, which we believe to be equivalent to nx1 faces??
+    , a <lex b
+    , b <lex c
+    , c <lex d
+    ])
+
+$ --------------------------------------------------------------------------------
+$ RSE, exact count
+find nb_rse_faces : int(0..1000000)
+such that nb_rse_faces =
+sum([
+
+    $ RSE definition
+    toInt((w[a] < w[b] /\ w[a] < w[c] /\ w[d] < w[b] /\ w[d] < w[c])
+    \/ (w[b] < w[a] /\ w[b] < w[d] /\ w[c] < w[a] /\ w[c] < w[d]))
+
+
+    | a,b,c,d : NODE
+    , forAll i : DIM . a[i] != b[i] <-> c[i] != d[i]
+    , forAll i : DIM . a[i] != c[i] <-> b[i] != d[i]
+    , sum([1 | i : DIM, a[i] != b[i]])= 1
+    , sum([1 | i : DIM, a[i] != c[i]])= 1
+    , sum([1 | i : DIM, a[i] != d[i]])= 2
+
+    $ symmetry breaking, this will look for 1xn faces, which we believe to be equivalent to nx1 faces??
+    , a <lex b
+    , b <lex c
+    , c <lex d
+    ])
