@@ -16,18 +16,20 @@ function one {
             models/fl.essence $1 \
             --use-existing-models=conjure-output/model000001.eprime \
             --savilerow-options=-O1 \
-            --solver=or-tools \
-            --solver-options='--threads=8' \
+            --solver=minion \
+	    --number-of-solutions=all \
             --copy-solutions=no \
+	    --solutions-in-one-file \
             --output-format=json
     fi
+	    # --solver-options "-parallel -cores 160" \
 }
 
 export -f one
 
 parallel --no-notice \
-    --eta \
     --memfree 100G \
+    --eta \
     --joblog gnuparallel-joblog.tsv \
     --results gnuparallel-results \
     one \
