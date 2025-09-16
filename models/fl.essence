@@ -41,14 +41,6 @@ given props : set of
         )
 
 
-$ This is all the (a,b,c,d) tuples we will consider
-$ Symmetry break 1. w[a] is smallest of them all. 
-$ Symmetry break 2. w[b] < w[c].
-
-$ This is how we decide whether (a,b,c,d) has the given property
-$ RSE w[a] < w[b] /\ w[a] < w[c] /\ w[d] < w[b] /\ w[d] < w[c]
-$ SE  w[a] < w[b] /\ w[a] < w[c] /\ w[d] > w[b] /\ w[d] < w[c]
-
 $ --------------------------------------------------------------------------------
 $ direction
 
@@ -65,7 +57,27 @@ such that
         , sum([1 | i : DIM, n1[i] != n2[i]]) != 1
         . direction[n1, n2] = false
 
+
+
 branching on [direction]
+
+$ --------------------------------------------------------------------------------
+$assuming we always want 00..0 to have weight 0, then we can still permute the first layer (everything else will follow suit)
+$symmetry break by forcing the weights of the first layer to be in order 
+$to uncover the non-symmetric counts, ... ?
+
+
+$such that 
+$    forAll node1, node2 : NODE .
+$        forAll i : int(1..dimension-1). 
+$            and([node1[d] = false | d:DIM, d!=i]) /\ node1[i]=true 
+$            /\ 
+$            and([node2[d] = false | d:DIM, d!=i+1]) /\ node2[i+1]=true
+$            -> 
+$            w[node1] < w[node2]
+
+$ without this sb constraint (but still setting weight of 000 as 0), then we will get Manda's RSE numbers
+
 
 $ --------------------------------------------------------------------------------
 $ SE, at least one
@@ -75,27 +87,27 @@ such that
 or([
 
     $ SE definition
-    ((w[a] < w[b] /\ w[a] < w[c] /\ w[b] < w[d] /\ w[d] < w[c])
-    $\/ (w[a] < w[b] /\ w[a] < w[c] /\ w[c] < w[d] /\ w[d] < w[b])
-    \/ (w[b] < w[a] /\ w[b] < w[d] /\ w[d] < w[c] /\ w[c] < w[a])
-    $\/ (w[b] < w[a] /\ w[b] < w[d] /\ w[a] < w[c] /\ w[c] < w[d]) 
-    \/ (w[d] < w[b] /\ w[d] < w[c] /\ w[c] < w[a] /\ w[a] < w[b])
-    $\/ (w[d] < w[b] /\ w[d] < w[c] /\ w[b] < w[a] /\ w[a] < w[c])
-    \/ (w[c] < w[a] /\ w[c] < w[d] /\ w[a] < w[b] /\ w[b] < w[d])
-    $\/ (w[c] < w[a] /\ w[c] < w[d] /\ w[d] < w[b] /\ w[b] < w[a])
+    (
+        ((w[a] < w[b] /\ w[d] > w[c]) 
+        \/ 
+        (w[a] > w[b] /\ w[d] < w[c]))
+    /\
+        (w[a] < w[d] /\ w[b] < w[c]) 
+        \/ 
+        (w[a] > w[d] /\ w[b] > w[c])
     )
 
     | a,b,c,d : NODE
     , forAll i : DIM . a[i] != b[i] <-> c[i] != d[i]
-    , forAll i : DIM . a[i] != c[i] <-> b[i] != d[i]
+    , forAll i : DIM . a[i] != d[i] <-> b[i] != c[i]
     , sum([1 | i : DIM, a[i] != b[i]])= n
-    , sum([1 | i : DIM, a[i] != c[i]])= m
-    , sum([1 | i : DIM, a[i] != d[i]])= n + m
+    , sum([1 | i : DIM, a[i] != d[i]])= m
+    , sum([1 | i : DIM, a[i] != c[i]])= n + m
 
     $ symmetry breaking, this will look for 1xn faces, which we believe to be equivalent to nx1 faces??
     , a <lex b
-    , b <lex c
-    , c <lex d
+    , a <lex c
+    , b <lex d   $note this is just for n=m
     ])
 
 | (n, m, prop_type, count) <- props
@@ -111,28 +123,27 @@ such that
 
 and([
 
-    $ SE definition
-    ((w[a] < w[b] /\ w[a] < w[c] /\ w[b] < w[d] /\ w[d] < w[c])
-    $\/ (w[a] < w[b] /\ w[a] < w[c] /\ w[c] < w[d] /\ w[d] < w[b])
-    \/ (w[b] < w[a] /\ w[b] < w[d] /\ w[d] < w[c] /\ w[c] < w[a])
-    $\/ (w[b] < w[a] /\ w[b] < w[d] /\ w[a] < w[c] /\ w[c] < w[d]) 
-    \/ (w[d] < w[b] /\ w[d] < w[c] /\ w[c] < w[a] /\ w[a] < w[b])
-    $\/ (w[d] < w[b] /\ w[d] < w[c] /\ w[b] < w[a] /\ w[a] < w[c])
-    \/ (w[c] < w[a] /\ w[c] < w[d] /\ w[a] < w[b] /\ w[b] < w[d])
-    $\/ (w[c] < w[a] /\ w[c] < w[d] /\ w[d] < w[b] /\ w[b] < w[a])
+    (
+        ((w[a] < w[b] /\ w[d] > w[c]) 
+        \/ 
+        (w[a] > w[b] /\ w[d] < w[c]))
+    /\
+        (w[a] < w[d] /\ w[b] < w[c]) 
+        \/ 
+        (w[a] > w[d] /\ w[b] > w[c])
     )
 
     | a,b,c,d : NODE
     , forAll i : DIM . a[i] != b[i] <-> c[i] != d[i]
-    , forAll i : DIM . a[i] != c[i] <-> b[i] != d[i]
+    , forAll i : DIM . a[i] != d[i] <-> b[i] != c[i]
     , sum([1 | i : DIM, a[i] != b[i]])= n
-    , sum([1 | i : DIM, a[i] != c[i]])= m
-    , sum([1 | i : DIM, a[i] != d[i]])= n + m
+    , sum([1 | i : DIM, a[i] != d[i]])= m
+    , sum([1 | i : DIM, a[i] != c[i]])= n + m
 
     $ symmetry breaking, this will look for 1xn faces, which we believe to be equivalent to nx1 faces??
     , a <lex b
-    , b <lex c
-    , c <lex d
+    , a <lex c
+    , b <lex d   $note this is just for n=m
     ])
 
 | (n, m, prop_type, count) <- props
@@ -148,28 +159,27 @@ such that
 
 count = sum([
 
-    $ SE definition
-    toInt((w[a] < w[b] /\ w[a] < w[c] /\ w[b] < w[d] /\ w[d] < w[c])
-    $\/ (w[a] < w[b] /\ w[a] < w[c] /\ w[c] < w[d] /\ w[d] < w[b])
-    \/ (w[b] < w[a] /\ w[b] < w[d] /\ w[d] < w[c] /\ w[c] < w[a])
-    $\/ (w[b] < w[a] /\ w[b] < w[d] /\ w[a] < w[c] /\ w[c] < w[d]) 
-    \/ (w[d] < w[b] /\ w[d] < w[c] /\ w[c] < w[a] /\ w[a] < w[b])
-    $\/ (w[d] < w[b] /\ w[d] < w[c] /\ w[b] < w[a] /\ w[a] < w[c])
-    \/ (w[c] < w[a] /\ w[c] < w[d] /\ w[a] < w[b] /\ w[b] < w[d])
-    $\/ (w[c] < w[a] /\ w[c] < w[d] /\ w[d] < w[b] /\ w[b] < w[a])
+    toInt(
+        ((w[a] < w[b] /\ w[d] > w[c]) 
+        \/ 
+        (w[a] > w[b] /\ w[d] < w[c]))
+    /\
+        (w[a] < w[d] /\ w[b] < w[c]) 
+        \/ 
+        (w[a] > w[d] /\ w[b] > w[c])
     )
 
     | a,b,c,d : NODE
     , forAll i : DIM . a[i] != b[i] <-> c[i] != d[i]
-    , forAll i : DIM . a[i] != c[i] <-> b[i] != d[i]
+    , forAll i : DIM . a[i] != d[i] <-> b[i] != c[i]
     , sum([1 | i : DIM, a[i] != b[i]])= n
-    , sum([1 | i : DIM, a[i] != c[i]])= m
-    , sum([1 | i : DIM, a[i] != d[i]])= n + m
+    , sum([1 | i : DIM, a[i] != d[i]])= m
+    , sum([1 | i : DIM, a[i] != c[i]])= n + m
 
     $ symmetry breaking, this will look for 1xn faces, which we believe to be equivalent to nx1 faces??
     , a <lex b
-    , b <lex c
-    , c <lex d
+    , a <lex c
+    , b <lex d   $note this is just for n=m
     ])
 
 | (n, m, prop_type, count) <- props
@@ -187,22 +197,27 @@ such that
 
 or([
 
-    $ RSE definition
-    ((w[a] < w[b] /\ w[a] < w[c] /\ w[d] < w[b] /\ w[d] < w[c])
-    \/ (w[b] < w[a] /\ w[b] < w[d] /\ w[c] < w[a] /\ w[c] < w[d]))
-
+    (
+        ((w[a] < w[b] /\ w[d] > w[c]) 
+        /\
+        (w[a] < w[d] /\ w[b] > w[c]))
+    \/
+        ((w[a] > w[b] /\ w[d] < w[c]) 
+        /\
+        (w[a] > w[d] /\ w[b] < w[c]))
+    )
 
     | a,b,c,d : NODE
     , forAll i : DIM . a[i] != b[i] <-> c[i] != d[i]
-    , forAll i : DIM . a[i] != c[i] <-> b[i] != d[i]
+    , forAll i : DIM . a[i] != d[i] <-> b[i] != c[i]
     , sum([1 | i : DIM, a[i] != b[i]])= n
-    , sum([1 | i : DIM, a[i] != c[i]])= m
-    , sum([1 | i : DIM, a[i] != d[i]])= n + m
+    , sum([1 | i : DIM, a[i] != d[i]])= m
+    , sum([1 | i : DIM, a[i] != c[i]])= n + m
 
     $ symmetry breaking, this will look for 1xn faces, which we believe to be equivalent to nx1 faces??
     , a <lex b
-    , b <lex c
-    , c <lex d
+    , a <lex c
+    , b <lex d   $note this is just for n=m
     ])
 
 | (n, m, prop_type, count) <- props
@@ -218,22 +233,27 @@ such that
 
 and([
 
-    $ RSE definition
-    ((w[a] < w[b] /\ w[a] < w[c] /\ w[d] < w[b] /\ w[d] < w[c])
-    \/ (w[b] < w[a] /\ w[b] < w[d] /\ w[c] < w[a] /\ w[c] < w[d]))
-
+    (
+        ((w[a] < w[b] /\ w[d] > w[c]) 
+        /\
+        (w[a] < w[d] /\ w[b] > w[c]))
+    \/
+        ((w[a] > w[b] /\ w[d] < w[c]) 
+        /\
+        (w[a] > w[d] /\ w[b] < w[c]))
+    )
 
     | a,b,c,d : NODE
     , forAll i : DIM . a[i] != b[i] <-> c[i] != d[i]
-    , forAll i : DIM . a[i] != c[i] <-> b[i] != d[i]
+    , forAll i : DIM . a[i] != d[i] <-> b[i] != c[i]
     , sum([1 | i : DIM, a[i] != b[i]])= n
-    , sum([1 | i : DIM, a[i] != c[i]])= m
-    , sum([1 | i : DIM, a[i] != d[i]])= n + m
+    , sum([1 | i : DIM, a[i] != d[i]])= m
+    , sum([1 | i : DIM, a[i] != c[i]])= n + m
 
     $ symmetry breaking, this will look for 1xn faces, which we believe to be equivalent to nx1 faces??
     , a <lex b
-    , b <lex c
-    , c <lex d
+    , a <lex c
+    , b <lex d   $note this is just for n=m
     ])
 
 | (n, m, prop_type, count) <- props
@@ -249,22 +269,28 @@ such that
 
 count = sum([
 
-    $ RSE definition
-    toInt((w[a] < w[b] /\ w[a] < w[c] /\ w[d] < w[b] /\ w[d] < w[c])
-    \/ (w[b] < w[a] /\ w[b] < w[d] /\ w[c] < w[a] /\ w[c] < w[d]))
+    toInt(
+        ((w[a] < w[b] /\ w[d] > w[c]) 
+        /\
+        (w[a] < w[d] /\ w[b] > w[c]))
+    \/
+        ((w[a] > w[b] /\ w[d] < w[c]) 
+        /\
+        (w[a] > w[d] /\ w[b] < w[c]))
+    )
 
 
     | a,b,c,d : NODE
     , forAll i : DIM . a[i] != b[i] <-> c[i] != d[i]
-    , forAll i : DIM . a[i] != c[i] <-> b[i] != d[i]
+    , forAll i : DIM . a[i] != d[i] <-> b[i] != c[i]
     , sum([1 | i : DIM, a[i] != b[i]])= n
-    , sum([1 | i : DIM, a[i] != c[i]])= m
-    , sum([1 | i : DIM, a[i] != d[i]])= n + m
+    , sum([1 | i : DIM, a[i] != d[i]])= m
+    , sum([1 | i : DIM, a[i] != c[i]])= n + m
 
     $ symmetry breaking, this will look for 1xn faces, which we believe to be equivalent to nx1 faces??
     , a <lex b
-    , b <lex c
-    , c <lex d
+    , a <lex c
+    , b <lex d   $note this is just for n=m
     ])
 
 | (n, m, prop_type, count) <- props

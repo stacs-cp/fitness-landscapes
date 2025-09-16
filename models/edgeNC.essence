@@ -1,0 +1,66 @@
+given dimension : int
+
+letting DIM be domain int(1..dimension)
+letting NODE be domain matrix [DIM] of bool
+
+
+
+
+
+$ --------------------------------------------------------------------------------
+$ direction
+
+$ we only care about the direction of the nodes when counting
+
+$we only look for directions
+$direction[i,j] means we point from i to j
+find direction : matrix [NODE, NODE] of bool
+
+such that
+    forAll n1, n2 : NODE
+        $when there is an edge in the base graph
+        , sum([1 | i : DIM, n1[i] != n2[i]]) = 1
+        $we must have a direction (but not going both ways)
+        . xor([direction[n1, n2],  direction[n2, n1] ])
+
+such that
+    forAll n1, n2 : NODE
+        $when there is no edge in the base graph
+        , sum([1 | i : DIM, n1[i] != n2[i]]) != 1
+        $we have no directions to mean no edge 
+        . (!direction[n1, n2]) /\ (!direction[n2, n1])
+
+
+$0 is a source
+such that 
+    forAll n1, n2 : NODE . (and([ n1[d] = false | d : DIM ]) 
+                            /\  1 = sum i : int(1..dimension) . toInt(n1[i] != n2[i]))
+                            -> direction[n1,n2]
+
+
+$graph is acyclic 
+find hasPaths : matrix [NODE, NODE] of bool
+
+such that 
+    forAll n1, n2 : NODE
+        $when there is no edge in the base graph
+        , sum([1 | i : DIM, n1[i] != n2[i]]) != 1
+        $if there's an edge from n1->n2, then there is a path from n1 to n2
+        . (direction[n1, n2] -> hasPaths[n1, n2])
+
+such that
+    forAll n1, n2, n3 : NODE
+        $when they are all different
+        , allDiff([n1,n2,n3])
+        $transitive
+        . hasPaths[n1, n2] /\ hasPaths[n2, n3]
+        -> hasPaths[n1, n3]
+
+such that
+    forAll n1, n2: NODE
+        $when they are all different
+        , n1!=n2
+        $if there is a path from n1 to n2, then we don't want an edge from n2 to n1
+        . !(hasPaths[n1, n2] /\ direction[n2,n1])
+
+
