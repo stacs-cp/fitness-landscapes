@@ -63,8 +63,9 @@ such that
         ])
 
 
-branching on [direction]
 
+
+branching on [direction]
 
 $ --------------------------------------------------------------------------------
 
@@ -173,13 +174,25 @@ such that
 count = sum([
 
     toInt(
-        ((direction[a,b] /\ direction[c,d]) 
-        \/ 
-        (direction[b,a] /\ direction[d,c]))
-    /\
-        (direction[a,d] /\ direction[b,c]) 
-        \/ 
-        (direction[d,a] /\ direction[c,b])
+        (
+            ((direction[a,b] /\ direction[c,d]) 
+            \/ 
+            (direction[b,a] /\ direction[d,c]))
+        /\
+            (direction[a,d] /\ direction[b,c]) 
+            \/ 
+            (direction[d,a] /\ direction[c,b])
+        )
+        \/
+        (
+            ((direction[a,b] /\ direction[c,d]) 
+            \/ 
+            (direction[b,a] /\ direction[d,c]))
+        /\
+            (direction[a,d] /\ direction[b,c]) 
+            \/ 
+            (direction[d,a] /\ direction[c,b])
+        )
     )
 
     | a,b,c,d : NODE
