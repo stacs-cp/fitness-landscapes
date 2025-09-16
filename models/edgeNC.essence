@@ -4,9 +4,6 @@ letting DIM be domain int(1..dimension)
 letting NODE be domain matrix [DIM] of bool
 
 
-
-
-
 $ --------------------------------------------------------------------------------
 $ direction
 
@@ -34,17 +31,21 @@ such that
 $0 is a source
 such that 
     forAll n1, n2 : NODE . (and([ n1[d] = false | d : DIM ]) 
-                            /\  1 = sum i : int(1..dimension) . toInt(n1[i] != n2[i]))
+                            /\  sum([1 | i : DIM, n1[i] != n2[i]]) = 1)
                             -> direction[n1,n2]
 
+branching on [direction]
+
+
+$ --------------------------------------------------------------------------------
 
 $graph is acyclic 
 find hasPaths : matrix [NODE, NODE] of bool
 
 such that 
     forAll n1, n2 : NODE
-        $when there is no edge in the base graph
-        , sum([1 | i : DIM, n1[i] != n2[i]]) != 1
+        $when there is an edge in the base graph
+        , sum([1 | i : DIM, n1[i] != n2[i]]) = 1
         $if there's an edge from n1->n2, then there is a path from n1 to n2
         . (direction[n1, n2] -> hasPaths[n1, n2])
 
@@ -58,8 +59,8 @@ such that
 
 such that
     forAll n1, n2: NODE
-        $when they are all different
-        , n1!=n2
+        $when there is an edge in the base graph
+        , sum([1 | i : DIM, n1[i] != n2[i]]) = 1
         $if there is a path from n1 to n2, then we don't want an edge from n2 to n1
         . !(hasPaths[n1, n2] /\ direction[n2,n1])
 

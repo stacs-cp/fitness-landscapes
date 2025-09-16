@@ -63,24 +63,257 @@ such that
         ])
 
 
+branching on [direction]
+
+
+$ --------------------------------------------------------------------------------
 
 $graph is acyclic 
-find transitiveClosure : matrix [NODE, NODE] of bool
+find hasPaths : matrix [NODE, NODE] of bool
 
 such that 
     forAll n1, n2 : NODE
-        $when there is no edge in the base graph
-        , sum([1 | i : DIM, n1[i] != n2[i]]) != 1
-        $if there's an edge from n1->n2, 
-        . (direction[n1, n2] <-> transitiveClosure[n1, n2])
+        $when there is an edge in the base graph
+        , sum([1 | i : DIM, n1[i] != n2[i]]) = 1
+        $if there's an edge from n1->n2, then there is a path from n1 to n2
+        . (direction[n1, n2] -> hasPaths[n1, n2])
 
 such that
-    forAll n1, n2, n3 : NODE.
-        transitiveClosure[n1, n2] /\ transitiveClosure[n2, n3]
-        -> transitiveClosure[n1, n3]
+    forAll n1, n2, n3 : NODE
+        $when they are all different
+        , allDiff([n1,n2,n3])
+        $transitive
+        . hasPaths[n1, n2] /\ hasPaths[n2, n3]
+        -> hasPaths[n1, n3]
 
 such that
-    forAll n1, n2, n3 : NODE.
-        !(transitiveClosure[n1, n2] /\ direction[n2,n1])
+    forAll n1, n2: NODE
+        $when there is an edge in the base graph
+        , sum([1 | i : DIM, n1[i] != n2[i]]) = 1
+        $if there is a path from n1 to n2, then we don't want an edge from n2 to n1
+        . !(hasPaths[n1, n2] /\ direction[n2,n1])
+
+$ SE, at least one
+such that
+[
+
+or([
+
+    $ SE definition
+    (
+        ((direction[a,b] /\ direction[c,d]) 
+        \/ 
+        (direction[b,a] /\ direction[d,c]))
+    /\
+        (direction[a,d] /\ direction[b,c]) 
+        \/ 
+        (direction[d,a] /\ direction[c,b])
+    )
+
+    | a,b,c,d : NODE
+    , forAll i : DIM . a[i] != b[i] <-> c[i] != d[i]
+    , forAll i : DIM . a[i] != d[i] <-> b[i] != c[i]
+    , sum([1 | i : DIM, a[i] != b[i]])= n
+    , sum([1 | i : DIM, a[i] != d[i]])= m
+    , sum([1 | i : DIM, a[i] != c[i]])= n + m
+
+    $ symmetry breaking, this will look for 1xn faces, which we believe to be equivalent to nx1 faces??
+    , a <lex b
+    , a <lex c
+    , b <lex d   $note this is just for n=m
+    ])
+
+| (n, m, prop_type, count) <- props
+, count = -1
+, prop_type = SE
+]
+
+
+$ --------------------------------------------------------------------------------
+$ SE, all
+such that
+[
+
+and([
+
+    (
+        ((direction[a,b] /\ direction[c,d]) 
+        \/ 
+        (direction[b,a] /\ direction[d,c]))
+    /\
+        (direction[a,d] /\ direction[b,c]) 
+        \/ 
+        (direction[d,a] /\ direction[c,b])
+    )
+
+    | a,b,c,d : NODE
+    , forAll i : DIM . a[i] != b[i] <-> c[i] != d[i]
+    , forAll i : DIM . a[i] != d[i] <-> b[i] != c[i]
+    , sum([1 | i : DIM, a[i] != b[i]])= n
+    , sum([1 | i : DIM, a[i] != d[i]])= m
+    , sum([1 | i : DIM, a[i] != c[i]])= n + m
+
+    $ symmetry breaking, this will look for 1xn faces, which we believe to be equivalent to nx1 faces??
+    , a <lex b
+    , a <lex c
+    , b <lex d   $note this is just for n=m
+    ])
+
+| (n, m, prop_type, count) <- props
+, count = -2
+, prop_type = SE
+]
+
+
+$ --------------------------------------------------------------------------------
+$ SE, exact count
+such that
+[
+
+count = sum([
+
+    toInt(
+        ((direction[a,b] /\ direction[c,d]) 
+        \/ 
+        (direction[b,a] /\ direction[d,c]))
+    /\
+        (direction[a,d] /\ direction[b,c]) 
+        \/ 
+        (direction[d,a] /\ direction[c,b])
+    )
+
+    | a,b,c,d : NODE
+    , forAll i : DIM . a[i] != b[i] <-> c[i] != d[i]
+    , forAll i : DIM . a[i] != d[i] <-> b[i] != c[i]
+    , sum([1 | i : DIM, a[i] != b[i]])= n
+    , sum([1 | i : DIM, a[i] != d[i]])= m
+    , sum([1 | i : DIM, a[i] != c[i]])= n + m
+
+    $ symmetry breaking, this will look for 1xn faces, which we believe to be equivalent to nx1 faces??
+    , a <lex b
+    , a <lex c
+    , b <lex d   $note this is just for n=m
+    ])
+
+| (n, m, prop_type, count) <- props
+, count >= 0
+, prop_type = SE
+]
+
+
+
+
+$ --------------------------------------------------------------------------------
+$ RSE, at least one
+such that
+[
+
+or([
+
+    (
+        ((direction[a,b] /\ direction[c,d]) 
+        /\
+        (direction[a,d] /\ direction[c,b]))
+    \/
+        ((direction[b,a] /\ direction[d,c]) 
+        /\
+        (direction[d,a] /\ direction[b,c]))
+    )
+
+    | a,b,c,d : NODE
+    , forAll i : DIM . a[i] != b[i] <-> c[i] != d[i]
+    , forAll i : DIM . a[i] != d[i] <-> b[i] != c[i]
+    , sum([1 | i : DIM, a[i] != b[i]])= n
+    , sum([1 | i : DIM, a[i] != d[i]])= m
+    , sum([1 | i : DIM, a[i] != c[i]])= n + m
+
+    $ symmetry breaking, this will look for 1xn faces, which we believe to be equivalent to nx1 faces??
+    , a <lex b
+    , a <lex c
+    , b <lex d   $note this is just for n=m
+    ])
+
+| (n, m, prop_type, count) <- props
+, count = -1
+, prop_type = RSE
+]
+
+
+$ --------------------------------------------------------------------------------
+$ RSE, all
+such that
+[
+
+and([
+
+(
+        ((direction[a,b] /\ direction[c,d]) 
+        /\
+        (direction[a,d] /\ direction[c,b]))
+    \/
+        ((direction[b,a] /\ direction[d,c]) 
+        /\
+        (direction[d,a] /\ direction[b,c]))
+    )
+
+    | a,b,c,d : NODE
+    , forAll i : DIM . a[i] != b[i] <-> c[i] != d[i]
+    , forAll i : DIM . a[i] != d[i] <-> b[i] != c[i]
+    , sum([1 | i : DIM, a[i] != b[i]])= n
+    , sum([1 | i : DIM, a[i] != d[i]])= m
+    , sum([1 | i : DIM, a[i] != c[i]])= n + m
+
+    $ symmetry breaking, this will look for 1xn faces, which we believe to be equivalent to nx1 faces??
+    , a <lex b
+    , a <lex c
+    , b <lex d   $note this is just for n=m
+    ])
+
+| (n, m, prop_type, count) <- props
+, count = -2
+, prop_type = RSE
+]
+
+
+$ --------------------------------------------------------------------------------
+$ RSE, exact count
+such that
+[
+
+count = sum([
+
+    toInt(
+        ((direction[a,b] /\ direction[c,d]) 
+        /\
+        (direction[a,d] /\ direction[c,b]))
+    \/
+        ((direction[b,a] /\ direction[d,c]) 
+        /\
+        (direction[d,a] /\ direction[b,c]))
+    )
+
+
+    | 
+    $ for each face
+    a,b,c,d : NODE
+    , forAll i : DIM . a[i] != b[i] <-> c[i] != d[i]
+    , forAll i : DIM . a[i] != d[i] <-> b[i] != c[i]
+    , sum([1 | i : DIM, a[i] != b[i]])= n
+    , sum([1 | i : DIM, a[i] != d[i]])= m
+    , sum([1 | i : DIM, a[i] != c[i]])= n + m
+
+
+    $ symmetry breaking, this will look for 1xn faces, which we believe to be equivalent to nx1 faces??
+    , a <lex b
+    , a <lex c
+    , b <lex d   $note this is just for n=m
+    ])
+
+| (n, m, prop_type, count) <- props
+, count >= 0
+, prop_type = RSE
+
+]
+
 
 
