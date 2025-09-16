@@ -67,14 +67,14 @@ $symmetry break by forcing the weights of the first layer to be in order
 $to uncover the non-symmetric counts, ... ?
 
 
-$such that 
-$    forAll node1, node2 : NODE .
-$        forAll i : int(1..dimension-1). 
-$            and([node1[d] = false | d:DIM, d!=i]) /\ node1[i]=true 
-$            /\ 
-$            and([node2[d] = false | d:DIM, d!=i+1]) /\ node2[i+1]=true
-$            -> 
-$            w[node1] < w[node2]
+such that 
+    forAll node1, node2 : NODE .
+        forAll i : int(1..dimension-1). 
+            and([node1[d] = false | d:DIM, d!=i]) /\ node1[i]=true 
+            /\ 
+            and([node2[d] = false | d:DIM, d!=i+1]) /\ node2[i+1]=true
+            -> 
+            w[node1] < w[node2]
 
 $ without this sb constraint (but still setting weight of 000 as 0), then we will get Manda's RSE numbers
 
@@ -87,15 +87,26 @@ such that
 or([
 
     $ SE definition
-    (
+    ((
         ((w[a] < w[b] /\ w[d] > w[c]) 
         \/ 
         (w[a] > w[b] /\ w[d] < w[c]))
     /\
-        (w[a] < w[d] /\ w[b] < w[c]) 
+        ((w[a] < w[d] /\ w[b] < w[c]) 
         \/ 
-        (w[a] > w[d] /\ w[b] > w[c])
+        (w[a] > w[d] /\ w[b] > w[c]))
     )
+    \/$need this for n=m
+    (
+        ((w[a] < w[d] /\ w[b] > w[c]) 
+        \/ 
+        (w[a] > w[d] /\ w[b] < w[c]))
+    /\
+        ((w[a] < w[b] /\ w[d] < w[c]) 
+        \/ 
+        (w[a] > w[b] /\ w[d] > w[c]))
+    ))
+
 
     | a,b,c,d : NODE
     , forAll i : DIM . a[i] != b[i] <-> c[i] != d[i]
@@ -123,15 +134,26 @@ such that
 
 and([
 
-    (
+    ((
         ((w[a] < w[b] /\ w[d] > w[c]) 
         \/ 
         (w[a] > w[b] /\ w[d] < w[c]))
     /\
-        (w[a] < w[d] /\ w[b] < w[c]) 
+        ((w[a] < w[d] /\ w[b] < w[c]) 
         \/ 
-        (w[a] > w[d] /\ w[b] > w[c])
+        (w[a] > w[d] /\ w[b] > w[c]))
     )
+    \/$need this for n=m
+    (
+        ((w[a] < w[d] /\ w[b] > w[c]) 
+        \/ 
+        (w[a] > w[d] /\ w[b] < w[c]))
+    /\
+        ((w[a] < w[b] /\ w[d] < w[c]) 
+        \/ 
+        (w[a] > w[b] /\ w[d] > w[c]))
+    ))
+
 
     | a,b,c,d : NODE
     , forAll i : DIM . a[i] != b[i] <-> c[i] != d[i]
@@ -159,15 +181,27 @@ such that
 
 count = sum([
 
-    toInt(
+    toInt((
         ((w[a] < w[b] /\ w[d] > w[c]) 
         \/ 
         (w[a] > w[b] /\ w[d] < w[c]))
     /\
-        (w[a] < w[d] /\ w[b] < w[c]) 
+        ((w[a] < w[d] /\ w[b] < w[c]) 
         \/ 
-        (w[a] > w[d] /\ w[b] > w[c])
+        (w[a] > w[d] /\ w[b] > w[c]))
     )
+    \/$need this for n=m
+    (
+        ((w[a] < w[d] /\ w[b] > w[c]) 
+        \/ 
+        (w[a] > w[d] /\ w[b] < w[c]))
+    /\
+        ((w[a] < w[b] /\ w[d] < w[c]) 
+        \/ 
+        (w[a] > w[b] /\ w[d] > w[c]))
+    ))
+
+
 
     | a,b,c,d : NODE
     , forAll i : DIM . a[i] != b[i] <-> c[i] != d[i]
@@ -189,7 +223,7 @@ count = sum([
 
 
 
-
+$TODO: RSE needs changing when n=m
 $ --------------------------------------------------------------------------------
 $ RSE, at least one
 such that
