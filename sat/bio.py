@@ -13,7 +13,6 @@ from pysat.solvers import Solver
 from pysat.card import CardEnc
 
 import pysat
-print(pysat.__version__)
 
 DEFAULT_CARDINALITY_ENCODING = 7  # selected pysat encoding for cardinality constraints
 
