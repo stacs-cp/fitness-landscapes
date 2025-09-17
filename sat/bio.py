@@ -12,6 +12,8 @@ from pysat.formula import *
 from pysat.solvers import Solver
 from pysat.card import CardEnc
 
+import pysat
+print(pysat.__version__)
 
 DEFAULT_CARDINALITY_ENCODING = 7  # selected pysat encoding for cardinality constraints
 
@@ -30,7 +32,7 @@ def swap(i, j, v):
     return tuple(u)
 
 
-def encode(n, partial_sym_break=None, card_type=1, peak_count=None, RSE_count=None, SE_count=None):
+def encode(n, partial_sym_break=None, card_type=1, peak_count=None, RSE_count=None, SE_count=None, complete_sym_break=False):
     enc = CNF()
 
     print(f"Card type: {card_type}")
@@ -297,7 +299,7 @@ def encode(n, partial_sym_break=None, card_type=1, peak_count=None, RSE_count=No
                     maxcomparisons=MAX_COMPARISONS,
                 )
 
-            if True:  # complete symmetry breaking
+            if complete_sym_break:  # complete symmetry breaking
                 for P in itertools.permutations(range(n)):
                     flip_dimensions = [0 for _ in range(n)]  # TODO no flips for now
 
@@ -317,6 +319,7 @@ def encode(n, partial_sym_break=None, card_type=1, peak_count=None, RSE_count=No
             print(f"number of clauses after adding symmetry breaking: {len(enc.clauses)}")
 
     print(f"Total number of clauses: {len(enc.clauses)}")
+    print(f"Total number of variables: {vpool.top}")
 
     return enc, var_to_edge
 
@@ -338,6 +341,7 @@ if __name__ == "__main__":
         "--use-pysat-solver", action="store_true", help="Use pysat solver instead of custom SMS version and check for isomorphic copies at the end"
     )
     argparser.add_argument("-a", "--all", action="store_true", help="Enumerate all models")
+    argparser.add_argument("--complete-sym-break", action="store_true", help="Use 'complete' symmetry breaking instead of partial")
     argparser.add_argument("--partial-sym-break", type=int, help="Max comparisons for partial symbreak", default=20000)
 
     argparser.add_argument(
@@ -360,6 +364,7 @@ if __name__ == "__main__":
         peak_count=args.peak_count,
         RSE_count=args.RSE_count,
         SE_count=args.SE_count,
+        complete_sym_break=args.complete_sym_break,
     )
 
     # encoding.to_file(f"norine_switches_pysat_{N}_{args.b}.cnf")
