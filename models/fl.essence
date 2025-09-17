@@ -76,7 +76,7 @@ such that
             -> 
             w[node1] < w[node2]
 
-$ without this sb constraint (but still setting weight of 000 as 0), then we will get Manda's RSE numbers
+$without this sb constraint (but still setting weight of 000 as 0), then we will get Manda's RSE numbers
 
 
 $ --------------------------------------------------------------------------------
@@ -202,7 +202,6 @@ count = sum([
     ))
 
 
-
     | a,b,c,d : NODE
     , forAll i : DIM . a[i] != b[i] <-> c[i] != d[i]
     , forAll i : DIM . a[i] != d[i] <-> b[i] != c[i]
@@ -223,7 +222,6 @@ count = sum([
 
 
 
-$TODO: RSE needs changing when n=m
 $ --------------------------------------------------------------------------------
 $ RSE, at least one
 such that
@@ -304,6 +302,7 @@ such that
 count = sum([
 
     toInt(
+    
         ((w[a] < w[b] /\ w[d] > w[c]) 
         /\
         (w[a] < w[d] /\ w[b] > w[c]))
@@ -311,6 +310,7 @@ count = sum([
         ((w[a] > w[b] /\ w[d] < w[c]) 
         /\
         (w[a] > w[d] /\ w[b] < w[c]))
+    
     )
 
 
@@ -332,3 +332,7 @@ count = sum([
 , prop_type = RSE
 ]
 
+
+
+
+$conjure solve fl.essence test.param --number-of-solutions=all --output-format=json --solutions-in-one-file
