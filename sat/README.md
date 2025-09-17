@@ -13,4 +13,6 @@ python sat/bio.py -n 4 --partial-sym-break 200 --peak-count 5 --SE-count 12 -a
 - `-a` for enumerating all models
 - For deactivating symmetry breaking set `--partial-sym-break 0`
 - `--card` for setting a different cardinality in pysat (see pysat documentation)
+- `--complete-sym-break` for breaking all symmetries from permuting dimensions (but not flipping dimensions)
 - For other options use `-h`
+

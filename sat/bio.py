@@ -12,6 +12,7 @@ from pysat.formula import *
 from pysat.solvers import Solver
 from pysat.card import CardEnc
 
+import pysat
 
 DEFAULT_CARDINALITY_ENCODING = 7  # selected pysat encoding for cardinality constraints
 
@@ -30,7 +31,7 @@ def swap(i, j, v):
     return tuple(u)
 
 
-def encode(n, partial_sym_break=None, card_type=1, peak_count=None, RSE_count=None, SE_count=None):
+def encode(n, partial_sym_break=None, card_type=1, peak_count=None, RSE_count=None, SE_count=None, complete_sym_break=False):
     enc = CNF()
 
     print(f"Card type: {card_type}")
@@ -93,67 +94,97 @@ def encode(n, partial_sym_break=None, card_type=1, peak_count=None, RSE_count=No
 
     # RSE
 
-    RSE_variables = []
-
-    for u in vertices:
-        for v1, v2 in itertools.combinations(graph[u], 2):
-            # double w should be the unique neighbor of v1 and v2 other then u
-            w = ((set(graph[v1]) & set(graph[v2])) - {u}).pop()
-
-            if u > w:
-                continue
-
-            x = vpool.id()
-            # variables true iff the structure is an RSE
-
-            enc.append([-x, r(u, v1)])
-            enc.append([-x, r(u, v2)])
-            enc.append([-x, r(w, v1)])
-            enc.append([-x, r(w, v2)])
-            enc.append([x, -r(u, v1), -r(u, v2), -r(w, v1), -r(w, v2)])  # x -> r(u,v1) and r(u,v2) and r(w,v1) and r(w,v2)
-
-            RSE_variables.append(x)
-
-    # peaks (all incomming edges)
-
-    peak_variables = []
-    for v in vertices:
-        x = vpool.id()
-        peak_variables.append(x)
-        for u in graph[v]:
-            enc.append([-x, r(u, v)])  # if peak then incomming edge
-        enc.append([x] + [-r(u, v) for u in graph[v]])  # if for all u in N(v) not r(u,v) then x
-
     # SE counts (3-path + last in other direction)
+    
+    if False:
+        if RSE_count:
+            RSE_variables = []
 
-    SE_variables = []
-    for u in vertices:
-        for v1, v2 in itertools.permutations(graph[u], 2):
-            # double w should be the unique neighbor of v1 and v2 other then u
-            w = ((set(graph[v1]) & set(graph[v2])) - {u}).pop()
+            for u in vertices:
+                for v1, v2 in itertools.combinations(graph[u], 2):
+                    # double w should be the unique neighbor of v1 and v2 other then u
+                    w = ((set(graph[v1]) & set(graph[v2])) - {u}).pop()
 
-            x = vpool.id()
-            # variables true iff the structure is an SE
+                    if u > w:
+                        continue
 
-            enc.append([-x, r(u, v1)])
-            enc.append([-x, r(v1, w)])
-            enc.append([-x, r(w, v2)])
-            enc.append([-x, -r(v2, u)])
-            enc.append([x, -r(u, v1), -r(v1, w), -r(w, v2), r(v2, u)])
+                    x = vpool.id()
+                    # variables true iff the structure is an RSE
 
-            SE_variables.append(x)
+                    enc.append([-x, r(u, v1)])
+                    enc.append([-x, r(u, v2)])
+                    enc.append([-x, r(w, v1)])
+                    enc.append([-x, r(w, v2)])
+                    enc.append([x, -r(u, v1), -r(u, v2), -r(w, v1), -r(w, v2)])  # x -> r(u,v1) and r(u,v2) and r(w,v1) and r(w,v2)
 
-    if RSE_count:
-        enc.extend(
-            CardEnc.equals(
-                RSE_variables,
-                bound=RSE_count,
-                vpool=vpool,
-                encoding=card_type,
+                    RSE_variables.append(x)
+                    
+            enc.extend(
+                CardEnc.equals(
+                    RSE_variables,
+                    bound=RSE_count,
+                    vpool=vpool,
+                    encoding=card_type,
+                )
             )
-        )
+    else:
+        if RSE_count:
+            RSE_variables = []
+
+            for u in vertices:
+                for v1, v2 in itertools.combinations(graph[u], 2):
+                    # double w should be the unique neighbor of v1 and v2 other then u
+                    w = ((set(graph[v1]) & set(graph[v2])) - {u}).pop()
+
+                    if u > w:
+                        continue
+                    if u > v1 or u > v2:
+                        continue
+
+
+                    x = vpool.id()
+                    # variables true iff the structure is an SE
+
+                    # variable for saying u -> v1 is parallel to v2 -> w
+                    p1 = vpool.id()
+                    enc.append([-p1, -r(u, v1), r(v2, w)]) # if parallel and r(u,v1) then r(v2,w)
+                    enc.append([-p1, -r(v1, u), r(w, v2)]) # if parallel and r(v2,w) then r(u,v1)
+                    enc.append([p1, -r(u, v1), r(w, v2)])
+                    enc.append([p1, -r(v1, u), r(v2, w)])
+
+                    # variable for saying v1->w is parallel to u->v2
+                    p2 = vpool.id()
+                    enc.append([-p2, -r(v1, w), r(u, v2)]) # if parallel and r(v1,w) then r(u,v2)
+                    enc.append([-p2, -r(w, v1), r(v2, u)]) # if parallel and r(u,v2) then r(v1,w)
+                    enc.append([p2, -r(v1, w), r(v2, u)])
+                    enc.append([p2, -r(w, v1), r(u, v2)])
+
+                    # x is (p1 xor p2)
+
+                    enc.append([-x, -p1])
+                    enc.append([-x, -p2])
+                    enc.append([x, p1, p2])
+                    RSE_variables.append(x)
+                    
+            enc.extend(
+                CardEnc.equals(
+                    RSE_variables,
+                    bound=RSE_count,
+                    vpool=vpool,
+                    encoding=card_type,
+                )
+            )
 
     if peak_count:
+        # peaks (all incomming edges)
+        peak_variables = []
+        for v in vertices:
+            x = vpool.id()
+            peak_variables.append(x)
+            for u in graph[v]:
+                enc.append([-x, r(u, v)])  # if peak then incomming edge
+            enc.append([x] + [-r(u, v) for u in graph[v]])  # if for all u in N(v) not r(u,v) then x
+
         enc.extend(
             CardEnc.equals(
                 peak_variables,
@@ -163,15 +194,86 @@ def encode(n, partial_sym_break=None, card_type=1, peak_count=None, RSE_count=No
             )
         )
 
-    if SE_count:
-        enc.extend(
-            CardEnc.equals(
-                SE_variables,
-                bound=SE_count,
-                vpool=vpool,
-                encoding=card_type,
+    if False:
+        if SE_count:
+            SE_variables = []
+            for u in vertices:
+                for v1, v2 in itertools.permutations(graph[u], 2):
+                    # double w should be the unique neighbor of v1 and v2 other then u
+                    w = ((set(graph[v1]) & set(graph[v2])) - {u}).pop()
+
+                    x = vpool.id()
+                    # variables true iff the structure is an SE
+
+                    enc.append([-x, r(u, v1)])
+                    enc.append([-x, r(v1, w)])
+                    enc.append([-x, r(w, v2)])
+                    enc.append([-x, -r(v2, u)])
+                    enc.append([x, -r(u, v1), -r(v1, w), -r(w, v2), r(v2, u)])
+
+                    SE_variables.append(x)
+
+            
+
+            enc.extend(
+                CardEnc.equals(
+                    SE_variables,
+                    bound=SE_count,
+                    vpool=vpool,
+                    encoding=card_type,
+                )
             )
-        )
+
+    # SE version 2
+    else:
+        if SE_count:
+            SE_variables = []
+            for u in vertices:
+                for v1, v2 in itertools.combinations(graph[u], 2):
+                    # double w should be the unique neighbor of v1 and v2 other then u
+                    w = ((set(graph[v1]) & set(graph[v2])) - {u}).pop()
+
+                    if u > w:
+                        continue
+                    if u > v1 or u > v2:
+                        continue
+
+
+                    x = vpool.id()
+                    # variables true iff the structure is an SE
+
+                    # variable for saying u -> v1 is parallel to v2 -> w
+                    p1 = vpool.id()
+                    enc.append([-p1, -r(u, v1), r(v2, w)]) # if parallel and r(u,v1) then r(v2,w)
+                    enc.append([-p1, -r(v1, u), r(w, v2)]) # if parallel and r(v2,w) then r(u,v1)
+                    enc.append([p1, -r(u, v1), r(w, v2)])
+                    enc.append([p1, -r(v1, u), r(v2, w)])
+
+                    # variable for saying v1->w is parallel to u->v2
+                    p2 = vpool.id()
+                    enc.append([-p2, -r(v1, w), r(u, v2)]) # if parallel and r(v1,w) then r(u,v2)
+                    enc.append([-p2, -r(w, v1), r(v2, u)]) # if parallel and r(u,v2) then r(v1,w)
+                    enc.append([p2, -r(v1, w), r(v2, u)])
+                    enc.append([p2, -r(w, v1), r(u, v2)])
+
+                    # x is (p1 xor p2)
+
+                    enc.append([-x, -p1, -p2])
+                    enc.append([-x, p1, p2])
+                    enc.append([x, -p1, p2])
+                    enc.append([x, p1, -p2])
+                    SE_variables.append(x)
+
+            enc.extend(
+                CardEnc.equals(
+                    SE_variables,
+                    bound=SE_count,
+                    vpool=vpool,
+                    encoding=card_type,
+                )
+            )
+
+    
 
     # Symmetry breaking
 
@@ -196,7 +298,7 @@ def encode(n, partial_sym_break=None, card_type=1, peak_count=None, RSE_count=No
                     maxcomparisons=MAX_COMPARISONS,
                 )
 
-            if False:  # complete symmetry breaking
+            if complete_sym_break:  # complete symmetry breaking
                 for P in itertools.permutations(range(n)):
                     flip_dimensions = [0 for _ in range(n)]  # TODO no flips for now
 
@@ -216,6 +318,7 @@ def encode(n, partial_sym_break=None, card_type=1, peak_count=None, RSE_count=No
             print(f"number of clauses after adding symmetry breaking: {len(enc.clauses)}")
 
     print(f"Total number of clauses: {len(enc.clauses)}")
+    print(f"Total number of variables: {vpool.top}")
 
     return enc, var_to_edge
 
@@ -237,6 +340,7 @@ if __name__ == "__main__":
         "--use-pysat-solver", action="store_true", help="Use pysat solver instead of custom SMS version and check for isomorphic copies at the end"
     )
     argparser.add_argument("-a", "--all", action="store_true", help="Enumerate all models")
+    argparser.add_argument("--complete-sym-break", action="store_true", help="Use 'complete' symmetry breaking instead of partial")
     argparser.add_argument("--partial-sym-break", type=int, help="Max comparisons for partial symbreak", default=20000)
 
     argparser.add_argument(
@@ -259,6 +363,7 @@ if __name__ == "__main__":
         peak_count=args.peak_count,
         RSE_count=args.RSE_count,
         SE_count=args.SE_count,
+        complete_sym_break=args.complete_sym_break,
     )
 
     # encoding.to_file(f"norine_switches_pysat_{N}_{args.b}.cnf")
