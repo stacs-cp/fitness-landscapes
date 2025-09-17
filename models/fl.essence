@@ -67,14 +67,14 @@ $symmetry break by forcing the weights of the first layer to be in order
 $to uncover the non-symmetric counts, ... ?
 
 
-such that 
-    forAll node1, node2 : NODE .
-        forAll i : int(1..dimension-1). 
-            and([node1[d] = false | d:DIM, d!=i]) /\ node1[i]=true 
-            /\ 
-            and([node2[d] = false | d:DIM, d!=i+1]) /\ node2[i+1]=true
-            -> 
-            w[node1] < w[node2]
+$ such that 
+$     forAll node1, node2 : NODE .
+$         forAll i : int(1..dimension-1). 
+$             and([node1[d] = false | d:DIM, d!=i]) /\ node1[i]=true 
+$             /\ 
+$             and([node2[d] = false | d:DIM, d!=i+1]) /\ node2[i+1]=true
+$             -> 
+$             w[node1] < w[node2]
 
 $ without this sb constraint (but still setting weight of 000 as 0), then we will get Manda's RSE numbers
 
