@@ -97,7 +97,7 @@ def encode(n, partial_sym_break=None, card_type=1, peak_count=None, RSE_count=No
     # SE counts (3-path + last in other direction)
     
     if False:
-        if RSE_count:
+        if RSE_count is not None:
             RSE_variables = []
 
             for u in vertices:
@@ -128,7 +128,7 @@ def encode(n, partial_sym_break=None, card_type=1, peak_count=None, RSE_count=No
                 )
             )
     else:
-        if RSE_count:
+        if RSE_count is not None:
             RSE_variables = []
 
             for u in vertices:
@@ -175,7 +175,7 @@ def encode(n, partial_sym_break=None, card_type=1, peak_count=None, RSE_count=No
                 )
             )
 
-    if peak_count:
+    if peak_count is not None:
         # peaks (all incomming edges)
         peak_variables = []
         for v in vertices:
@@ -195,7 +195,7 @@ def encode(n, partial_sym_break=None, card_type=1, peak_count=None, RSE_count=No
         )
 
     if False:
-        if SE_count:
+        if SE_count is not None:
             SE_variables = []
             for u in vertices:
                 for v1, v2 in itertools.permutations(graph[u], 2):
@@ -226,7 +226,7 @@ def encode(n, partial_sym_break=None, card_type=1, peak_count=None, RSE_count=No
 
     # SE version 2
     else:
-        if SE_count:
+        if SE_count is not None:
             SE_variables = []
             for u in vertices:
                 for v1, v2 in itertools.combinations(graph[u], 2):
@@ -288,17 +288,18 @@ def encode(n, partial_sym_break=None, card_type=1, peak_count=None, RSE_count=No
             # cls_pre_sb = enc.n_clauses()
             original_signed_edges = [(1, (u, v)) for u in vertices for v in graph[u] if u < v]
 
-            for i, j in itertools.combinations(range(n), 2):
-                permuted_edges = [(s, (swap(i, j, u), swap(i, j, v))) for s, (u, v) in original_signed_edges]
-                enc = lex_smaller_eq(
-                    enc,
-                    vpool,
-                    [s * r(u, v) for s, (u, v) in original_signed_edges],
-                    [s * r(u, v) for s, (u, v) in permuted_edges],
-                    maxcomparisons=MAX_COMPARISONS,
-                )
-
-            if complete_sym_break:  # complete symmetry breaking
+            if not complete_sym_break:
+                # only consider transpositions of the dimensions
+                for i, j in itertools.combinations(range(n), 2):
+                    permuted_edges = [(s, (swap(i, j, u), swap(i, j, v))) for s, (u, v) in original_signed_edges]
+                    enc = lex_smaller_eq(
+                        enc,
+                        vpool,
+                        [s * r(u, v) for s, (u, v) in original_signed_edges],
+                        [s * r(u, v) for s, (u, v) in permuted_edges],
+                        maxcomparisons=MAX_COMPARISONS,
+                    )
+            else:  # complete symmetry breaking
                 for P in itertools.permutations(range(n)):
                     flip_dimensions = [0 for _ in range(n)]  # TODO no flips for now
 
