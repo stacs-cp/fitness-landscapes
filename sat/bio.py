@@ -1,18 +1,18 @@
 """
-Script for checking various conjectures related to Norine's conjecture and improving asymptotic bounds.
+Script for  enumerating or checking existence of various fitness landscapes with different counts of
+- peaks
+- RSE structures
+- SE structures
 """
 
 import itertools
 import argparse
-import random
 
-from lex import lex_smaller_eq, checkLexMin
+from lex import lex_smaller_eq
 
 from pysat.formula import *
 from pysat.solvers import Solver
 from pysat.card import CardEnc
-
-import pysat
 
 DEFAULT_CARDINALITY_ENCODING = 7  # selected pysat encoding for cardinality constraints
 
@@ -95,7 +95,7 @@ def encode(n, partial_sym_break=None, card_type=1, peak_count=None, RSE_count=No
     # RSE
 
     # SE counts (3-path + last in other direction)
-    
+
     if False:
         if RSE_count is not None:
             RSE_variables = []
@@ -118,7 +118,7 @@ def encode(n, partial_sym_break=None, card_type=1, peak_count=None, RSE_count=No
                     enc.append([x, -r(u, v1), -r(u, v2), -r(w, v1), -r(w, v2)])  # x -> r(u,v1) and r(u,v2) and r(w,v1) and r(w,v2)
 
                     RSE_variables.append(x)
-                    
+
             enc.extend(
                 CardEnc.equals(
                     RSE_variables,
@@ -141,21 +141,20 @@ def encode(n, partial_sym_break=None, card_type=1, peak_count=None, RSE_count=No
                     if u > v1 or u > v2:
                         continue
 
-
                     x = vpool.id()
                     # variables true iff the structure is an SE
 
                     # variable for saying u -> v1 is parallel to v2 -> w
                     p1 = vpool.id()
-                    enc.append([-p1, -r(u, v1), r(v2, w)]) # if parallel and r(u,v1) then r(v2,w)
-                    enc.append([-p1, -r(v1, u), r(w, v2)]) # if parallel and r(v2,w) then r(u,v1)
+                    enc.append([-p1, -r(u, v1), r(v2, w)])  # if parallel and r(u,v1) then r(v2,w)
+                    enc.append([-p1, -r(v1, u), r(w, v2)])  # if parallel and r(v2,w) then r(u,v1)
                     enc.append([p1, -r(u, v1), r(w, v2)])
                     enc.append([p1, -r(v1, u), r(v2, w)])
 
                     # variable for saying v1->w is parallel to u->v2
                     p2 = vpool.id()
-                    enc.append([-p2, -r(v1, w), r(u, v2)]) # if parallel and r(v1,w) then r(u,v2)
-                    enc.append([-p2, -r(w, v1), r(v2, u)]) # if parallel and r(u,v2) then r(v1,w)
+                    enc.append([-p2, -r(v1, w), r(u, v2)])  # if parallel and r(v1,w) then r(u,v2)
+                    enc.append([-p2, -r(w, v1), r(v2, u)])  # if parallel and r(u,v2) then r(v1,w)
                     enc.append([p2, -r(v1, w), r(v2, u)])
                     enc.append([p2, -r(w, v1), r(u, v2)])
 
@@ -165,7 +164,7 @@ def encode(n, partial_sym_break=None, card_type=1, peak_count=None, RSE_count=No
                     enc.append([-x, -p2])
                     enc.append([x, p1, p2])
                     RSE_variables.append(x)
-                    
+
             enc.extend(
                 CardEnc.equals(
                     RSE_variables,
@@ -213,8 +212,6 @@ def encode(n, partial_sym_break=None, card_type=1, peak_count=None, RSE_count=No
 
                     SE_variables.append(x)
 
-            
-
             enc.extend(
                 CardEnc.equals(
                     SE_variables,
@@ -238,21 +235,20 @@ def encode(n, partial_sym_break=None, card_type=1, peak_count=None, RSE_count=No
                     if u > v1 or u > v2:
                         continue
 
-
                     x = vpool.id()
                     # variables true iff the structure is an SE
 
                     # variable for saying u -> v1 is parallel to v2 -> w
                     p1 = vpool.id()
-                    enc.append([-p1, -r(u, v1), r(v2, w)]) # if parallel and r(u,v1) then r(v2,w)
-                    enc.append([-p1, -r(v1, u), r(w, v2)]) # if parallel and r(v2,w) then r(u,v1)
+                    enc.append([-p1, -r(u, v1), r(v2, w)])  # if parallel and r(u,v1) then r(v2,w)
+                    enc.append([-p1, -r(v1, u), r(w, v2)])  # if parallel and r(v2,w) then r(u,v1)
                     enc.append([p1, -r(u, v1), r(w, v2)])
                     enc.append([p1, -r(v1, u), r(v2, w)])
 
                     # variable for saying v1->w is parallel to u->v2
                     p2 = vpool.id()
-                    enc.append([-p2, -r(v1, w), r(u, v2)]) # if parallel and r(v1,w) then r(u,v2)
-                    enc.append([-p2, -r(w, v1), r(v2, u)]) # if parallel and r(u,v2) then r(v1,w)
+                    enc.append([-p2, -r(v1, w), r(u, v2)])  # if parallel and r(v1,w) then r(u,v2)
+                    enc.append([-p2, -r(w, v1), r(v2, u)])  # if parallel and r(u,v2) then r(v1,w)
                     enc.append([p2, -r(v1, w), r(v2, u)])
                     enc.append([p2, -r(w, v1), r(u, v2)])
 
@@ -272,8 +268,6 @@ def encode(n, partial_sym_break=None, card_type=1, peak_count=None, RSE_count=No
                     encoding=card_type,
                 )
             )
-
-    
 
     # Symmetry breaking
 
