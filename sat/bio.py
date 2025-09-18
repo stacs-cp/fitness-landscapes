@@ -377,14 +377,8 @@ if __name__ == "__main__":
     num_edge_vars = 2 ** (N - 1) * N
 
     num_models = 0
-    num_minimal_models = 0
 
     solutions = []
-
-    path_for_graphs = f"graphs_{N}.g6"
-    path_for_filtered_graphs = f"graphs_filtered_{N}.g6"
-
-    os.remove(path_for_graphs) if os.path.exists(path_for_graphs) else None
 
     print("Start solving...")
     while r:
