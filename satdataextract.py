@@ -7,7 +7,7 @@ face_counts = {3: range(0, 6+1),
 
 
 def doOne(dimension_, nb_peaks_, peak_count_):
-    filename = f"sturmoutput/fitness/satoutput/dim-{dimension_}-peak-{nb_peaks_}-SE-{peak_count_}.txt"
+    filename = f"sturmoutput/fitness-25-09-30/satoutput/dim-{dimension_}-peak-{nb_peaks_}-SE-{peak_count_}.txt"
     # print(filename)
     try:
         with open(filename, 'r', encoding='utf-8') as f:
