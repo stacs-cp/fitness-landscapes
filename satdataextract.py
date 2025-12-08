@@ -3,11 +3,12 @@ import json
 
 face_counts = {3: range(0, 6+1),
                4: range(0, 24+1),
-               5: range(0, 80+1)}
+               5: range(0, 80+1),
+               6: range(0, 240+1)}
 
 
 def doOne(dimension_, nb_peaks_, peak_count_):
-    filename = f"results-2025-11-17/satoutput/dim-{dimension_}-peak-{nb_peaks_}-SE-{peak_count_}.txt"
+    filename = f"results-2025-12-08/satoutput/dim-{dimension_}-peak-{nb_peaks_}-SE-{peak_count_}.txt"
     # print(filename)
     try:
         with open(filename, 'r', encoding='utf-8') as f:
@@ -23,7 +24,7 @@ def doOne(dimension_, nb_peaks_, peak_count_):
 
 
 # for dimension in [3, 4, 5]:
-for dimension in [3, 4, 5]:
+for dimension in [3, 4, 5, 6]:
     outfile = f"dim-{dimension}-SE.csv"
     with open(outfile, "w", encoding="utf8") as out:
         print("Faces/Peaks,"+",".join([str(nb_peaks) for nb_peaks in range(0, 2**(dimension-1)+1)]), file=out)

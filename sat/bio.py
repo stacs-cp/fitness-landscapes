@@ -361,7 +361,7 @@ if __name__ == "__main__":
         complete_sym_break=args.complete_sym_break,
     )
 
-    # encoding.to_file(f"norine_switches_pysat_{N}_{args.b}.cnf")
+#    encoding.to_file(f"norine_switches_pysat_{N}_{args.b}.cnf")
     tmp_file = args.tmp_file
 
     if args.no_solve:
@@ -382,6 +382,7 @@ if __name__ == "__main__":
 
     print("Start solving...")
     while r:
+        
         r = solver.solve()
         # print("Result:", r)
 
