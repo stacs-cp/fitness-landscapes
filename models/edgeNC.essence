@@ -39,29 +39,42 @@ branching on [direction]
 
 $ --------------------------------------------------------------------------------
 
-$graph is acyclic 
+$ $graph is acyclic 
+$ find hasPaths : matrix [NODE, NODE] of bool
+
+$ such that 
+$     forAll n1, n2 : NODE
+$         $when there is an edge in the base graph
+$         , sum([1 | i : DIM, n1[i] != n2[i]]) = 1
+$         $if there's an edge from n1->n2, then there is a path from n1 to n2
+$         . (direction[n1, n2] -> hasPaths[n1, n2])
+
+$ such that
+$     forAll n1, n2, n3 : NODE
+$         $when they are all different
+$         , allDiff([n1,n2,n3])
+$         $transitive
+$         . hasPaths[n1, n2] /\ hasPaths[n2, n3]
+$         -> hasPaths[n1, n3]
+
+$ such that
+$     forAll n1, n2: NODE
+$         $when there is an edge in the base graph
+$         , sum([1 | i : DIM, n1[i] != n2[i]]) = 1
+$         $if there is a path from n1 to n2, then we don't want an edge from n2 to n1
+$         . !(hasPaths[n1, n2] /\ direction[n2,n1])
+
+
+$ Oz version of acyclic
+
+$ path(x,y) iff there is a path from x to y
 find hasPaths : matrix [NODE, NODE] of bool
+ 
+$ edges are paths
+such that forAll x,y : NODE . x != y /\ (sum([1 | i : DIM, x[i] != y[i]]) = 1) -> hasPaths[x,y]
+ 
+$ path from x->y AND y->z IMPLIES x->z
+such that forAll x,y,z : NODE . (hasPaths[x,y] /\ hasPaths[y,z]) -> hasPaths[x,z]
 
-such that 
-    forAll n1, n2 : NODE
-        $when there is an edge in the base graph
-        , sum([1 | i : DIM, n1[i] != n2[i]]) = 1
-        $if there's an edge from n1->n2, then there is a path from n1 to n2
-        . (direction[n1, n2] -> hasPaths[n1, n2])
-
-such that
-    forAll n1, n2, n3 : NODE
-        $when they are all different
-        , allDiff([n1,n2,n3])
-        $transitive
-        . hasPaths[n1, n2] /\ hasPaths[n2, n3]
-        -> hasPaths[n1, n3]
-
-such that
-    forAll n1, n2: NODE
-        $when there is an edge in the base graph
-        , sum([1 | i : DIM, n1[i] != n2[i]]) = 1
-        $if there is a path from n1 to n2, then we don't want an edge from n2 to n1
-        . !(hasPaths[n1, n2] /\ direction[n2,n1])
-
-
+$ rel is acyclic
+such that forAll x : NODE . !hasPaths[x,x]
