@@ -43,10 +43,10 @@ such that
         . (!direction[n1, n2]) /\ (!direction[n2, n1])
 
 $0 is a source
-such that 
-   forAll n1, n2 : NODE . (and([ n1[d] = false | d : DIM ]) 
-                           /\  1 = sum i : int(1..dimension) . toInt(n1[i] != n2[i]))
-                           -> direction[n1,n2]
+$ such that 
+$    forAll n1, n2 : NODE . (and([ n1[d] = false | d : DIM ]) 
+$                            /\  1 = sum i : int(1..dimension) . toInt(n1[i] != n2[i]))
+$                            -> direction[n1,n2]
 
 
 $ a node is a peak if its weight is larger  than all of its neighbours' weights
