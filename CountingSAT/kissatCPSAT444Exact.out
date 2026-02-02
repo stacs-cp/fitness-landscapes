@@ -1,0 +1,1488 @@
+c o Ganak SHA1: 7ab65562ea23243163dea4b3a016c3c14ca29e52
+c o Arjun SHA1: 58ec9aff687c9adcd6a26f158a947c07794e43f6
+c o SBVA SHA1: 0faa08cf3cc26ed855831c9dc16a3489c9ae010f
+c o CMS SHA1: 0f7487ebf5afa1ae3f7be279ba3709906a1c861d
+c o ApproxMC SHA1: 56042dc9002dee312bb4be283d2bdf8bc2a67827
+c o Using ideas by JM Lagniez, and Pierre Marquis
+c o     from paper 'Improving Model Counting [..] IJCAI 2016
+c o Using VMTF, picosat, CaDiCaL, and CadiBack code by Armin Biere
+c o CMS is MIT licensed
+c o Using code from 'When Boolean Satisfiability Meets Gauss-E. in a Simplex Way'
+c o       by C.-S. Han and J.-H. Roland Jiang in CAV 2012. Fixes by M. Soos
+c o Using CCAnr from 'CCAnr: A Conf. Checking Based Local Search Solver [...]'
+c o       by Shaowei Cai, Chuan Luo, and Kaile Su, SAT 2015
+c o Using Oracle code from 'Integrating Tree Decompositions [...]'
+c o       by Tuukka Korhonen and Matti Jarvisalo, CP 2021
+c o Using Graph library by Tuukka Korhonen and Matti Jarvisalo
+c o Using Flowcutter by Ben Strasser
+c o Ganak compilation env CMAKE_CXX_COMPILER = /usr/bin/c++ | CMAKE_CXX_FLAGS =  -fno-stack-protector -mpopcnt -msse4.2 -mpclmul -Wnull-dereference -Wdouble-promotion -Wshadow -Wformat=2 -Wextra-semi -pedantic | COMPILE_DEFINES =  | STATICCOMPILE = ON | ZLIB_FOUND = TRUE | ENABLE_ASSERTIONS = OFF | 
+c o called with: /Users/rh347/Downloads/ganak-mac-arm64/ganak --prob 0 conjure-output/model000001-test.eprime-dimacs
+c o CNF projection set size: 977
+c o --> Executing strategy token: clean-cls
+c o --> Executing strategy token: must-scc-vrepl
+c o [scc] new: 0 BP 0M T: 0.00
+c o [vrep] vars 0 lits 0 rem-bin-cls 0 rem-long-cls 0 BP 0M T: 0.00
+c o [consolidate] mini T: 0.00
+c o global_timeout_multiplier: 2.5
+c o [branch] rebuilding order heap for all branchings. Current branching: vsid
+c o [0m[arjun-simp] probing all sampling variables[0m
+c o --> Executing strategy token: must-scc-vrepl
+c o [scc] new: 0 BP 0M T: 0.00
+c o [vrep] vars 0 lits 0 rem-bin-cls 0 rem-long-cls 0 BP 0M T: 0.00
+c o [consolidate] mini T: 0.00
+c o global_timeout_multiplier: 2.5
+c o [branch] rebuilding order heap for all branchings. Current branching: vsid
+c o [0m[arjun-simp] Removed set       : 5 new size: 972[0m
+c o [0m[arjun-simp] Removed eq lits: 0 new size: 972[0m
+c o [0m[arjun-simp] probe removed: 5 perc: 0.51 T: 0.00[0m
+c o [0m[arjun-simp] Removed eq lits: 0 new size: 972[0m
+c o [0m[arjun-simp] Removed set       : 0 new size: 972[0m
+c o [0m[arjun-simp] get-empties removed: 0 perc: 0.00 total empties now: 0 T: 0.00[0m
+c o [0m[arjun-simp] CMS::simplify() with no BVE, intree probe...[0m
+c o [0m[arjun-simp] Removed set       : 10 new size: 962[0m
+c o [0m[arjun-simp] CMS::simplify() with no BVE finished. T: 0.47[0m
+c o [0mWARNING: Turning off gates, because the sampling size is small, so we can just do it. Size: 962[0m
+c o [0m[arjun-simp] Removed eq lits: 0 new size: 962[0m
+c o [0m[arjun-simp] Removed set       : 0 new size: 962[0m
+c o [0m[arjun-simp] get-empties removed: 0 perc: 0.00 total empties now: 0 T: 0.00[0m
+c o [0m[arjun-simp] probing all sampling variables[0m
+c o [0m[arjun-simp] Removed set       : 0 new size: 962[0m
+c o [0m[arjun-simp] Removed eq lits: 0 new size: 962[0m
+c o [0m[arjun-simp] probe removed: 0 perc: 0.00 T: 0.00[0m
+c o [0m[arjun-simp] Removed eq lits: 0 new size: 962[0m
+c o [0m[arjun-simp] Removed set       : 0 new size: 962[0m
+c o [0m[arjun-simp] get-empties removed: 0 perc: 0.00 total empties now: 0 T: 0.00[0m
+c o [0m[arjun] simplification finished  removed: 15 perc: 1.54 T: 0.48[0m
+c o [0m[arjun] Duplicating CNF...[0m
+c o [0m[arjun] Duplicated CNF. T: 0.00[0m
+c o [0m[arjun] CMS::simplify() with *only* BVE...[0m
+c o [0m[arjun] CMS::simplify() with *only* BVE finished. T: 0.00[0m
+c o [0m[arjun] Adding fixed clauses time: 0.00[0m
+c o [0m[arjun] Start unknown size: 962[0m
+c o [0m[31m[arjun] backward round finished. U:  I: 189 T: 1.64[0m
+c o [0m[arjun] run_minimize_indep finished T: 2.12[0m
+c o --> Executing strategy token: must-scc-vrepl
+c o [scc] new: 0 BP 0M T: 0.00
+c o [vrep] vars 0 lits 0 rem-bin-cls 0 rem-long-cls 0 BP 0M T: 0.00
+c o --> Executing strategy token: full-probe
+c o [full-probe]  bin_only: 0 set: 0 repl: 0 T: 0.00 T-out: N T-r: 99.72%
+c o --> Executing strategy token: sub-cls-with-bin
+c o [distill] watch-based irred--  cl tried     2216 cl-sh     0 cl-rem    0 lit-rem      0 T: 0.00 T-out: N
+c o [distill] watch-based   red--  cl tried        0 cl-sh     0 cl-rem    0 lit-rem      0 T: 0.00 T-out: N
+c o --> Executing strategy token: sub-impl
+c o [impl-sub] bin: 0 T: 0.00 T-out: N w-visit: 1954
+c o --> Executing strategy token: distill-cls-onlyrem
+c o [distill-long-irred] cls tried: 2216/2216 T: 0.01 T-out: N T-r: 99.89%
+c o Executing OCC strategy token(s): 'occ-backw-sub,occ-resolv-subs,occ-rem-with-orgates,occ-bve,
+c o [occ] mem usage for occur      0 MB
+c o [occ] Linked in IRRED BIN by default: 2213
+c o [occ] Linked in RED   BIN by default: 0
+c o Mem for watch alloc    : 0           MB (0.00      %)
+c o Mem for watch array    : 0           MB (0.00      %)
+c o Executing OCC strategy token: occ-backw-sub
+c o [occ-backw-sub-long-w-long] rem cl: 15 tried: 1911/1911 (100.0%) T: 0.00 T-out: N T-r: 99.95%
+c o Executing OCC strategy token: occ-resolv-subs
+c o [occ-resolv-subs] removed: 29 checked: 38316 T: 0.0
+c o Executing OCC strategy token: occ-rem-with-orgates
+c o [occ-gates] found:   898 avg-s: 2.0 T: 0.00 T-out: N T-r: 99.91%
+c o [occ-gate-based-lit-rem] lit-rem: 98 cl-rem: 4 T: 0.00 T-out: N
+c o Executing OCC strategy token: occ-bve
+c o [occ-empty-res] Empty resolvent elimed: 0 T: 0.00 T-out: N
+c o [occ-bve] iter v-elim 280
+c o cl_inc_rate=0.9, var_dec_rate=1.4 (grow=0)
+c o Reduced to 682 vars, 3676 cls (grow=0)
+c o x n vars       : 682
+c o #try to eliminate:   922
+c o #var-elim        :   280
+c o #T-o: N
+c o #T-r: 100.00%
+c o #T  : 0.01
+c o [occur] 0.00 is overhead
+c o [occur] link-in T: 0.00 cleanup T: 0.00
+c o [occ-xor-bve] elimed: 0 T: 0.00 T-out: N
+c o --> Executing strategy token: intree-probe
+c o [scc] new: 0 BP 0M T: 0.00
+c o [vrep] vars 0 lits 0 rem-bin-cls 0 rem-long-cls 0 BP 0M T: 0.00
+c o [intree] Set 0 vars hyper-added: 111 trans-irred: 0 trans-red: 0 T: 0.00 T-out: N T-r: -0.07%
+c o Executing OCC strategy token(s): 'occ-backw-sub-str,
+c o [occ] mem usage for occur      0 MB
+c o [occ] Linked in IRRED BIN by default: 1498
+c o [occ] Linked in RED   BIN by default: 111
+c o Mem for watch alloc    : 0           MB (0.00      %)
+c o Mem for watch array    : 0           MB (0.00      %)
+c o Executing OCC strategy token: occ-backw-sub-str
+c o [occ-backw-sub-str-long-w-bins] subs: 68 str: 0 tried: 2205 0-depth ass: 0 T: 0.00 T-out: N T-r: 99.74%
+c o [occ-backw-sub-long-w-long] rem cl: 0 tried: 2178/2178 (100.0%) T: 0.00 T-out: N T-r: 99.94%
+c o [occ-backw-sub-str-long-w-long] sub: 0 str: 0 tried: 6534/2178 (300.0)  T: 0.00 T-out: N T-r: 99.77%
+c o --> Executing strategy token: sub-str-cls-with-bin
+c o [distill] watch-based irred--  cl tried     4220 cl-sh     0 cl-rem    0 lit-rem      0 T: 0.00 T-out: N
+c o [distill] watch-based   red--  cl tried        0 cl-sh     0 cl-rem    0 lit-rem      0 T: 0.00 T-out: N
+c o Executing OCC strategy token(s): 'occ-ternary-res,
+c o [occ] mem usage for occur      0 MB
+c o [occ] Linked in IRRED BIN by default: 1566
+c o [occ] Linked in RED   BIN by default: 43
+c o Mem for watch alloc    : 0           MB (0.00      %)
+c o Mem for watch array    : 0           MB (0.00      %)
+c o Executing OCC strategy token: occ-ternary-res
+c o [occ-ternary-res] Ternary res-tri: 0 res-bin: 0 sub: 0 str: 0 T: 0.00 T-out: N T-r: 99.78%
+c o --> Executing strategy token: clean-cls
+c o --> Executing strategy token: distill-cls
+c o [distill-long-irred] cls tried: 2110/2110 T: 0.01 T-out: N T-r: 99.92%
+c o [distill-long-irred] cls tried: 2040/2040 T: 0.00 T-out: N T-r: 99.91%
+c o --> Executing strategy token: distill-bins
+c o [distill-bin] useful: 119/1610/1610 lits-rem: 0 cl-rem: 119 0-depth-assigns: 0 T: 0.00 T-out: N
+c o [consolidate] mini T: 0.00
+c o global_timeout_multiplier: 3.3000
+c o [branch] rebuilding order heap for all branchings. Current branching: vsid
+c o --> Executing strategy token: must-scc-vrepl
+c o [scc] new: 0 BP 0M T: 0.00
+c o [vrep] vars 0 lits 0 rem-bin-cls 0 rem-long-cls 0 BP 0M T: 0.00
+c o --> Executing strategy token: full-probe
+c o [full-probe]  bin_only: 0 set: 0 repl: 0 T: 0.00 T-out: N T-r: 99.82%
+c o --> Executing strategy token: sub-cls-with-bin
+c o [distill] watch-based irred--  cl tried     2040 cl-sh     0 cl-rem    0 lit-rem      0 T: 0.00 T-out: N
+c o [distill] watch-based   red--  cl tried        0 cl-sh     0 cl-rem    0 lit-rem      0 T: 0.00 T-out: N
+c o --> Executing strategy token: sub-impl
+c o [impl-sub] bin: 0 T: 0.00 T-out: N w-visit: 1954
+c o --> Executing strategy token: distill-cls-onlyrem
+c o [distill-long-irred] cls tried: 2040/2040 T: 0.00 T-out: N T-r: 99.93%
+c o Executing OCC strategy token(s): 'occ-backw-sub,occ-resolv-subs,occ-rem-with-orgates,occ-bve,
+c o [occ] mem usage for occur      0 MB
+c o [occ] Linked in IRRED BIN by default: 1491
+c o [occ] Linked in RED   BIN by default: 43
+c o Mem for watch alloc    : 0           MB (0.00      %)
+c o Mem for watch array    : 0           MB (0.00      %)
+c o Executing OCC strategy token: occ-backw-sub
+c o [occ-backw-sub-long-w-long] rem cl: 0 tried: 2035/2035 (100.0%) T: 0.00 T-out: N T-r: 99.95%
+c o Executing OCC strategy token: occ-resolv-subs
+c o [occ-resolv-subs] removed: 58 checked: 45662 T: 0.0
+c o Executing OCC strategy token: occ-rem-with-orgates
+c o [occ-gates] found:   536 avg-s: 2.0 T: 0.00 T-out: N T-r: 99.92%
+c o [occ-gate-based-lit-rem] lit-rem: 5 cl-rem: 0 T: 0.00 T-out: N
+c o Executing OCC strategy token: occ-bve
+c o [occ-empty-res] Empty resolvent elimed: 0 T: 0.00 T-out: N
+c o [occ-bve] iter v-elim 0
+c o cl_inc_rate=1.0, var_dec_rate=1.0 (grow=0)
+c o Reduced to 682 vars, 3468 cls (grow=0)
+c o x n vars       : 682
+c o #try to eliminate:   493
+c o #var-elim        :     0
+c o #T-o: N
+c o #T-r: 100.00%
+c o #T  : 0.00
+c o [occur] 0.00 is overhead
+c o [occur] link-in T: 0.00 cleanup T: 0.00
+c o [occ-xor-bve] elimed: 0 T: 0.00 T-out: N
+c o --> Executing strategy token: intree-probe
+c o [scc] new: 0 BP 0M T: 0.00
+c o [vrep] vars 0 lits 0 rem-bin-cls 0 rem-long-cls 0 BP 0M T: 0.00
+c o [intree] Set 0 vars hyper-added: 121 trans-irred: 0 trans-red: 2 T: 0.00 T-out: N T-r: -0.22%
+c o Executing OCC strategy token(s): 'occ-backw-sub-str,
+c o [occ] mem usage for occur      0 MB
+c o [occ] Linked in IRRED BIN by default: 1491
+c o [occ] Linked in RED   BIN by default: 162
+c o Mem for watch alloc    : 0           MB (0.00      %)
+c o Mem for watch array    : 0           MB (0.00      %)
+c o Executing OCC strategy token: occ-backw-sub-str
+c o [occ-backw-sub-str-long-w-bins] subs: 0 str: 0 tried: 3858 0-depth ass: 0 T: 0.00 T-out: N T-r: 99.73%
+c o [occ-backw-sub-long-w-long] rem cl: 0 tried: 1977/1977 (100.0%) T: 0.00 T-out: N T-r: 99.95%
+c o [occ-backw-sub-str-long-w-long] sub: 0 str: 0 tried: 5931/1977 (300.0)  T: 0.00 T-out: N T-r: 99.79%
+c o --> Executing strategy token: sub-str-cls-with-bin
+c o [distill] watch-based irred--  cl tried     3954 cl-sh     0 cl-rem    0 lit-rem      0 T: 0.00 T-out: N
+c o [distill] watch-based   red--  cl tried        0 cl-sh     0 cl-rem    0 lit-rem      0 T: 0.00 T-out: N
+c o Executing OCC strategy token(s): 'occ-ternary-res,
+c o [occ] mem usage for occur      0 MB
+c o [occ] Linked in IRRED BIN by default: 1491
+c o [occ] Linked in RED   BIN by default: 162
+c o Mem for watch alloc    : 0           MB (0.00      %)
+c o Mem for watch array    : 0           MB (0.00      %)
+c o Executing OCC strategy token: occ-ternary-res
+c o [occ-ternary-res] Ternary res-tri: 0 res-bin: 0 sub: 0 str: 0 T: 0.00 T-out: N T-r: 99.99%
+c o --> Executing strategy token: clean-cls
+c o --> Executing strategy token: distill-cls
+c o [distill-long-irred] cls tried: 1977/1977 T: 0.00 T-out: N T-r: 99.93%
+c o [distill-long-irred] cls tried: 1972/1972 T: 0.00 T-out: N T-r: 99.91%
+c o --> Executing strategy token: distill-bins
+c o [distill-bin] useful: 0/1491/1491 lits-rem: 0 cl-rem: 0 0-depth-assigns: 0 T: 0.00 T-out: N
+c o [consolidate] mini T: 0.00
+c o global_timeout_multiplier: 3.3000
+c o [branch] rebuilding order heap for all branchings. Current branching: vsid
+c o [backbone-simpl] ccnr sols: 10 drop_cands: 814 T: 0.02
+c o [backbone-simpl] cadiback called with -- lits: 9611 num cls: 3478 num vars: 977
+c o CadiBack BackBone Extractor
+c o Copyright (c) 2023 Armin Biere University of Freiburg
+c o Version 0.2.1 a35c4b98b6237b16ca0fd08dded8f8f51ff998a8
+c o CaDiCaL 2.1.3 81de5d2b5c68727b4d183ec5ceb56561f1b3b6e1
+c o Compiled with 'c++ -fPIC -W -O3 -std=c++17 -DNDEBUG'
+c o not checking models and backbones (enable with '--check')
+c o found 977 variables
+c o
+c o starting solving after 2.22 seconds
+c o solver determined first model after 2.23 seconds
+c o
+c o
+c o --- [ backbone statistics ] ------------------------------------------------
+c o
+c o found                15 backbones       2%
+c o dropped             148 candidates     15%
+c o
+c o filtered            104 candidates     11%
+c o flippable             1 candidates      0%
+c o flipped               0 candidates      0%
+c o fixed                15 candidates      2%
+c o core                  0 candidates      0%
+c o found                 0 big_backbone   0%
+c o failed                0 candidates      0%
+c o
+c o called solver        44 times           4%
+c o satisfiable          44 times         100%
+c o unsatisfiable         0 times           0%
+c o
+c o --- [ backbone profiling ] -------------------------------------------------
+c o
+c o         0.00   0.02 % first
+c o         0.07   3.16 % sat
+c o         0.01   0.50 % satmax
+c o         0.07   3.16 % solving
+c o         0.00   0.04 % flip
+c o ====================================
+c o         0.07 100.00 % total
+c o
+c o
+c o
+c o exit 10
+c o [backbone-simpl] res: 10 num units added: 0 num eq added: 0 num bins: 155 T: 0.09
+c o --> Executing strategy token: must-scc-vrepl
+c o [scc] new: 2 BP 0M T: 0.00
+c o [vrep] vars 2 lits 118 rem-bin-cls 8 rem-long-cls 6 BP 0M T: 0.00
+c o --> Executing strategy token: must-renumber
+c o [renumber] T: 0.00
+c o [consolidate] mini T: 0.00
+c o global_timeout_multiplier: 3.3000
+c o [branch] rebuilding order heap for all branchings. Current branching: vsid
+c o --> Executing strategy token: oracle-vivif-sparsify
+c o --> Executing strategy token: must-renumber
+c o [renumber] T: 0.00
+c o [oracle-bin] potential pairs: 6646
+c o --> Executing strategy token: must-scc-vrepl
+c o [scc] new: 28 BP 0M T: 0.00
+c o [vrep] vars 28 lits 44922 rem-bin-cls 238 rem-long-cls 1376 BP 0M T: 0.00
+c o [oracle-vivif] learnt-units: 0 T-out: N T-remain: 98.9740% T: 0.38
+c o [oracle-bin] bin-added: 3310 equiv-added: 28 T-out: N T-remain: 98.11% T: 0.06
+c o [oracle-vivif-bin] cache-used: 19803 cache-added: 183 total T: 0.45
+c o --> Executing strategy token: sub-impl
+c o [impl-sub] bin: 1538 T: 0.00 T-out: N w-visit: 1360
+c o Executing OCC strategy token(s): 'occ-backw-sub,
+c o [occ] mem usage for occur      0 MB
+c o [occ] Linked in IRRED BIN by default: 1489
+c o [occ] Linked in RED   BIN by default: 2071
+c o Mem for watch alloc    : 0           MB (0.00      %)
+c o Mem for watch array    : 0           MB (0.00      %)
+c o Executing OCC strategy token: occ-backw-sub
+c o [occ-backw-sub-long-w-long] rem cl: 107 tried: 15330/15330 (100.0%) T: 0.00 T-out: N T-r: 99.64%
+c o --> Executing strategy token: must-renumber
+c o [renumber] T: 0.00
+c o [oracle-sparsify] removed: 0 of which bin: 0 tot considered: 3344 ccnr useful: 0 oracle uknown: 1 cache-used: 0 cache-added: 0 learnt-units: 0 T: 6.6 buildT: 0.0
+c o [consolidate] mini T: 0.00
+c o global_timeout_multiplier: 3.3000
+c o [branch] rebuilding order heap for all branchings. Current branching: vsid
+c o --> Executing strategy token: must-scc-vrepl
+c o [scc] new: 0 BP 0M T: 0.00
+c o [vrep] vars 0 lits 0 rem-bin-cls 0 rem-long-cls 0 BP 0M T: 0.00
+c o --> Executing strategy token: full-probe
+c o [full-probe]  bin_only: 0 set: 0 repl: 0 T: 0.00 T-out: N T-r: 98.81%
+c o --> Executing strategy token: sub-cls-with-bin
+c o [distill] watch-based irred--  cl tried     1855 cl-sh     0 cl-rem    0 lit-rem      0 T: 0.00 T-out: N
+c o [distill] watch-based   red--  cl tried        0 cl-sh     0 cl-rem    0 lit-rem      0 T: 0.00 T-out: N
+c o --> Executing strategy token: sub-impl
+c o [impl-sub] bin: 0 T: 0.00 T-out: N w-visit: 1304
+c o --> Executing strategy token: distill-cls-onlyrem
+c o [distill-long-irred] cls tried: 1855/1855 T: 0.01 T-out: N T-r: 99.50%
+c o Executing OCC strategy token(s): 'occ-backw-sub,occ-resolv-subs,occ-rem-with-orgates,occ-bve,
+c o [occ] mem usage for occur      0 MB
+c o [occ] Linked in IRRED BIN by default: 1489
+c o [occ] Linked in RED   BIN by default: 2071
+c o [occ] mem usage for occur      0 MB
+c o Mem for watch alloc    : 0           MB (0.00      %)
+c o Mem for watch array    : 0           MB (0.00      %)
+c o Executing OCC strategy token: occ-backw-sub
+c o [occ-backw-sub-long-w-long] rem cl: 0 tried: 14857/14857 (100.0%) T: 0.00 T-out: N T-r: 99.67%
+c o Executing OCC strategy token: occ-resolv-subs
+c o [occ-resolv-subs] removed: 94 checked: 37185 T: 0.0
+c o Executing OCC strategy token: occ-rem-with-orgates
+c o [occ-gates] found:   492 avg-s: 2.0 T: 0.00 T-out: N T-r: 99.91%
+c o [occ-gate-based-lit-rem] lit-rem: 2 cl-rem: 0 T: 0.00 T-out: N
+c o Executing OCC strategy token: occ-bve
+c o [occ-empty-res] Empty resolvent elimed: 0 T: 0.00 T-out: N
+c o [occ-bve] iter v-elim 16
+c o cl_inc_rate=1.0, var_dec_rate=1.0 (grow=0)
+c o Reduced to 636 vars, 2865 cls (grow=0)
+c o [occ-bve] iter v-elim 124
+c o cl_inc_rate=1.1, var_dec_rate=1.2 (grow=3)
+c o Reduced to 512 vars, 3094 cls (grow=3)
+c o x n vars       : 512
+c o #try to eliminate:  1275
+c o #var-elim        :   140
+c o #T-o: N
+c o #T-r: 100.00%
+c o #T  : 0.02
+c o [occur] 0.00 is overhead
+c o [occur] link-in T: 0.00 cleanup T: 0.00
+c o [occ-xor-bve] elimed: 0 T: 0.00 T-out: N
+c o --> Executing strategy token: intree-probe
+c o [scc] new: 0 BP 0M T: 0.00
+c o [vrep] vars 0 lits 0 rem-bin-cls 0 rem-long-cls 0 BP 0M T: 0.00
+c o [intree] Set 0 vars hyper-added: 33 trans-irred: 0 trans-red: 1496 T: 0.00 T-out: N T-r: -0.52%
+c o Executing OCC strategy token(s): 'occ-backw-sub-str,
+c o [occ] mem usage for occur      0 MB
+c o [occ] Linked in IRRED BIN by default: 1628
+c o [occ] Linked in RED   BIN by default: 578
+c o [occ] mem usage for occur      0 MB
+c o Mem for watch alloc    : 0           MB (0.00      %)
+c o Mem for watch array    : 0           MB (0.00      %)
+c o Executing OCC strategy token: occ-backw-sub-str
+c o [occ-backw-sub-str-long-w-bins] subs: 3 str: 0 tried: 28206 0-depth ass: 0 T: 0.00 T-out: N T-r: 99.60%
+c o [occ-backw-sub-long-w-long] rem cl: 24 tried: 8467/8467 (100.0%) T: 0.00 T-out: N T-r: 99.78%
+c o [occ-backw-sub-str-long-w-long] sub: 0 str: 0 tried: 25401/8467 (300.0)  T: 0.00 T-out: N T-r: 99.02%
+c o --> Executing strategy token: sub-str-cls-with-bin
+c o [distill] watch-based irred--  cl tried     2926 cl-sh     0 cl-rem    0 lit-rem      0 T: 0.00 T-out: N
+c o [distill] watch-based   red--  cl tried        0 cl-sh     0 cl-rem    0 lit-rem      0 T: 0.00 T-out: N
+c o Executing OCC strategy token(s): 'occ-ternary-res,
+c o [occ] mem usage for occur      0 MB
+c o [occ] Linked in IRRED BIN by default: 1631
+c o [occ] Linked in RED   BIN by default: 575
+c o [occ] mem usage for occur      0 MB
+c o Mem for watch alloc    : 0           MB (0.00      %)
+c o Mem for watch array    : 0           MB (0.00      %)
+c o Executing OCC strategy token: occ-ternary-res
+c o [occ-ternary-res] Ternary res-tri: 20 res-bin: 0 sub: 6 str: 0 T: 0.00 T-out: N T-r: 99.88%
+c o --> Executing strategy token: clean-cls
+c o --> Executing strategy token: distill-cls
+c o [distill-long-irred] cls tried: 1463/1463 T: 0.01 T-out: N T-r: 99.70%
+c o [distill-long-irred] cls tried: 1456/1456 T: 0.01 T-out: N T-r: 99.73%
+c o --> Executing strategy token: distill-bins
+c o [distill-bin] useful: 78/1631/1631 lits-rem: 0 cl-rem: 78 0-depth-assigns: 0 T: 0.00 T-out: N
+c o [consolidate] mini T: 0.00
+c o global_timeout_multiplier: 3.3000
+c o [branch] rebuilding order heap for all branchings. Current branching: vsid
+c o --> Executing strategy token: must-scc-vrepl
+c o [scc] new: 0 BP 0M T: 0.00
+c o [vrep] vars 0 lits 0 rem-bin-cls 0 rem-long-cls 0 BP 0M T: 0.00
+c o --> Executing strategy token: full-probe
+c o [full-probe]  bin_only: 0 set: 0 repl: 0 T: 0.00 T-out: N T-r: 99.53%
+c o --> Executing strategy token: sub-cls-with-bin
+c o [distill] watch-based irred--  cl tried     1456 cl-sh     0 cl-rem    0 lit-rem      0 T: 0.00 T-out: N
+c o [distill] watch-based   red--  cl tried        0 cl-sh     0 cl-rem    0 lit-rem      0 T: 0.00 T-out: N
+c o --> Executing strategy token: sub-impl
+c o [impl-sub] bin: 453 T: 0.00 T-out: N w-visit: 1304
+c o --> Executing strategy token: distill-cls-onlyrem
+c o [distill-long-irred] cls tried: 1456/1456 T: 0.00 T-out: N T-r: 99.81%
+c o Executing OCC strategy token(s): 'occ-backw-sub,occ-resolv-subs,occ-rem-with-orgates,occ-bve,
+c o [occ] mem usage for occur      0 MB
+c o [occ] Linked in IRRED BIN by default: 1553
+c o [occ] Linked in RED   BIN by default: 122
+c o [occ] mem usage for occur      0 MB
+c o Mem for watch alloc    : 0           MB (0.00      %)
+c o Mem for watch array    : 0           MB (0.00      %)
+c o Executing OCC strategy token: occ-backw-sub
+c o [occ-backw-sub-long-w-long] rem cl: 1 tried: 8443/8443 (100.0%) T: 0.00 T-out: N T-r: 99.78%
+c o Executing OCC strategy token: occ-resolv-subs
+c o [occ-resolv-subs] removed: 81 checked: 41074 T: 0.0
+c o Executing OCC strategy token: occ-rem-with-orgates
+c o [occ-gates] found:   413 avg-s: 2.0 T: 0.00 T-out: N T-r: 99.93%
+c o [occ-gate-based-lit-rem] lit-rem: 1 cl-rem: 0 T: 0.00 T-out: N
+c o Executing OCC strategy token: occ-bve
+c o [occ-empty-res] Empty resolvent elimed: 0 T: 0.00 T-out: N
+c o [occ-bve] iter v-elim 0
+c o cl_inc_rate=1.0, var_dec_rate=1.0 (grow=0)
+c o Reduced to 512 vars, 2923 cls (grow=0)
+c o [occ-bve] iter v-elim 1
+c o cl_inc_rate=1.0, var_dec_rate=1.0 (grow=3)
+c o Reduced to 511 vars, 2926 cls (grow=3)
+c o x n vars       : 511
+c o #try to eliminate:   654
+c o #var-elim        :     1
+c o #T-o: N
+c o #T-r: 100.00%
+c o #T  : 0.01
+c o [occur] 0.00 is overhead
+c o [occur] link-in T: 0.00 cleanup T: 0.00
+c o [occ-xor-bve] elimed: 0 T: 0.00 T-out: N
+c o --> Executing strategy token: intree-probe
+c o [scc] new: 0 BP 0M T: 0.00
+c o [vrep] vars 0 lits 0 rem-bin-cls 0 rem-long-cls 0 BP 0M T: 0.00
+c o [intree] Set 0 vars hyper-added: 51 trans-irred: 0 trans-red: 49 T: 0.00 T-out: N T-r: -0.61%
+c o Executing OCC strategy token(s): 'occ-backw-sub-str,
+c o [occ] mem usage for occur      0 MB
+c o [occ] Linked in IRRED BIN by default: 1553
+c o [occ] Linked in RED   BIN by default: 124
+c o [occ] mem usage for occur      0 MB
+c o Mem for watch alloc    : 0           MB (0.00      %)
+c o Mem for watch array    : 0           MB (0.00      %)
+c o Executing OCC strategy token: occ-backw-sub-str
+c o [occ-backw-sub-str-long-w-bins] subs: 0 str: 0 tried: 30011 0-depth ass: 0 T: 0.00 T-out: N T-r: 99.72%
+c o [occ-backw-sub-long-w-long] rem cl: 0 tried: 8353/8353 (100.0%) T: 0.00 T-out: N T-r: 99.79%
+c o [occ-backw-sub-str-long-w-long] sub: 0 str: 0 tried: 25059/8353 (300.0)  T: 0.00 T-out: N T-r: 99.04%
+c o --> Executing strategy token: sub-str-cls-with-bin
+c o [distill] watch-based irred--  cl tried     2746 cl-sh     0 cl-rem    0 lit-rem      0 T: 0.00 T-out: N
+c o [distill] watch-based   red--  cl tried        0 cl-sh     0 cl-rem    0 lit-rem      0 T: 0.00 T-out: N
+c o Executing OCC strategy token(s): 'occ-ternary-res,
+c o [occ] mem usage for occur      0 MB
+c o [occ] Linked in IRRED BIN by default: 1553
+c o [occ] Linked in RED   BIN by default: 124
+c o [occ] mem usage for occur      0 MB
+c o Mem for watch alloc    : 0           MB (0.00      %)
+c o Mem for watch array    : 0           MB (0.00      %)
+c o Executing OCC strategy token: occ-ternary-res
+c o [occ-ternary-res] Ternary res-tri: 5 res-bin: 0 sub: 2 str: 0 T: 0.00 T-out: N T-r: 99.95%
+c o --> Executing strategy token: clean-cls
+c o --> Executing strategy token: distill-cls
+c o [distill-long-irred] cls tried: 1373/1373 T: 0.00 T-out: N T-r: 99.73%
+c o [distill-long-irred] cls tried: 1373/1373 T: 0.01 T-out: N T-r: 99.74%
+c o --> Executing strategy token: distill-bins
+c o [distill-bin] useful: 0/1553/1553 lits-rem: 0 cl-rem: 0 0-depth-assigns: 0 T: 0.00 T-out: N
+c o [consolidate] mini T: 0.00
+c o global_timeout_multiplier: 3.3000
+c o [branch] rebuilding order heap for all branchings. Current branching: vsid
+c o --> Executing strategy token: oracle-vivif-fast
+c o --> Executing strategy token: must-renumber
+c o [renumber] T: 0.00
+c o [oracle-bin] potential pairs: 4831
+c o --> Executing strategy token: must-scc-vrepl
+c o [scc] new: 0 BP 0M T: 0.00
+c o [vrep] vars 0 lits 0 rem-bin-cls 0 rem-long-cls 0 BP 0M T: 0.00
+c o [oracle-vivif] learnt-units: 0 T-out: N T-remain: 98.8863% T: 0.14
+c o [oracle-bin] bin-added: 2888 equiv-added: 0 T-out: N T-remain: 99.92% T: 0.00
+c o [oracle-vivif-bin] cache-used: 14366 cache-added: 201 total T: 0.15
+c o --> Executing strategy token: oracle-sparsify-fast
+c o --> Executing strategy token: sub-impl
+c o [impl-sub] bin: 1390 T: 0.00 T-out: N w-visit: 1022
+c o Executing OCC strategy token(s): 'occ-backw-sub,
+c o [occ] mem usage for occur      0 MB
+c o [occ] Linked in IRRED BIN by default: 1554
+c o [occ] Linked in RED   BIN by default: 1647
+c o [occ] mem usage for occur      0 MB
+c o Mem for watch alloc    : 0           MB (0.00      %)
+c o Mem for watch array    : 0           MB (0.00      %)
+c o Executing OCC strategy token: occ-backw-sub
+c o [occ-backw-sub-long-w-long] rem cl: 0 tried: 18483/18483 (100.0%) T: 0.00 T-out: N T-r: 99.54%
+c o --> Executing strategy token: must-renumber
+c o [renumber] T: 0.00
+c o [oracle-sparsify] removed: 0 of which bin: 0 tot considered: 2926 ccnr useful: 0 oracle uknown: 1 cache-used: 0 cache-added: 0 learnt-units: 0 T: 2.2 buildT: 0.0
+c o [consolidate] mini T: 0.00
+c o global_timeout_multiplier: 3.3000
+c o [branch] rebuilding order heap for all branchings. Current branching: vsid
+c o --> Executing strategy token: must-scc-vrepl
+c o [scc] new: 0 BP 0M T: 0.00
+c o [vrep] vars 0 lits 0 rem-bin-cls 0 rem-long-cls 0 BP 0M T: 0.00
+c o --> Executing strategy token: must-renumber
+c o [renumber] T: 0.00
+c o [consolidate] mini T: 0.00
+c o global_timeout_multiplier: 3.3000
+c o [branch] rebuilding order heap for all branchings. Current branching: vsid
+c o [occ] mem usage for occur      0 MB
+c o [occ] Linked in IRRED BIN by default: 1554
+c o [occ] Linked in RED   BIN by default: 1647
+c o [occ] mem usage for occur      0 MB
+c o Mem for watch alloc    : 0           MB (0.00      %)
+c o Mem for watch array    : 0           MB (0.00      %)
+c o [empty] empty_occ: 0 T: 0.00
+c o Executing OCC strategy token(s): 'occ-bve-empty,
+c o [occ] mem usage for occur      0 MB
+c o [occ] Linked in IRRED BIN by default: 1554
+c o [occ] Linked in RED   BIN by default: 1647
+c o [occ] mem usage for occur      0 MB
+c o Mem for watch alloc    : 0           MB (0.00      %)
+c o Mem for watch array    : 0           MB (0.00      %)
+c o Executing OCC strategy token: occ-bve-empty
+c o [occ-empty-res] Empty resolvent elimed: 0 T: 0.00 T-out: N
+c o --> Executing strategy token: must-renumber
+c o [renumber] T: 0.00
+c o [consolidate] mini T: 0.00
+c o global_timeout_multiplier: 3.3000
+c o [branch] rebuilding order heap for all branchings. Current branching: vsid
+c o --> Executing strategy token: must-scc-vrepl
+c o [scc] new: 0 BP 0M T: 0.00
+c o [vrep] vars 0 lits 0 rem-bin-cls 0 rem-long-cls 0 BP 0M T: 0.00
+c o --> Executing strategy token: full-probe
+c o [full-probe]  bin_only: 0 set: 0 repl: 0 T: 0.00 T-out: N T-r: 98.66%
+c o --> Executing strategy token: sub-cls-with-bin
+c o [distill] watch-based irred--  cl tried     1372 cl-sh     0 cl-rem    0 lit-rem      0 T: 0.00 T-out: N
+c o [distill] watch-based   red--  cl tried        0 cl-sh     0 cl-rem    0 lit-rem      0 T: 0.00 T-out: N
+c o --> Executing strategy token: sub-impl
+c o [impl-sub] bin: 0 T: 0.00 T-out: N w-visit: 1022
+c o --> Executing strategy token: distill-cls-onlyrem
+c o [distill-long-irred] cls tried: 1372/1372 T: 0.01 T-out: N T-r: 99.51%
+c o Executing OCC strategy token(s): 'occ-backw-sub,occ-resolv-subs,occ-rem-with-orgates,occ-bve,
+c o [occ] mem usage for occur      0 MB
+c o [occ] Linked in IRRED BIN by default: 1554
+c o [occ] Linked in RED   BIN by default: 1647
+c o Mem for watch alloc    : 0           MB (0.00      %)
+c o Mem for watch array    : 0           MB (0.00      %)
+c o Executing OCC strategy token: occ-backw-sub
+c o [occ-backw-sub-long-w-long] rem cl: 0 tried: 18481/18481 (100.0%) T: 0.00 T-out: N T-r: 99.54%
+c o Executing OCC strategy token: occ-resolv-subs
+c o [occ-resolv-subs] removed: 5 checked: 40349 T: 0.0
+c o Executing OCC strategy token: occ-rem-with-orgates
+c o [occ-gates] found:   404 avg-s: 2.0 T: 0.00 T-out: N T-r: 99.91%
+c o [occ-gate-based-lit-rem] lit-rem: 1 cl-rem: 0 T: 0.00 T-out: N
+c o Executing OCC strategy token: occ-bve
+c o [occ-empty-res] Empty resolvent elimed: 0 T: 0.00 T-out: N
+c o [occ-bve] iter v-elim 0
+c o cl_inc_rate=1.0, var_dec_rate=1.0 (grow=0)
+c o Reduced to 511 vars, 2919 cls (grow=0)
+c o x n vars       : 511
+c o #try to eliminate:   322
+c o #var-elim        :     0
+c o #T-o: N
+c o #T-r: 100.00%
+c o #T  : 0.00
+c o [occur] 0.00 is overhead
+c o [occur] link-in T: 0.00 cleanup T: 0.00
+c o [occ-xor-bve] elimed: 0 T: 0.00 T-out: N
+c o --> Executing strategy token: intree-probe
+c o [scc] new: 0 BP 0M T: 0.00
+c o [vrep] vars 0 lits 0 rem-bin-cls 0 rem-long-cls 0 BP 0M T: 0.00
+c o [intree] Set 0 vars hyper-added: 3 trans-irred: 0 trans-red: 1518 T: 0.00 T-out: N T-r: -0.31%
+c o Executing OCC strategy token(s): 'occ-backw-sub-str,
+c o [occ] mem usage for occur      0 MB
+c o [occ] Linked in IRRED BIN by default: 1554
+c o [occ] Linked in RED   BIN by default: 132
+c o Mem for watch alloc    : 0           MB (0.00      %)
+c o Mem for watch array    : 0           MB (0.00      %)
+c o Executing OCC strategy token: occ-backw-sub-str
+c o [occ-backw-sub-str-long-w-bins] subs: 0 str: 0 tried: 1686 0-depth ass: 0 T: 0.00 T-out: N T-r: 99.72%
+c o [occ-backw-sub-long-w-long] rem cl: 0 tried: 18476/18476 (100.0%) T: 0.00 T-out: N T-r: 99.54%
+c o [occ-backw-sub-str-long-w-long] sub: 0 str: 0 tried: 55428/18476 (300.0)  T: 0.00 T-out: N T-r: 97.88%
+c o --> Executing strategy token: sub-str-cls-with-bin
+c o [distill] watch-based irred--  cl tried     2730 cl-sh     0 cl-rem    0 lit-rem      0 T: 0.00 T-out: N
+c o [distill] watch-based   red--  cl tried        0 cl-sh     0 cl-rem    0 lit-rem      0 T: 0.00 T-out: N
+c o Executing OCC strategy token(s): 'occ-ternary-res,
+c o [occ] mem usage for occur      0 MB
+c o [occ] Linked in IRRED BIN by default: 1554
+c o [occ] Linked in RED   BIN by default: 132
+c o Mem for watch alloc    : 0           MB (0.00      %)
+c o Mem for watch array    : 0           MB (0.00      %)
+c o Executing OCC strategy token: occ-ternary-res
+c o [occ-ternary-res] Ternary res-tri: 26 res-bin: 0 sub: 12 str: 0 T: 0.00 T-out: N T-r: 99.86%
+c o --> Executing strategy token: clean-cls
+c o --> Executing strategy token: distill-cls
+c o [distill-long-irred] cls tried: 1365/1365 T: 0.01 T-out: N T-r: 99.41%
+c o [distill-long-irred] cls tried: 1362/1362 T: 0.02 T-out: N T-r: 99.34%
+c o --> Executing strategy token: distill-bins
+c o [distill-bin] useful: 0/1554/1554 lits-rem: 0 cl-rem: 0 0-depth-assigns: 0 T: 0.01 T-out: N
+c o [consolidate] mini T: 0.00
+c o global_timeout_multiplier: 3.3000
+c o [branch] rebuilding order heap for all branchings. Current branching: vsid
+c o --> Executing strategy token: oracle-vivif-sparsify
+c o --> Executing strategy token: must-renumber
+c o [renumber] T: 0.00
+c o [oracle-bin] potential pairs: 4812
+c o --> Executing strategy token: must-scc-vrepl
+c o [scc] new: 0 BP 0M T: 0.00
+c o [vrep] vars 0 lits 0 rem-bin-cls 0 rem-long-cls 0 BP 0M T: 0.00
+c o [oracle-vivif] learnt-units: 0 T-out: N T-remain: 99.8495% T: 0.07
+c o [oracle-bin] bin-added: 2878 equiv-added: 0 T-out: N T-remain: 99.94% T: 0.00
+c o [oracle-vivif-bin] cache-used: 14288 cache-added: 200 total T: 0.07
+c o --> Executing strategy token: sub-impl
+c o [impl-sub] bin: 1390 T: 0.00 T-out: N w-visit: 1022
+c o Executing OCC strategy token(s): 'occ-backw-sub,
+c o [occ] mem usage for occur      0 MB
+c o [occ] Linked in IRRED BIN by default: 1554
+c o [occ] Linked in RED   BIN by default: 1637
+c o Mem for watch alloc    : 0           MB (0.00      %)
+c o Mem for watch array    : 0           MB (0.00      %)
+c o Executing OCC strategy token: occ-backw-sub
+c o [occ-backw-sub-long-w-long] rem cl: 0 tried: 23765/23765 (100.0%) T: 0.00 T-out: N T-r: 99.41%
+c o --> Executing strategy token: must-renumber
+c o [renumber] T: 0.00
+c o [oracle-sparsify] removed: 0 of which bin: 0 tot considered: 2916 ccnr useful: 0 oracle uknown: 1 cache-used: 0 cache-added: 0 learnt-units: 0 T: 6.6 buildT: 0.0
+c o [consolidate] mini T: 0.00
+c o global_timeout_multiplier: 3.3000
+c o [branch] rebuilding order heap for all branchings. Current branching: vsid
+c o --> Executing strategy token: must-scc-vrepl
+c o [scc] new: 0 BP 0M T: 0.00
+c o [vrep] vars 0 lits 0 rem-bin-cls 0 rem-long-cls 0 BP 0M T: 0.00
+c o --> Executing strategy token: full-probe
+c o [full-probe]  bin_only: 0 set: 0 repl: 0 T: 0.00 T-out: N T-r: 98.19%
+c o --> Executing strategy token: sub-cls-with-bin
+c o [distill] watch-based irred--  cl tried     1362 cl-sh     0 cl-rem    0 lit-rem      0 T: 0.00 T-out: N
+c o [distill] watch-based   red--  cl tried        0 cl-sh     0 cl-rem    0 lit-rem      0 T: 0.00 T-out: N
+c o --> Executing strategy token: sub-impl
+c o [impl-sub] bin: 0 T: 0.00 T-out: N w-visit: 1022
+c o --> Executing strategy token: distill-cls-onlyrem
+c o [distill-long-irred] cls tried: 1362/1362 T: 0.01 T-out: N T-r: 99.39%
+c o Executing OCC strategy token(s): 'occ-backw-sub,occ-resolv-subs,occ-rem-with-orgates,occ-bve,
+c o [occ] mem usage for occur      0 MB
+c o [occ] Linked in IRRED BIN by default: 1554
+c o [occ] Linked in RED   BIN by default: 1637
+c o [occ] mem usage for occur      0 MB
+c o Mem for watch alloc    : 1           MB (0.00      %)
+c o Mem for watch array    : 0           MB (0.00      %)
+c o Executing OCC strategy token: occ-backw-sub
+c o [occ-backw-sub-long-w-long] rem cl: 0 tried: 23762/23762 (100.0%) T: 0.00 T-out: N T-r: 99.41%
+c o Executing OCC strategy token: occ-resolv-subs
+c o [occ-resolv-subs] removed: 0 checked: 40225 T: 0.0
+c o Executing OCC strategy token: occ-rem-with-orgates
+c o [occ-gates] found:   386 avg-s: 2.0 T: 0.00 T-out: N T-r: 99.91%
+c o [occ-gate-based-lit-rem] lit-rem: 1 cl-rem: 0 T: 0.00 T-out: N
+c o Executing OCC strategy token: occ-bve
+c o [occ-empty-res] Empty resolvent elimed: 0 T: 0.00 T-out: N
+c o [occ-bve] iter v-elim 0
+c o cl_inc_rate=1.0, var_dec_rate=1.0 (grow=0)
+c o Reduced to 511 vars, 2913 cls (grow=0)
+c o x n vars       : 511
+c o #try to eliminate:   322
+c o #var-elim        :     0
+c o #T-o: N
+c o #T-r: 100.00%
+c o #T  : 0.00
+c o [occur] 0.00 is overhead
+c o [occur] link-in T: 0.00 cleanup T: 0.00
+c o [occ-xor-bve] elimed: 0 T: 0.00 T-out: N
+c o --> Executing strategy token: intree-probe
+c o [scc] new: 0 BP 0M T: 0.00
+c o [vrep] vars 0 lits 0 rem-bin-cls 0 rem-long-cls 0 BP 0M T: 0.00
+c o [intree] Set 0 vars hyper-added: 0 trans-irred: 0 trans-red: 1501 T: 0.00 T-out: N T-r: -1.77%
+c o Executing OCC strategy token(s): 'occ-backw-sub-str,
+c o [occ] mem usage for occur      0 MB
+c o [occ] Linked in IRRED BIN by default: 1554
+c o [occ] Linked in RED   BIN by default: 136
+c o [occ] mem usage for occur      0 MB
+c o Mem for watch alloc    : 1           MB (0.00      %)
+c o Mem for watch array    : 0           MB (0.00      %)
+c o Executing OCC strategy token: occ-backw-sub-str
+c o [occ-backw-sub-str-long-w-bins] subs: 0 str: 0 tried: 3376 0-depth ass: 0 T: 0.00 T-out: N T-r: 99.72%
+c o [occ-backw-sub-long-w-long] rem cl: 1 tried: 23762/23762 (100.0%) T: 0.00 T-out: N T-r: 99.41%
+c o [occ-backw-sub-str-long-w-long] sub: 0 str: 0 tried: 71286/23762 (300.0)  T: 0.01 T-out: N T-r: 97.29%
+c o --> Executing strategy token: sub-str-cls-with-bin
+c o [distill] watch-based irred--  cl tried     2718 cl-sh     0 cl-rem    0 lit-rem      0 T: 0.00 T-out: N
+c o [distill] watch-based   red--  cl tried        0 cl-sh     0 cl-rem    0 lit-rem      0 T: 0.00 T-out: N
+c o Executing OCC strategy token(s): 'occ-ternary-res,
+c o [occ] mem usage for occur      0 MB
+c o [occ] Linked in IRRED BIN by default: 1554
+c o [occ] Linked in RED   BIN by default: 136
+c o [occ] mem usage for occur      0 MB
+c o Mem for watch alloc    : 1           MB (0.00      %)
+c o Mem for watch array    : 0           MB (0.00      %)
+c o Executing OCC strategy token: occ-ternary-res
+c o [occ-ternary-res] Ternary res-tri: 26 res-bin: 0 sub: 12 str: 0 T: 0.00 T-out: N T-r: 99.84%
+c o --> Executing strategy token: clean-cls
+c o --> Executing strategy token: distill-cls
+c o [distill-long-irred] cls tried: 1359/1359 T: 0.01 T-out: N T-r: 99.26%
+c o [distill-long-irred] cls tried: 1357/1357 T: 0.02 T-out: N T-r: 99.17%
+c o --> Executing strategy token: distill-bins
+c o [distill-bin] useful: 0/1554/1554 lits-rem: 0 cl-rem: 0 0-depth-assigns: 0 T: 0.01 T-out: N
+c o [consolidate] mini T: 0.00
+c o global_timeout_multiplier: 3.3000
+c o [branch] rebuilding order heap for all branchings. Current branching: vsid
+c o --> Executing strategy token: oracle-vivif-fast
+c o --> Executing strategy token: must-renumber
+c o [renumber] T: 0.00
+c o [oracle-bin] potential pairs: 4803
+c o --> Executing strategy token: must-scc-vrepl
+c o [scc] new: 0 BP 0M T: 0.00
+c o [vrep] vars 0 lits 0 rem-bin-cls 0 rem-long-cls 0 BP 0M T: 0.00
+c o [oracle-vivif] learnt-units: 0 T-out: N T-remain: 99.5155% T: 0.07
+c o [oracle-bin] bin-added: 2869 equiv-added: 0 T-out: N T-remain: 99.93% T: 0.00
+c o [oracle-vivif-bin] cache-used: 14259 cache-added: 195 total T: 0.07
+c o --> Executing strategy token: oracle-sparsify-fast
+c o --> Executing strategy token: sub-impl
+c o [impl-sub] bin: 1390 T: 0.00 T-out: N w-visit: 1022
+c o Executing OCC strategy token(s): 'occ-backw-sub,
+c o [occ] mem usage for occur      0 MB
+c o [occ] Linked in IRRED BIN by default: 1554
+c o [occ] Linked in RED   BIN by default: 1627
+c o [occ] mem usage for occur      0 MB
+c o Mem for watch alloc    : 1           MB (0.00      %)
+c o Mem for watch array    : 0           MB (0.00      %)
+c o Executing OCC strategy token: occ-backw-sub
+c o [occ-backw-sub-long-w-long] rem cl: 0 tried: 29093/29093 (100.0%) T: 0.00 T-out: N T-r: 99.28%
+c o --> Executing strategy token: must-renumber
+c o [renumber] T: 0.00
+c o [oracle-sparsify] removed: 0 of which bin: 0 tot considered: 2911 ccnr useful: 0 oracle uknown: 1 cache-used: 0 cache-added: 0 learnt-units: 0 T: 2.2 buildT: 0.0
+c o [consolidate] mini T: 0.00
+c o global_timeout_multiplier: 3.3000
+c o [branch] rebuilding order heap for all branchings. Current branching: vsid
+c o --> Executing strategy token: must-scc-vrepl
+c o [scc] new: 0 BP 0M T: 0.00
+c o [vrep] vars 0 lits 0 rem-bin-cls 0 rem-long-cls 0 BP 0M T: 0.00
+c o --> Executing strategy token: must-renumber
+c o [renumber] T: 0.00
+c o [consolidate] mini T: 0.00
+c o global_timeout_multiplier: 3.3000
+c o [branch] rebuilding order heap for all branchings. Current branching: vsid
+c o [occ] mem usage for occur      0 MB
+c o [occ] Linked in IRRED BIN by default: 1554
+c o [occ] Linked in RED   BIN by default: 1627
+c o [occ] mem usage for occur      0 MB
+c o Mem for watch alloc    : 1           MB (0.00      %)
+c o Mem for watch array    : 0           MB (0.00      %)
+c o [empty] empty_occ: 0 T: 0.00
+c o Executing OCC strategy token(s): 'occ-bve-empty,
+c o [occ] mem usage for occur      0 MB
+c o [occ] Linked in IRRED BIN by default: 1554
+c o [occ] Linked in RED   BIN by default: 1627
+c o [occ] mem usage for occur      0 MB
+c o Mem for watch alloc    : 1           MB (0.00      %)
+c o Mem for watch array    : 0           MB (0.00      %)
+c o Executing OCC strategy token: occ-bve-empty
+c o [occ-empty-res] Empty resolvent elimed: 0 T: 0.00 T-out: N
+c o --> Executing strategy token: must-renumber
+c o [renumber] T: 0.00
+c o [consolidate] mini T: 0.00
+c o global_timeout_multiplier: 3.3000
+c o [branch] rebuilding order heap for all branchings. Current branching: vsid
+c o [0m[arjun-sbva] entering SBVA with     vars: 511     cls:   2911 opt sampl: 511[0m
+c o [0m[arjun-sbva] exited SBVA with       vars: 527     cls:   2765[0m
+c o [0m[arjun-sbva] steps remainK: 536.95 T-out: No T: 0.01[0m
+c o Arjun T: 21.04
+c o Found 1 disconnected component(s)
+c o ind size: 189 nvars: 527
+c o opt ind size: 527 ind size: 189 nvars: 527
+c o indep/optional/none distribution: IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+c o Sampling set size: 189
+c o Opt sampling set size: 527
+c o Bin irred/red      1395       1627      
+c o Long irred cls/tri 428        942       
+c o Long red cls/tri   26998      738       
+c o [td] nodes: 527 nvars: 527 edges: 4807
+c o [td] Primal graph   nodes: 527 edges: 4807 density: 0.017 edge/var: 9.121
+c o [td] min degree heuristic
+c o [td] #bags 284, tw 145, elapsed 0.011 s
+c o [td] min shortcut heuristic
+c o [td] #bags 308, tw 131, elapsed 0.751 s
+c o [td] run with 0.0/0.1/0.2 min balance and node_min_expansion in endless loop with varying seed
+c o [td] #bags 23 tw 129 elapsed 0.784 s
+c o [td] #bags 21 tw 128 elapsed 0.793 s
+c o [td] #bags 23 tw 123 elapsed 0.793 s
+c o [td] #bags 18 tw 122 elapsed 1.382 s
+c o [td] #bags 20 tw 120 elapsed 1.382 s
+c o [td] #bags 25 tw 119 elapsed 1.382 s
+c o [td] #bags 20 tw 118 elapsed 2.054 s
+c o [td] iter 99 width: 118 stepsK remain: 95 T: 4.380
+c o [td] iter 199 width: 118 stepsK remain: 90 T: 7.969
+c o [td] #bags 24 tw 117 elapsed 8.586 s
+c o [td] #bags 22 tw 115 elapsed 9.910 s
+c o [td] #bags 24 tw 113 elapsed 9.911 s
+c o [td] iter 299 width: 113 stepsK remain: 86 T: 11.517
+c o [td] iter 399 width: 113 stepsK remain: 81 T: 15.013
+c o [td] iter 499 width: 113 stepsK remain: 77 T: 18.563
+c o [td] iter 599 width: 113 stepsK remain: 72 T: 22.085
+c o [td] iter 699 width: 113 stepsK remain: 67 T: 25.620
+c o [td] iter 799 width: 113 stepsK remain: 63 T: 29.167
+c o [td] iter 899 width: 113 stepsK remain: 58 T: 32.753
+c o [td] centroid bag id: 0 bag size: 80
+c o [td] centroid bag id: 0 bag size: 80
+c o [td] weight: 7.000 nodes: 527 rt/width(=rt): 4.664 rt*conf.td_exp_mult: 5.130 conf.td_exp_mult: 1.100 conf.td_divider: 1000.000 max ord diff: 4
+c o [td] decompose time: 32.754
+c o [rdb] cls before: 37737 after: 15048 low lbd: 10 lbd cutoff: 2 target computed: 15000 cannot be del : 104 used: 37727 rdb: 1
+c o [mem] consolidate  old-sz: 4957K new-sz: 1987K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 25039 after: 10063 low lbd: 34 lbd cutoff: 2 target computed: 10000 cannot be del : 96 used: 13573 rdb: 4
+c o [mem] consolidate  old-sz: 7587K new-sz: 1804K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 25088 after: 15105 low lbd: 94 lbd cutoff: 2 target computed: 15000 cannot be del : 116 used: 13167 rdb: 7
+c o [rdb] cls before: 25134 after: 15150 low lbd: 143 lbd cutoff: 2 target computed: 15000 cannot be del : 90 used: 14031 rdb: 10
+c o [mem] consolidate  old-sz: 6865K new-sz: 1672K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 20174 after: 15174 low lbd: 169 lbd cutoff: 2 target computed: 15000 cannot be del : 68 used: 14029 rdb: 13
+c o [mem] consolidate  old-sz: 6837K new-sz: 1716K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 25214 after: 15221 low lbd: 219 lbd cutoff: 2 target computed: 15000 cannot be del : 75 used: 14289 rdb: 16
+c o [mem] consolidate  old-sz: 6566K new-sz: 1662K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 25243 after: 15249 low lbd: 246 lbd cutoff: 2 target computed: 15000 cannot be del : 82 used: 14134 rdb: 19
+c o [rdb] cls before: 25275 after: 15282 low lbd: 279 lbd cutoff: 2 target computed: 15000 cannot be del : 59 used: 13437 rdb: 22
+c o [mem] consolidate  old-sz: 6538K new-sz: 1688K new bits offs: 18 T: 0.00
+c o total time so far: 94.62
+c o decisions K                    1621      -- Kdec/s:     22.04    
+c o conflicts                      246774       -- confl/s:    3354.73  
+c o rem lits triedK/rem lits remK  200       238       
+c o avg clsz/rem lits avg/finalavg 34.22     30.03     29.06    
+c o rdbs/low lbd/rem               24    303    252450
+c o looks/look-computes            0/0
+c o sat call/sat/unsat/confl/rst  0     0     0     0     0     
+c o buddy called /unsat ratio           0     / 0.00  
+c o buddy avg num bin/long cls/vs  0.00  / 0.00  / 0.00 
+c o buddy max num bin/long cls/vs  0     / 0     / 0    
+c o orig cubes/lit-r avg/exten avg 0     / 0.00  / 0.00 
+c o cubes orig/symm/final          0     / 0     / 0    
+c o tot restarts                   0    
+c o comp sortsK/avg sz             1619  / 1.00606531
+c o comps recordK/non-reset ratio  4000 / 0.60
+c o vivif: try/cls/clviv/litsravg  8         5695      358       0.58      
+c o toplev subs runs/bins/long-cls 0         0         0         0         0         
+c o toplevel probes/fail/bprop     0         0         0         
+c o Mem used                       0.00 GB
+c o cache pollutions call/removed  454908/603459
+c o cache entries K                1026
+c o MB cache                       254.858 70.466 
+c o cache K (lookup/ stores/ hits/ dels) 4000   1629   2370   0       -- Klookup/s:  54.38    
+c o cache pollutions call/removed  454908/603459
+c o cache miss rate                0.407
+c o avg hit/store num vars 36.976 / 111.323
+c o 
+c o [rdb] cls before: 25309 after: 15312 low lbd: 310 lbd cutoff: 2 target computed: 15000 cannot be del : 90 used: 13950 rdb: 25
+c o [mem] consolidate  old-sz: 6540K new-sz: 1627K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 25344 after: 10369 low lbd: 349 lbd cutoff: 2 target computed: 10000 cannot be del : 49 used: 12920 rdb: 28
+c o [mem] consolidate  old-sz: 5876K new-sz: 1289K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 25371 after: 15379 low lbd: 377 lbd cutoff: 2 target computed: 15000 cannot be del : 102 used: 13263 rdb: 31
+c o [mem] consolidate  old-sz: 6830K new-sz: 1871K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 25396 after: 15409 low lbd: 399 lbd cutoff: 2 target computed: 15000 cannot be del : 85 used: 14765 rdb: 34
+c o [rdb] cls before: 25413 after: 15430 low lbd: 426 lbd cutoff: 2 target computed: 15000 cannot be del : 55 used: 13386 rdb: 37
+c o [mem] consolidate  old-sz: 7544K new-sz: 1816K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 20461 after: 15443 low lbd: 440 lbd cutoff: 2 target computed: 15000 cannot be del : 87 used: 12476 rdb: 40
+c o [mem] consolidate  old-sz: 7370K new-sz: 1852K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 25466 after: 15466 low lbd: 462 lbd cutoff: 2 target computed: 15000 cannot be del : 78 used: 13804 rdb: 43
+c o [mem] consolidate  old-sz: 7449K new-sz: 1913K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 25482 after: 15486 low lbd: 485 lbd cutoff: 2 target computed: 15000 cannot be del : 64 used: 13477 rdb: 46
+c o [rdb] cls before: 25536 after: 15538 low lbd: 535 lbd cutoff: 2 target computed: 15000 cannot be del : 79 used: 14169 rdb: 49
+c o [mem] consolidate  old-sz: 7335K new-sz: 1790K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 25545 after: 15553 low lbd: 547 lbd cutoff: 2 target computed: 15000 cannot be del : 75 used: 14061 rdb: 52
+c o [mem] consolidate  old-sz: 6771K new-sz: 1644K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 25555 after: 15564 low lbd: 558 lbd cutoff: 2 target computed: 15000 cannot be del : 106 used: 13050 rdb: 55
+c o [mem] consolidate  old-sz: 6608K new-sz: 1686K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 25570 after: 15573 low lbd: 571 lbd cutoff: 2 target computed: 15000 cannot be del : 88 used: 13922 rdb: 58
+c o [rdb] cls before: 25583 after: 15593 low lbd: 588 lbd cutoff: 2 target computed: 15000 cannot be del : 78 used: 14029 rdb: 61
+c o [mem] consolidate  old-sz: 6776K new-sz: 1803K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 25603 after: 15604 low lbd: 599 lbd cutoff: 2 target computed: 15000 cannot be del : 70 used: 14324 rdb: 64
+c o [mem] consolidate  old-sz: 7448K new-sz: 1995K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 25612 after: 15607 low lbd: 602 lbd cutoff: 2 target computed: 15000 cannot be del : 74 used: 14686 rdb: 67
+c o [mem] consolidate  old-sz: 6221K new-sz: 1908K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 25614 after: 10631 low lbd: 611 lbd cutoff: 2 target computed: 10000 cannot be del : 80 used: 13680 rdb: 70
+c o [mem] consolidate  old-sz: 7001K new-sz: 1784K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 25635 after: 15636 low lbd: 626 lbd cutoff: 2 target computed: 15000 cannot be del : 95 used: 14670 rdb: 73
+c o [rdb] cls before: 25642 after: 15650 low lbd: 641 lbd cutoff: 2 target computed: 15000 cannot be del : 76 used: 15017 rdb: 76
+c o [mem] consolidate  old-sz: 6942K new-sz: 1803K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 25660 after: 15664 low lbd: 655 lbd cutoff: 2 target computed: 15000 cannot be del : 73 used: 14135 rdb: 79
+c o [mem] consolidate  old-sz: 6888K new-sz: 1692K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 25671 after: 15687 low lbd: 664 lbd cutoff: 2 target computed: 15000 cannot be del : 107 used: 15461 rdb: 82
+c o [mem] consolidate  old-sz: 7005K new-sz: 1806K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 25687 after: 15691 low lbd: 682 lbd cutoff: 2 target computed: 15000 cannot be del : 98 used: 13000 rdb: 85
+c o [mem] consolidate  old-sz: 5791K new-sz: 1178K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 20704 after: 15705 low lbd: 700 lbd cutoff: 2 target computed: 15000 cannot be del : 75 used: 13285 rdb: 88
+c o [rdb] cls before: 25715 after: 15721 low lbd: 712 lbd cutoff: 2 target computed: 15000 cannot be del : 70 used: 14100 rdb: 91
+c o [mem] consolidate  old-sz: 6328K new-sz: 1859K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 25727 after: 15727 low lbd: 721 lbd cutoff: 2 target computed: 15000 cannot be del : 93 used: 14094 rdb: 94
+c o [mem] consolidate  old-sz: 6814K new-sz: 1729K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 25743 after: 15747 low lbd: 741 lbd cutoff: 2 target computed: 15000 cannot be del : 98 used: 13614 rdb: 97
+c o [mem] consolidate  old-sz: 6819K new-sz: 1712K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 25757 after: 15761 low lbd: 755 lbd cutoff: 2 target computed: 15000 cannot be del : 80 used: 13451 rdb: 100
+c o [rdb] cls before: 25769 after: 15773 low lbd: 770 lbd cutoff: 2 target computed: 15000 cannot be del : 61 used: 13457 rdb: 103
+c o [mem] consolidate  old-sz: 6896K new-sz: 1725K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 25782 after: 15783 low lbd: 775 lbd cutoff: 2 target computed: 15000 cannot be del : 98 used: 14624 rdb: 106
+c o [mem] consolidate  old-sz: 6816K new-sz: 1794K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 25795 after: 15789 low lbd: 782 lbd cutoff: 2 target computed: 15000 cannot be del : 85 used: 13010 rdb: 109
+c o [mem] consolidate  old-sz: 6946K new-sz: 1682K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 25792 after: 15790 low lbd: 784 lbd cutoff: 2 target computed: 15000 cannot be del : 96 used: 14234 rdb: 112
+c o [rdb] cls before: 30810 after: 15818 low lbd: 812 lbd cutoff: 2 target computed: 15000 cannot be del : 88 used: 14415 rdb: 115
+c o [mem] consolidate  old-sz: 7169K new-sz: 1932K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 25833 after: 15846 low lbd: 834 lbd cutoff: 2 target computed: 15000 cannot be del : 102 used: 14751 rdb: 118
+c o [mem] consolidate  old-sz: 7370K new-sz: 1902K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 25846 after: 10862 low lbd: 849 lbd cutoff: 2 target computed: 10000 cannot be del : 84 used: 13694 rdb: 121
+c o [mem] consolidate  old-sz: 7205K new-sz: 1803K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 25865 after: 15868 low lbd: 866 lbd cutoff: 2 target computed: 15000 cannot be del : 84 used: 13490 rdb: 124
+c o [rdb] cls before: 25893 after: 15886 low lbd: 880 lbd cutoff: 2 target computed: 15000 cannot be del : 77 used: 14263 rdb: 127
+c o [mem] consolidate  old-sz: 7379K new-sz: 1935K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 25896 after: 15902 low lbd: 895 lbd cutoff: 2 target computed: 15000 cannot be del : 103 used: 14119 rdb: 130
+c o [mem] consolidate  old-sz: 7279K new-sz: 1768K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 25912 after: 15917 low lbd: 913 lbd cutoff: 2 target computed: 15000 cannot be del : 79 used: 14364 rdb: 133
+c o [mem] consolidate  old-sz: 6803K new-sz: 1695K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 25929 after: 15934 low lbd: 926 lbd cutoff: 2 target computed: 15000 cannot be del : 81 used: 14081 rdb: 136
+c o [rdb] cls before: 25939 after: 15939 low lbd: 936 lbd cutoff: 2 target computed: 15000 cannot be del : 93 used: 13792 rdb: 139
+c o [mem] consolidate  old-sz: 6961K new-sz: 1756K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 25953 after: 15954 low lbd: 949 lbd cutoff: 2 target computed: 15000 cannot be del : 74 used: 12870 rdb: 142
+c o [mem] consolidate  old-sz: 7001K new-sz: 1766K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 25959 after: 15965 low lbd: 957 lbd cutoff: 2 target computed: 15000 cannot be del : 91 used: 13429 rdb: 145
+c o [mem] consolidate  old-sz: 6762K new-sz: 1578K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 25968 after: 15971 low lbd: 968 lbd cutoff: 2 target computed: 15000 cannot be del : 97 used: 13032 rdb: 148
+c o [rdb] cls before: 25982 after: 15981 low lbd: 978 lbd cutoff: 2 target computed: 15000 cannot be del : 111 used: 13702 rdb: 151
+c o [mem] consolidate  old-sz: 6661K new-sz: 1645K new bits offs: 18 T: 0.00
+c o total time so far: 310.68
+c o decisions K                    9678      -- Kdec/s:     33.42    
+c o conflicts                      1516742      -- confl/s:    5236.99  
+c o rem lits triedK/rem lits remK  200       238       
+c o avg clsz/rem lits avg/finalavg 34.44     29.95     29.79    
+c o rdbs/low lbd/rem               151   978    1521904
+c o looks/look-computes            0/0
+c o sat call/sat/unsat/confl/rst  3     2     1     2     0     
+c o buddy called /unsat ratio           0     / 0.00  
+c o buddy avg num bin/long cls/vs  0.00  / 0.00  / 0.00 
+c o buddy max num bin/long cls/vs  0     / 0     / 0    
+c o orig cubes/lit-r avg/exten avg 0     / 0.00  / 0.00 
+c o cubes orig/symm/final          0     / 0     / 0    
+c o tot restarts                   0    
+c o comp sortsK/avg sz             9674  / 1.00549663
+c o comps recordK/non-reset ratio  24000 / 0.59
+c o vivif: try/cls/clviv/litsravg  50        49003     1562      0.55      
+c o toplev subs runs/bins/long-cls 0         0         0         0         0         
+c o toplevel probes/fail/bprop     0         0         0         
+c o Mem used                       0.00 GB
+c o cache pollutions call/removed  2779321/2757773
+c o cache entries K                6969
+c o MB cache                       1862.161 478.559 
+c o cache K (lookup/ stores/ hits/ dels) 24000  9727   14272  0       -- Klookup/s:  82.86    
+c o cache pollutions call/removed  2779321/2757773
+c o cache miss rate                0.405
+c o avg hit/store num vars 37.987 / 115.539
+c o 
+c o [rdb] cls before: 25990 after: 15999 low lbd: 992 lbd cutoff: 2 target computed: 15000 cannot be del : 58 used: 12775 rdb: 154
+c o [mem] consolidate  old-sz: 6350K new-sz: 1639K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26007 after: 16010 low lbd: 1006 lbd cutoff: 2 target computed: 15000 cannot be del : 75 used: 13245 rdb: 157
+c o [mem] consolidate  old-sz: 6307K new-sz: 1613K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26016 after: 16019 low lbd: 1016 lbd cutoff: 2 target computed: 15000 cannot be del : 74 used: 14172 rdb: 160
+c o [rdb] cls before: 26035 after: 16025 low lbd: 1020 lbd cutoff: 2 target computed: 15000 cannot be del : 110 used: 13625 rdb: 163
+c o [mem] consolidate  old-sz: 6679K new-sz: 1757K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26035 after: 16039 low lbd: 1029 lbd cutoff: 2 target computed: 15000 cannot be del : 98 used: 13557 rdb: 166
+c o [mem] consolidate  old-sz: 7253K new-sz: 1765K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26044 after: 16044 low lbd: 1040 lbd cutoff: 2 target computed: 15000 cannot be del : 80 used: 13286 rdb: 169
+c o [mem] consolidate  old-sz: 6748K new-sz: 1598K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26049 after: 16049 low lbd: 1043 lbd cutoff: 2 target computed: 15000 cannot be del : 86 used: 13892 rdb: 172
+c o [rdb] cls before: 26058 after: 16061 low lbd: 1055 lbd cutoff: 2 target computed: 15000 cannot be del : 64 used: 13409 rdb: 175
+c o [mem] consolidate  old-sz: 6363K new-sz: 1703K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26076 after: 16069 low lbd: 1065 lbd cutoff: 2 target computed: 15000 cannot be del : 85 used: 14012 rdb: 178
+c o [mem] consolidate  old-sz: 6687K new-sz: 1167K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26073 after: 16084 low lbd: 1081 lbd cutoff: 2 target computed: 15000 cannot be del : 78 used: 12406 rdb: 181
+c o Cache full. Deleting some entries.
+c o deletable:           8388577
+c o Deleting entires. Num entries: 8388608
+c o cache_bytes_memory_usage() in MB: 2169
+c o max_cache_size_bytes in MB: 2500
+c o free entries before: 0
+c o max descendants: 5 avg descendants: 1.00
+c o max siblings: 22 avg siblings: 0.01
+c o free entries after:  4194289 avg len: 0.01
+c o deletion done. T: 0.58
+c o [mem] consolidate  old-sz: 6365K new-sz: 1686K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26095 after: 16107 low lbd: 1097 lbd cutoff: 2 target computed: 15000 cannot be del : 108 used: 13927 rdb: 184
+c o [rdb] cls before: 26106 after: 16112 low lbd: 1102 lbd cutoff: 2 target computed: 15000 cannot be del : 82 used: 14914 rdb: 187
+c o [mem] consolidate  old-sz: 6732K new-sz: 1836K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26114 after: 16114 low lbd: 1107 lbd cutoff: 2 target computed: 15000 cannot be del : 84 used: 14673 rdb: 190
+c o [mem] consolidate  old-sz: 5701K new-sz: 1792K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26120 after: 16122 low lbd: 1115 lbd cutoff: 2 target computed: 15000 cannot be del : 87 used: 14515 rdb: 193
+c o [mem] consolidate  old-sz: 6988K new-sz: 1797K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26128 after: 16127 low lbd: 1121 lbd cutoff: 2 target computed: 15000 cannot be del : 101 used: 13886 rdb: 196
+c o [mem] consolidate  old-sz: 6836K new-sz: 1772K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26140 after: 16143 low lbd: 1132 lbd cutoff: 2 target computed: 15000 cannot be del : 71 used: 13509 rdb: 199
+c o [rdb] cls before: 26151 after: 16152 low lbd: 1145 lbd cutoff: 2 target computed: 15000 cannot be del : 89 used: 13356 rdb: 202
+c o [mem] consolidate  old-sz: 6770K new-sz: 1748K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26162 after: 16157 low lbd: 1154 lbd cutoff: 2 target computed: 15000 cannot be del : 67 used: 13186 rdb: 205
+c o [mem] consolidate  old-sz: 6925K new-sz: 1696K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26172 after: 16170 low lbd: 1164 lbd cutoff: 2 target computed: 15000 cannot be del : 95 used: 12978 rdb: 208
+c o [mem] consolidate  old-sz: 6854K new-sz: 1686K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26175 after: 16180 low lbd: 1175 lbd cutoff: 2 target computed: 15000 cannot be del : 86 used: 13815 rdb: 211
+c o [rdb] cls before: 26197 after: 16199 low lbd: 1195 lbd cutoff: 2 target computed: 15000 cannot be del : 94 used: 12833 rdb: 214
+c o [mem] consolidate  old-sz: 6769K new-sz: 1757K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26221 after: 16213 low lbd: 1208 lbd cutoff: 2 target computed: 15000 cannot be del : 81 used: 13865 rdb: 217
+c o [mem] consolidate  old-sz: 6698K new-sz: 1788K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26217 after: 16228 low lbd: 1218 lbd cutoff: 2 target computed: 15000 cannot be del : 85 used: 13166 rdb: 220
+c o [mem] consolidate  old-sz: 6921K new-sz: 1729K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26228 after: 16233 low lbd: 1222 lbd cutoff: 2 target computed: 15000 cannot be del : 101 used: 14271 rdb: 223
+c o Cache full. Deleting some entries.
+c o deletable:           6310949
+c o Deleting entires. Num entries: 8388608
+c o cache_bytes_memory_usage() in MB: 1745
+c o max_cache_size_bytes in MB: 2500
+c o free entries before: 2077621
+c o max descendants: 6 avg descendants: 0.33
+c o max siblings: 41 avg siblings: 0.01
+c o free entries after:  5233098 avg len: 0.01
+c o deletion done. T: 0.43
+c o [rdb] cls before: 26238 after: 16247 low lbd: 1241 lbd cutoff: 2 target computed: 15000 cannot be del : 87 used: 13931 rdb: 226
+c o [mem] consolidate  old-sz: 6612K new-sz: 1727K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26262 after: 16256 low lbd: 1251 lbd cutoff: 2 target computed: 15000 cannot be del : 70 used: 13393 rdb: 229
+c o [mem] consolidate  old-sz: 6841K new-sz: 1769K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26267 after: 16266 low lbd: 1259 lbd cutoff: 2 target computed: 15000 cannot be del : 76 used: 14817 rdb: 232
+c o [mem] consolidate  old-sz: 5447K new-sz: 1673K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26272 after: 16278 low lbd: 1266 lbd cutoff: 2 target computed: 15000 cannot be del : 88 used: 12423 rdb: 235
+c o [mem] consolidate  old-sz: 6792K new-sz: 1705K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26281 after: 16284 low lbd: 1278 lbd cutoff: 2 target computed: 15000 cannot be del : 84 used: 13504 rdb: 238
+c o [rdb] cls before: 26294 after: 16293 low lbd: 1287 lbd cutoff: 2 target computed: 15000 cannot be del : 70 used: 13838 rdb: 241
+c o [mem] consolidate  old-sz: 6840K new-sz: 1750K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26306 after: 16302 low lbd: 1295 lbd cutoff: 2 target computed: 15000 cannot be del : 82 used: 13188 rdb: 244
+c o [mem] consolidate  old-sz: 7034K new-sz: 1766K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26310 after: 16302 low lbd: 1296 lbd cutoff: 2 target computed: 15000 cannot be del : 107 used: 13942 rdb: 247
+c o [mem] consolidate  old-sz: 5458K new-sz: 1726K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26313 after: 16312 low lbd: 1303 lbd cutoff: 2 target computed: 15000 cannot be del : 92 used: 13653 rdb: 250
+c o [mem] consolidate  old-sz: 6639K new-sz: 1727K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26314 after: 16319 low lbd: 1306 lbd cutoff: 2 target computed: 15000 cannot be del : 103 used: 13477 rdb: 253
+c o [mem] consolidate  old-sz: 5486K new-sz: 1702K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26316 after: 16324 low lbd: 1311 lbd cutoff: 2 target computed: 15000 cannot be del : 96 used: 13971 rdb: 256
+c o [rdb] cls before: 26323 after: 16319 low lbd: 1315 lbd cutoff: 2 target computed: 15000 cannot be del : 99 used: 13091 rdb: 259
+c o [mem] consolidate  old-sz: 6903K new-sz: 1664K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26333 after: 16332 low lbd: 1328 lbd cutoff: 2 target computed: 15000 cannot be del : 99 used: 13424 rdb: 262
+c o [mem] consolidate  old-sz: 6451K new-sz: 1476K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26340 after: 16345 low lbd: 1338 lbd cutoff: 2 target computed: 15000 cannot be del : 114 used: 13691 rdb: 265
+c o [mem] consolidate  old-sz: 6311K new-sz: 1607K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26346 after: 16347 low lbd: 1342 lbd cutoff: 2 target computed: 15000 cannot be del : 87 used: 14651 rdb: 268
+c o [rdb] cls before: 26351 after: 16355 low lbd: 1352 lbd cutoff: 2 target computed: 15000 cannot be del : 81 used: 12341 rdb: 271
+c o [mem] consolidate  old-sz: 6481K new-sz: 1735K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26367 after: 16370 low lbd: 1366 lbd cutoff: 2 target computed: 15000 cannot be del : 72 used: 13259 rdb: 274
+c o [mem] consolidate  old-sz: 7236K new-sz: 1952K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26377 after: 16382 low lbd: 1377 lbd cutoff: 2 target computed: 15000 cannot be del : 82 used: 14039 rdb: 277
+c o [mem] consolidate  old-sz: 7292K new-sz: 1834K new bits offs: 18 T: 0.00
+c o total time so far: 538.00
+c o decisions K                    17769     -- Kdec/s:     34.37    
+c o conflicts                      2800239      -- confl/s:    5417.01  
+c o rem lits triedK/rem lits remK  200       238       
+c o avg clsz/rem lits avg/finalavg 33.80     29.34     29.26    
+c o rdbs/low lbd/rem               279   1386   2801622
+c o looks/look-computes            0/0
+c o sat call/sat/unsat/confl/rst  3     2     1     2     0     
+c o buddy called /unsat ratio           0     / 0.00  
+c o buddy avg num bin/long cls/vs  0.00  / 0.00  / 0.00 
+c o buddy max num bin/long cls/vs  0     / 0     / 0    
+c o orig cubes/lit-r avg/exten avg 0     / 0.00  / 0.00 
+c o cubes orig/symm/final          0     / 0     / 0    
+c o tot restarts                   0    
+c o comp sortsK/avg sz             17761 / 1.00532676
+c o comps recordK/non-reset ratio  44000 / 0.59
+c o vivif: try/cls/clviv/litsravg  92        106690    2505      0.54      
+c o toplev subs runs/bins/long-cls 0         0         0         0         0         
+c o toplevel probes/fail/bprop     0         0         0         
+c o Mem used                       0.00 GB
+c o cache pollutions call/removed  5116889/4653663
+c o cache entries K                5852
+c o MB cache                       1677.193 401.843 
+c o cache K (lookup/ stores/ hits/ dels) 44000  17855  26144  7349    -- Klookup/s:  85.11    
+c o cache pollutions call/removed  5116889/4653663
+c o cache miss rate                0.406
+c o avg hit/store num vars 40.543 / 119.853
+c o 
+c o [rdb] cls before: 26391 after: 16389 low lbd: 1387 lbd cutoff: 2 target computed: 15000 cannot be del : 72 used: 13015 rdb: 280
+c o [rdb] cls before: 26399 after: 11405 low lbd: 1396 lbd cutoff: 2 target computed: 10000 cannot be del : 77 used: 13868 rdb: 283
+c o [mem] consolidate  old-sz: 7712K new-sz: 1367K new bits offs: 18 T: 0.00
+c o Cache full. Deleting some entries.
+c o deletable:           6198724
+c o Deleting entires. Num entries: 8388608
+c o cache_bytes_memory_usage() in MB: 1751
+c o max_cache_size_bytes in MB: 2500
+c o free entries before: 2189851
+c o max descendants: 9 avg descendants: 0.02
+c o max siblings: 26 avg siblings: 0.00
+c o free entries after:  5289215 avg len: 0.00
+c o deletion done. T: 0.42
+c o [rdb] cls before: 26416 after: 11421 low lbd: 1415 lbd cutoff: 2 target computed: 10000 cannot be del : 44 used: 14081 rdb: 286
+c o [mem] consolidate  old-sz: 6464K new-sz: 1808K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26438 after: 16438 low lbd: 1434 lbd cutoff: 2 target computed: 15000 cannot be del : 95 used: 13459 rdb: 289
+c o [mem] consolidate  old-sz: 7228K new-sz: 1835K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26451 after: 16446 low lbd: 1442 lbd cutoff: 2 target computed: 15000 cannot be del : 75 used: 13066 rdb: 292
+c o [rdb] cls before: 26460 after: 16469 low lbd: 1463 lbd cutoff: 2 target computed: 15000 cannot be del : 77 used: 13904 rdb: 295
+c o [mem] consolidate  old-sz: 7263K new-sz: 1952K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26482 after: 16482 low lbd: 1478 lbd cutoff: 2 target computed: 15000 cannot be del : 62 used: 13873 rdb: 298
+c o [mem] consolidate  old-sz: 7530K new-sz: 2019K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26487 after: 16488 low lbd: 1482 lbd cutoff: 2 target computed: 15000 cannot be del : 77 used: 13346 rdb: 301
+c o [mem] consolidate  old-sz: 7223K new-sz: 1866K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26492 after: 16502 low lbd: 1495 lbd cutoff: 2 target computed: 15000 cannot be del : 85 used: 13157 rdb: 304
+c o [rdb] cls before: 26506 after: 16508 low lbd: 1505 lbd cutoff: 2 target computed: 15000 cannot be del : 93 used: 14102 rdb: 307
+c o [mem] consolidate  old-sz: 7473K new-sz: 1876K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26510 after: 16510 low lbd: 1508 lbd cutoff: 2 target computed: 15000 cannot be del : 78 used: 13025 rdb: 310
+c o [mem] consolidate  old-sz: 6148K new-sz: 2041K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26522 after: 16522 low lbd: 1520 lbd cutoff: 2 target computed: 15000 cannot be del : 91 used: 13600 rdb: 313
+c o [mem] consolidate  old-sz: 7404K new-sz: 1890K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26533 after: 16535 low lbd: 1531 lbd cutoff: 2 target computed: 15000 cannot be del : 85 used: 12790 rdb: 316
+c o [mem] consolidate  old-sz: 7344K new-sz: 1744K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26542 after: 16542 low lbd: 1540 lbd cutoff: 2 target computed: 15000 cannot be del : 90 used: 13766 rdb: 319
+c o [rdb] cls before: 26547 after: 16549 low lbd: 1546 lbd cutoff: 2 target computed: 15000 cannot be del : 86 used: 13721 rdb: 322
+c o [mem] consolidate  old-sz: 7041K new-sz: 1786K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26559 after: 16560 low lbd: 1558 lbd cutoff: 2 target computed: 15000 cannot be del : 91 used: 13193 rdb: 325
+c o [mem] consolidate  old-sz: 7117K new-sz: 1816K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26565 after: 16567 low lbd: 1563 lbd cutoff: 2 target computed: 15000 cannot be del : 63 used: 14117 rdb: 328
+c o [mem] consolidate  old-sz: 7074K new-sz: 1789K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26573 after: 16571 low lbd: 1566 lbd cutoff: 2 target computed: 15000 cannot be del : 80 used: 14039 rdb: 331
+c o [rdb] cls before: 26579 after: 16581 low lbd: 1578 lbd cutoff: 2 target computed: 15000 cannot be del : 62 used: 12789 rdb: 334
+c o [mem] consolidate  old-sz: 7362K new-sz: 2014K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26590 after: 16592 low lbd: 1587 lbd cutoff: 2 target computed: 15000 cannot be del : 71 used: 13856 rdb: 337
+c o [mem] consolidate  old-sz: 7120K new-sz: 1725K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26601 after: 16598 low lbd: 1595 lbd cutoff: 2 target computed: 15000 cannot be del : 92 used: 13654 rdb: 340
+c o [mem] consolidate  old-sz: 6795K new-sz: 1870K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26609 after: 11621 low lbd: 1607 lbd cutoff: 2 target computed: 10000 cannot be del : 109 used: 14262 rdb: 343
+c o [rdb] cls before: 26619 after: 11623 low lbd: 1610 lbd cutoff: 2 target computed: 10000 cannot be del : 83 used: 12013 rdb: 346
+c o [mem] consolidate  old-sz: 7345K new-sz: 1364K new bits offs: 18 T: 0.00
+c o Cache full. Deleting some entries.
+c o deletable:           6190995
+c o Deleting entires. Num entries: 8388608
+c o cache_bytes_memory_usage() in MB: 1752
+c o max_cache_size_bytes in MB: 2500
+c o free entries before: 2197568
+c o max descendants: 10 avg descendants: 0.00
+c o max siblings: 11 avg siblings: 0.00
+c o free entries after:  5293067 avg len: 0.00
+c o deletion done. T: 0.41
+c o [rdb] cls before: 26620 after: 16627 low lbd: 1621 lbd cutoff: 2 target computed: 15000 cannot be del : 75 used: 13404 rdb: 349
+c o [mem] consolidate  old-sz: 6147K new-sz: 1719K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26635 after: 16636 low lbd: 1629 lbd cutoff: 2 target computed: 15000 cannot be del : 67 used: 13511 rdb: 352
+c o [mem] consolidate  old-sz: 6749K new-sz: 1704K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26640 after: 16643 low lbd: 1636 lbd cutoff: 2 target computed: 15000 cannot be del : 102 used: 14557 rdb: 355
+c o [mem] consolidate  old-sz: 5375K new-sz: 1661K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26642 after: 16643 low lbd: 1640 lbd cutoff: 2 target computed: 15000 cannot be del : 92 used: 12965 rdb: 358
+c o [rdb] cls before: 26652 after: 16656 low lbd: 1652 lbd cutoff: 2 target computed: 15000 cannot be del : 93 used: 12659 rdb: 361
+c o [mem] consolidate  old-sz: 6943K new-sz: 1847K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26661 after: 16664 low lbd: 1657 lbd cutoff: 2 target computed: 15000 cannot be del : 95 used: 13591 rdb: 364
+c o [mem] consolidate  old-sz: 6661K new-sz: 1715K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 21687 after: 16668 low lbd: 1665 lbd cutoff: 2 target computed: 15000 cannot be del : 101 used: 11202 rdb: 367
+c o [mem] consolidate  old-sz: 6727K new-sz: 1737K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26677 after: 16688 low lbd: 1686 lbd cutoff: 2 target computed: 15000 cannot be del : 80 used: 12900 rdb: 370
+c o [rdb] cls before: 26703 after: 16703 low lbd: 1700 lbd cutoff: 2 target computed: 15000 cannot be del : 72 used: 13489 rdb: 373
+c o [mem] consolidate  old-sz: 6803K new-sz: 1785K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26711 after: 16718 low lbd: 1711 lbd cutoff: 2 target computed: 15000 cannot be del : 84 used: 14005 rdb: 376
+c o [mem] consolidate  old-sz: 6951K new-sz: 1821K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26729 after: 16726 low lbd: 1722 lbd cutoff: 2 target computed: 15000 cannot be del : 71 used: 12588 rdb: 379
+c o [mem] consolidate  old-sz: 7464K new-sz: 1848K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26735 after: 16739 low lbd: 1734 lbd cutoff: 2 target computed: 15000 cannot be del : 74 used: 13558 rdb: 382
+c o [rdb] cls before: 26744 after: 16751 low lbd: 1742 lbd cutoff: 2 target computed: 15000 cannot be del : 88 used: 14514 rdb: 385
+c o [mem] consolidate  old-sz: 7339K new-sz: 1803K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26756 after: 16760 low lbd: 1756 lbd cutoff: 2 target computed: 15000 cannot be del : 85 used: 13633 rdb: 388
+c o [mem] consolidate  old-sz: 7408K new-sz: 1897K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26773 after: 11781 low lbd: 1766 lbd cutoff: 2 target computed: 10000 cannot be del : 96 used: 14404 rdb: 391
+c o [mem] consolidate  old-sz: 7713K new-sz: 1979K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26781 after: 16783 low lbd: 1779 lbd cutoff: 2 target computed: 15000 cannot be del : 63 used: 13937 rdb: 394
+c o [rdb] cls before: 26787 after: 16792 low lbd: 1785 lbd cutoff: 2 target computed: 15000 cannot be del : 83 used: 13280 rdb: 397
+c o [mem] consolidate  old-sz: 7576K new-sz: 1809K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26799 after: 16798 low lbd: 1790 lbd cutoff: 2 target computed: 15000 cannot be del : 94 used: 15072 rdb: 400
+c o [mem] consolidate  old-sz: 7681K new-sz: 2037K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26809 after: 16812 low lbd: 1807 lbd cutoff: 2 target computed: 15000 cannot be del : 74 used: 13831 rdb: 403
+c o [mem] consolidate  old-sz: 7645K new-sz: 2008K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26819 after: 16825 low lbd: 1817 lbd cutoff: 2 target computed: 15000 cannot be del : 90 used: 13653 rdb: 406
+c o total time so far: 767.30
+c o decisions K                    25926     -- Kdec/s:     34.74    
+c o conflicts                      4083242      -- confl/s:    5471.78  
+c o rem lits triedK/rem lits remK  200       238       
+c o avg clsz/rem lits avg/finalavg 34.19     29.71     29.65    
+c o rdbs/low lbd/rem               408   1820   4091314
+c o looks/look-computes            0/0
+c o sat call/sat/unsat/confl/rst  6     5     1     2     0     
+c o buddy called /unsat ratio           0     / 0.00  
+c o buddy avg num bin/long cls/vs  0.00  / 0.00  / 0.00 
+c o buddy max num bin/long cls/vs  0     / 0     / 0    
+c o orig cubes/lit-r avg/exten avg 0     / 0.00  / 0.00 
+c o cubes orig/symm/final          0     / 0     / 0    
+c o tot restarts                   0    
+c o comp sortsK/avg sz             25914 / 1.00515050
+c o comps recordK/non-reset ratio  64000 / 0.59
+c o vivif: try/cls/clviv/litsravg  136       172503    4092      0.54      
+c o toplev subs runs/bins/long-cls 0         0         0         0         0         
+c o toplevel probes/fail/bprop     0         0         0         
+c o Mem used                       0.00 GB
+c o cache pollutions call/removed  7456264/6797334
+c o cache entries K                5705
+c o MB cache                       1616.131 391.778 
+c o cache K (lookup/ stores/ hits/ dels) 64000  26047  37952  13544   -- Klookup/s:  85.76    
+c o cache pollutions call/removed  7456264/6797334
+c o cache miss rate                0.407
+c o avg hit/store num vars 40.932 / 120.604
+c o 
+c o [rdb] cls before: 26828 after: 16829 low lbd: 1820 lbd cutoff: 2 target computed: 15000 cannot be del : 99 used: 14390 rdb: 409
+c o [mem] consolidate  old-sz: 7486K new-sz: 1824K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26827 after: 16829 low lbd: 1827 lbd cutoff: 2 target computed: 15000 cannot be del : 91 used: 12917 rdb: 412
+c o [mem] consolidate  old-sz: 6081K new-sz: 1861K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26833 after: 16834 low lbd: 1829 lbd cutoff: 2 target computed: 15000 cannot be del : 82 used: 13821 rdb: 415
+c o [mem] consolidate  old-sz: 7703K new-sz: 2053K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26835 after: 16845 low lbd: 1839 lbd cutoff: 2 target computed: 15000 cannot be del : 113 used: 12534 rdb: 418
+c o [mem] consolidate  old-sz: 7885K new-sz: 1276K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 21866 after: 16853 low lbd: 1849 lbd cutoff: 2 target computed: 15000 cannot be del : 60 used: 12887 rdb: 421
+c o Cache full. Deleting some entries.
+c o deletable:           6334418
+c o Deleting entires. Num entries: 8388608
+c o cache_bytes_memory_usage() in MB: 1746
+c o max_cache_size_bytes in MB: 2500
+c o free entries before: 2054164
+c o max descendants: 19 avg descendants: 0.00
+c o max siblings: 9 avg siblings: 0.00
+c o free entries after:  5221373 avg len: 0.00
+c o deletion done. T: 0.42
+c o [rdb] cls before: 26859 after: 16863 low lbd: 1860 lbd cutoff: 2 target computed: 15000 cannot be del : 91 used: 11775 rdb: 424
+c o [mem] consolidate  old-sz: 7112K new-sz: 1962K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26873 after: 16874 low lbd: 1869 lbd cutoff: 2 target computed: 15000 cannot be del : 52 used: 14145 rdb: 427
+c o [mem] consolidate  old-sz: 7576K new-sz: 1918K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26887 after: 16882 low lbd: 1878 lbd cutoff: 2 target computed: 15000 cannot be del : 104 used: 12352 rdb: 430
+c o [mem] consolidate  old-sz: 6045K new-sz: 1335K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26886 after: 16893 low lbd: 1886 lbd cutoff: 2 target computed: 15000 cannot be del : 93 used: 14294 rdb: 433
+c o [mem] consolidate  old-sz: 6930K new-sz: 1921K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26901 after: 16902 low lbd: 1897 lbd cutoff: 2 target computed: 15000 cannot be del : 86 used: 13636 rdb: 436
+c o [rdb] cls before: 26908 after: 16910 low lbd: 1902 lbd cutoff: 2 target computed: 15000 cannot be del : 73 used: 14593 rdb: 439
+c o [mem] consolidate  old-sz: 7358K new-sz: 1815K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26916 after: 16916 low lbd: 1908 lbd cutoff: 2 target computed: 15000 cannot be del : 84 used: 14010 rdb: 442
+c o [mem] consolidate  old-sz: 7381K new-sz: 1790K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26931 after: 16943 low lbd: 1933 lbd cutoff: 2 target computed: 15000 cannot be del : 94 used: 13177 rdb: 445
+c o [mem] consolidate  old-sz: 7162K new-sz: 1989K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26947 after: 16946 low lbd: 1942 lbd cutoff: 2 target computed: 15000 cannot be del : 81 used: 12475 rdb: 448
+c o [rdb] cls before: 26955 after: 16970 low lbd: 1950 lbd cutoff: 2 target computed: 15000 cannot be del : 84 used: 14619 rdb: 451
+c o [mem] consolidate  old-sz: 7147K new-sz: 1806K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 21975 after: 16969 low lbd: 1965 lbd cutoff: 2 target computed: 15000 cannot be del : 93 used: 11940 rdb: 454
+c o [mem] consolidate  old-sz: 5702K new-sz: 1798K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26979 after: 16978 low lbd: 1972 lbd cutoff: 2 target computed: 15000 cannot be del : 86 used: 13853 rdb: 457
+c o [mem] consolidate  old-sz: 6913K new-sz: 1804K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26988 after: 16994 low lbd: 1983 lbd cutoff: 2 target computed: 15000 cannot be del : 97 used: 13633 rdb: 460
+c o [mem] consolidate  old-sz: 6824K new-sz: 1739K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 26996 after: 17001 low lbd: 1993 lbd cutoff: 2 target computed: 15000 cannot be del : 83 used: 13763 rdb: 463
+c o [rdb] cls before: 27004 after: 17005 low lbd: 2000 lbd cutoff: 2 target computed: 15000 cannot be del : 102 used: 12613 rdb: 466
+c o [mem] consolidate  old-sz: 6826K new-sz: 1836K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27024 after: 17022 low lbd: 2017 lbd cutoff: 2 target computed: 15000 cannot be del : 35 used: 13829 rdb: 469
+c o [mem] consolidate  old-sz: 6763K new-sz: 1674K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27040 after: 12058 low lbd: 2039 lbd cutoff: 2 target computed: 10000 cannot be del : 119 used: 13318 rdb: 472
+c o [mem] consolidate  old-sz: 7032K new-sz: 1274K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 22066 after: 17054 low lbd: 2048 lbd cutoff: 2 target computed: 15000 cannot be del : 92 used: 13716 rdb: 475
+c o [rdb] cls before: 22069 after: 17062 low lbd: 2061 lbd cutoff: 2 target computed: 15000 cannot be del : 88 used: 12444 rdb: 478
+c o [mem] consolidate  old-sz: 6805K new-sz: 1867K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27077 after: 17080 low lbd: 2078 lbd cutoff: 2 target computed: 15000 cannot be del : 84 used: 13639 rdb: 481
+c o [mem] consolidate  old-sz: 7389K new-sz: 1853K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27087 after: 17089 low lbd: 2086 lbd cutoff: 2 target computed: 15000 cannot be del : 67 used: 13928 rdb: 484
+c o [mem] consolidate  old-sz: 7447K new-sz: 1868K new bits offs: 18 T: 0.00
+c o Cache full. Deleting some entries.
+c o deletable:           6229903
+c o Deleting entires. Num entries: 8388608
+c o cache_bytes_memory_usage() in MB: 1750
+c o max_cache_size_bytes in MB: 2500
+c o free entries before: 2158666
+c o max descendants: 8 avg descendants: 0.00
+c o max siblings: 14 avg siblings: 0.00
+c o free entries after:  5273619 avg len: 0.00
+c o deletion done. T: 0.52
+c o [rdb] cls before: 27093 after: 17098 low lbd: 2093 lbd cutoff: 2 target computed: 15000 cannot be del : 86 used: 13354 rdb: 487
+c o [rdb] cls before: 27099 after: 17102 low lbd: 2097 lbd cutoff: 2 target computed: 15000 cannot be del : 97 used: 14718 rdb: 490
+c o [mem] consolidate  old-sz: 7291K new-sz: 1901K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27104 after: 17107 low lbd: 2106 lbd cutoff: 2 target computed: 15000 cannot be del : 80 used: 13248 rdb: 493
+c o [mem] consolidate  old-sz: 7223K new-sz: 1803K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27116 after: 12117 low lbd: 2109 lbd cutoff: 2 target computed: 10000 cannot be del : 71 used: 13415 rdb: 496
+c o [mem] consolidate  old-sz: 5769K new-sz: 1818K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27115 after: 17118 low lbd: 2116 lbd cutoff: 2 target computed: 15000 cannot be del : 82 used: 13674 rdb: 499
+c o [mem] consolidate  old-sz: 7103K new-sz: 1958K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27125 after: 17126 low lbd: 2120 lbd cutoff: 2 target computed: 15000 cannot be del : 96 used: 14678 rdb: 502
+c o [rdb] cls before: 27131 after: 17139 low lbd: 2129 lbd cutoff: 2 target computed: 15000 cannot be del : 101 used: 13743 rdb: 505
+c o [mem] consolidate  old-sz: 7282K new-sz: 1835K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27140 after: 17137 low lbd: 2134 lbd cutoff: 2 target computed: 15000 cannot be del : 72 used: 13699 rdb: 508
+c o [mem] consolidate  old-sz: 5663K new-sz: 1730K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27141 after: 17144 low lbd: 2137 lbd cutoff: 2 target computed: 15000 cannot be del : 80 used: 14187 rdb: 511
+c o [mem] consolidate  old-sz: 7326K new-sz: 1822K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27144 after: 17145 low lbd: 2141 lbd cutoff: 2 target computed: 15000 cannot be del : 81 used: 12600 rdb: 514
+c o [mem] consolidate  old-sz: 8104K new-sz: 2189K new bits offs: 19 T: 0.00
+c o [rdb] cls before: 27148 after: 17147 low lbd: 2144 lbd cutoff: 2 target computed: 15000 cannot be del : 84 used: 13584 rdb: 517
+c o [mem] consolidate  old-sz: 6324K new-sz: 1858K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27150 after: 17152 low lbd: 2149 lbd cutoff: 2 target computed: 15000 cannot be del : 64 used: 12946 rdb: 520
+c o [rdb] cls before: 27159 after: 17160 low lbd: 2158 lbd cutoff: 2 target computed: 15000 cannot be del : 58 used: 14068 rdb: 523
+c o [mem] consolidate  old-sz: 7296K new-sz: 1798K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27170 after: 17174 low lbd: 2162 lbd cutoff: 2 target computed: 15000 cannot be del : 82 used: 14488 rdb: 526
+c o [mem] consolidate  old-sz: 7155K new-sz: 1923K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27173 after: 17173 low lbd: 2169 lbd cutoff: 2 target computed: 15000 cannot be del : 101 used: 13885 rdb: 529
+c o [mem] consolidate  old-sz: 7436K new-sz: 1876K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27178 after: 12195 low lbd: 2177 lbd cutoff: 2 target computed: 10000 cannot be del : 92 used: 14375 rdb: 532
+c o total time so far: 994.18
+c o decisions K                    34006     -- Kdec/s:     34.95    
+c o conflicts                      5344853      -- confl/s:    5492.52  
+c o rem lits triedK/rem lits remK  200       238       
+c o avg clsz/rem lits avg/finalavg 34.54     30.03     29.98    
+c o rdbs/low lbd/rem               534   2179   5351079
+c o looks/look-computes            0/0
+c o sat call/sat/unsat/confl/rst  12    10    2     4     0     
+c o buddy called /unsat ratio           0     / 0.00  
+c o buddy avg num bin/long cls/vs  0.00  / 0.00  / 0.00 
+c o buddy max num bin/long cls/vs  0     / 0     / 0    
+c o orig cubes/lit-r avg/exten avg 0     / 0.00  / 0.00 
+c o cubes orig/symm/final          0     / 0     / 0    
+c o tot restarts                   0    
+c o comp sortsK/avg sz             33991 / 1.00507399
+c o comps recordK/non-reset ratio  84000 / 0.59
+c o vivif: try/cls/clviv/litsravg  178       241753    5438      0.53      
+c o toplev subs runs/bins/long-cls 0         0         0         0         0         
+c o toplevel probes/fail/bprop     0         0         0         
+c o Mem used                       0.00 GB
+c o cache pollutions call/removed  9727851/8794659
+c o cache entries K                5542
+c o MB cache                       1605.397 380.552 
+c o cache K (lookup/ stores/ hits/ dels) 84000  34163  49836  19826   -- Klookup/s:  86.32    
+c o cache pollutions call/removed  9727851/8794659
+c o cache miss rate                0.407
+c o avg hit/store num vars 41.042 / 121.198
+c o 
+c o [rdb] cls before: 27189 after: 17184 low lbd: 2183 lbd cutoff: 2 target computed: 15000 cannot be del : 82 used: 13760 rdb: 535
+c o [mem] consolidate  old-sz: 7554K new-sz: 2025K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27193 after: 17204 low lbd: 2189 lbd cutoff: 2 target computed: 15000 cannot be del : 88 used: 13769 rdb: 538
+c o [mem] consolidate  old-sz: 7480K new-sz: 1820K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27201 after: 12211 low lbd: 2198 lbd cutoff: 2 target computed: 10000 cannot be del : 76 used: 14229 rdb: 541
+c o [mem] consolidate  old-sz: 6938K new-sz: 1801K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27211 after: 17212 low lbd: 2207 lbd cutoff: 2 target computed: 15000 cannot be del : 76 used: 12902 rdb: 544
+c o [mem] consolidate  old-sz: 6206K new-sz: 1386K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 22219 after: 17216 low lbd: 2211 lbd cutoff: 2 target computed: 15000 cannot be del : 42 used: 13599 rdb: 547
+c o Cache full. Deleting some entries.
+c o deletable:           6212555
+c o Deleting entires. Num entries: 8388608
+c o cache_bytes_memory_usage() in MB: 1751
+c o max_cache_size_bytes in MB: 2500
+c o free entries before: 2176024
+c o max descendants: 15 avg descendants: 0.00
+c o max siblings: 13 avg siblings: 0.00
+c o free entries after:  5282303 avg len: 0.00
+c o deletion done. T: 0.43
+c o [rdb] cls before: 22222 after: 17221 low lbd: 2214 lbd cutoff: 2 target computed: 15000 cannot be del : 94 used: 12543 rdb: 550
+c o [mem] consolidate  old-sz: 7031K new-sz: 1977K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 22228 after: 17231 low lbd: 2224 lbd cutoff: 2 target computed: 15000 cannot be del : 83 used: 11538 rdb: 553
+c o [mem] consolidate  old-sz: 7341K new-sz: 1955K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27239 after: 12242 low lbd: 2228 lbd cutoff: 2 target computed: 10000 cannot be del : 77 used: 14698 rdb: 556
+c o [mem] consolidate  old-sz: 7423K new-sz: 1955K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27245 after: 17243 low lbd: 2236 lbd cutoff: 2 target computed: 15000 cannot be del : 61 used: 14435 rdb: 559
+c o [mem] consolidate  old-sz: 6182K new-sz: 1985K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27244 after: 17250 low lbd: 2240 lbd cutoff: 2 target computed: 15000 cannot be del : 66 used: 14333 rdb: 562
+c o [rdb] cls before: 27256 after: 17259 low lbd: 2256 lbd cutoff: 2 target computed: 15000 cannot be del : 56 used: 13731 rdb: 565
+c o [mem] consolidate  old-sz: 7174K new-sz: 1870K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27270 after: 17268 low lbd: 2262 lbd cutoff: 2 target computed: 15000 cannot be del : 96 used: 13333 rdb: 568
+c o [mem] consolidate  old-sz: 6986K new-sz: 1733K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27269 after: 17270 low lbd: 2266 lbd cutoff: 2 target computed: 15000 cannot be del : 79 used: 13295 rdb: 571
+c o [mem] consolidate  old-sz: 5636K new-sz: 1831K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27277 after: 17275 low lbd: 2271 lbd cutoff: 2 target computed: 15000 cannot be del : 75 used: 13610 rdb: 574
+c o [mem] consolidate  old-sz: 6912K new-sz: 1798K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27282 after: 17289 low lbd: 2280 lbd cutoff: 2 target computed: 15000 cannot be del : 101 used: 14282 rdb: 577
+c o [rdb] cls before: 27289 after: 17296 low lbd: 2289 lbd cutoff: 2 target computed: 15000 cannot be del : 73 used: 15157 rdb: 580
+c o [mem] consolidate  old-sz: 7042K new-sz: 1962K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27299 after: 17300 low lbd: 2296 lbd cutoff: 2 target computed: 15000 cannot be del : 100 used: 12083 rdb: 583
+c o [mem] consolidate  old-sz: 7356K new-sz: 1925K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27306 after: 12313 low lbd: 2303 lbd cutoff: 2 target computed: 10000 cannot be del : 68 used: 14889 rdb: 586
+c o [mem] consolidate  old-sz: 7698K new-sz: 2077K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27326 after: 17317 low lbd: 2312 lbd cutoff: 2 target computed: 15000 cannot be del : 61 used: 12926 rdb: 589
+c o [mem] consolidate  old-sz: 6150K new-sz: 1838K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27323 after: 17330 low lbd: 2320 lbd cutoff: 2 target computed: 15000 cannot be del : 90 used: 13168 rdb: 592
+c o [rdb] cls before: 27328 after: 17332 low lbd: 2326 lbd cutoff: 2 target computed: 15000 cannot be del : 81 used: 13541 rdb: 595
+c o [mem] consolidate  old-sz: 6786K new-sz: 1761K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27337 after: 17337 low lbd: 2332 lbd cutoff: 2 target computed: 15000 cannot be del : 74 used: 12927 rdb: 598
+c o [mem] consolidate  old-sz: 6813K new-sz: 1722K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27341 after: 22337 low lbd: 2334 lbd cutoff: 2 target computed: 20000 cannot be del : 82 used: 13096 rdb: 601
+c o [mem] consolidate  old-sz: 7095K new-sz: 1765K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27347 after: 17346 low lbd: 2342 lbd cutoff: 2 target computed: 15000 cannot be del : 66 used: 13535 rdb: 604
+c o [mem] consolidate  old-sz: 5833K new-sz: 1298K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 22362 after: 17349 low lbd: 2346 lbd cutoff: 2 target computed: 15000 cannot be del : 88 used: 12263 rdb: 607
+c o [rdb] cls before: 27360 after: 17360 low lbd: 2354 lbd cutoff: 2 target computed: 15000 cannot be del : 82 used: 13055 rdb: 610
+c o [mem] consolidate  old-sz: 6742K new-sz: 1938K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27371 after: 17370 low lbd: 2365 lbd cutoff: 2 target computed: 15000 cannot be del : 75 used: 13879 rdb: 613
+c o Cache full. Deleting some entries.
+c o deletable:           6241389
+c o Deleting entires. Num entries: 8388608
+c o cache_bytes_memory_usage() in MB: 1750
+c o max_cache_size_bytes in MB: 2500
+c o free entries before: 2147178
+c o max descendants: 13 avg descendants: 0.00
+c o max siblings: 7 avg siblings: 0.00
+c o free entries after:  5267875 avg len: 0.00
+c o deletion done. T: 0.42
+c o [mem] consolidate  old-sz: 7670K new-sz: 1875K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27380 after: 17377 low lbd: 2371 lbd cutoff: 2 target computed: 15000 cannot be del : 53 used: 14775 rdb: 616
+c o [mem] consolidate  old-sz: 6993K new-sz: 1738K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27386 after: 17386 low lbd: 2381 lbd cutoff: 2 target computed: 15000 cannot be del : 70 used: 13721 rdb: 619
+c o [rdb] cls before: 27393 after: 17391 low lbd: 2389 lbd cutoff: 2 target computed: 15000 cannot be del : 79 used: 13946 rdb: 622
+c o [mem] consolidate  old-sz: 7003K new-sz: 1903K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27409 after: 17401 low lbd: 2397 lbd cutoff: 2 target computed: 15000 cannot be del : 76 used: 13479 rdb: 625
+c o [mem] consolidate  old-sz: 7058K new-sz: 1205K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27409 after: 17415 low lbd: 2402 lbd cutoff: 2 target computed: 15000 cannot be del : 105 used: 13516 rdb: 628
+c o [mem] consolidate  old-sz: 6586K new-sz: 2086K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27411 after: 17414 low lbd: 2402 lbd cutoff: 2 target computed: 15000 cannot be del : 79 used: 13747 rdb: 631
+c o [rdb] cls before: 27414 after: 17418 low lbd: 2412 lbd cutoff: 2 target computed: 15000 cannot be del : 104 used: 14595 rdb: 634
+c o [mem] consolidate  old-sz: 7275K new-sz: 1736K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27423 after: 17428 low lbd: 2422 lbd cutoff: 2 target computed: 15000 cannot be del : 88 used: 13126 rdb: 637
+c o [mem] consolidate  old-sz: 6609K new-sz: 1714K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27428 after: 17438 low lbd: 2428 lbd cutoff: 2 target computed: 15000 cannot be del : 87 used: 13537 rdb: 640
+c o [mem] consolidate  old-sz: 6776K new-sz: 1798K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27438 after: 17441 low lbd: 2434 lbd cutoff: 2 target computed: 15000 cannot be del : 76 used: 14422 rdb: 643
+c o [rdb] cls before: 27441 after: 17446 low lbd: 2441 lbd cutoff: 2 target computed: 15000 cannot be del : 112 used: 14133 rdb: 646
+c o [mem] consolidate  old-sz: 6989K new-sz: 1759K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27450 after: 17449 low lbd: 2445 lbd cutoff: 2 target computed: 15000 cannot be del : 79 used: 13870 rdb: 649
+c o [mem] consolidate  old-sz: 6895K new-sz: 1788K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27453 after: 17452 low lbd: 2449 lbd cutoff: 2 target computed: 15000 cannot be del : 81 used: 13063 rdb: 652
+c o [mem] consolidate  old-sz: 6981K new-sz: 1934K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27462 after: 17459 low lbd: 2455 lbd cutoff: 2 target computed: 15000 cannot be del : 107 used: 14520 rdb: 655
+c o [rdb] cls before: 27467 after: 17468 low lbd: 2465 lbd cutoff: 2 target computed: 15000 cannot be del : 116 used: 13015 rdb: 658
+c o [mem] consolidate  old-sz: 7177K new-sz: 1869K new bits offs: 18 T: 0.00
+c o total time so far: 1226.27
+c o decisions K                    42049     -- Kdec/s:     34.89    
+c o conflicts                      6610152      -- confl/s:    5484.68  
+c o rem lits triedK/rem lits remK  200       238       
+c o avg clsz/rem lits avg/finalavg 34.56     30.05     30.01    
+c o rdbs/low lbd/rem               660   2466   6610925
+c o looks/look-computes            0/0
+c o sat call/sat/unsat/confl/rst  12    10    2     4     0     
+c o buddy called /unsat ratio           0     / 0.00  
+c o buddy avg num bin/long cls/vs  0.00  / 0.00  / 0.00 
+c o buddy max num bin/long cls/vs  0     / 0     / 0    
+c o orig cubes/lit-r avg/exten avg 0     / 0.00  / 0.00 
+c o cubes orig/symm/final          0     / 0     / 0    
+c o tot restarts                   0    
+c o comp sortsK/avg sz             42030 / 1.00503697
+c o comps recordK/non-reset ratio  104000 / 0.59
+c o vivif: try/cls/clviv/litsravg  220       316044    6609      0.53      
+c o toplev subs runs/bins/long-cls 0         0         0         0         0         
+c o toplevel probes/fail/bprop     0         0         0         
+c o Mem used                       0.00 GB
+c o cache pollutions call/removed  12006309/10704058
+c o cache entries K                5484
+c o MB cache                       1587.523 376.562 
+c o cache K (lookup/ stores/ hits/ dels) 104000 42241  61758  26053   -- Klookup/s:  86.29    
+c o cache pollutions call/removed  12006309/10704058
+c o cache miss rate                0.406
+c o avg hit/store num vars 41.123 / 121.671
+c o 
+c o [rdb] cls before: 27468 after: 17473 low lbd: 2469 lbd cutoff: 2 target computed: 15000 cannot be del : 75 used: 13039 rdb: 661
+c o [mem] consolidate  old-sz: 7222K new-sz: 1785K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27474 after: 17473 low lbd: 2470 lbd cutoff: 2 target computed: 15000 cannot be del : 92 used: 12803 rdb: 664
+c o [mem] consolidate  old-sz: 5581K new-sz: 1745K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27477 after: 17482 low lbd: 2478 lbd cutoff: 2 target computed: 15000 cannot be del : 82 used: 13862 rdb: 667
+c o [mem] consolidate  old-sz: 7277K new-sz: 1908K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27488 after: 17488 low lbd: 2484 lbd cutoff: 2 target computed: 15000 cannot be del : 89 used: 13477 rdb: 670
+c o [rdb] cls before: 27492 after: 17488 low lbd: 2487 lbd cutoff: 2 target computed: 15000 cannot be del : 82 used: 12280 rdb: 673
+c o [mem] consolidate  old-sz: 7243K new-sz: 1942K new bits offs: 18 T: 0.00
+c o Cache full. Deleting some entries.
+c o deletable:           6261031
+c o Deleting entires. Num entries: 8388608
+c o cache_bytes_memory_usage() in MB: 1749
+c o max_cache_size_bytes in MB: 2500
+c o free entries before: 2127536
+c o max descendants: 21 avg descendants: 0.00
+c o max siblings: 14 avg siblings: 0.00
+c o free entries after:  5258052 avg len: 0.00
+c o deletion done. T: 0.44
+c o [rdb] cls before: 27497 after: 12508 low lbd: 2489 lbd cutoff: 2 target computed: 10000 cannot be del : 86 used: 13948 rdb: 676
+c o [mem] consolidate  old-sz: 6198K new-sz: 1320K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27502 after: 17495 low lbd: 2492 lbd cutoff: 2 target computed: 15000 cannot be del : 80 used: 14592 rdb: 679
+c o [mem] consolidate  old-sz: 6701K new-sz: 1932K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27498 after: 17500 low lbd: 2499 lbd cutoff: 2 target computed: 15000 cannot be del : 52 used: 12604 rdb: 682
+c o [mem] consolidate  old-sz: 7244K new-sz: 1854K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27507 after: 17511 low lbd: 2508 lbd cutoff: 2 target computed: 15000 cannot be del : 67 used: 13455 rdb: 685
+c o [rdb] cls before: 27523 after: 17526 low lbd: 2524 lbd cutoff: 2 target computed: 15000 cannot be del : 72 used: 13626 rdb: 688
+c o [mem] consolidate  old-sz: 7212K new-sz: 1771K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27533 after: 12534 low lbd: 2530 lbd cutoff: 2 target computed: 10000 cannot be del : 78 used: 15515 rdb: 691
+c o [mem] consolidate  old-sz: 5772K new-sz: 1182K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27547 after: 17548 low lbd: 2546 lbd cutoff: 2 target computed: 15000 cannot be del : 99 used: 13419 rdb: 694
+c o [mem] consolidate  old-sz: 6524K new-sz: 1866K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27550 after: 17551 low lbd: 2549 lbd cutoff: 2 target computed: 15000 cannot be del : 79 used: 12411 rdb: 697
+c o [mem] consolidate  old-sz: 5883K new-sz: 1823K new bits offs: 18 T: 0.00
+c o [rdb] cls before: 27558 after: 17557 low lbd: 2554 lbd cutoff: 2 target computed: 15000 cannot be del : 84 used: 13777 rdb: 700
+c o [mem] consolidate  old-sz: 7275K new-sz: 1999K new bits offs: 18 T: 0.00
+c o [rst-cube] Num restarts: 0 orig cubes this rst: 1 final cubes this rst: 1 total orig cubes: 1 total final cubes: 1
+c o total time so far: 1306.09
+c o decisions K                    44820     -- Kdec/s:     34.88    
+c o conflicts                      7024453      -- confl/s:    5466.38  
+c o rem lits triedK/rem lits remK  200       238       
+c o avg clsz/rem lits avg/finalavg 34.60     30.08     30.05    
+c o rdbs/low lbd/rem               702   2554   7030876
+c o looks/look-computes            0/0
+c o sat call/sat/unsat/confl/rst  12    10    2     4     0     
+c o buddy called /unsat ratio           0     / 0.00  
+c o buddy avg num bin/long cls/vs  0.00  / 0.00  / 0.00 
+c o buddy max num bin/long cls/vs  0     / 0     / 0    
+c o orig cubes/lit-r avg/exten avg 1     / 0.00  / 0.00 
+c o cubes orig/symm/final          1     / 0     / 1    
+c o tot restarts                   0    
+c o comp sortsK/avg sz             44799 / 1.00498818
+c o comps recordK/non-reset ratio  110775 / 0.59
+c o vivif: try/cls/clviv/litsravg  234       343436    7045      0.53      
+c o toplev subs runs/bins/long-cls 0         0         0         0         0         
+c o toplevel probes/fail/bprop     0         0         0         
+c o Mem used                       0.00 GB
+c o cache pollutions call/removed  12751561/11376927
+c o cache entries K                4461
+c o MB cache                       1383.236 306.380 
+c o cache K (lookup/ stores/ hits/ dels) 110775 45023  65752  29184   -- Klookup/s:  86.20    
+c o cache pollutions call/removed  12751561/11376927
+c o cache miss rate                0.406
+c o avg hit/store num vars 41.299 / 121.898
+c o 
+c o intermediate count: 25153716960
+c o Total time [Arjun+GANAK]: 1306.35
+s SATISFIABLE
+c s type mc
+c s log10-estimate 1.04006022e+01
+c s exact arb int 25153716960
+c s pac guarantees epsilon: 0 delta: 0

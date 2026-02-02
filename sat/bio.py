@@ -15,7 +15,7 @@ from pysat.solvers import Solver
 from pysat.card import CardEnc
 
 DEFAULT_CARDINALITY_ENCODING = 7  # selected pysat encoding for cardinality constraints
-
+PROJECTED_SET = set()
 
 def anti(v):
     return tuple((1 - x) for x in v)
@@ -62,6 +62,9 @@ def encode(n, partial_sym_break=None, card_type=1, peak_count=None, RSE_count=No
     # add clauses to ensure that the variables are created and the first (important for enumeration)
     for u in vertices:
         for v in graph[u]:
+            
+            PROJECTED_SET.add(str(abs(r(u,v))))
+
             var_to_edge[r(u, v)] = (u, v)
             enc.append([r(u, v), -r(u, v)])
 
@@ -90,7 +93,7 @@ def encode(n, partial_sym_break=None, card_type=1, peak_count=None, RSE_count=No
     for u, v in itertools.permutations(vertices, 2):
         for w in graph[v]:
             if w != u:
-                enc.append([-t(u, v), -r(v, w), t(u, w)])  # t(u,v) and t(v,w) -> t(u,w)
+                enc.append([-t(u, v), -r(v, w), t(u, w)])  # t(u,v) and r(v,w) -> t(u,w)
 
     # RSE
 
@@ -314,7 +317,7 @@ def encode(n, partial_sym_break=None, card_type=1, peak_count=None, RSE_count=No
 
     print(f"Total number of clauses: {len(enc.clauses)}")
     print(f"Total number of variables: {vpool.top}")
-
+    print(PROJECTED_SET)
     return enc, var_to_edge
 
 
@@ -366,10 +369,12 @@ if __name__ == "__main__":
 
     if args.no_solve:
         encoding.to_file(tmp_file)
+        with open(tmp_file, mode="a") as f:
+            f.write("c p show " + " ".join(PROJECTED_SET) + " 0\n")
         exit()
 
     # use pysat solsver
-    solver = Solver(name="Cadical195")
+    solver = Solver(name="Cadical195",use_timer=True)
     for clause in encoding:
         solver.add_clause(clause)
     r = True
@@ -385,7 +390,7 @@ if __name__ == "__main__":
         
         r = solver.solve()
         # print("Result:", r)
-
+#        print(f"Time taken: {solver.time():.10f}")
         if r:
             num_models += 1
             model = solver.get_model()
@@ -395,6 +400,7 @@ if __name__ == "__main__":
 
             if num_models % 1000 == 0:
                 print(f"Number of models so far: {num_models}")
+                print(f"Time taken: {solver.time_accum():.10f}")
 
             # block model on edge variables
             solver.add_clause([-model[i] for i in range(num_edge_vars)])
@@ -403,6 +409,7 @@ if __name__ == "__main__":
 
     if args.all:
         print(f"Number of models: {num_models}")
+        print(f"Time taken: {solver.time_accum():.10f}")
     else:
         if num_models == 1:
             print("SAT")
