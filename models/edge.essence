@@ -43,10 +43,10 @@ such that
         . (!direction[n1, n2]) /\ (!direction[n2, n1])
 
 $0 is a source
-$such that 
-$    forAll n1, n2 : NODE . (and([ n1[d] = false | d : DIM ]) 
-$                            /\  1 = sum i : int(1..dimension) . toInt(n1[i] != n2[i]))
-$                            -> direction[n1,n2]
+such that 
+   forAll n1, n2 : NODE . (and([ n1[d] = false | d : DIM ]) 
+                           /\  1 = sum i : int(1..dimension) . toInt(n1[i] != n2[i]))
+                           -> direction[n1,n2]
 
 
 $ a node is a peak if its weight is larger  than all of its neighbours' weights
@@ -98,7 +98,7 @@ $ path(x,y) iff there is a path from x to y
 find hasPaths : matrix [NODE, NODE] of bool
  
 $ edges are paths
-such that forAll x,y : NODE . x != y /\ (sum([1 | i : DIM, x[i] != y[i]]) = 1) -> hasPaths[x,y]
+such that forAll x,y : NODE . x != y /\ (sum([1 | i : DIM, x[i] != y[i]]) = 1) /\ direction[x,y] -> hasPaths[x,y]
  
 $ path from x->y AND y->z IMPLIES x->z
 such that forAll x,y,z : NODE . (hasPaths[x,y] /\ hasPaths[y,z]) -> hasPaths[x,z]
@@ -113,14 +113,14 @@ $symmetry breaking using auts of cube
 $symmetry is defined by the permutation and flipping of the bits (size = 2^n n!)
 
 
-such that
+$ such that
 
-forAll b : NODE. $choose which bits to flip
-    forAll p: matrix indexed by [DIM] of DIM, allDiff(p). $choose how to permute bits 
-        [direction[i,j] | i,j: NODE] <=lex 
-             [direction[[ [i[p[k]], !i[p[k]]; int(0..1)][toInt(b[k])] | k: DIM] ,
-                        [ [j[p[k]], !j[p[k]]; int(0..1)][toInt(b[k])] | k: DIM] 
-                       ]| i,j: NODE]
+$ forAll b : NODE. $choose which bits to flip
+$     forAll p: matrix indexed by [DIM] of DIM, allDiff(p). $choose how to permute bits 
+$         [direction[i,j] | i,j: NODE] <=lex 
+$              [direction[[ [i[p[k]], !i[p[k]]; int(0..1)][toInt(b[k])] | k: DIM] ,
+$                         [ [j[p[k]], !j[p[k]]; int(0..1)][toInt(b[k])] | k: DIM] 
+$                        ]| i,j: NODE]
 
 
 
@@ -145,13 +145,13 @@ or([
         )
         \/
         (
-            ((direction[a,b] /\ direction[c,d]) 
+            ((direction[a,d] /\ direction[c,b]) 
             \/ 
-            (direction[b,a] /\ direction[d,c]))
+            (direction[d,a] /\ direction[b,c]))
         /\
-            ((direction[a,d] /\ direction[b,c]) 
+            ((direction[a,b] /\ direction[d,c]) 
             \/ 
-            (direction[d,a] /\ direction[c,b]))
+            (direction[b,a] /\ direction[c,d]))
         )
     )
 
@@ -193,13 +193,13 @@ and([
         )
         \/
         (
-            ((direction[a,b] /\ direction[c,d]) 
+            ((direction[a,d] /\ direction[c,b]) 
             \/ 
-            (direction[b,a] /\ direction[d,c]))
+            (direction[d,a] /\ direction[b,c]))
         /\
-            ((direction[a,d] /\ direction[b,c]) 
+            ((direction[a,b] /\ direction[d,c]) 
             \/ 
-            (direction[d,a] /\ direction[c,b]))
+            (direction[b,a] /\ direction[c,d]))
         )
     )
 
@@ -230,6 +230,7 @@ such that
 count = sum([
 
     toInt(
+    (
         (
             ((direction[a,b] /\ direction[c,d]) 
             \/ 
@@ -241,14 +242,15 @@ count = sum([
         )
         \/
         (
-            ((direction[a,b] /\ direction[c,d]) 
+            ((direction[a,d] /\ direction[c,b]) 
             \/ 
-            (direction[b,a] /\ direction[d,c]))
+            (direction[d,a] /\ direction[b,c]))
         /\
-            ((direction[a,d] /\ direction[b,c]) 
+            ((direction[a,b] /\ direction[d,c]) 
             \/ 
-            (direction[d,a] /\ direction[c,b]))
+            (direction[b,a] /\ direction[c,d]))
         )
+    )
     )
 
     | a,b,c,d : NODE
@@ -383,6 +385,3 @@ count = sum([
 , prop_type = RSE
 
 ]
-
-
-

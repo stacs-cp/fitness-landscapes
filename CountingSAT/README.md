@@ -6,6 +6,7 @@ Note that we are expecting 4836 solutions for Dimension 4 Peak 4 SE 4!
 - cadicalCPSATDim4Peak4SE4.cnf ```conjure solve fl.essence test.param --solver=cadical --savilerow-options "-keep-dimacs-file"```
 - kissatCPAllDim4Peak4SE4.cnf ```conjure solve fl.essence test.param --number-of-solution=all --solver=kissat --savilerow-options "-keep-dimacs-file"```
 - kissatCPSATDim4Peak4SE4.cnf ```conjure solve fl.essence test.param --solver=kissat --savilerow-options "-keep-dimacs-file"```
+- CPEncodingCorrect.cnf ```conjure modelling fl.essence; conjure translate-parameter --eprime=conjure-output/model000001.eprime --essence-param=test.param; savilerow conjure-output/model000001.eprime test.eprime-param -sat```
 
 I am expecting no difference in the results between kissat/cadical but I generated both just in case SR does some additional encodings based on which solver is given.
 
@@ -19,6 +20,7 @@ I am expecting no difference in the results between kissat/cadical but I generat
 - kissatCPAllDim4Peak4SE4.cnf (see file kissatCPAll444Inexact.out) *UNSAT*
 - cadicalCPSATDim4Peak4SE4.cnf (see file cadicalCPSAT444Inexact.out) *25153716960*
 - kissatCPSATDim4Peak4SE4.cnf (see file kissatCPSAT444Inexact.out) *25153716960*
+- CPEncodingCorrect.cnf (see file CPEncodingCorrect.out) *25153716960*
 - SATDim4Peak4SE4.cnf (see file SAT444Inexact.out) *1907356500668412357386892354432*
 
 ### Forcing the exact solver (i.e. using -prob 0 flag in ganak)
@@ -26,6 +28,7 @@ I am expecting no difference in the results between kissat/cadical but I generat
 - kissatCPAllDim4Peak4SE4.cnf (see file kissatCPAll444Exact.out) *UNSAT*
 - cadicalCPSATDim4Peak4SE4.cnf (see file cadicalCPSAT444Exact.out) *25153716960*
 - kissatCPSATDim4Peak4SE4.cnf (see file kissatCPSAT444Exact.out) *25153716960*
+- CPEncodingCorrect.cnf (see file CPEncodingCorrectExact.out) *25153716960*
 - SATDim4Peak4SE4.cnf (see file SAT444Exact.out) *1907356500668412357386892354432*
 
 Finally note that running Cadical for a single solution over cadicalCPAllDim4Peak4SE4.cnf is giving *UNSAT*. Which... It shouldn't?
