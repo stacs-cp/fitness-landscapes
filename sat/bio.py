@@ -94,8 +94,6 @@ def encode(n, partial_sym_break=None, card_type=1, peak_count=None, RSE_count=No
 
     # RSE
 
-    # SE counts (3-path + last in other direction)
-
     if False:
         if RSE_count is not None:
             RSE_variables = []
@@ -345,6 +343,12 @@ if __name__ == "__main__":
         help="Type of cardinality constraint to use in pysat (1 is sequential)",
         default=DEFAULT_CARDINALITY_ENCODING,
     )
+    
+    argparser.add_argument(
+        "--print-solutions",
+        action="store_true",
+        help="Prints the solutions to the output"
+    )
 
     args = argparser.parse_args()
 
@@ -388,7 +392,10 @@ if __name__ == "__main__":
         if r:
             num_models += 1
             model = solver.get_model()
-            # red_edges = [var_to_edge[abs(lit)] for lit in model[:num_edge_vars] if lit > 0]
+            
+            if args.print_solutions:
+                edges = [var_to_edge[abs(lit)] for lit in model[:num_edge_vars] if lit > 0]
+                print(edges)
 
             # solutions.append(red_edges)
 
