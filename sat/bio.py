@@ -31,7 +31,7 @@ def swap(i, j, v):
     return tuple(u)
 
 
-def encode(n, partial_sym_break=None, card_type=1, peak_count=None, RSE_count=None, SE_count=None, complete_sym_break=False):
+def encode(n, partial_sym_break=None, card_type=1, peak_count=None, RSE_count=None, SE_count=None, complete_sym_break=False, complete_sym_break2=False):
     enc = CNF()
 
     print(f"Card type: {card_type}")
@@ -283,7 +283,7 @@ def encode(n, partial_sym_break=None, card_type=1, peak_count=None, RSE_count=No
             # cls_pre_sb = enc.n_clauses()
             original_signed_edges = [(1, (u, v)) for u in vertices for v in graph[u] if u < v]
 
-            if not complete_sym_break:
+            if not complete_sym_break and not complete_sym_break2:
                 # only consider transpositions of the dimensions
                 for i, j in itertools.combinations(range(n), 2):
                     permuted_edges = [(s, (swap(i, j, u), swap(i, j, v))) for s, (u, v) in original_signed_edges]
@@ -295,21 +295,24 @@ def encode(n, partial_sym_break=None, card_type=1, peak_count=None, RSE_count=No
                         maxcomparisons=MAX_COMPARISONS,
                     )
             else:  # complete symmetry breaking
+                original_literals = [s * r(u, v) for s, (u, v) in original_signed_edges]
+                use_flips = complete_sym_break2
+
                 for P in itertools.permutations(range(n)):
-                    flip_dimensions = [0 for _ in range(n)]  # TODO no flips for now
+                    flip_masks = itertools.product([0, 1], repeat=n) if use_flips else [(0,) * n]
+                    for flip_dimensions in flip_masks:
+                        def permute_and_flip(v):
+                            return tuple((v[P[i]] if flip_dimensions[i] == 0 else 1 - v[P[i]] for i in range(n)))
 
-                    def permute_and_flip(v):
-                        # print(f"Permuting {v} with {P} and flipping {flip_dimensions}")
-                        return tuple((v[P[i]] if flip_dimensions[i] == 0 else 1 - v[P[i]] for i in range(n)))
-
-                    permuted_edges = [(s, (permute_and_flip(u), permute_and_flip(v))) for s, (u, v) in original_signed_edges]
-                    enc = lex_smaller_eq(
-                        enc,
-                        vpool,
-                        [s * r(u, v) for s, (u, v) in original_signed_edges],
-                        [s * r(u, v) for s, (u, v) in permuted_edges],
-                        maxcomparisons=MAX_COMPARISONS,
-                    )
+                        permuted_edges = [(s, (permute_and_flip(u), permute_and_flip(v))) for s, (u, v) in original_signed_edges]
+                        enc = lex_smaller_eq(
+                            enc,
+                            vpool,
+                            [s * r(u, v) for s, (u, v) in permuted_edges],
+                            original_literals,
+                            
+                            maxcomparisons=MAX_COMPARISONS,
+                        )
 
             print(f"number of clauses after adding symmetry breaking: {len(enc.clauses)}")
 
@@ -337,6 +340,7 @@ if __name__ == "__main__":
     )
     argparser.add_argument("-a", "--all", action="store_true", help="Enumerate all models")
     argparser.add_argument("--complete-sym-break", action="store_true", help="Use 'complete' symmetry breaking instead of partial")
+    argparser.add_argument("--complete-sym-break2", action="store_true", help="Use 'complete' symmetry breaking including flipping bits")
     argparser.add_argument("--partial-sym-break", type=int, help="Max comparisons for partial symbreak", default=20000)
 
     argparser.add_argument(
@@ -366,6 +370,7 @@ if __name__ == "__main__":
         RSE_count=args.RSE_count,
         SE_count=args.SE_count,
         complete_sym_break=args.complete_sym_break,
+        complete_sym_break2=args.complete_sym_break2
     )
 
 #    encoding.to_file(f"norine_switches_pysat_{N}_{args.b}.cnf")
