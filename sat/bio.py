@@ -391,8 +391,20 @@ if __name__ == "__main__":
     num_edge_vars = 2 ** (N - 1) * N
 
     num_models = 0
+    total_model_to_edges_time = 0.0
+    total_graph6_write_time = 0.0
 
-    solutions = []
+    if args.nauty:
+        import os
+        import time
+        from graph6 import graph6
+        path_for_graphs = f"graphs_{N}.g6"
+        path_for_filtered_graphs = f"graphs_filtered_{N}.g6"
+
+        os.remove(path_for_graphs) if os.path.exists(path_for_graphs) else None
+        graph_lines_buffer = []
+        graph_buffer_size = 1000
+        graph_file = open(path_for_graphs, "a")
 
     print("Start solving...")
     while r:
@@ -407,6 +419,29 @@ if __name__ == "__main__":
             if args.print_solutions:
                 edges = [var_to_edge[abs(lit)] for lit in model[:num_edge_vars] if lit > 0]
                 print(edges)
+                
+            if args.nauty:
+                t0 = time.perf_counter()
+                edges = [var_to_edge[abs(lit)] for lit in model[:num_edge_vars] if lit > 0]
+                t1 = time.perf_counter()
+
+                t2 = time.perf_counter()
+                graph_lines_buffer.append(graph6(edges, N) + "\n")
+                if len(graph_lines_buffer) >= graph_buffer_size:
+                    graph_file.writelines(graph_lines_buffer)
+                    graph_file.flush()
+                    graph_lines_buffer.clear()
+                t3 = time.perf_counter()
+
+                total_model_to_edges_time += (t1 - t0)
+                total_graph6_write_time += (t3 - t2)
+
+                if num_models % 1000 == 0:
+                    print(
+                        f"[timing up to model {num_models}] "
+                        f"sum(model->edges)={total_model_to_edges_time:.6f}s "
+                        f"sum(graph6+write)={total_graph6_write_time:.6f}s"
+                    )
 
             # solutions.append(red_edges)
 
@@ -419,6 +454,13 @@ if __name__ == "__main__":
             if not args.all:
                 break
 
+    if args.nauty:
+        if graph_lines_buffer:
+            graph_file.writelines(graph_lines_buffer)
+            graph_file.flush()
+            graph_lines_buffer.clear()
+        graph_file.close()
+
     if args.all:
         print(f"Number of models: {num_models}")
         print(f"Time taken: {solver.time_accum():.10f}")
@@ -427,3 +469,8 @@ if __name__ == "__main__":
             print("SAT")
         else:
             print("UNSAT")
+            
+    if args.nauty:
+        os.system(f"nauty-shortg {path_for_graphs} {path_for_filtered_graphs}")
+            
+    
