@@ -12,7 +12,7 @@ function one {
         echo "Skipping, conjure-output/model000001-$paramname.stats.json exists"
     else
         echo "Running, conjure-output/model000001-$paramname.stats.json"
-        conjure solve \
+        srun --partition sturm --cpus-per-task 2 --mem 16G --time=02:00:00 --chdir $(pwd)/fitness-landscapes --pty bash conjure solve \
             models/fl.essence $1 \
             --use-existing-models=conjure-output/model000001.eprime \
             --savilerow-options=-O1 \
