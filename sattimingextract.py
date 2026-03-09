@@ -17,7 +17,6 @@ def doOne(dimension_, nb_peaks_, peak_count_, face_type_):
                 if line.startswith("Time taken:"):
                     output = line.split("Time taken:")[-1].strip()
             return output
-#                    break  # Assuming only one "Time taken:" line per file
     except Exception as e:
         print(f"Error reading {filename}: {e}")
 
