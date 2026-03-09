@@ -8,4 +8,5 @@ with open(filename, "w", encoding="utf8") as f:
             for prop in ["RSE"]:
                 for edim in [1]:
                     for peak_count in face_counts[dimension]:
-                        print(f"""srun --partition sturm --cpus-per-task 2 --mem 16G --time=02:00:00 --chdir $(pwd)/fitness-landscapes --pty bash python sat/bio.py -n {dimension} --partial-sym-break 0 --peak-count {nb_peaks} --RSE-count {peak_count} -a > satoutput/dim-{dimension}-peak-{nb_peaks}-RSE-{peak_count}.txt""", file=f)
+                        print(f"""python sat/bio.py -n {dimension} --partial-sym-break 0 --peak-count {nb_peaks} --RSE-count {peak_count} -a > satoutput/dim-{dimension}-peak-{nb_peaks}-RSE-{peak_count}.txt""", file=f)
+                        #print(f"""srun --partition sturm --cpus-per-task 2 --mem 16G --time=02:00:00 --chdir $(pwd)/fitness-landscapes --pty bash python sat/bio.py -n {dimension} --partial-sym-break 0 --peak-count {nb_peaks} --RSE-count {peak_count} -a > satoutput/dim-{dimension}-peak-{nb_peaks}-RSE-{peak_count}.txt""", file=f)

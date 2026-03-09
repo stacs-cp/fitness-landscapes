@@ -474,3 +474,4 @@ if __name__ == "__main__":
         os.system(f"nauty-shortg {path_for_graphs} {path_for_filtered_graphs}")
             
     
+
