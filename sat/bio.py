@@ -365,6 +365,7 @@ if __name__ == "__main__":
         filename = "SATresults/dim-" + str(args.n) + "-peak-" + str(args.peak_count) + "-SE-" + str(args.SE_count) + ".txt"
     if args.RSE_count:
         filename = "SATresults/dim-" + str(args.n) + "-peak-" + str(args.peak_count) + "-RSE-" + str(args.RSE_count) + ".txt"
+    
     f = open(filename, "w")
 
     f.write(f"Arguments: {args}\n")

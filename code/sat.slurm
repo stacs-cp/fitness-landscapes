@@ -10,4 +10,6 @@
 
 python3 data/satinput.py
 
+mkdir SATresults 
+
 srun `sed -n "$SLURM_ARRAY_TASK_ID"p satcommands`
