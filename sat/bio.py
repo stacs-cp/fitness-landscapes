@@ -359,7 +359,7 @@ if __name__ == "__main__":
 
     args = argparser.parse_args()
 
-    if not os.path.exists("SATresults") :
+    if not os.path.exists("SATresults"):
         os.mkdir("SATresults")
     if args.SE_count:
         filename = "SATresults/dim-" + str(args.n) + "-peak-" + str(args.peak_count) + "-SE-" + str(args.SE_count) + ".txt"
