@@ -31,10 +31,10 @@ def swap(i, j, v):
     return tuple(u)
 
 
-def encode(n, partial_sym_break=None, card_type=1, peak_count=None, RSE_count=None, SE_count=None, complete_sym_break=False, complete_sym_break2=False):
+def encode(fname, n, partial_sym_break=None, card_type=1, peak_count=None, RSE_count=None, SE_count=None, complete_sym_break=False, complete_sym_break2=False):
     enc = CNF()
 
-    print(f"Card type: {card_type}")
+    fname.write(f"Card type: {card_type}\n")
 
     vpool = IDPool(start_from=1)
     vertices = list(itertools.product([0, 1], repeat=n))
@@ -314,11 +314,11 @@ def encode(n, partial_sym_break=None, card_type=1, peak_count=None, RSE_count=No
                             maxcomparisons=MAX_COMPARISONS,
                         )
 
-            print(f"number of clauses after adding symmetry breaking: {len(enc.clauses)}")
+            fname.write(f"number of clauses after adding symmetry breaking: {len(enc.clauses)}\n")
 
-    print(f"Total number of clauses: {len(enc.clauses)}")
-    print(f"Total number of variables: {vpool.top}")
-    print(PROJECTED_SET)
+    fname.write(f"Total number of clauses: {len(enc.clauses)}\n")
+    fname.write(f"Total number of variables: {vpool.top}\n")
+    fname.write(str(PROJECTED_SET)+"\n")
     return enc, var_to_edge
 
 
@@ -359,10 +359,19 @@ if __name__ == "__main__":
 
     args = argparser.parse_args()
 
-    print(f"Arguments: {args}")
+    if not os.path.exists("SATresults") :
+        os.mkdir("SATresults")
+    if args.SE_count:
+        filename = "SATresults/dim-" + str(args.n) + "-peak-" + str(args.peak_count) + "-SE-" + str(args.SE_count) + ".txt"
+    if args.RSE_count:
+        filename = "SATresults/dim-" + str(args.n) + "-peak-" + str(args.peak_count) + "-RSE-" + str(args.RSE_count) + ".txt"
+    f = open(filename, "w")
+
+    f.write(f"Arguments: {args}\n")
     N = args.n
 
     encoding, var_to_edge = encode(
+        f,
         N,
         partial_sym_break=args.partial_sym_break,
         card_type=args.cardinality_contraint,
@@ -406,19 +415,20 @@ if __name__ == "__main__":
         graph_buffer_size = 1000
         graph_file = open(path_for_graphs, "a")
 
-    print("Start solving...")
+
+    f.write("Start solving...\n")
     while r:
         
         r = solver.solve()
-        # print("Result:", r)
-#        print(f"Time taken: {solver.time():.10f}")
+        # f.write("Result:", r, "\n")
+        # f.write(f"Time taken: {solver.time():.10f}\n")
         if r:
             num_models += 1
             model = solver.get_model()
             
             if args.print_solutions:
                 edges = [var_to_edge[abs(lit)] for lit in model[:num_edge_vars] if lit > 0]
-                print(edges)
+                f.write(edges + "\n")
                 
             if args.nauty:
                 t0 = time.perf_counter()
@@ -437,17 +447,17 @@ if __name__ == "__main__":
                 total_graph6_write_time += (t3 - t2)
 
                 if num_models % 1000 == 0:
-                    print(
+                    f.write(
                         f"[timing up to model {num_models}] "
                         f"sum(model->edges)={total_model_to_edges_time:.6f}s "
-                        f"sum(graph6+write)={total_graph6_write_time:.6f}s"
+                        f"sum(graph6+write)={total_graph6_write_time:.6f}s"+ "\n"
                     )
 
             # solutions.append(red_edges)
 
             if num_models % 1000 == 0:
-                print(f"Number of models so far: {num_models}")
-                print(f"Time taken: {solver.time_accum():.10f}")
+                f.write(f"Number of models so far: {num_models}\n")
+                f.write(f"Time taken: {solver.time_accum():.10f}\n")
 
             # block model on edge variables
             solver.add_clause([-model[i] for i in range(num_edge_vars)])
@@ -462,13 +472,13 @@ if __name__ == "__main__":
         graph_file.close()
 
     if args.all:
-        print(f"Number of models: {num_models}")
-        print(f"Time taken: {solver.time_accum():.10f}")
+        f.write(f"Number of models: {num_models}\n")
+        f.write(f"Time taken: {solver.time_accum():.10f}\n")
     else:
         if num_models == 1:
-            print("SAT")
+            f.write("SAT\n")
         else:
-            print("UNSAT")
+            f.write("UNSAT\n")
             
     if args.nauty:
         os.system(f"nauty-shortg {path_for_graphs} {path_for_filtered_graphs}")
