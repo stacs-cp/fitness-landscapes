@@ -6,10 +6,8 @@
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=50G
 
-#SBATCH --array=1-5
+#SBATCH --array=1-3048
 
 python3 data/satinput.py
-
-mkdir -p SATresults 
 
 srun `sed -n "$SLURM_ARRAY_TASK_ID"p satcommands`

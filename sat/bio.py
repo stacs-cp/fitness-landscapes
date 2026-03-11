@@ -363,8 +363,10 @@ if __name__ == "__main__":
         os.mkdir("SATresults")
     if args.SE_count:
         filename = "SATresults/dim-" + str(args.n) + "-peak-" + str(args.peak_count) + "-SE-" + str(args.SE_count) + ".txt"
-    if args.RSE_count:
+    elif args.RSE_count:
         filename = "SATresults/dim-" + str(args.n) + "-peak-" + str(args.peak_count) + "-RSE-" + str(args.RSE_count) + ".txt"
+    else:
+        filename="default.txt"
     
     f = open(filename, "w")
 
