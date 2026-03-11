@@ -6,7 +6,7 @@
 #SBATCH --cpus-per-task=2
 #SBATCH --mem=16G
 
-#SBATCH --array=1-3
+#SBATCH --array=1-$(wc -l testcommands)
 
 echo test > test.txt
 echo test1 > test1.txt
