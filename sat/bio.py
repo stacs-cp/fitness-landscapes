@@ -361,9 +361,9 @@ if __name__ == "__main__":
 
     if not os.path.exists("SATresults"):
         os.mkdir("SATresults")
-    if args.SE_count:
+    if args.SE_count >= 0:
         filename = "SATresults/dim-" + str(args.n) + "-peak-" + str(args.peak_count) + "-SE-" + str(args.SE_count) + ".txt"
-    elif args.RSE_count:
+    elif args.RSE_count >= 0:
         filename = "SATresults/dim-" + str(args.n) + "-peak-" + str(args.peak_count) + "-RSE-" + str(args.RSE_count) + ".txt"
     else:
         filename="default.txt"
