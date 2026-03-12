@@ -1,10 +1,10 @@
 #!/bin/sh
 
-#SBATCH  --partition=debug
+#SBATCH  --partition=small-short
 #SBATCH --job-name=rh347SAT
 #SBATCH --time=02:00:00
 #SBATCH --cpus-per-task=1
-#SBATCH --mem=50G
+#SBATCH --mem=8G
 
 #SBATCH --array=1-3048
 
