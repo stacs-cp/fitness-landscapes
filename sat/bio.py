@@ -359,12 +359,12 @@ if __name__ == "__main__":
 
     args = argparser.parse_args()
 
-    if not os.path.exists("SATresults"):
-        os.mkdir("SATresults")
+    if not os.path.exists("SATresultsDEC"):
+        os.mkdir("SATresultsDEC")
     if args.SE_count != None:
-        filename = "SATresults/dim-" + str(args.n) + "-peak-" + str(args.peak_count) + "-SE-" + str(args.SE_count) + ".txt"
+        filename = "SATresultsDEC/dim-" + str(args.n) + "-peak-" + str(args.peak_count) + "-SE-" + str(args.SE_count) + ".txt"
     elif args.RSE_count != None:
-        filename = "SATresults/dim-" + str(args.n) + "-peak-" + str(args.peak_count) + "-RSE-" + str(args.RSE_count) + ".txt"
+        filename = "SATresultsDEC/dim-" + str(args.n) + "-peak-" + str(args.peak_count) + "-RSE-" + str(args.RSE_count) + ".txt"
     else:
         filename="default.txt"
     
