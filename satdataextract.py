@@ -7,8 +7,8 @@ face_counts = {3: range(0, 6+1),
                6: range(0, 240+1)}
 
 
-def doOne(dimension_, nb_peaks_, peak_count_):
-    filename = f"dim-{dimension_}-peak-{nb_peaks_}-RSE-{peak_count_}.txt"
+def doOne(dimension_, nb_peaks_, peak_count_,face_type_):
+    filename = f"dim-{dimension_}-peak-{nb_peaks_}-{face_type_}-{peak_count_}.txt"
     # print(filename)
     try:
         with open(filename, 'r', encoding='utf-8') as f:
@@ -24,10 +24,10 @@ def doOne(dimension_, nb_peaks_, peak_count_):
 
 
 for dimension in [3, 4, 5]:
-    
-    outfile = f"dim-{dimension}-SE.csv"
-    with open(outfile, "w", encoding="utf8") as out:
-        print("Faces/Peaks,"+",".join([str(nb_peaks) for nb_peaks in range(0, 2**(dimension-1)+1)]), file=out)
-        for peak_count in face_counts[dimension]:
-            print(peak_count, end=",", file=out)
-            print(",".join([str(doOne(dimension, nb_peaks, peak_count)) for nb_peaks in range(0, 2**(dimension-1)+1)]), file=out)
+    for face_type in ["RSE", "SE"]:
+        outfile = f"dim-{dimension}-{face_type}.csv"
+        with open(outfile, "w", encoding="utf8") as out:
+            print("Faces/Peaks,"+",".join([str(nb_peaks) for nb_peaks in range(0, 2**(dimension-1)+1)]), file=out)
+            for peak_count in face_counts[dimension]:
+                print(peak_count, end=",", file=out)
+                print(",".join([str(doOne(dimension, nb_peaks, peak_count,face_type)) for nb_peaks in range(0, 2**(dimension-1)+1)]), file=out)
