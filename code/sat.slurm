@@ -1,12 +1,12 @@
 #!/bin/sh
 
-#SBATCH  --partition=small-short
+#SBATCH  --partition=large-short
 #SBATCH --job-name=rh347SAT
 #SBATCH --time=48:00:00
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=64G
 
-#SBATCH --array=1-1238
+#SBATCH --array=1-3048
 
 python3 data/satinput.py
 
