@@ -344,7 +344,7 @@ if __name__ == "__main__":
     argparser.add_argument("--complete-sym-break", action="store_true", help="Use 'complete' symmetry breaking instead of partial")
     argparser.add_argument("--complete-sym-break2", action="store_true", help="Use 'complete' symmetry breaking including flipping bits")
     argparser.add_argument("--partial-sym-break", type=int, help="Max comparisons for partial symbreak", default=20000)
-    argparser.add_argument("--output", "-o", type=str, help="Output path to folder", default="results-"+ datetime.datetime.now().strftime("%Y-%m-%d-%H-%M"))
+    argparser.add_argument("--output", "-o", type=str, help="Output path to folder", default="output-"+ datetime.datetime.now().strftime("%Y-%m-%d-%H-%M"))
     
     argparser.add_argument(
         "--cardinality-contraint",
