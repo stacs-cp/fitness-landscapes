@@ -8,6 +8,8 @@ Script for  enumerating or checking existence of various fitness landscapes with
 import itertools
 import argparse
 
+import datetime
+
 from lex import lex_smaller_eq
 
 from pysat.formula import *
@@ -359,12 +361,12 @@ if __name__ == "__main__":
 
     args = argparser.parse_args()
 
-    if not os.path.exists("SATresultsDEC"):
-        os.mkdir("SATresultsDEC")
+    dirname = "results-"+ datetime.datetime.now().strftime("%Y-%m-%d-%H-%M")
+    os.mkdir(dirname)
     if args.SE_count != None:
-        filename = "SATresultsDEC/dim-" + str(args.n) + "-peak-" + str(args.peak_count) + "-SE-" + str(args.SE_count) + ".txt"
+        filename = dirname + "/dim-" + str(args.n) + "-peak-" + str(args.peak_count) + "-SE-" + str(args.SE_count) + ".txt"
     elif args.RSE_count != None:
-        filename = "SATresultsDEC/dim-" + str(args.n) + "-peak-" + str(args.peak_count) + "-RSE-" + str(args.RSE_count) + ".txt"
+        filename = dirname + "/dim-" + str(args.n) + "-peak-" + str(args.peak_count) + "-RSE-" + str(args.RSE_count) + ".txt"
     else:
         filename="default.txt"
     
