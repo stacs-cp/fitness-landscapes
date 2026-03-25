@@ -16,6 +16,8 @@ from pysat.formula import *
 from pysat.solvers import Solver
 from pysat.card import CardEnc
 
+import pathlib
+
 DEFAULT_CARDINALITY_ENCODING = 7  # selected pysat encoding for cardinality constraints
 PROJECTED_SET = set()
 
@@ -362,13 +364,12 @@ if __name__ == "__main__":
 
     args = argparser.parse_args()
 
-    dirname = "./" + str(args.output) + "/"
-    if not os.path.exists(dirname):
-        os.mkdir(dirname)
+    dirname = args.output
+    Path(dirname).mkdir(parents=True, exists_ok=True)
     if args.SE_count != None:
-        filename = dirname + "dim-" + str(args.n) + "-peak-" + str(args.peak_count) + "-SE-" + str(args.SE_count) + ".txt"
+        filename = dirname + "/dim-" + str(args.n) + "-peak-" + str(args.peak_count) + "-SE-" + str(args.SE_count) + ".txt"
     elif args.RSE_count != None:
-        filename = dirname + "dim-" + str(args.n) + "-peak-" + str(args.peak_count) + "-RSE-" + str(args.RSE_count) + ".txt"
+        filename = dirname + "/dim-" + str(args.n) + "-peak-" + str(args.peak_count) + "-RSE-" + str(args.RSE_count) + ".txt"
     else:
         filename="default.txt"
     
