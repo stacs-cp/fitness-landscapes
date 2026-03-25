@@ -8,6 +8,4 @@
 
 #SBATCH --array=1-3048
 
-python3 data/satinput.py
-
 srun `sed -n "$SLURM_ARRAY_TASK_ID"p satcommands`

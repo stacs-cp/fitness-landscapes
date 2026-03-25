@@ -362,7 +362,7 @@ if __name__ == "__main__":
 
     args = argparser.parse_args()
 
-    dirname = args.output
+    dirname = args.output + "/"
     if not os.path.exists(dirname):
         os.mkdir(dirname)
     if args.SE_count != None:
