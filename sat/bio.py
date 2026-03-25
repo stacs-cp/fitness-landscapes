@@ -363,7 +363,7 @@ if __name__ == "__main__":
     args = argparser.parse_args()
 
     dirname = str(args.output) + "/"
-    if not os.path.isdir(dirname):
+    if not os.path.exists(dirname):
         os.mkdir(dirname)
     if args.SE_count != None:
         filename = dirname + "dim-" + str(args.n) + "-peak-" + str(args.peak_count) + "-SE-" + str(args.SE_count) + ".txt"
