@@ -485,8 +485,12 @@ if __name__ == "__main__":
     else:
         if num_models == 1:
             f.write("SAT\n")
+            f.write(f"Time taken: {solver.time_accum():.10f}\n")
+
         else:
             f.write("UNSAT\n")
+            f.write(f"Time taken: {solver.time_accum():.10f}\n")
+
             
     if args.nauty:
         os.system(f"nauty-shortg {path_for_graphs} {path_for_filtered_graphs}")
