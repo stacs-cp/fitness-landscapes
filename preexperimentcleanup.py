@@ -31,5 +31,5 @@ def doOne(dimension_, nb_peaks_, peak_count_, prop_):
 for dimension in [3, 4, 5]:
     for prop in ["SE","RSE"]:
         for peak_count in face_counts[dimension]:
-            for nb_peaks in range(0, 2**(dimension-1)+1):
+            for nb_peaks in range(1, 2**(dimension-1)+1):
                 doOne(dimension, nb_peaks, peak_count,prop)
