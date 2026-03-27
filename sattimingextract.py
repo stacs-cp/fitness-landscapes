@@ -8,7 +8,7 @@ face_counts = {3: range(0, 6+1),
 def doOne(dimension_, nb_peaks_, peak_count_, face_type_):
     filename = f"dim-{dimension_}-peak-{nb_peaks_}-{face_type_}-{peak_count_}.txt"
     try:
-        last_line = "INITIALISED"
+        output = "INITIALISED"
         with open(filename, 'r', encoding='utf-8') as f:
             for line_num, line in enumerate(f, 1):
                 line = line.strip()
