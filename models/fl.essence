@@ -61,6 +61,20 @@ such that
 
 branching on [direction]
 
+
+
+$ --------------------------------------------------------------------------------
+$ Special case for SE! If dimension of landscape is odd and the number of SE faces is odd (and positive) then there is no landscape with that many SE faces.
+
+such that
+[ false
+| (n, m, prop_type, count) <- props
+, dimension % 2 = 1
+, count > 0
+, count % 2 = 1
+, prop_type = SE
+]
+
 $ --------------------------------------------------------------------------------
 $assuming we always want 00..0 to have weight 0, then we can still permute the first layer (everything else will follow suit)
 $symmetry break by forcing the weights of the first layer to be in order 
