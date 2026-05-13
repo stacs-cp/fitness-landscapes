@@ -23,6 +23,8 @@ function one {
 
 export -f one
 
-parallel --no-notice -j1 one ::: data/peaks-to-*.param
+for param in data/peaks-to-*.param; do
+    one "$param"
+done
 
 # At this point cpcommands contains all commands we want to run.
