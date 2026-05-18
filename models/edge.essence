@@ -124,13 +124,19 @@ $ ------------------------------------------------------------------------------
 $symmetry breaking using auts of cube
 $ $symmetry is defined by the permutation and flipping of the bits (size = 2^n n!)
 
-such that 
-forAll b : NODE. $choose which bits to flip
-    forAll p: matrix indexed by [DIM] of DIM, allDiff(p). $choose how to permute bits 
-        [!direction[i,j] | i,j: NODE,  sum([1 | u : DIM, i[u] != j[u]])= 1] <=lex 
-             [!direction[[ [i[p[k]], !i[p[k]]; int(0..1)][toInt(b[k])] | k: DIM] ,
-                        [ [j[p[k]], !j[p[k]]; int(0..1)][toInt(b[k])] | k: DIM] 
-                        ]| i,j: NODE,  sum([1 | u : DIM, i[u] != j[u]])= 1]
+given nbPermutations : int
+given permutations : matrix indexed by [int(1..nbPermutations), DIM] of DIM
+
+such that
+[
+    [!direction[i,j] | i,j: NODE,  sum([1 | u : DIM, i[u] != j[u]])= 1] <=lex
+    [!direction[[ [i[p[k]], !i[p[k]]; int(0..1)][toInt(b[k])] | k: DIM] ,
+                [ [j[p[k]], !j[p[k]]; int(0..1)][toInt(b[k])] | k: DIM]
+                ]| i,j: NODE,  sum([1 | u : DIM, i[u] != j[u]])= 1]
+| b : NODE $choose which bits to flip
+, permutationIndex : int(1..nbPermutations)
+, letting p be permutations[permutationIndex, ..] $choose how to permute bits
+]
 
 
 
