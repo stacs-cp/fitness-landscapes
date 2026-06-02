@@ -7,7 +7,7 @@ face_counts = {3: range(0, 6+1),
 
 
 def doOne(dimension_, nb_peaks_, peak_count_,prop_):
-    filename = f"results-2026-05-18-09-00/model000001-peaks-to-{prop_}-"
+    filename = f"results-2026-05-25-13-00/model000001-peaks-to-{prop_}-"
     filename += f"dimension-{dimension_}-"
     filename += f"peaks-{nb_peaks_}-"
     filename += f"count-{peak_count_}.stats.json"
