@@ -6,7 +6,7 @@ face_counts = {3: range(0, 6+1),
                5: range(0, 80+1)}
 
 def dimension_parampart(dimension):
-    return Path(f"data/dimension-{dimension}.parampart").read_text(encoding="utf8")
+    return Path(f"intermediate-data/dimension-{dimension}.parampart").read_text(encoding="utf8")
 
 
 for dimension in [3, 4, 5]:
@@ -28,7 +28,7 @@ for dimension in [3, 4, 5]:
                 #     }}
                 #     """, file=f)
             for peak_count in face_counts[dimension]:
-                filename = f"data/peaks-to-{prop}-"
+                filename = f"input/peaks-to-{prop}-"
                 filename += f"dimension-{dimension}-"
 #                filename += f"edim-{edim}-"
                 filename += f"peaks-{nb_peaks}-"

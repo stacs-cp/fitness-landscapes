@@ -23,7 +23,7 @@ function one {
 
 export -f one
 
-for param in data/peaks-to-*.param; do
+for param in input/peaks-to-*.param; do
     one "$param"
 done
 
