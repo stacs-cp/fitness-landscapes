@@ -11,7 +11,7 @@ face_counts = {3: range(6, 6+1),
 
 
 def doOne(dimension_, nb_peaks_, peak_count_):
-    filename = f"dim-{dimension_}-peak-{nb_peaks_}-SE-{peak_count_}.txt"
+    filename = f"output/raw/count-sat-cadical/dim-{dimension_}-peak-{nb_peaks_}-SE-{peak_count_}.txt"
     # print(filename)
     try:
         with open(filename, 'r', encoding='utf-8') as f:
@@ -28,7 +28,7 @@ def doOne(dimension_, nb_peaks_, peak_count_):
 
 
 # for dimension in [3, 4, 5]:
-outfile = "SE-bottom-left-seq.csv"
+outfile = "SE-bottom-left.csv"
 with open(outfile, "w", encoding="utf8") as out:
     for dimension in [3, 4, 5, 6, 7, 8]:
         print("Faces/Peaks,"+",".join([str(nb_peaks) for nb_peaks in range(1, 1+1)]), file=out)

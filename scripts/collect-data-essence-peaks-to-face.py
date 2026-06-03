@@ -7,7 +7,7 @@ face_counts = {3: range(0, 6+1),
 
 
 def doOne(dimension_, nb_peaks_, peak_count_,prop_):
-    filename = f"results-2026-05-25-13-00/model000001-peaks-to-{prop_}-"
+    filename = f"output/raw/essence-edge-branching-full-symmetry-minion/model000001-peaks-to-{prop_}-"
     filename += f"dimension-{dimension_}-"
     filename += f"peaks-{nb_peaks_}-"
     filename += f"count-{peak_count_}.stats.json"
@@ -27,7 +27,7 @@ def doOne(dimension_, nb_peaks_, peak_count_,prop_):
 
 for dimension in [3, 4, 5]:
     for prop in ["RSE", "SE"]:
-        outfile = f"dimension-{dimension}-{prop}.csv"
+        outfile = f"dim-{dimension}-{prop}.csv"
         with open(outfile, "w", encoding="utf8") as out:
             print("Faces/Peaks,"+",".join([str(nb_peaks) for nb_peaks in range(0, 2**(dimension-1)+1)]), file=out)
             for peak_count in face_counts[dimension]:

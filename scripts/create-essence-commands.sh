@@ -1,7 +1,7 @@
 
 # this is how I run it.
 
-python3 data/gen-params-for-peaks-to-table.py
+python3 scripts/gen-params-for-peaks-to-table.py
 #!/bin/sh
 
 rm -f cpcommands
@@ -11,7 +11,7 @@ function one {
     paramname="${paramname%.*}"
 
     echo conjure solve \
-        models/edge.essence $1 \
+        models/essence-edge-branching-full-symmetry/edge.essence $1 \
         --use-existing-models=conjure-output/model000001.eprime \
         --savilerow-options=-O1 \
         --solver=minion \

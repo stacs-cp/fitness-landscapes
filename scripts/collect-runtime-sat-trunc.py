@@ -6,7 +6,7 @@ face_counts = {3: range(0, 6+1),
                5: range(0, 80+1)}#, 6: range(0, 240+1)}
 
 def doOne(dimension_, nb_peaks_, peak_count_, face_type_):
-    filename = f"dim-{dimension_}-peak-{nb_peaks_}-{face_type_}-{peak_count_}.txt"
+    filename = f"output/raw/count-sat-cadical/dim-{dimension_}-peak-{nb_peaks_}-{face_type_}-{peak_count_}.txt"
     try:
         output = "INITIALISED"
         with open(filename, 'r', encoding='utf-8') as f:
@@ -22,7 +22,7 @@ def doOne(dimension_, nb_peaks_, peak_count_, face_type_):
 
 for dimension in [3, 4, 5]:#, 6]:
     for face_type in ["RSE", "SE"]:
-        outfile = f"dim-{dimension}-{face_type}-time-TRUNC.csv"
+        outfile = f"output/symmart.dim-{dimension}-{face_type}-time-TRUNC.csv"
         with open(outfile, "w", encoding="utf8") as out:
             print("Faces/Peaks,"+",".join([str(nb_peaks) for nb_peaks in range(1, 2**(dimension-1)+1)]), file=out)
             for peak_count in face_counts[dimension]:

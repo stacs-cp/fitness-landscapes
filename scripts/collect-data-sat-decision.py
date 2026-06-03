@@ -6,7 +6,7 @@ face_counts = {3: range(0, 6+1),
                5: range(0, 80+1)}#, 6: range(0, 240+1)}
 
 def doOne(dimension_, nb_peaks_, peak_count_,face_type_):
-    filename = f"dim-{dimension_}-peak-{nb_peaks_}-{face_type_}-{peak_count_}.txt"
+    filename = f"output/raw/decision-sat-cadical/dim-{dimension_}-peak-{nb_peaks_}-{face_type_}-{peak_count_}.txt"
     try:
         last_line = "INITIALISED"
         second_to_last_line = "SecondToLast"
