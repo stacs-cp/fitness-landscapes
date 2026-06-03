@@ -71,7 +71,7 @@ $ path(x,y) iff there is a path from x to y
 find hasPaths : matrix [NODE, NODE] of bool
  
 $ edges are paths
-such that forAll x,y : NODE . x != y /\ (sum([1 | i : DIM, x[i] != y[i]]) = 1) -> hasPaths[x,y]
+such that forAll x,y : NODE . x != y /\ (sum([1 | i : DIM, x[i] != y[i]]) = 1) /\ direction[x,y] -> hasPaths[x,y]
  
 $ path from x->y AND y->z IMPLIES x->z
 such that forAll x,y,z : NODE . (hasPaths[x,y] /\ hasPaths[y,z]) -> hasPaths[x,z]
