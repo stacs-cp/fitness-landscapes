@@ -6,6 +6,6 @@
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=64G
 
-#SBATCH --array=1-3048
+#SBATCH --array=1-3048%20
 
 srun `sed -n "$SLURM_ARRAY_TASK_ID"p satcommands`
