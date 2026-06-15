@@ -29,8 +29,10 @@ function one {
         echo "Skipping $1"
     elif [ -f $2.stats.json ]; then
         echo "Skipping $1, stats.json exists already"
+    elif [ -f data-AtLeastRSE/$3.stats.json ] && grep -q '"SolverSatisfiable": "0"' data-AtLeastRSE/$3.stats.json; then
+        echo "Skipping $1, data-AtLeastRSE/$3.stats.json says UNSAT"
     else
-        conjure solve models/fitness-ExactRSE.essence $2.json --solver=kissat --output-format=json --number-of-solutions=1 --solutions-in-one-fil -o conjure-output/ExactRSE
+        conjure solve models/fitness-ExactRSE.essence $2.json --solver=kissat --output-format=json --number-of-solutions=1 --solutions-in-one-file -o conjure-output/ExactRSE
         mv conjure-output/ExactRSE/model000001-$3.solutions.json $2.solutions.json
         mv conjure-output/ExactRSE/model000001-$3.stats.json $2.stats.json
         python3 code/plot.py $2.solutions.json $2

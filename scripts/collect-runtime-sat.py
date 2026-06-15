@@ -1,30 +1,104 @@
+#!/usr/bin/env python3
+from __future__ import annotations
 
-import json
+import argparse
+from collections import defaultdict
+from pathlib import Path
 
-face_counts = {3: range(0, 6+1),
-               4: range(0, 24+1),
-               5: range(0, 80+1)}#, 6: range(0, 240+1)}
-
-def doOne(dimension_, nb_peaks_, peak_count_, face_type_):
-    filename = f"output/raw/count-sat-cadical/dim-{dimension_}-peak-{nb_peaks_}-{face_type_}-{peak_count_}.txt"
-    try:
-        output = "INITIALISED"
-        with open(filename, 'r', encoding='utf-8') as f:
-            for line_num, line in enumerate(f, 1):
-                line = line.strip()
-                if line.startswith("Time taken:"):
-                    output = line.split("Time taken:")[-1].strip()
-            return output
-    except Exception as e:
-        print(f"Error reading {filename}: {e}")
+from result_tables import (
+    SAT_RESULT_RE,
+    UpsertStats,
+    face_counts,
+    parse_int_list,
+    parse_props,
+    parse_sat_result_file,
+    peak_counts_with_zero,
+    sat_decision_time_table,
+    sat_exact_time_table,
+    upsert_csv_grid,
+)
 
 
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Collect SAT timings into stored CSV tables.")
+    parser.add_argument("input_dirs", nargs="*", help="Directories containing dim-...txt result files.")
+    parser.add_argument("--dimensions", default="3,4,5", help="Comma-separated dimensions or ranges to collect.")
+    parser.add_argument("--props", default="RSE,SE", help="Comma-separated props to collect: RSE,SE.")
+    parser.add_argument("--mode", choices=["decision", "exact"], default="exact", help="Timing table family to update.")
+    parser.add_argument("--recursive", action="store_true", help="Search input directories recursively.")
+    parser.add_argument("--output-dir", help="Override table output directory.")
+    return parser.parse_args()
 
-for dimension in [3, 4, 5]:#, 6]:
-    for face_type in ["RSE", "SE"]:
-        outfile = f"output/summary/runtimes/count-sat-cadical-dim-{dimension}-{face_type}-time.csv"
-        with open(outfile, "w", encoding="utf8") as out:
-            print("Faces/Peaks,"+",".join([str(nb_peaks) for nb_peaks in range(1, 2**(dimension-1)+1)]), file=out)
-            for peak_count in face_counts[dimension]:
-                print(peak_count, end=",", file=out)
-                print(",".join([str(doOne(dimension, nb_peaks, peak_count,face_type)) for nb_peaks in range(1, 2**(dimension-1)+1)]), file=out)
+
+def default_input_dirs(mode: str) -> list[str]:
+    if mode == "decision":
+        return ["output/raw/decision-sat-cadical"]
+    return ["output/raw/count-sat-cadical"]
+
+
+def iter_result_files(input_dirs: list[str], recursive: bool) -> list[Path]:
+    files: list[Path] = []
+    for raw_dir in input_dirs:
+        root = Path(raw_dir)
+        pattern = "**/dim-*-peak-*-*-*.txt" if recursive else "dim-*-peak-*-*-*.txt"
+        files.extend(path for path in root.glob(pattern) if SAT_RESULT_RE.match(path.name))
+    return files
+
+
+def default_table(prop: str, dimension: int, mode: str) -> Path:
+    if mode == "decision":
+        return sat_decision_time_table(prop, dimension)
+    return sat_exact_time_table(prop, dimension)
+
+
+def main() -> None:
+    args = parse_args()
+    input_dirs = args.input_dirs or default_input_dirs(args.mode)
+    dimensions = set(parse_int_list(args.dimensions, default=[3, 4, 5]))
+    props = set(parse_props(args.props))
+    updates: dict[tuple[str, int], dict[tuple[int, int], str]] = defaultdict(dict)
+
+    for path in iter_result_files(input_dirs, args.recursive):
+        match = SAT_RESULT_RE.match(path.name)
+        if match is None:
+            continue
+        dimension, nb_peaks, prop, face_count = match.groups()
+        dimension_i = int(dimension)
+        nb_peaks_i = int(nb_peaks)
+        face_count_i = int(face_count)
+        if dimension_i not in dimensions or prop not in props:
+            continue
+        time_taken = parse_sat_result_file(path).get("time")
+        if time_taken is None:
+            continue
+        updates[(prop, dimension_i)][(face_count_i, nb_peaks_i)] = time_taken
+
+    total = UpsertStats()
+    for prop in sorted(props):
+        for dimension in sorted(dimensions):
+            table_updates = updates.get((prop, dimension), {})
+            if not table_updates:
+                continue
+            filename = f"dim-{dimension}-{prop}-time.csv"
+            path = Path(args.output_dir) / filename if args.output_dir else default_table(prop, dimension, args.mode)
+            stats = upsert_csv_grid(
+                path,
+                table_updates,
+                kind="time",
+                columns=peak_counts_with_zero(dimension),
+                rows=face_counts(dimension),
+            )
+            total += stats
+            print(
+                f"{path}: inserted {stats.inserted}, updated {stats.updated}, "
+                f"unchanged {stats.unchanged}, conflicts {stats.conflicts}"
+            )
+
+    print(
+        f"Total: inserted {total.inserted}, updated {total.updated}, "
+        f"unchanged {total.unchanged}, conflicts {total.conflicts}"
+    )
+
+
+if __name__ == "__main__":
+    main()

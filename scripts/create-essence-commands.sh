@@ -1,30 +1,4 @@
-
-# this is how I run it.
-
-python3 scripts/gen-params-for-peaks-to-table.py
 #!/bin/sh
+set -eu
 
-rm -f cpcommands
-
-function one {
-    paramname=$(basename -- "$1")
-    paramname="${paramname%.*}"
-
-    echo conjure solve \
-        models/essence-edge-branching-full-symmetry/edge.essence $1 \
-        --use-existing-models=conjure-output/model000001.eprime \
-        --savilerow-options=-O1 \
-        --solver=minion \
-        --number-of-solutions=all \
-        --copy-solutions=no \
-    	--solutions-in-one-file \
-        --output-format=json >> cpcommands
-}
-
-export -f one
-
-for param in input/peaks-to-*.param; do
-    one "$param"
-done
-
-# At this point cpcommands contains all commands we want to run.
+python3 scripts/create-essence-commands.py "$@"
