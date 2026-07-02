@@ -612,6 +612,11 @@ def _relative_to_root(path: Path) -> Path:
 
 def cp_command(param: Path, *, output_dir: str | None = None) -> str:
     parts: list[str | Path] = [
+        "/home/rh347/.local/bin/runsolver",
+        "-W",
+        "3600",
+        "-R",
+        "18000",
         "conjure",
         "solve",
         "models/essence-edge-branching-full-symmetry/edge.essence",
@@ -623,6 +628,7 @@ def cp_command(param: Path, *, output_dir: str | None = None) -> str:
         "--copy-solutions=no",
         "--solutions-in-one-file",
         "--output-format=json",
+        
     ]
     if output_dir:
         parts.extend(["-o", output_dir])
@@ -639,6 +645,11 @@ def sat_command(
     enumerate_all: bool,
 ) -> str:
     parts: list[str | Path] = [
+        "/home/rh347/.local/bin/runsolver",
+        "-W",
+        "3600",
+        "-R",
+        "18000",
         "python",
         "models/sat/bio.py",
         "-n",
