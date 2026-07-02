@@ -626,7 +626,7 @@ def cp_command(param: Path, *, output_dir: str | None = None, solver: str) -> st
         "solve",
         "models/essence-edge-branching/edge.essence",
         _relative_to_root(param) if param.is_absolute() else param,
-        f"--use-existing-models=output/raw/count-essence-edge-branching-{solver}/model000001.eprime",
+        f"--use-existing-models=output/raw/count-essence-edge-branching/model000001.eprime",
         "--savilerow-options=-O1",
         f"--solver={solver}",
         "--number-of-solutions=all",
