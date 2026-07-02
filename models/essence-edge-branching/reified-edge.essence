@@ -1,0 +1,214 @@
+given dimension : int
+
+letting DIM be domain int(1..dimension)
+letting NODE be domain matrix [DIM] of bool
+letting PROP_TYPE be new type enum {SE, RSE}
+
+$ -1 means ignore
+given nb_peaks : int
+
+$ dimensionality of the face
+$ 1x1 or 2x1 etc
+given props : set of
+        ( int           $ dimension 1
+        , int           $ dimension 2
+        , PROP_TYPE     $ SE/RSE
+        , int           $ exact count if >=0
+                        $ -1 to mean at least one
+                        $ -2 to mean all
+        )
+
+given edge_dir : bool
+given no_edge : bool
+given source_0 : bool
+given peaks : bool
+given odd_odd : bool
+given edge_paths : bool
+given path_transitivity : bool
+given acyclic : bool
+given full_sym : bool
+given se_count : bool
+
+
+
+$ --------------------------------------------------------------------------------
+$ direction
+
+$ we only care about the direction of the nodes when counting
+
+$we only look for directions
+$direction[i,j] means we point from i to j
+find direction : matrix [NODE, NODE] of bool
+
+such that
+edge_dir ->
+    forAll n1, n2 : NODE
+        $when there is an edge in the base graph
+        , sum([1 | i : DIM, n1[i] != n2[i]]) = 1
+        $we must have a direction (but not going both ways)
+        . xor([direction[n1, n2],  direction[n2, n1] ])
+
+such that
+no_edge ->
+    forAll n1, n2 : NODE
+        $when there is no edge in the base graph
+        , sum([1 | i : DIM, n1[i] != n2[i]]) != 1
+        $we have no directions to mean no edge 
+        . (!direction[n1, n2]) /\ (!direction[n2, n1])
+
+$0 is a source
+such that 
+source_0 ->
+   forAll n1, n2 : NODE . (and([ n1[d] = false | d : DIM ]) 
+                           /\  1 = sum i : int(1..dimension) . toInt(n1[i] != n2[i]))
+                           -> direction[n1,n2]
+
+
+$ a node is a peak if its weight is larger  than all of its neighbours' weights
+such that
+peaks -> (
+    nb_peaks >= 0 ->
+    nb_peaks =
+    sum([ toInt(and([ direction[x,p] $we point all neighbours to p
+                    | x : NODE
+                    $ neighbour is a node who has only 1 bit different from p
+                    , 1 = sum i : int(1..dimension) . toInt(p[i] != x[i])   $alternative: count of 1 in row is 0
+                    ]))
+        | p : NODE
+        ])
+)
+
+branching on [direction]
+
+$ --------------------------------------------------------------------------------
+$ Special case for SE! If dimension of landscape is odd and the number of SE faces is odd (and positive) then there is no landscape with that many SE faces.
+
+such that
+[ false
+| (n, m, prop_type, count) <- props
+, dimension % 2 = 1
+, count > 0
+, count % 2 = 1
+, prop_type = SE
+]
+
+$ --------------------------------------------------------------------------------
+
+
+$ Oz version of acyclic
+
+$ path(x,y) iff there is a path from x to y
+
+find hasPaths : matrix [NODE, NODE] of bool
+ 
+$ edges are paths
+such that 
+edge_paths -> forAll x,y : NODE . x != y /\ (sum([1 | i : DIM, x[i] != y[i]]) = 1) /\ direction[x,y] -> hasPaths[x,y]
+ 
+$ path from x->y AND y->z IMPLIES x->z
+such that 
+path_transitivity -> forAll x,y,z : NODE . (hasPaths[x,y] /\ hasPaths[y,z]) -> hasPaths[x,z]
+
+$ rel is acyclic
+such that 
+acyclic -> forAll x : NODE . !hasPaths[x,x]
+
+
+
+$ --------------------------------------------------------------------------------
+$symmetry breaking using auts of cube
+$ $symmetry is defined by the permutation and flipping of the bits (size = 2^n n!)
+
+given nbPermutations : int
+given permutations : matrix indexed by [int(1..nbPermutations), DIM] of DIM
+
+$such that
+$full_sym -> ((
+$ [
+$     [!direction[i,j] | i,j: NODE,  sum([1 | u : DIM, i[u] != j[u]])= 1] <=lex
+$     [!direction[[ [i[p[k]], !i[p[k]]; int(0..1)][toInt(b[k])] | k: DIM] ,
+$                 [ [j[p[k]], !j[p[k]]; int(0..1)][toInt(b[k])] | k: DIM]
+$                 ]| i,j: NODE,  sum([1 | u : DIM, i[u] != j[u]])= 1]
+$ | b : NODE $choose which bits to flip
+$ , permutationIndex : int(1..nbPermutations)
+$ , letting p be permutations[permutationIndex, ..] $choose how to permute bits
+$ ]
+$) = [true])
+
+$ --------------------------------------------------------------------------------
+$ SE, exact count
+such that
+[
+count = sum([
+
+    toInt(
+    (
+        (
+            ((direction[a,b] /\ direction[c,d]) 
+            \/ 
+            (direction[b,a] /\ direction[d,c]))
+        /\
+            ((direction[a,d] /\ direction[b,c]) 
+            \/ 
+            (direction[d,a] /\ direction[c,b]))
+        )
+        \/
+        (
+            ((direction[a,d] /\ direction[c,b]) 
+            \/ 
+            (direction[d,a] /\ direction[b,c]))
+        /\
+            ((direction[a,b] /\ direction[d,c]) 
+            \/ 
+            (direction[b,a] /\ direction[c,d]))
+        )
+    )
+    )
+
+    | a,b,c,d : NODE
+    , forAll i : DIM . a[i] != b[i] <-> c[i] != d[i]
+    , forAll i : DIM . a[i] != d[i] <-> b[i] != c[i]
+    , sum([1 | i : DIM, a[i] != b[i]])= n
+    , sum([1 | i : DIM, a[i] != d[i]])= m
+    , sum([1 | i : DIM, a[i] != c[i]])= n + m
+
+    $ symmetry breaking, this will look for 1xn faces, which we believe to be equivalent to nx1 faces??
+    , a <lex b
+    , a <lex c
+    , b <lex d   $note this is just for n=m
+    ])
+
+| (n, m, prop_type, count) <- props
+, count >= 0
+, prop_type = SE
+]
+
+$ such that 
+$ direction[ [false, false, false], [false, false, true] ] = true,
+$ direction[ [false, false, false], [false, true, false] ] = true,
+$ direction[ [false, false, false], [true, false, false] ] = true,
+$ direction[ [false, false, true], [false, true, true] ] = true,
+$ direction[ [false, true, false], [true, true, false] ] = true,
+$ direction[ [false, true, true], [false, true, false] ] = true,
+$ direction[ [false, true, true], [true, true, true] ] = true,
+$ direction[ [true, false, false], [true, false, true] ] = true,
+$ direction[ [true, false, true], [false, false, true] ] = true,
+$ direction[ [true, false, true], [true, true, true] ] = true,
+$ direction[ [true, true, false], [true, false, false] ] = true,
+$ direction[ [true, true, false], [true, true, true] ] = true,
+$ sum([toInt(direction[i,j]) | i : NODE, j : NODE]) = 12
+
+$ such that 
+$ hasPaths[[false, false, false], [false, false, true] ] = true,
+$ hasPaths[[false, false, false], [false, true, false] ] = true,
+$ hasPaths[[false, false, false], [true, false, false] ] = true,
+$ hasPaths[[false, false, true], [false, true, true] ] = true,
+$ hasPaths[[false, true, false], [true, true, false] ] = true,
+$ hasPaths[[false, true, true], [false, true, false] ] = true,
+$ hasPaths[[false, true, true], [true, true, true] ] = true,
+$ hasPaths[[true, false, false], [true, false, true] ] = true,
+$ hasPaths[[true, false, true], [false, false, true] ] = true,
+$ hasPaths[[true, false, true], [true, true, true] ] = true,
+$ hasPaths[[true, true, false], [true, false, false] ] = true,
+$ hasPaths[[true, true, false], [true, true, true ] ] =true,
+$ sum([toInt(hasPaths[i,j]) | i : NODE, j : NODE]) = 12

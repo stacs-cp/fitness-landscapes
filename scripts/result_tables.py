@@ -581,14 +581,19 @@ def cp_param_path(prop: str, dimension: int, nb_peaks: int, face_count: int) -> 
     return ROOT / "input" / f"peaks-to-{prop}-dimension-{dimension}-peaks-{nb_peaks}-count-{face_count}.param"
 
 
-def write_cp_param(prop: str, dimension: int, nb_peaks: int, face_count: int) -> Path:
+def write_cp_param(prop: str, dimension: int, nb_peaks: int, face_count: int, symmetry: bool) -> Path:
     path = cp_param_path(prop, dimension, nb_peaks, face_count)
     path.parent.mkdir(parents=True, exist_ok=True)
+    if symmetry:
+        sym = "true"
+    else:
+        sym = "false"
     path.write_text(
         "\n".join(
             [
                 f"letting dimension be {dimension}",
                 f"letting nb_peaks be {nb_peaks}",
+                f"letting symmetryFlag be {sym}",
                 "letting props be",
                 "{",
                 f"    (1, 1, {prop}, {face_count})",
@@ -610,7 +615,7 @@ def _relative_to_root(path: Path) -> Path:
         return path
 
 
-def cp_command(param: Path, *, output_dir: str | None = None) -> str:
+def cp_command(param: Path, *, output_dir: str | None = None, solver: str) -> str:
     parts: list[str | Path] = [
         "/home/rh347/.local/bin/runsolver",
         "-W",
@@ -619,11 +624,11 @@ def cp_command(param: Path, *, output_dir: str | None = None) -> str:
         "18000",
         "conjure",
         "solve",
-        "models/essence-edge-branching-full-symmetry/edge.essence",
+        "models/essence-edge-branching/edge.essence",
         _relative_to_root(param) if param.is_absolute() else param,
-        "--use-existing-models=output/raw/count-essence-edge-branching-full-symmetry-minion/model000001.eprime",
+        f"--use-existing-models=output/raw/count-essence-edge-branching-{solver}/model000001.eprime",
         "--savilerow-options=-O1",
-        "--solver=minion",
+        f"--solver={solver}",
         "--number-of-solutions=all",
         "--copy-solutions=no",
         "--solutions-in-one-file",
