@@ -660,8 +660,6 @@ def sat_command(
             "models/sat/bio.py",
             "-n",
             str(dimension),
-            "--partial-sym-break",
-            "0",
             "--peak-count",
             str(nb_peaks),
             f"--{prop}-count",
@@ -671,6 +669,9 @@ def sat_command(
         ]
         if enumerate_all:
             parts.append("-a")
-        if not sym:
+        if sym:
+            parts.append("--partial-sym-break")
+            parts.append("0")
+        else:
             parts.append("--complete-sym-break")
         return quote_command(parts)
