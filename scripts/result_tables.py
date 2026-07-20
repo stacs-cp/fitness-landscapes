@@ -650,27 +650,27 @@ def sat_command(
     output_dir: str,
     enumerate_all: bool,
 ) -> str:
-    parts: list[str | Path] = [
-        "/home/rh347/.local/bin/runsolver",
-        "-W",
-        "3600",
-        "-R",
-        "18000",
-        "python",
-        "models/sat/bio.py",
-        "-n",
-        str(dimension),
-        "--partial-sym-break",
-        "0",
-        "--complete-sym-break",
-        str(sym),
-        "--peak-count",
-        str(nb_peaks),
-        f"--{prop}-count",
-        str(face_count),
-        "--output",
-        output_dir,
-    ]
-    if enumerate_all:
-        parts.append("-a")
-    return quote_command(parts)
+        parts: list[str | Path] = [
+            "/home/rh347/.local/bin/runsolver",
+            "-W",
+            "3600",
+            "-R",
+            "18000",
+            "python",
+            "models/sat/bio.py",
+            "-n",
+            str(dimension),
+            "--partial-sym-break",
+            "0",
+            "--peak-count",
+            str(nb_peaks),
+            f"--{prop}-count",
+            str(face_count),
+            "--output",
+            output_dir,
+        ]
+        if enumerate_all:
+            parts.append("-a")
+        if not sym:
+            parts.append("--complete-sym-break")
+        return quote_command(parts)
