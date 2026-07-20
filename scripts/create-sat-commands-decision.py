@@ -17,14 +17,16 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--commands-file", default="satcommandsDEC", help="Output command file.")
     parser.add_argument(
         "--output-dir",
-        default=f"output/raw/decision-sat-cadical-{timestamp}",
+        default=f"output/raw/decision-sat-cadical",
         help="Directory passed to models/sat/bio.py --output.",
     )
     parser.add_argument("--no-skip", action="store_true", help="Generate every command, ignoring stored data.")
+    parser.add_argument("--source-sym", action="store_true", help="Use the 0 being source symmetry handling only.")
     return parser.parse_args()
 
 
 def main() -> None:
+    timestamp = datetime.datetime.now().strftime("%Y-%m-%d-%H-%M")
     args = parse_args()
     dimensions = parse_int_list(args.dimensions, default=[3, 4, 5])
     props = parse_props(args.props)
@@ -39,13 +41,20 @@ def main() -> None:
                         if not args.no_skip and skip_decision_reason(prop, dimension, nb_peaks, face_count):
                             skipped += 1
                             continue
+                        out_dir = args.output_dir
+                        if args.output_dir == f"output/raw/decision-sat-cadical":
+                            if args.source_sym:              
+                                out_dir = out_dir + "-0-source-sym-" + timestamp
+                            else:
+                                out_dir = out_dir + "-full-sym-" + timestamp
                         print(
                             sat_command(
                                 dimension,
                                 nb_peaks,
                                 prop,
                                 face_count,
-                                output_dir=args.output_dir,
+                                args.source_sym,
+                                output_dir=out_dir,
                                 enumerate_all=False,
                             ),
                             file=handle,
