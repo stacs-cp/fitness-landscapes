@@ -5,9 +5,8 @@
 #SBATCH --time=02:00:00
 #SBATCH --cpus-per-task=48
 #SBATCH --mem=20G
-#SBATCH --mpi=pmix_v3
 #SBARCH --ntasks=4
 
 #SBATCH --array=1-__ARRAY_COUNT__%15
 
-srun `sed -n "$SLURM_ARRAY_TASK_ID"p yewparcommands`
+srun --mpi=pmix_v3 `sed -n "$SLURM_ARRAY_TASK_ID"p yewparcommands`
