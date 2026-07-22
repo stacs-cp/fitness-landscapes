@@ -692,7 +692,7 @@ def yewpar_command(
             # "3600",
             # "-R",
             # "18000",
-            # "../YewPar/build/install/bin/fitness-landscape",
+            "../YewPar/build/install/bin/fitness-landscape",
             "-n",
             str(dimension),
             "--peaks",
