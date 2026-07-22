@@ -687,12 +687,12 @@ def yewpar_command(
     output_dir: str,
 ) -> str:
         parts: list[str | Path] = [
-            "/home/rh347/.local/bin/runsolver",
-            "-W",
-            "3600",
-            "-R",
-            "18000",
-            "../YewPar/build/install/bin/fitness-landscape",
+            # "/home/rh347/.local/bin/runsolver",
+            # "-W",
+            # "3600",
+            # "-R",
+            # "18000",
+            # "../YewPar/build/install/bin/fitness-landscape",
             "-n",
             str(dimension),
             "--peaks",
