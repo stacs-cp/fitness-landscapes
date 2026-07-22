@@ -1,0 +1,11 @@
+#!/bin/sh
+
+#SBATCH  --partition=large-short
+#SBATCH --job-name=YewPar
+#SBATCH --time=02:00:00
+#SBATCH --cpus-per-task=32
+#SBATCH --mem=20G
+
+#SBATCH --array=1-__ARRAY_COUNT__%15
+
+srun `sed -n "$SLURM_ARRAY_TASK_ID"p yewparcommands`
