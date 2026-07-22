@@ -15,7 +15,7 @@ if [[ $command_count -eq 0 ]]; then
     exit 0
 fi
 
-experiment_render_slurm scripts/yewpar.slurm.template scripts/sat-count.slurm "$command_count"
-echo "Rendered scripts/sat-count.slurm with $command_count array task(s)."
+experiment_render_slurm scripts/yewpar.slurm.template scripts/yewpar.slurm "$command_count"
+echo "Rendered scripts/yewpar.slurm with $command_count array task(s)."
 
-experiment_submit scripts/sat-count.slurm
+experiment_submit scripts/yewpar.slurm
