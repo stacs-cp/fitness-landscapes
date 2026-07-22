@@ -9,7 +9,4 @@
 
 #SBATCH --array=1-__ARRAY_COUNT__%15
 
-module load openmpi
-module load ucx
-
 srun --mpi=pmix_v3 `sed -n "$SLURM_ARRAY_TASK_ID"p yewparcommands`
