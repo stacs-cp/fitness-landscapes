@@ -20,7 +20,7 @@ def parse_args() -> argparse.Namespace:
         help="Output directory.",
     )
     parser.add_argument("--no-skip", action="store_true", help="Generate every command, ignoring stored data.")
-    parser.add_argument("--source-sym", action="store_true", help="Use the 0 being source symmetry handling only.")
+    parser.add_argument("--source-sym", action="store_false", help="Use the 0 being source symmetry handling only.")
     return parser.parse_args()
 
 

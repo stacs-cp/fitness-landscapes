@@ -707,5 +707,5 @@ def yewpar_command(
         #     parts.append("")
         # else:
         #     parts.append("--complete-sym-break")
-        parts.append(f"--skeleton budget -b 100000 > {output_dir}/dim-{dimension}-peak-{nb_peaks}-{prop}-{face_count}.txt")
+        parts.extend(["--skeleton", "budget", "-b", str(100000), f">", f"{output_dir}/dim-{dimension}-peak-{nb_peaks}-{prop}-{face_count}.txt"])
         return quote_command(parts)
