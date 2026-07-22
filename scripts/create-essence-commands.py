@@ -21,6 +21,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--no-skip", action="store_true", help="Generate every command, ignoring stored data.")
     parser.add_argument("--source-sym", action="store_true", help="Use the 0 being source symmetry handling only.")
+    #parser.add_argument("--decision", default="store_true", help="Solve decision problem.")
     parser.add_argument("--solver", default="minion", help="Choose the solver.")
 
     return parser.parse_args()

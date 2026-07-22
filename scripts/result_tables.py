@@ -18,10 +18,11 @@ ROOT = Path(__file__).resolve().parent.parent
 
 SAT_RESULT_RE = re.compile(r"dim-(\d+)-peak-(\d+)-(RSE|SE)-(\d+)\.txt$")
 CP_STATS_RE = re.compile(r"model000001-peaks-to-(RSE|SE)-dimension-(\d+)-peaks-(\d+)-count-(\d+)\.stats\.json$")
+YEWPAR_RESULT_RE = re.compile(r"dim-(\d+)-peak-(\d+)-(RSE|SE)-(\d+)\.txt$")
 
 
 CellKind = Literal["decision", "exact", "known_at_least", "time"]
-Backend = Literal["sat", "cp"]
+Backend = Literal["sat", "cp", "yewpar"]
 
 
 @dataclass
@@ -640,6 +641,7 @@ def cp_command(param: Path, *, output_dir: str | None = None, solver: str) -> st
     return quote_command(parts)
 
 
+
 def sat_command(
     dimension: int,
     nb_peaks: int,
@@ -670,8 +672,40 @@ def sat_command(
         if enumerate_all:
             parts.append("-a")
         if sym:
-            parts.append("--partial-sym-break")
-            parts.append("0")
+            parts.extend(["--partial-sym-break", "0"])
         else:
             parts.append("--complete-sym-break")
+        return quote_command(parts)
+
+def yewpar_command(
+    dimension: int,
+    nb_peaks: int,
+    prop: str,
+    face_count: int,
+    sym: bool,
+    *,
+    output_dir: str,
+) -> str:
+        parts: list[str | Path] = [
+            "/home/rh347/.local/bin/runsolver",
+            "-W",
+            "3600",
+            "-R",
+            "18000",
+            "../yewpar/build/install/fitness-landscape",
+            "-n",
+            str(dimension),
+            "--peaks",
+            str(nb_peaks),
+            "--faces",
+            str(face_count),
+            "--face-type",
+            prop,
+        ]
+        # if sym:
+        #     parts.append("--sym-break")
+        #     parts.append("")
+        # else:
+        #     parts.append("--complete-sym-break")
+        parts.append(f"--skeleton budget -b 100000 > {output_dir}/dim-{dimension}-peak-{nb_peaks}-{prop}-{face_count}.txt")
         return quote_command(parts)
