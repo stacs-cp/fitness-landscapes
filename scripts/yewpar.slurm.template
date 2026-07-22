@@ -3,8 +3,10 @@
 #SBATCH  --partition=large-short
 #SBATCH --job-name=YewPar
 #SBATCH --time=02:00:00
-#SBATCH --cpus-per-task=32
+#SBATCH --cpus-per-task=48
 #SBATCH --mem=20G
+#SBATCH --mpi=pmix_v3
+#SBARCH --ntasks=4
 
 #SBATCH --array=1-__ARRAY_COUNT__%15
 
