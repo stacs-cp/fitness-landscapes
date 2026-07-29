@@ -1,0 +1,924 @@
+runsolver version 3.4.1 (svn: 3018) Copyright (C) 2010-2013 Olivier ROUSSEL
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+NUMA information:
+  number of nodes: 2
+  memory of node 0: 192684 MiB (93910 MiB free)
+  memory of node 1: 193452 MiB (86377 MiB free)
+  node distances:
+     10  32
+     32  10
+
+command line: /home/rh347/.local/bin/runsolver -W 3600 -R 18000 python models/sat/bio.py -n 5 --peak-count 3 --RSE-count 37 --output output/raw/count-sat-cadical-full-sym-2026-07-20-11-17 -a --complete-sym-break 
+
+running on 1 cores: 4
+
+Enforcing wall clock limit (soft limit, will send SIGTERM then SIGKILL): 3600 seconds
+Enforcing RSS+Swap limit (soft limit, will send SIGTERM then SIGKILL): 18432000 KiB
+Linux 5.14.0-427.24.1.el9_4.x86_64
+solver pid=3011186, runsolver pid=3011179
+Current StackSize limit: 8192 KiB
+
+
+[startup+0.100106 s]*
+/proc/loadavg: 148.63 149.62 150.35 149/3116 3011228
+/proc/meminfo: memFree=184607448/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=32716 memory=19036 CPUtime=0.04 cores=4
+/proc/3011186/stat : 3011186 (python) D 3011179 3011186 3011150 0 -1 4210688 2679 0 0 0 3 1 0 0 20 0 1 0 1627937177 33501184 4759 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 1 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 8179 4759 2352 1 0 3587 0
+Current children cumulated CPU time: 0.04 s
+Current children cumulated vsize: 32716 KiB
+Current children cumulated memory: 19036 KiB
+
+[startup+0.310145 s]*
+/proc/loadavg: 148.63 149.62 150.35 149/3110 3011273
+/proc/meminfo: memFree=184631420/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=42976 memory=31132 CPUtime=0.16 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 5227 0 0 0 14 2 0 0 20 0 1 0 1627937177 44007424 7783 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 10744 7783 2688 1 0 6126 0
+Current children cumulated CPU time: 0.16 s
+Current children cumulated vsize: 42976 KiB
+Current children cumulated memory: 31132 KiB
+
+[startup+0.563701 s]*
+/proc/loadavg: 148.63 149.62 150.35 150/3102 3011276
+/proc/meminfo: memFree=184621400/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=50276 memory=36508 CPUtime=0.32 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 6888 0 0 0 30 2 0 0 20 0 1 0 1627937177 51482624 9127 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 12569 9127 2688 1 0 7951 0
+Current children cumulated CPU time: 0.32 s
+Current children cumulated vsize: 50276 KiB
+Current children cumulated memory: 36508 KiB
+
+[startup+0.765915 s]*
+/proc/loadavg: 148.63 149.62 150.35 149/3102 3011276
+/proc/meminfo: memFree=184618408/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=51708 memory=37852 CPUtime=0.42 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 7248 0 0 0 40 2 0 0 20 0 1 0 1627937177 52948992 9463 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 12927 9463 2688 1 0 8309 0
+Current children cumulated CPU time: 0.42 s
+Current children cumulated vsize: 51708 KiB
+Current children cumulated memory: 37852 KiB
+
+[startup+1.5002 s]*
+/proc/loadavg: 148.63 149.62 150.35 149/3102 3011276
+/proc/meminfo: memFree=184616720/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=53192 memory=40540 CPUtime=1 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 7776 0 0 0 98 2 0 0 20 0 1 0 1627937177 54468608 10135 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 13298 10135 2688 1 0 8680 0
+Current children cumulated CPU time: 1 s
+Current children cumulated vsize: 53192 KiB
+Current children cumulated memory: 40540 KiB
+
+[startup+3.1002 s]
+/proc/loadavg: 148.63 149.62 150.35 149/3102 3011276
+/proc/meminfo: memFree=184614740/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=54492 memory=41884 CPUtime=2.36 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 8149 0 0 0 234 2 0 0 20 0 1 0 1627937177 55799808 10471 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 13623 10471 2688 1 0 9005 0
+Current children cumulated CPU time: 2.36 s
+Current children cumulated vsize: 54492 KiB
+Current children cumulated memory: 41884 KiB
+heavy processes:
+  %CPU=99 pid=1953473 uid=1822200073 cmd=
+  %CPU=99 pid=1953474 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953475 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953476 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953477 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953478 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953479 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953480 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953481 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953482 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953483 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953484 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953485 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953486 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953487 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953488 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953489 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953490 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953491 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953492 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953493 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953494 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953495 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953496 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953497 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953498 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953499 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953500 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953501 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953502 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953503 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953504 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953505 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953506 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953507 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953508 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953509 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953510 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953511 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953512 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953513 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953514 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953515 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953516 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953517 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953518 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953519 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953520 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953521 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953522 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953523 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953524 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953525 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953526 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953527 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953528 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953529 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953530 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953531 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953532 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953533 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953534 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953535 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953536 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953537 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953538 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953539 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953540 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953541 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953542 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953543 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953544 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953545 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953546 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953547 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953548 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953549 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953550 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953551 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953552 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953553 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953554 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953555 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953556 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953557 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953558 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953559 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953560 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953561 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953562 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953563 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953564 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953565 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953566 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953567 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953568 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953569 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953570 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953571 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953572 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953573 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953574 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953575 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953576 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953577 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953578 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953579 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953580 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953581 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953582 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953583 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953584 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953585 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953586 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953587 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953588 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953589 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953590 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953591 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953592 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953593 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953594 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953595 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953596 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953597 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953598 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953599 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953600 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953601 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953602 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953603 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953604 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953605 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953606 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953607 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953608 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953609 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953610 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953611 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953612 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953613 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953614 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953615 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953616 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=38 pid=3002319 uid=1822200401 cmd=python -m hermeneutica.cli run /home/cag30/compendo-universe/manuscripts_universe/73e51bdd1892b819ebb9525fd7c861a3.docx /home/ca
+
+[startup+6.30022 s]
+/proc/loadavg: 148.66 149.61 150.34 151/3105 3011288
+/proc/meminfo: memFree=184598896/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=55544 memory=43228 CPUtime=5.2 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 8470 0 0 0 517 3 0 0 20 0 1 0 1627937177 56877056 10807 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 13886 10807 2688 1 0 9268 0
+Current children cumulated CPU time: 5.2 s
+Current children cumulated vsize: 55544 KiB
+Current children cumulated memory: 43228 KiB
+
+[startup+12.858 s]
+/proc/loadavg: 148.85 149.63 150.35 150/3103 3011296
+/proc/meminfo: memFree=184574020/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=60212 memory=47260 CPUtime=11.19 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 9639 0 0 0 1116 3 0 0 20 0 1 0 1627937177 61657088 11815 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 15053 11815 2688 1 0 10435 0
+Current children cumulated CPU time: 11.19 s
+Current children cumulated vsize: 60212 KiB
+Current children cumulated memory: 47260 KiB
+
+[startup+25.5002 s]
+/proc/loadavg: 149.04 149.63 150.33 150/3103 3011298
+/proc/meminfo: memFree=184540664/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=65248 memory=52624 CPUtime=22.82 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 10393 0 0 0 2279 3 0 0 20 0 1 0 1627937177 66813952 13156 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 16312 13156 2688 1 0 11694 0
+Current children cumulated CPU time: 22.82 s
+Current children cumulated vsize: 65248 KiB
+Current children cumulated memory: 52624 KiB
+
+[startup+51.1002 s]*
+/proc/loadavg: 149.35 149.66 150.33 150/3103 3011311
+/proc/meminfo: memFree=184504472/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=62328 memory=50004 CPUtime=46.35 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 14969 0 0 0 4630 5 0 0 20 0 1 0 1627937177 63823872 12501 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 15582 12501 2688 1 0 10964 0
+Current children cumulated CPU time: 46.35 s
+Current children cumulated vsize: 62328 KiB
+Current children cumulated memory: 50004 KiB
+
+[startup+102.3 s]
+/proc/loadavg: 151.24 150.09 150.44 152/3159 3011497
+/proc/meminfo: memFree=185016640/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=67952 memory=56812 CPUtime=92.99 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 22073 0 0 0 9289 10 0 0 20 0 1 0 1627937177 69582848 14203 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 16988 14203 2688 1 0 12370 0
+Current children cumulated CPU time: 92.99 s
+Current children cumulated vsize: 67952 KiB
+Current children cumulated memory: 56812 KiB
+
+[startup+162.458 s]
+/proc/loadavg: 152.39 150.63 150.60 152/3157 3011531
+/proc/meminfo: memFree=184931936/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=75548 memory=61508 CPUtime=147.92 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 28285 0 0 0 14777 15 0 0 20 0 1 0 1627937177 77361152 15377 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 18887 15377 2688 1 0 14269 0
+Current children cumulated CPU time: 147.92 s
+Current children cumulated vsize: 75548 KiB
+Current children cumulated memory: 61508 KiB
+
+[startup+222.3 s]
+/proc/loadavg: 152.69 151.04 150.75 152/3156 3011594
+/proc/meminfo: memFree=184940452/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=79900 memory=67724 CPUtime=202.65 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 33046 0 0 0 20245 20 0 0 20 0 1 0 1627937177 81817600 16931 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 19975 16931 2688 1 0 15357 0
+Current children cumulated CPU time: 202.65 s
+Current children cumulated vsize: 79900 KiB
+Current children cumulated memory: 67724 KiB
+
+[startup+282.339 s]
+/proc/loadavg: 152.76 151.37 150.88 152/3156 3011630
+/proc/meminfo: memFree=184884816/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=84900 memory=72480 CPUtime=257.42 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 36945 0 0 0 25717 25 0 0 20 0 1 0 1627937177 86937600 18120 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 21225 18120 2688 1 0 16607 0
+Current children cumulated CPU time: 257.42 s
+Current children cumulated vsize: 84900 KiB
+Current children cumulated memory: 72480 KiB
+
+[startup+342.3 s]
+/proc/loadavg: 152.92 151.68 151.02 152/3153 3011744
+/proc/meminfo: memFree=184836200/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=86348 memory=74296 CPUtime=312.25 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 39906 0 0 0 31197 28 0 0 20 0 1 0 1627937177 88420352 18574 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 21587 18574 2688 1 0 16969 0
+Current children cumulated CPU time: 312.25 s
+Current children cumulated vsize: 86348 KiB
+Current children cumulated memory: 74296 KiB
+
+[startup+402.3 s]
+/proc/loadavg: 152.71 151.86 151.13 152/3148 3011779
+/proc/meminfo: memFree=184854192/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=88596 memory=76728 CPUtime=366.98 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 42799 0 0 0 36667 31 0 0 20 0 1 0 1627937177 90722304 19182 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 22149 19182 2688 1 0 17531 0
+Current children cumulated CPU time: 366.98 s
+Current children cumulated vsize: 88596 KiB
+Current children cumulated memory: 76728 KiB
+
+[startup+462.3 s]
+/proc/loadavg: 152.71 152.02 151.23 153/3148 3011813
+/proc/meminfo: memFree=184783732/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=90156 memory=78684 CPUtime=421.8 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 45435 0 0 0 42146 34 0 0 20 0 1 0 1627937177 92319744 19671 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 22539 19671 2688 1 0 17921 0
+Current children cumulated CPU time: 421.8 s
+Current children cumulated vsize: 90156 KiB
+Current children cumulated memory: 78684 KiB
+
+[startup+522.3 s]
+/proc/loadavg: 152.93 152.22 151.35 153/3149 3012040
+/proc/meminfo: memFree=184804392/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=110432 memory=97700 CPUtime=476.48 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 49328 0 0 0 47611 37 0 0 20 0 1 0 1627937177 113082368 24425 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 27608 24425 2688 1 0 22990 0
+Current children cumulated CPU time: 476.48 s
+Current children cumulated vsize: 110432 KiB
+Current children cumulated memory: 97700 KiB
+
+[startup+582.3 s]
+/proc/loadavg: 152.39 152.20 151.40 151/3126 3012173
+/proc/meminfo: memFree=185188112/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=95972 memory=83376 CPUtime=531.44 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 49857 0 0 0 53104 40 0 0 20 0 1 0 1627937177 98275328 20844 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 23993 20844 2688 1 0 19375 0
+Current children cumulated CPU time: 531.44 s
+Current children cumulated vsize: 95972 KiB
+Current children cumulated memory: 83376 KiB
+
+[startup+642.3 s]
+/proc/loadavg: 152.05 152.13 151.43 151/3126 3012209
+/proc/meminfo: memFree=185163908/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=116104 memory=103172 CPUtime=586.36 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 51794 0 0 0 58594 42 0 0 20 0 1 0 1627937177 118890496 25793 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 29026 25793 2688 1 0 24408 0
+Current children cumulated CPU time: 586.36 s
+Current children cumulated vsize: 116104 KiB
+Current children cumulated memory: 103172 KiB
+
+[startup+702.3 s]*
+/proc/loadavg: 151.95 152.09 151.46 151/3125 3012238
+/proc/meminfo: memFree=185140920/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=106456 memory=94856 CPUtime=641.43 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 54606 0 0 0 64097 46 0 0 20 0 1 0 1627937177 109010944 23714 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 26614 23714 2688 1 0 21996 0
+Current children cumulated CPU time: 641.43 s
+Current children cumulated vsize: 106456 KiB
+Current children cumulated memory: 94856 KiB
+
+[startup+762.3 s]
+/proc/loadavg: 151.99 152.09 151.50 151/3126 3012278
+/proc/meminfo: memFree=185109408/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=107112 memory=95244 CPUtime=696.26 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 57096 0 0 0 69577 49 0 0 20 0 1 0 1627937177 109682688 23811 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 26778 23811 2688 1 0 22160 0
+Current children cumulated CPU time: 696.26 s
+Current children cumulated vsize: 107112 KiB
+Current children cumulated memory: 95244 KiB
+
+[startup+822.441 s]
+/proc/loadavg: 151.96 152.08 151.54 151/3125 3012341
+/proc/meminfo: memFree=185118044/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=107656 memory=95792 CPUtime=751.31 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 58781 0 0 0 75080 51 0 0 20 0 1 0 1627937177 110239744 23948 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 26914 23948 2688 1 0 22296 0
+Current children cumulated CPU time: 751.31 s
+Current children cumulated vsize: 107656 KiB
+Current children cumulated memory: 95792 KiB
+
+[startup+882.3 s]
+/proc/loadavg: 151.75 152.00 151.55 151/3122 3012373
+/proc/meminfo: memFree=185073468/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=130996 memory=119128 CPUtime=806.16 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 60337 0 0 0 80561 55 0 0 20 0 1 0 1627937177 134139904 29782 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 32749 29782 2688 1 0 28131 0
+Current children cumulated CPU time: 806.16 s
+Current children cumulated vsize: 130996 KiB
+Current children cumulated memory: 119128 KiB
+
+[startup+942.381 s]
+/proc/loadavg: 151.67 151.94 151.55 151/3123 3012490
+/proc/meminfo: memFree=185074164/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=105764 memory=94024 CPUtime=860.98 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 61656 0 0 0 86041 57 0 0 20 0 1 0 1627937177 108302336 23506 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 26441 23506 2688 1 0 21823 0
+Current children cumulated CPU time: 860.98 s
+Current children cumulated vsize: 105764 KiB
+Current children cumulated memory: 94024 KiB
+
+[startup+1002.3 s]
+/proc/loadavg: 151.58 151.87 151.55 151/3123 3012527
+/proc/meminfo: memFree=185104320/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=105884 memory=94052 CPUtime=915.78 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 65809 0 0 0 91518 60 0 0 20 0 1 0 1627937177 108425216 23513 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 26471 23513 2688 1 0 21853 0
+Current children cumulated CPU time: 915.78 s
+Current children cumulated vsize: 105884 KiB
+Current children cumulated memory: 94052 KiB
+
+[startup+1062.3 s]
+/proc/loadavg: 151.53 151.80 151.55 149/3097 3012675
+/proc/meminfo: memFree=185057436/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=144880 memory=131448 CPUtime=970.63 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 69724 0 0 0 96999 64 0 0 20 0 1 0 1627937177 148357120 32862 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 36220 32862 2688 1 0 31602 0
+Current children cumulated CPU time: 970.63 s
+Current children cumulated vsize: 144880 KiB
+Current children cumulated memory: 131448 KiB
+
+[startup+1122.3 s]
+/proc/loadavg: 150.38 151.41 151.43 149/3099 3012905
+/proc/meminfo: memFree=185075312/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=121508 memory=108104 CPUtime=1025.59 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 70096 0 0 0 102493 66 0 0 20 0 1 0 1627937177 124424192 27026 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 30377 27026 2688 1 0 25759 0
+Current children cumulated CPU time: 1025.59 s
+Current children cumulated vsize: 121508 KiB
+Current children cumulated memory: 108104 KiB
+
+[startup+1182.3 s]
+/proc/loadavg: 150.01 151.11 151.32 150/3099 3013022
+/proc/meminfo: memFree=185092760/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=121508 memory=108372 CPUtime=1080.49 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 70613 0 0 0 107981 68 0 0 20 0 1 0 1627937177 124424192 27093 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 30377 27093 2688 1 0 25759 0
+Current children cumulated CPU time: 1080.49 s
+Current children cumulated vsize: 121508 KiB
+Current children cumulated memory: 108372 KiB
+
+[startup+1242.3 s]
+/proc/loadavg: 149.91 150.87 151.22 149/3099 3013054
+/proc/meminfo: memFree=185033984/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=147392 memory=134968 CPUtime=1135.45 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 71285 0 0 0 113475 70 0 0 20 0 1 0 1627937177 150929408 33742 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 36848 33742 2688 1 0 32230 0
+Current children cumulated CPU time: 1135.45 s
+Current children cumulated vsize: 147392 KiB
+Current children cumulated memory: 134968 KiB
+
+[startup+1302.3 s]
+/proc/loadavg: 149.60 150.61 151.11 149/3099 3013088
+/proc/meminfo: memFree=185019668/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=124864 memory=112084 CPUtime=1190.42 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 72474 0 0 0 118970 72 0 0 20 0 1 0 1627937177 127860736 28021 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 31216 28021 2688 1 0 26598 0
+Current children cumulated CPU time: 1190.42 s
+Current children cumulated vsize: 124864 KiB
+Current children cumulated memory: 112084 KiB
+
+[startup+1362.3 s]*
+/proc/loadavg: 149.83 150.47 151.03 149/3112 3013283
+/proc/meminfo: memFree=186852648/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=156320 memory=142656 CPUtime=1245.82 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 73677 0 0 0 124506 76 0 0 20 0 1 0 1627937177 160071680 35664 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 39080 35664 2688 1 0 34462 0
+Current children cumulated CPU time: 1245.82 s
+Current children cumulated vsize: 156320 KiB
+Current children cumulated memory: 142656 KiB
+
+[startup+1422.3 s]
+/proc/loadavg: 152.79 151.22 151.25 149/3108 3013343
+/proc/meminfo: memFree=186318828/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=156556 memory=143076 CPUtime=1300.51 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 74617 0 0 0 129972 79 0 0 20 0 1 0 1627937177 160313344 35769 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 39139 35769 2688 1 0 34521 0
+Current children cumulated CPU time: 1300.51 s
+Current children cumulated vsize: 156556 KiB
+Current children cumulated memory: 143076 KiB
+
+[startup+1482.47 s]
+/proc/loadavg: 153.89 151.83 151.46 155/3108 3013380
+/proc/meminfo: memFree=183361532/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=132116 memory=118924 CPUtime=1355.45 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 75968 0 0 0 135464 81 0 0 20 0 1 0 1627937177 135286784 29731 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 33029 29731 2688 1 0 28411 0
+Current children cumulated CPU time: 1355.45 s
+Current children cumulated vsize: 132116 KiB
+Current children cumulated memory: 118924 KiB
+
+[startup+1542.3 s]
+/proc/loadavg: 154.31 152.33 151.66 155/3108 3013496
+/proc/meminfo: memFree=183240332/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=144200 memory=128292 CPUtime=1410.15 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 78620 0 0 0 140931 84 0 0 20 0 1 0 1627937177 147660800 32073 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 36050 32073 2688 1 0 31432 0
+Current children cumulated CPU time: 1410.15 s
+Current children cumulated vsize: 144200 KiB
+Current children cumulated memory: 128292 KiB
+
+[startup+1602.36 s]
+/proc/loadavg: 154.61 152.77 151.85 155/3108 3013529
+/proc/meminfo: memFree=183244500/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=144200 memory=129416 CPUtime=1464.97 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 79263 0 0 0 146412 85 0 0 20 0 1 0 1627937177 147660800 32354 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 36050 32354 2688 1 0 31432 0
+Current children cumulated CPU time: 1464.97 s
+Current children cumulated vsize: 144200 KiB
+Current children cumulated memory: 129416 KiB
+
+[startup+1662.3 s]
+/proc/loadavg: 154.66 153.10 152.03 155/3109 3013578
+/proc/meminfo: memFree=183242284/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=144200 memory=129716 CPUtime=1519.76 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 79488 0 0 0 151889 87 0 0 20 0 1 0 1627937177 147660800 32429 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 36050 32429 2688 1 0 31432 0
+Current children cumulated CPU time: 1519.76 s
+Current children cumulated vsize: 144200 KiB
+Current children cumulated memory: 129716 KiB
+
+[startup+1722.3 s]
+/proc/loadavg: 154.92 153.44 152.21 155/3110 3013809
+/proc/meminfo: memFree=183156308/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=176296 memory=161812 CPUtime=1574.49 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 80144 0 0 0 157360 89 0 0 20 0 1 0 1627937177 180527104 40453 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 44074 40453 2688 1 0 39456 0
+Current children cumulated CPU time: 1574.49 s
+Current children cumulated vsize: 176296 KiB
+Current children cumulated memory: 161812 KiB
+
+[startup+1782.3 s]
+/proc/loadavg: 154.83 153.68 152.37 155/3109 3013920
+/proc/meminfo: memFree=183131520/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=176920 memory=164740 CPUtime=1629.33 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 81255 0 0 0 162842 91 0 0 20 0 1 0 1627937177 181166080 41185 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 44230 41185 2688 1 0 39612 0
+Current children cumulated CPU time: 1629.33 s
+Current children cumulated vsize: 176920 KiB
+Current children cumulated memory: 164740 KiB
+
+[startup+1842.3 s]
+/proc/loadavg: 155.83 154.15 152.61 155/3113 3014066
+/proc/meminfo: memFree=183091924/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=177824 memory=165288 CPUtime=1684 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 81416 0 0 0 168307 93 0 0 20 0 1 0 1627937177 182091776 41322 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 44456 41322 2688 1 0 39838 0
+Current children cumulated CPU time: 1684 s
+Current children cumulated vsize: 177824 KiB
+Current children cumulated memory: 165288 KiB
+
+[startup+1902.3 s]
+/proc/loadavg: 154.97 154.21 152.73 155/3113 3014099
+/proc/meminfo: memFree=183076612/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=179528 memory=166376 CPUtime=1738.77 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 81789 0 0 0 173782 95 0 0 20 0 1 0 1627937177 183836672 41594 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 44882 41594 2688 1 0 40264 0
+Current children cumulated CPU time: 1738.77 s
+Current children cumulated vsize: 179528 KiB
+Current children cumulated memory: 166376 KiB
+
+[startup+1962.3 s]
+/proc/loadavg: 153.89 154.07 152.78 153/3118 3014347
+/proc/meminfo: memFree=183038984/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=180400 memory=167316 CPUtime=1793.53 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 82295 0 0 0 179257 96 0 0 20 0 1 0 1627937177 184729600 41829 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 45100 41829 2688 1 0 40482 0
+Current children cumulated CPU time: 1793.53 s
+Current children cumulated vsize: 180400 KiB
+Current children cumulated memory: 167316 KiB
+
+[startup+2022.3 s]*
+/proc/loadavg: 153.01 153.71 152.73 149/3105 3014636
+/proc/meminfo: memFree=187130584/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=145824 memory=132980 CPUtime=1848.51 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 82743 0 0 0 184753 98 0 0 20 0 1 0 1627937177 149323776 33245 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 36456 33245 2688 1 0 31838 0
+Current children cumulated CPU time: 1848.51 s
+Current children cumulated vsize: 145824 KiB
+Current children cumulated memory: 132980 KiB
+
+[startup+2082.3 s]
+/proc/loadavg: 154.60 154.04 152.91 155/3113 3014685
+/proc/meminfo: memFree=182118800/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=180968 memory=167888 CPUtime=1903.29 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 82865 0 0 0 190229 100 0 0 20 0 1 0 1627937177 185311232 41972 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 45242 41972 2688 1 0 40624 0
+Current children cumulated CPU time: 1903.29 s
+Current children cumulated vsize: 180968 KiB
+Current children cumulated memory: 167888 KiB
+
+[startup+2142.46 s]
+/proc/loadavg: 155.86 154.50 153.14 158/3117 3014801
+/proc/meminfo: memFree=182099128/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=169968 memory=151560 CPUtime=1958.3 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 88337 0 0 0 195727 103 0 0 20 0 1 0 1627937177 174047232 37890 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 42492 37890 2688 1 0 37874 0
+Current children cumulated CPU time: 1958.3 s
+Current children cumulated vsize: 169968 KiB
+Current children cumulated memory: 151560 KiB
+
+[startup+2202.3 s]
+/proc/loadavg: 156.71 154.98 153.39 158/3117 3014837
+/proc/meminfo: memFree=182107812/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=169968 memory=152232 CPUtime=2013.02 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 88957 0 0 0 201198 104 0 0 20 0 1 0 1627937177 174047232 38058 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 42492 38058 2688 1 0 37874 0
+Current children cumulated CPU time: 2013.02 s
+Current children cumulated vsize: 169968 KiB
+Current children cumulated memory: 152232 KiB
+
+[startup+2262.37 s]
+/proc/loadavg: 156.78 155.29 153.60 159/3111 3014874
+/proc/meminfo: memFree=182126480/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=169968 memory=152728 CPUtime=2067.89 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 89555 0 0 0 206683 106 0 0 20 0 1 0 1627937177 174047232 38182 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 42492 38182 2688 1 0 37874 0
+Current children cumulated CPU time: 2067.89 s
+Current children cumulated vsize: 169968 KiB
+Current children cumulated memory: 152728 KiB
+
+[startup+2322.3 s]
+/proc/loadavg: 156.78 155.56 153.80 158/3110 3015098
+/proc/meminfo: memFree=182152304/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=169968 memory=156020 CPUtime=2122.64 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 90805 0 0 0 212156 108 0 0 20 0 1 0 1627937177 174047232 39005 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 42492 39005 2688 1 0 37874 0
+Current children cumulated CPU time: 2122.64 s
+Current children cumulated vsize: 169968 KiB
+Current children cumulated memory: 156020 KiB
+
+[startup+2382.3 s]
+/proc/loadavg: 156.16 155.63 153.94 155/3110 3015213
+/proc/meminfo: memFree=182148496/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=152192 memory=135040 CPUtime=2177.45 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 94147 0 0 0 217632 113 0 0 20 0 1 0 1627937177 155844608 33760 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 38048 33760 2688 1 0 33430 0
+Current children cumulated CPU time: 2177.45 s
+Current children cumulated vsize: 152192 KiB
+Current children cumulated memory: 135040 KiB
+
+[startup+2442.3 s]
+/proc/loadavg: 153.36 154.94 153.81 152/3102 3015251
+/proc/meminfo: memFree=185113084/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=156968 memory=142648 CPUtime=2232.35 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 96606 0 0 0 223118 117 0 0 20 0 1 0 1627937177 160735232 35662 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 39242 35662 2688 1 0 34624 0
+Current children cumulated CPU time: 2232.35 s
+Current children cumulated vsize: 156968 KiB
+Current children cumulated memory: 142648 KiB
+
+[startup+2502.3 s]
+/proc/loadavg: 152.23 154.32 153.66 152/3101 3015281
+/proc/meminfo: memFree=185090364/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=174756 memory=162468 CPUtime=2287.19 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 102368 0 0 0 228599 120 0 0 20 0 1 0 1627937177 178950144 40617 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 43689 40617 2688 1 0 39071 0
+Current children cumulated CPU time: 2287.19 s
+Current children cumulated vsize: 174756 KiB
+Current children cumulated memory: 162468 KiB
+
+[startup+2562.3 s]
+/proc/loadavg: 151.41 153.70 153.49 152/3101 3015317
+/proc/meminfo: memFree=185051316/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=176788 memory=165684 CPUtime=2342.09 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 103417 0 0 0 234085 124 0 0 20 0 1 0 1627937177 181030912 41421 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 44197 41421 2688 1 0 39579 0
+Current children cumulated CPU time: 2342.09 s
+Current children cumulated vsize: 176788 KiB
+Current children cumulated memory: 165684 KiB
+
+[startup+2622.3 s]
+/proc/loadavg: 151.59 153.33 153.37 152/3102 3015381
+/proc/meminfo: memFree=185044608/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=178236 memory=166724 CPUtime=2396.88 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 104637 0 0 0 239561 127 0 0 20 0 1 0 1627937177 182513664 41681 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 44559 41681 2688 1 0 39941 0
+Current children cumulated CPU time: 2396.88 s
+Current children cumulated vsize: 178236 KiB
+Current children cumulated memory: 166724 KiB
+
+[startup+2682.3 s]*
+/proc/loadavg: 151.75 153.04 153.27 153/3101 3015415
+/proc/meminfo: memFree=185031412/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=178576 memory=167360 CPUtime=2451.82 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 104974 0 0 0 245053 129 0 0 20 0 1 0 1627937177 182861824 41840 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 44644 41840 2688 1 0 40026 0
+Current children cumulated CPU time: 2451.82 s
+Current children cumulated vsize: 178576 KiB
+Current children cumulated memory: 167360 KiB
+
+[startup+2742.3 s]
+/proc/loadavg: 151.75 152.79 153.16 152/3102 3015532
+/proc/meminfo: memFree=185028816/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=179552 memory=168424 CPUtime=2506.5 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 106081 0 0 0 250519 131 0 0 20 0 1 0 1627937177 183861248 42106 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 44888 42106 2688 1 0 40270 0
+Current children cumulated CPU time: 2506.5 s
+Current children cumulated vsize: 179552 KiB
+Current children cumulated memory: 168424 KiB
+
+[startup+2802.46 s]
+/proc/loadavg: 151.73 152.60 153.07 152/3102 3015567
+/proc/meminfo: memFree=185058812/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=180344 memory=169368 CPUtime=2561.45 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 106234 0 0 0 256012 133 0 0 20 0 1 0 1627937177 184672256 42342 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 45086 42342 2688 1 0 40468 0
+Current children cumulated CPU time: 2561.45 s
+Current children cumulated vsize: 180344 KiB
+Current children cumulated memory: 169368 KiB
+
+[startup+2862.3 s]
+/proc/loadavg: 150.48 152.09 152.87 149/3097 3015599
+/proc/meminfo: memFree=185560148/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=181032 memory=169044 CPUtime=2616.36 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 107714 0 0 0 261500 136 0 0 20 0 1 0 1627937177 185376768 42261 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 45258 42261 2688 1 0 40640 0
+Current children cumulated CPU time: 2616.36 s
+Current children cumulated vsize: 181032 KiB
+Current children cumulated memory: 169044 KiB
+
+[startup+2922.37 s]
+/proc/loadavg: 149.87 151.62 152.65 150/3097 3015828
+/proc/meminfo: memFree=185533948/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=189016 memory=174520 CPUtime=2671.41 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 109679 0 0 0 267003 138 0 0 20 0 1 0 1627937177 193552384 43630 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 47254 43630 2688 1 0 42636 0
+Current children cumulated CPU time: 2671.41 s
+Current children cumulated vsize: 189016 KiB
+Current children cumulated memory: 174520 KiB
+
+[startup+2982.3 s]
+/proc/loadavg: 150.14 151.37 152.50 151/3114 3015977
+/proc/meminfo: memFree=185465604/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=189684 memory=176896 CPUtime=2726.22 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 110692 0 0 0 272482 140 0 0 20 0 1 0 1627937177 194236416 44224 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 47421 44224 2688 1 0 42803 0
+Current children cumulated CPU time: 2726.22 s
+Current children cumulated vsize: 189684 KiB
+Current children cumulated memory: 176896 KiB
+
+[startup+3042.3 s]
+/proc/loadavg: 150.33 151.20 152.37 151/3114 3016009
+/proc/meminfo: memFree=185414652/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=190508 memory=178060 CPUtime=2781.08 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 110953 0 0 0 277966 142 0 0 20 0 1 0 1627937177 195080192 44515 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 47627 44515 2688 1 0 43009 0
+Current children cumulated CPU time: 2781.08 s
+Current children cumulated vsize: 190508 KiB
+Current children cumulated memory: 178060 KiB
+
+[startup+3102.3 s]
+/proc/loadavg: 150.46 151.09 152.26 151/3114 3016044
+/proc/meminfo: memFree=185409508/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=190360 memory=176944 CPUtime=2835.99 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 111665 0 0 0 283455 144 0 0 20 0 1 0 1627937177 194928640 44236 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 47590 44236 2688 1 0 42972 0
+Current children cumulated CPU time: 2835.99 s
+Current children cumulated vsize: 190360 KiB
+Current children cumulated memory: 176944 KiB
+
+[startup+3162.3 s]
+/proc/loadavg: 150.58 151.01 152.16 150/3114 3016081
+/proc/meminfo: memFree=185416988/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=191476 memory=178656 CPUtime=2890.81 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 112695 0 0 0 288935 146 0 0 20 0 1 0 1627937177 196071424 44664 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 47869 44664 2688 1 0 43251 0
+Current children cumulated CPU time: 2890.81 s
+Current children cumulated vsize: 191476 KiB
+Current children cumulated memory: 178656 KiB
+
+[startup+3222.3 s]
+/proc/loadavg: 150.69 150.96 152.07 150/3113 3016139
+/proc/meminfo: memFree=185361960/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=209104 memory=194996 CPUtime=2945.77 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 116889 0 0 0 294429 148 0 0 20 0 1 0 1627937177 214122496 48749 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 52276 48749 2688 1 0 47658 0
+Current children cumulated CPU time: 2945.77 s
+Current children cumulated vsize: 209104 KiB
+Current children cumulated memory: 194996 KiB
+
+[startup+3282.3 s]
+/proc/loadavg: 150.80 150.94 151.99 150/3111 3016177
+/proc/meminfo: memFree=185304340/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=209040 memory=195148 CPUtime=3000.66 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 117611 0 0 0 299916 150 0 0 20 0 1 0 1627937177 214056960 48787 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 52260 48787 2688 1 0 47642 0
+Current children cumulated CPU time: 3000.66 s
+Current children cumulated vsize: 209040 KiB
+Current children cumulated memory: 195148 KiB
+
+[startup+3342.3 s]*
+/proc/loadavg: 150.70 150.88 151.90 150/3111 3016293
+/proc/meminfo: memFree=185274956/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=210444 memory=196336 CPUtime=3055.67 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 117661 0 0 0 305415 152 0 0 20 0 1 0 1627937177 215494656 49084 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 52611 49084 2688 1 0 47993 0
+Current children cumulated CPU time: 3055.67 s
+Current children cumulated vsize: 210444 KiB
+Current children cumulated memory: 196336 KiB
+
+[startup+3402.3 s]
+/proc/loadavg: 150.56 150.81 151.81 150/3111 3016324
+/proc/meminfo: memFree=185293584/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=210832 memory=196724 CPUtime=3110.48 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 118320 0 0 0 310893 155 0 0 20 0 1 0 1627937177 215891968 49181 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 52708 49181 2688 1 0 48090 0
+Current children cumulated CPU time: 3110.48 s
+Current children cumulated vsize: 210832 KiB
+Current children cumulated memory: 196724 KiB
+
+[startup+3462.46 s]
+/proc/loadavg: 150.43 150.73 151.72 150/3111 3016358
+/proc/meminfo: memFree=185231840/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=220488 memory=202832 CPUtime=3165.52 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 120738 0 0 0 316395 157 0 0 20 0 1 0 1627937177 225779712 50708 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 55122 50708 2688 1 0 50504 0
+Current children cumulated CPU time: 3165.52 s
+Current children cumulated vsize: 220488 KiB
+Current children cumulated memory: 202832 KiB
+
+[startup+3522.3 s]
+/proc/loadavg: 150.40 150.69 151.64 150/3113 3016643
+/proc/meminfo: memFree=185359968/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=220612 memory=203884 CPUtime=3220.34 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 121101 0 0 0 321875 159 0 0 20 0 1 0 1627937177 225906688 50971 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 55153 50971 2688 1 0 50535 0
+Current children cumulated CPU time: 3220.34 s
+Current children cumulated vsize: 220612 KiB
+Current children cumulated memory: 203884 KiB
+
+[startup+3582.35 s]
+/proc/loadavg: 150.47 150.65 151.56 150/3114 3016925
+/proc/meminfo: memFree=185322084/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=221764 memory=205036 CPUtime=3275.3 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 121752 0 0 0 327368 162 0 0 20 0 1 0 1627937177 227086336 51259 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 55441 51259 2688 1 0 50823 0
+Current children cumulated CPU time: 3275.3 s
+Current children cumulated vsize: 221764 KiB
+Current children cumulated memory: 205036 KiB
+
+
+
+Maximum wall clock time exceeded: sending SIGTERM then SIGKILL
+
+[startup+3600 s]
+/proc/loadavg: 150.56 150.66 151.54 150/3114 3016927
+/proc/meminfo: memFree=185304096/395404608 swapFree=0/0
+[pid=3011186] ppid=3011179 vsize=222852 memory=206920 CPUtime=3291.45 cores=4
+/proc/3011186/stat : 3011186 (python) R 3011179 3011186 3011150 0 -1 4210688 122140 0 0 0 328982 163 0 0 20 0 1 0 1627937177 228200448 51730 21474836480 94123624689664 94123624690041 140721712421888 0 0 0 0 16781312 2 0 0 0 17 4 0 0 0 0 0 94123624701336 94123624701956 94123635208192 140721712426158 140721712426306 140721712426306 140721712435176 0
+/proc/3011186/statm: 55713 51730 2688 1 0 51095 0
+Current children cumulated CPU time: 3291.45 s
+Current children cumulated vsize: 222852 KiB
+Current children cumulated memory: 206920 KiB
+
+Sending SIGTERM to process tree (bottom up)
+Sleeping 2 seconds
+
+[startup+3600.02 s]
+# the end of solver process 3011186 was just reported to runsolver
+# cumulated CPU time of all completed processes:  user=3289.82 s, system=1.65242 s
+
+Solver just ended.
+??? end of watcher thread
+Dumping a history of the last processes samples
+
+Real time (s): 3600.02
+CPU time (s): 3291.48
+CPU user time (s): 3289.82
+CPU system time (s): 1.65242
+CPU usage (%): 91.4295
+Max. virtual memory (cumulated for all children) (KiB): 274412
+Max. memory (cumulated for all children) (KiB): 257256
+
+getrusage(RUSAGE_CHILDREN,...) data:
+user time used= 3289.82
+system time used= 1.65242
+maximum resident set size= 257256
+integral shared memory size= 0
+integral unshared data size= 0
+integral unshared stack size= 0
+page reclaims= 122140
+page faults= 0
+swaps= 0
+block input operations= 0
+block output operations= 0
+messages sent= 0
+messages received= 0
+signals received= 0
+voluntary context switches= 8
+involuntary context switches= 71710
+
+
+# summary of solver processes directly reported to runsolver:
+#   pid: 3011186
+#   total CPU time (s): 3291.48
+#   total CPU user time (s): 3289.82
+#   total CPU system time (s): 1.65242
+
+??? end of timestamper thread
+runsolver used 46.3575 second user time and 230.829 second system time
+
+The end

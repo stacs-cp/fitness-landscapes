@@ -1,0 +1,92 @@
+runsolver version 3.4.1 (svn: 3018) Copyright (C) 2010-2013 Olivier ROUSSEL
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+NUMA information:
+  number of nodes: 2
+  memory of node 0: 192726 MiB (171365 MiB free)
+  memory of node 1: 193411 MiB (174706 MiB free)
+  node distances:
+     10  32
+     32  10
+
+command line: /home/rh347/.local/bin/runsolver -W 3600 -R 18000 python models/sat/bio.py -n 5 --peak-count 16 --SE-count 10 --output output/raw/count-sat-cadical-full-sym-2026-07-20-11-17 -a --complete-sym-break 
+
+running on 1 cores: 78
+
+Enforcing wall clock limit (soft limit, will send SIGTERM then SIGKILL): 3600 seconds
+Enforcing RSS+Swap limit (soft limit, will send SIGTERM then SIGKILL): 18432000 KiB
+Linux 5.14.0-427.24.1.el9_4.x86_64
+solver pid=3230709, runsolver pid=3230664
+Current StackSize limit: 8192 KiB
+
+
+[startup+0.100065 s]*
+/proc/loadavg: 111.38 110.64 109.47 134/2903 3230727
+/proc/meminfo: memFree=354146156/395404516 swapFree=0/0
+[pid=3230709] ppid=3230664 vsize=45780 memory=34092 CPUtime=0.14 cores=78
+/proc/3230709/stat : 3230709 (python) R 3230664 3230709 3230546 0 -1 4210688 5977 0 1 0 13 1 0 0 20 0 1 0 382688706 46878720 8523 21474836480 94309543858176 94309543858553 140728150540208 0 0 0 0 16781312 2 0 0 0 17 78 0 0 0 0 0 94309543869848 94309543870468 94309547274240 140728150543533 140728150543681 140728150543681 140728150552552 0
+/proc/3230709/statm: 11445 8523 2688 1 0 6827 0
+Current children cumulated CPU time: 0.14 s
+Current children cumulated vsize: 45780 KiB
+Current children cumulated memory: 34092 KiB
+
+[startup+0.276716 s]
+# the end of solver process 3230709 was just reported to runsolver
+# cumulated CPU time of all completed processes:  user=0.175975 s, system=0.020699 s
+
+Solver just ended.
+??? end of watcher thread
+Dumping a history of the last processes samples
+
+[startup+0.100065 s]*
+/proc/loadavg: 111.38 110.64 109.47 134/2903 3230727
+/proc/meminfo: memFree=354146156/395404516 swapFree=0/0
+[pid=3230709] ppid=3230664 vsize=45780 memory=34092 CPUtime=0.14 cores=78
+/proc/3230709/stat : 3230709 (python) R 3230664 3230709 3230546 0 -1 4210688 5977 0 1 0 13 1 0 0 20 0 1 0 382688706 46878720 8523 21474836480 94309543858176 94309543858553 140728150540208 0 0 0 0 16781312 2 0 0 0 17 78 0 0 0 0 0 94309543869848 94309543870468 94309547274240 140728150543533 140728150543681 140728150543681 140728150552552 0
+/proc/3230709/statm: 11445 8523 2688 1 0 6827 0
+Current children cumulated CPU time: 0.14 s
+Current children cumulated vsize: 45780 KiB
+Current children cumulated memory: 34092 KiB
+
+Child status: 0
+Real time (s): 0.276879
+CPU time (s): 0.196674
+CPU user time (s): 0.175975
+CPU system time (s): 0.020699
+CPU usage (%): 71.0324
+Max. virtual memory (cumulated for all children) (KiB): 45780
+Max. memory (cumulated for all children) (KiB): 34092
+
+getrusage(RUSAGE_CHILDREN,...) data:
+user time used= 0.175975
+system time used= 0.020699
+maximum resident set size= 35436
+integral shared memory size= 0
+integral unshared data size= 0
+integral unshared stack size= 0
+page reclaims= 6583
+page faults= 1
+swaps= 0
+block input operations= 0
+block output operations= 0
+messages sent= 0
+messages received= 0
+signals received= 0
+voluntary context switches= 14
+involuntary context switches= 20
+
+
+# summary of solver processes directly reported to runsolver:
+#   pid: 3230709
+#   total CPU time (s): 0.196674
+#   total CPU user time (s): 0.175975
+#   total CPU system time (s): 0.020699
+
+??? end of timestamper thread
+runsolver used 0.037514 second user time and 0.182153 second system time
+
+The end
