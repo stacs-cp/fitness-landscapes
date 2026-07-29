@@ -1,0 +1,635 @@
+runsolver version 3.4.1 (svn: 3018) Copyright (C) 2010-2013 Olivier ROUSSEL
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+NUMA information:
+  number of nodes: 2
+  memory of node 0: 192684 MiB (99350 MiB free)
+  memory of node 1: 193452 MiB (86647 MiB free)
+  node distances:
+     10  32
+     32  10
+
+command line: /home/rh347/.local/bin/runsolver -W 3600 -R 18000 conjure solve models/essence-edge-branching/edge.essence input/peaks-to-RSE-dimension-5-peaks-4-count-64.param --use-existing-models=output/raw/count-essence-edge-branching/model000001.eprime --savilerow-options=-O1 --solver=cadical --number-of-solutions=all --copy-solutions=no --solutions-in-one-file --output-format=json -o output/raw/count-essence-edge-branching-cadical-full-sym-2026-07-20-10-15 
+
+running on 1 cores: 82
+
+Enforcing wall clock limit (soft limit, will send SIGTERM then SIGKILL): 3600 seconds
+Enforcing RSS+Swap limit (soft limit, will send SIGTERM then SIGKILL): 18432000 KiB
+Linux 5.14.0-427.24.1.el9_4.x86_64
+solver pid=2847108, runsolver pid=2847102
+Current StackSize limit: 8192 KiB
+
+
+[startup+0.100066 s]*
+/proc/loadavg: 151.52 152.87 153.71 147/3177 2847128
+/proc/meminfo: memFree=190454324/395404608 swapFree=0/0
+[pid=2847108] ppid=2847102 vsize=1074049152 memory=3796 CPUtime=0 cores=82
+/proc/2847108/stat : 2847108 (conjure) D 2847102 2847108 2847049 0 -1 4210688 310 0 6 0 0 0 0 0 20 0 4 0 1622931915 1099826331648 949 21474836480 4194304 75514512 140724048294928 0 0 0 0 0 528390 0 0 0 17 82 0 0 0 0 0 75522176 82032888 94900224 140724048296866 140724048297267 140724048297267 140724048306137 0
+/proc/2847108/statm: 268512288 949 336 17413 0 10578 0
+[pid=2847108/tid=2847123] ppid=2847102 vsize=1074049152 memory=3904683764999270745 CPUtime=0 cores=82
+/proc/2847108/task/2847123/stat : 2847123 (ghc_ticker) S 2847102 2847108 2847049 0 -1 4210752 2 0 0 0 0 0 0 0 20 0 4 0 1622931924 1099826331648 949 21474836480 4194304 75514512 140724048294928 0 0 0 2147221247 0 528390 1 0 0 -1 82 0 0 0 0 0 75522176 82032888 94900224 140724048296866 140724048297267 140724048297267 140724048306137 0
+[pid=2847108/tid=2847129] ppid=2847102 vsize=1074049152 memory=349798893 CPUtime=0 cores=82
+/proc/2847108/task/2847129/stat : 2847129 (ghc_worker) S 2847102 2847108 2847049 0 -1 4210752 7 0 0 0 0 0 0 0 20 0 4 0 1622931930 1099826331648 949 21474836480 4194304 75514512 140724048294928 0 0 0 0 0 528390 1 0 0 -1 82 0 0 0 0 0 75522176 82032888 94900224 140724048296866 140724048297267 140724048297267 140724048306137 0
+[pid=2847108/tid=2847137] ppid=2847102 vsize=1074049152 memory=346406194 CPUtime=0 cores=82
+/proc/2847108/task/2847137/stat : 2847137 (ghc_worker) S 2847102 2847108 2847049 0 -1 4210752 5 0 0 0 0 0 0 0 20 0 4 0 1622931930 1099826331648 949 21474836480 4194304 75514512 140724048294928 0 0 0 0 0 528390 1 0 0 -1 82 0 0 0 0 0 75522176 82032888 94900224 140724048296866 140724048297267 140724048297267 140724048306137 0
+Current children cumulated CPU time: 0 s
+Current children cumulated vsize: 1074049152 KiB
+Current children cumulated memory: 3796 KiB
+
+[startup+0.28408 s]*
+/proc/loadavg: 151.52 152.87 153.71 147/3191 2847142
+/proc/meminfo: memFree=190387408/395404608 swapFree=0/0
+[pid=2847108] ppid=2847102 vsize=1074049152 memory=11860 CPUtime=0.01 cores=82
+/proc/2847108/stat : 2847108 (conjure) D 2847102 2847108 2847049 0 -1 4210688 2210 0 6 0 0 1 0 0 20 0 4 0 1622931915 1099826331648 2965 21474836480 4194304 75514512 140724048294928 0 0 0 2 0 528390 0 0 0 17 82 0 0 0 0 0 75522176 82032888 94900224 140724048296866 140724048297267 140724048297267 140724048306137 0
+/proc/2847108/statm: 268512288 2965 1008 17413 0 10834 0
+[pid=2847108/tid=2847123] ppid=2847102 vsize=1074049152 memory=349693312 CPUtime=0 cores=82
+/proc/2847108/task/2847123/stat : 2847123 (ghc_ticker) S 2847102 2847108 2847049 0 -1 4210752 2 0 0 0 0 0 0 0 20 0 4 0 1622931924 1099826331648 2965 21474836480 4194304 75514512 140724048294928 0 0 0 2147221247 0 528390 1 0 0 -1 82 0 0 0 0 0 75522176 82032888 94900224 140724048296866 140724048297267 140724048297267 140724048306137 0
+[pid=2847108/tid=2847129] ppid=2847102 vsize=1074049152 memory=4050484508359929945 CPUtime=0 cores=82
+/proc/2847108/task/2847129/stat : 2847129 (ghc_worker) S 2847102 2847108 2847049 0 -1 4210752 7 0 0 0 0 0 0 0 20 0 4 0 1622931930 1099826331648 2965 21474836480 4194304 75514512 140724048294928 0 0 0 0 0 528390 1 0 0 -1 82 0 0 0 0 0 75522176 82032888 94900224 140724048296866 140724048297267 140724048297267 140724048306137 0
+[pid=2847108/tid=2847137] ppid=2847102 vsize=1074049152 memory=4049129060469847128 CPUtime=0 cores=82
+/proc/2847108/task/2847137/stat : 2847137 (ghc_worker) S 2847102 2847108 2847049 0 -1 4210752 5 0 0 0 0 0 0 0 20 0 4 0 1622931930 1099826331648 2965 21474836480 4194304 75514512 140724048294928 0 0 0 0 0 528390 1 0 0 -1 82 0 0 0 0 0 75522176 82032888 94900224 140724048296866 140724048297267 140724048297267 140724048306137 0
+Current children cumulated CPU time: 0.01 s
+Current children cumulated vsize: 1074049152 KiB
+Current children cumulated memory: 11860 KiB
+
+[startup+0.391239 s]*
+/proc/loadavg: 151.52 152.87 153.71 146/3191 2847142
+/proc/meminfo: memFree=190383172/395404608 swapFree=0/0
+[pid=2847108] ppid=2847102 vsize=1074049152 memory=11860 CPUtime=0.01 cores=82
+/proc/2847108/stat : 2847108 (conjure) D 2847102 2847108 2847049 0 -1 4210688 2321 0 6 0 0 1 0 0 20 0 4 0 1622931915 1099826331648 2965 21474836480 4194304 75514512 140724048294928 0 0 0 2 0 528390 0 0 0 17 82 0 0 0 0 0 75522176 82032888 94900224 140724048296866 140724048297267 140724048297267 140724048306137 0
+/proc/2847108/statm: 268512288 2965 1008 17413 0 10834 0
+[pid=2847108/tid=2847123] ppid=2847102 vsize=1074049152 memory=-8969416301853566051 CPUtime=0 cores=82
+/proc/2847108/task/2847123/stat : 2847123 (ghc_ticker) S 2847102 2847108 2847049 0 -1 4210752 2 0 0 0 0 0 0 0 20 0 4 0 1622931924 1099826331648 2965 21474836480 4194304 75514512 140724048294928 0 0 0 2147221247 0 528390 1 0 0 -1 82 0 0 0 0 0 75522176 82032888 94900224 140724048296866 140724048297267 140724048297267 140724048306137 0
+[pid=2847108/tid=2847129] ppid=2847102 vsize=1074049152 memory=-9042362273987197121 CPUtime=0 cores=82
+/proc/2847108/task/2847129/stat : 2847129 (ghc_worker) S 2847102 2847108 2847049 0 -1 4210752 7 0 0 0 0 0 0 0 20 0 4 0 1622931930 1099826331648 2965 21474836480 4194304 75514512 140724048294928 0 0 0 0 0 528390 1 0 0 -1 82 0 0 0 0 0 75522176 82032888 94900224 140724048296866 140724048297267 140724048297267 140724048306137 0
+[pid=2847108/tid=2847137] ppid=2847102 vsize=1074049152 memory=0 CPUtime=0 cores=82
+/proc/2847108/task/2847137/stat : 2847137 (ghc_worker) S 2847102 2847108 2847049 0 -1 4210752 5 0 0 0 0 0 0 0 20 0 4 0 1622931930 1099826331648 2965 21474836480 4194304 75514512 140724048294928 0 0 0 0 0 528390 1 0 0 -1 82 0 0 0 0 0 75522176 82032888 94900224 140724048296866 140724048297267 140724048297267 140724048306137 0
+Current children cumulated CPU time: 0.01 s
+Current children cumulated vsize: 1074049152 KiB
+Current children cumulated memory: 11860 KiB
+
+[startup+0.700218 s]
+/proc/loadavg: 151.52 152.87 153.71 146/3191 2847144
+/proc/meminfo: memFree=190378512/395404608 swapFree=0/0
+[pid=2847108] ppid=2847102 vsize=1074049152 memory=11860 CPUtime=0.01 cores=82
+/proc/2847108/stat : 2847108 (conjure) D 2847102 2847108 2847049 0 -1 4210688 2472 0 6 0 0 1 0 0 20 0 4 0 1622931915 1099826331648 2965 21474836480 4194304 75514512 140724048294928 0 0 0 2 0 528390 0 0 0 17 82 0 0 0 0 0 75522176 82032888 94900224 140724048296866 140724048297267 140724048297267 140724048306137 0
+/proc/2847108/statm: 268512288 2965 1008 17413 0 10834 0
+[pid=2847108/tid=2847123] ppid=2847102 vsize=1074049152 memory=85688 CPUtime=0 cores=82
+/proc/2847108/task/2847123/stat : 2847123 (ghc_ticker) S 2847102 2847108 2847049 0 -1 4210752 2 0 0 0 0 0 0 0 20 0 4 0 1622931924 1099826331648 2965 21474836480 4194304 75514512 140724048294928 0 0 0 2147221247 0 528390 1 0 0 -1 82 0 0 0 0 0 75522176 82032888 94900224 140724048296866 140724048297267 140724048297267 140724048306137 0
+[pid=2847108/tid=2847129] ppid=2847102 vsize=1074049152 memory=12096 CPUtime=0 cores=82
+/proc/2847108/task/2847129/stat : 2847129 (ghc_worker) S 2847102 2847108 2847049 0 -1 4210752 7 0 0 0 0 0 0 0 20 0 4 0 1622931930 1099826331648 2965 21474836480 4194304 75514512 140724048294928 0 0 0 0 0 528390 1 0 0 -1 82 0 0 0 0 0 75522176 82032888 94900224 140724048296866 140724048297267 140724048297267 140724048306137 0
+[pid=2847108/tid=2847137] ppid=2847102 vsize=1074049152 memory=0 CPUtime=0 cores=82
+/proc/2847108/task/2847137/stat : 2847137 (ghc_worker) S 2847102 2847108 2847049 0 -1 1077952576 5 0 0 0 0 0 0 0 20 0 4 0 1622931930 1099826331648 2965 21474836480 4194304 75514512 140724048294928 0 0 0 0 0 528390 1 0 0 -1 82 0 0 0 0 0 75522176 82032888 94900224 140724048296866 140724048297267 140724048297267 140724048306137 0
+Current children cumulated CPU time: 0.01 s
+Current children cumulated vsize: 1074049152 KiB
+Current children cumulated memory: 11860 KiB
+
+[startup+1.5004 s]
+/proc/loadavg: 151.52 152.87 153.71 147/3191 2847144
+/proc/meminfo: memFree=190349112/395404608 swapFree=0/0
+[pid=2847108] ppid=2847102 vsize=1074123020 memory=44116 CPUtime=0.32 cores=82
+/proc/2847108/stat : 2847108 (conjure) R 2847102 2847108 2847049 0 -1 4210688 11516 0 6 0 26 6 0 0 20 0 5 0 1622931915 1099901972480 11029 21474836480 4194304 75514512 140724048294928 0 0 0 0 0 528390 0 0 0 17 82 0 0 0 0 0 75522176 82032888 94900224 140724048296866 140724048297267 140724048297267 140724048306137 0
+/proc/2847108/statm: 268530755 11029 6384 17413 0 14741 0
+[pid=2847108/tid=2847123] ppid=2847102 vsize=1074123020 memory=85688 CPUtime=0 cores=82
+/proc/2847108/task/2847123/stat : 2847123 (ghc_ticker) S 2847102 2847108 2847049 0 -1 4210752 2 0 0 0 0 0 0 0 20 0 5 0 1622931924 1099901972480 11029 21474836480 4194304 75514512 140724048294928 0 0 0 2147221247 0 528390 1 0 0 -1 82 0 0 0 0 0 75522176 82032888 94900224 140724048296866 140724048297267 140724048297267 140724048306137 0
+[pid=2847108/tid=2847129] ppid=2847102 vsize=1074123020 memory=12096 CPUtime=0 cores=82
+/proc/2847108/task/2847129/stat : 2847129 (ghc_worker) S 2847102 2847108 2847049 0 -1 4210752 7 0 0 0 0 0 0 0 20 0 5 0 1622931930 1099901972480 11029 21474836480 4194304 75514512 140724048294928 0 0 0 0 0 528390 1 0 0 -1 82 0 0 0 0 0 75522176 82032888 94900224 140724048296866 140724048297267 140724048297267 140724048306137 0
+[pid=2847108/tid=2847137] ppid=2847102 vsize=1074123020 memory=45696 CPUtime=0 cores=82
+/proc/2847108/task/2847137/stat : 2847137 (ghc_worker) S 2847102 2847108 2847049 0 -1 4210752 5 0 0 0 0 0 0 0 20 0 5 0 1622931930 1099901972480 11029 21474836480 4194304 75514512 140724048294928 0 0 0 0 0 528390 1 0 0 -1 82 0 0 0 0 0 75522176 82032888 94900224 140724048296866 140724048297267 140724048297267 140724048306137 0
+Current children cumulated CPU time: 0.32 s
+Current children cumulated vsize: 1074123020 KiB
+Current children cumulated memory: 44116 KiB
+
+[startup+3.10058 s]*
+/proc/loadavg: 151.56 152.86 153.70 164/3331 2847298
+/proc/meminfo: memFree=189149296/395404608 swapFree=0/0
+[pid=2847108] ppid=2847102 vsize=1074123020 memory=56212 CPUtime=0.88 cores=82
+/proc/2847108/stat : 2847108 (conjure) S 2847102 2847108 2847049 0 -1 1077952512 15368 0 6 0 80 8 0 0 20 0 5 0 1622931915 1099901972480 14053 21474836480 4194304 75514512 140724048294928 0 0 0 0 0 528390 0 0 0 17 82 0 0 0 0 0 75522176 82032888 94900224 140724048296866 140724048297267 140724048297267 140724048306137 0
+/proc/2847108/statm: 268530755 14053 6384 17413 0 17301 0
+[pid=2847168] ppid=2847108 vsize=7264 memory=2688 CPUtime=0 cores=82
+/proc/2847168/stat : 2847168 (savilerow) S 2847108 2847108 2847049 0 -1 4210688 232 252 0 0 0 0 0 0 20 0 1 0 1622932128 7438336 672 21474836480 93918295236608 93918296131141 140729586672784 0 0 0 65536 4 65538 1 0 0 17 82 0 0 0 0 0 93918296370192 93918296417936 93918318022656 140729586677808 140729586679089 140729586679089 140729586687959 0
+/proc/2847168/statm: 1816 672 672 219 0 144 0
+[pid=2847182] ppid=2847168 vsize=71206628 memory=168960 CPUtime=1.07 cores=82
+/proc/2847182/stat : 2847182 (java) S 2847168 2847108 2847049 0 -1 1077952512 11822 0 2 0 99 8 0 0 20 0 18 0 1622932129 72915587072 42240 21474836480 94292376969216 94292376970297 140721674510352 0 0 0 0 0 16800975 0 0 0 17 82 0 0 0 0 0 94292376980784 94292376981520 94292378386432 140721674512368 140721674513750 140721674513750 140721674522602 0
+/proc/2847182/statm: 17801657 42240 5040 1 0 568156 0
+[pid=2847182/tid=2847185] ppid=2847168 vsize=71206628 memory=347434076 CPUtime=0.11 cores=82
+/proc/2847182/task/2847185/stat : 2847185 (java) S 2847168 2847108 2847049 0 -1 1077952576 2775 0 2 0 9 2 0 0 20 0 18 0 1622932129 72915587072 42240 21474836480 94292376969216 94292376970297 140721674510352 0 0 0 4 0 16800975 1 0 0 -1 82 0 0 0 0 0 94292376980784 94292376981520 94292378386432 140721674512368 140721674513750 140721674513750 140721674522602 0
+[pid=2847182/tid=2847221] ppid=2847168 vsize=71206628 memory=347408015 CPUtime=0 cores=82
+/proc/2847182/task/2847221/stat : 2847221 (Finalizer) S 2847168 2847108 2847049 0 -1 1077952576 31 0 0 0 0 0 0 0 20 0 18 0 1622932131 72915587072 42240 21474836480 94292376969216 94292376970297 140721674510352 0 0 0 4 0 16800975 1 0 0 -1 82 0 0 0 0 0 94292376980784 94292376981520 94292378386432 140721674512368 140721674513750 140721674513750 140721674522602 0
+[pid=2847182/tid=2847285] ppid=2847168 vsize=71206628 memory=351192459 CPUtime=0 cores=82
+/proc/2847182/task/2847285/stat : 2847285 (Common-Cleaner) S 2847168 2847108 2847049 0 -1 1077952576 22 0 0 0 0 0 0 0 20 0 18 0 1622932136 72915587072 42240 21474836480 94292376969216 94292376970297 140721674510352 0 0 0 4 0 16800975 1 0 0 -1 82 0 0 0 0 0 94292376980784 94292376981520 94292378386432 140721674512368 140721674513750 140721674513750 140721674522602 0
+[pid=2847182/tid=2847292] ppid=2847168 vsize=71206628 memory=351254997 CPUtime=0.33 cores=82
+/proc/2847182/task/2847292/stat : 2847292 (Thread-0) R 2847168 2847108 2847049 0 -1 4210752 882 0 0 0 31 2 0 0 20 0 18 0 1622932148 72915587072 42240 21474836480 94292376969216 94292376970297 140721674510352 0 0 0 4 0 16800975 0 0 0 -1 82 0 0 0 0 0 94292376980784 94292376981520 94292378386432 140721674512368 140721674513750 140721674513750 140721674522602 0
+[pid=2847108/tid=2847123] ppid=2847102 vsize=1074123020 memory=349697298 CPUtime=0 cores=82
+/proc/2847108/task/2847123/stat : 2847123 (ghc_ticker) S 2847102 2847108 2847049 0 -1 1077952576 2 0 0 0 0 0 0 0 20 0 5 0 1622931924 1099901972480 14053 21474836480 4194304 75514512 140724048294928 0 0 0 2147221247 0 528390 1 0 0 -1 82 0 0 0 0 0 75522176 82032888 94900224 140724048296866 140724048297267 140724048297267 140724048306137 0
+[pid=2847108/tid=2847129] ppid=2847102 vsize=1074123020 memory=349716469 CPUtime=0 cores=82
+/proc/2847108/task/2847129/stat : 2847129 (ghc_worker) S 2847102 2847108 2847049 0 -1 4210752 7 0 0 0 0 0 0 0 20 0 5 0 1622931930 1099901972480 14053 21474836480 4194304 75514512 140724048294928 0 0 0 0 0 528390 1 0 0 -1 82 0 0 0 0 0 75522176 82032888 94900224 140724048296866 140724048297267 140724048297267 140724048306137 0
+[pid=2847108/tid=2847137] ppid=2847102 vsize=1074123020 memory=350144213 CPUtime=0 cores=82
+/proc/2847108/task/2847137/stat : 2847137 (ghc_worker) S 2847102 2847108 2847049 0 -1 4210752 5 0 0 0 0 0 0 0 20 0 5 0 1622931930 1099901972480 14053 21474836480 4194304 75514512 140724048294928 0 0 0 0 0 528390 1 0 0 -1 82 0 0 0 0 0 75522176 82032888 94900224 140724048296866 140724048297267 140724048297267 140724048306137 0
+[pid=2847108/tid=2847149] ppid=2847102 vsize=1074123020 memory=347096884 CPUtime=0.01 cores=82
+/proc/2847108/task/2847149/stat : 2847149 (ghc_worker) S 2847102 2847108 2847049 0 -1 1077952576 10 0 0 0 1 0 0 0 20 0 5 0 1622932038 1099901972480 14053 21474836480 4194304 75514512 140724048294928 0 0 0 0 0 528390 1 0 0 -1 82 0 0 0 0 0 75522176 82032888 94900224 140724048296866 140724048297267 140724048297267 140724048306137 0
+Current children cumulated CPU time: 1.95 s
+Current children cumulated vsize: 1145336912 KiB
+Current children cumulated memory: 227860 KiB
+heavy processes:
+  %CPU=99 pid=1953473 uid=1822200073 cmd=
+  %CPU=99 pid=1953474 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953475 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953476 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953477 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953478 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953479 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953480 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953481 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953482 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953483 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953484 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953485 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953486 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953487 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953488 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953489 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953490 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953491 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953492 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953493 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953494 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953495 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953496 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953497 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953498 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953499 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953500 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953501 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953502 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953503 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953504 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953505 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953506 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953507 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953508 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953509 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953510 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953511 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953512 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953513 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953514 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953515 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953516 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953517 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953518 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953519 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953520 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953521 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953522 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953523 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953524 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953525 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953526 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953527 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953528 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953529 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953530 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953531 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953532 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953533 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953534 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953535 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953536 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953537 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953538 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953539 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953540 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953541 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953542 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953543 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953544 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953545 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953546 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953547 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953548 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953549 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953550 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953551 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953552 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953553 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953554 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953555 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953556 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953557 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953558 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953559 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953560 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953561 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953562 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953563 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953564 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953565 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953566 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953567 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953568 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953569 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953570 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953571 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953572 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953573 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953574 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953575 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953576 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953577 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953578 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953579 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953580 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953581 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953582 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953583 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953584 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953585 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953586 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953587 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953588 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953589 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953590 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953591 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953592 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953593 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953594 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953595 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953596 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953597 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953598 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953599 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953600 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953601 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953602 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953603 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953604 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953605 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953606 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953607 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953608 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953609 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953610 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953611 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953612 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953613 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953614 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953615 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953616 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+
+[startup+6.30042 s]
+/proc/loadavg: 151.56 152.86 153.70 158/3332 2847307
+/proc/meminfo: memFree=185357732/395404608 swapFree=0/0
+[pid=2847108] ppid=2847102 vsize=1074123020 memory=56212 CPUtime=0.88 cores=82
+/proc/2847108/stat : 2847108 (conjure) S 2847102 2847108 2847049 0 -1 1077952512 15368 0 6 0 80 8 0 0 20 0 5 0 1622931915 1099901972480 14053 21474836480 4194304 75514512 140724048294928 0 0 0 0 0 528390 0 0 0 17 82 0 0 0 0 0 75522176 82032888 94900224 140724048296866 140724048297267 140724048297267 140724048306137 0
+/proc/2847108/statm: 268530755 14053 6384 17413 0 17301 0
+[pid=2847168] ppid=2847108 vsize=7264 memory=2688 CPUtime=0 cores=82
+/proc/2847168/stat : 2847168 (savilerow) S 2847108 2847108 2847049 0 -1 4210688 232 252 0 0 0 0 0 0 20 0 1 0 1622932128 7438336 672 21474836480 93918295236608 93918296131141 140729586672784 0 0 0 65536 4 65538 1 0 0 17 82 0 0 0 0 0 93918296370192 93918296417936 93918318022656 140729586677808 140729586679089 140729586679089 140729586687959 0
+/proc/2847168/statm: 1816 672 672 219 0 144 0
+[pid=2847182] ppid=2847168 vsize=71206628 memory=989424 CPUtime=3.84 cores=82
+/proc/2847182/stat : 2847182 (java) S 2847168 2847108 2847049 0 -1 1077952512 26693 0 2 0 364 20 0 0 20 0 18 0 1622932129 72915587072 247356 21474836480 94292376969216 94292376970297 140721674510352 0 0 0 0 0 16800975 0 0 0 17 82 0 0 0 0 0 94292376980784 94292376981520 94292378386432 140721674512368 140721674513750 140721674513750 140721674522602 0
+/proc/2847182/statm: 17801657 247356 5040 1 0 3110141 0
+[pid=2847182/tid=2847185] ppid=2847168 vsize=71206628 memory=2688 CPUtime=0.11 cores=82
+/proc/2847182/task/2847185/stat : 2847185 (java) S 2847168 2847108 2847049 0 -1 1077952576 2775 0 2 0 9 2 0 0 20 0 18 0 1622932129 72915587072 247356 21474836480 94292376969216 94292376970297 140721674510352 0 0 0 4 0 16800975 1 0 0 -1 82 0 0 0 0 0 94292376980784 94292376981520 94292378386432 140721674512368 140721674513750 140721674513750 140721674522602 0
+[pid=2847182/tid=2847221] ppid=2847168 vsize=71206628 memory=989424 CPUtime=0 cores=82
+/proc/2847182/task/2847221/stat : 2847221 (Finalizer) S 2847168 2847108 2847049 0 -1 1077952576 31 0 0 0 0 0 0 0 20 0 18 0 1622932131 72915587072 247356 21474836480 94292376969216 94292376970297 140721674510352 0 0 0 4 0 16800975 1 0 0 -1 82 0 0 0 0 0 94292376980784 94292376981520 94292378386432 140721674512368 140721674513750 140721674513750 140721674522602 0
+[pid=2847182/tid=2847285] ppid=2847168 vsize=71206628 memory=201388 CPUtime=0 cores=82
+/proc/2847182/task/2847285/stat : 2847285 (Common-Cleaner) S 2847168 2847108 2847049 0 -1 1077952576 22 0 0 0 0 0 0 0 20 0 18 0 1622932136 72915587072 247356 21474836480 94292376969216 94292376970297 140721674510352 0 0 0 4 0 16800975 1 0 0 -1 82 0 0 0 0 0 94292376980784 94292376981520 94292378386432 140721674512368 140721674513750 140721674513750 140721674522602 0
+[pid=2847182/tid=2847292] ppid=2847168 vsize=71206628 memory=11860 CPUtime=1.55 cores=82
+/proc/2847182/task/2847292/stat : 2847292 (Thread-0) R 2847168 2847108 2847049 0 -1 4210752 1452 0 0 0 146 9 0 0 20 0 18 0 1622932148 72915587072 247356 21474836480 94292376969216 94292376970297 140721674510352 0 0 0 4 0 16800975 0 0 0 -1 82 0 0 0 0 0 94292376980784 94292376981520 94292378386432 140721674512368 140721674513750 140721674513750 140721674522602 0
+[pid=2847108/tid=2847123] ppid=2847102 vsize=1074123020 memory=56212 CPUtime=0 cores=82
+/proc/2847108/task/2847123/stat : 2847123 (ghc_ticker) S 2847102 2847108 2847049 0 -1 1077952576 2 0 0 0 0 0 0 0 20 0 5 0 1622931924 1099901972480 14053 21474836480 4194304 75514512 140724048294928 0 0 0 2147221247 0 528390 1 0 0 -1 82 0 0 0 0 0 75522176 82032888 94900224 140724048296866 140724048297267 140724048297267 140724048306137 0
+[pid=2847108/tid=2847129] ppid=2847102 vsize=1074123020 memory=4032 CPUtime=0 cores=82
+/proc/2847108/task/2847129/stat : 2847129 (ghc_worker) S 2847102 2847108 2847049 0 -1 4210752 7 0 0 0 0 0 0 0 20 0 5 0 1622931930 1099901972480 14053 21474836480 4194304 75514512 140724048294928 0 0 0 0 0 528390 1 0 0 -1 82 0 0 0 0 0 75522176 82032888 94900224 140724048296866 140724048297267 140724048297267 140724048306137 0
+[pid=2847108/tid=2847137] ppid=2847102 vsize=1074123020 memory=85688 CPUtime=0 cores=82
+/proc/2847108/task/2847137/stat : 2847137 (ghc_worker) S 2847102 2847108 2847049 0 -1 4210752 5 0 0 0 0 0 0 0 20 0 5 0 1622931930 1099901972480 14053 21474836480 4194304 75514512 140724048294928 0 0 0 0 0 528390 1 0 0 -1 82 0 0 0 0 0 75522176 82032888 94900224 140724048296866 140724048297267 140724048297267 140724048306137 0
+[pid=2847108/tid=2847149] ppid=2847102 vsize=1074123020 memory=12096 CPUtime=0.01 cores=82
+/proc/2847108/task/2847149/stat : 2847149 (ghc_worker) S 2847102 2847108 2847049 0 -1 1077952576 10 0 0 0 1 0 0 0 20 0 5 0 1622932038 1099901972480 14053 21474836480 4194304 75514512 140724048294928 0 0 0 0 0 528390 1 0 0 -1 82 0 0 0 0 0 75522176 82032888 94900224 140724048296866 140724048297267 140724048297267 140724048306137 0
+Current children cumulated CPU time: 4.72 s
+Current children cumulated vsize: 1145336912 KiB
+Current children cumulated memory: 1048324 KiB
+heavy processes:
+  %CPU=99 pid=1953473 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953474 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953475 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953476 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953477 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953478 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953479 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953480 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953481 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953482 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953483 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953484 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953485 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953486 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953487 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953488 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953489 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953490 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953491 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953492 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953493 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953494 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953495 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953496 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953497 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953498 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953499 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953500 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953501 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953502 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953503 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953504 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953505 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953506 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953507 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953508 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953509 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953510 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953511 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953512 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953513 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953514 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953515 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953516 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953517 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953518 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953519 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953520 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953521 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953522 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953523 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953524 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953525 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953526 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953527 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953528 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953529 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953530 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953531 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953532 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953533 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953534 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953535 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953536 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953537 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953538 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953539 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953540 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953541 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953542 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953543 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953544 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953545 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953546 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953547 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953548 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953549 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953550 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953551 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953552 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953553 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953554 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953555 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953556 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953557 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953558 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953559 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953560 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953561 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953562 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953563 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953564 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953565 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953566 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953567 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953568 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953569 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953570 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953571 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953572 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953573 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953574 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953575 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953576 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953577 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953578 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953579 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953580 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953581 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953582 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953583 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953584 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953585 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953586 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953587 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953588 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953589 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953590 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953591 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953592 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953593 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953594 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953595 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953596 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953597 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953598 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953599 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953600 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953601 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953602 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953603 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953604 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953605 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953606 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953607 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953608 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953609 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953610 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953611 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953612 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953613 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953614 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953615 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+  %CPU=99 pid=1953616 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i neb_h--h2_up_m1.inp 
+
+[startup+12.7004 s]
+/proc/loadavg: 152.30 152.98 153.73 155/3332 2847307
+/proc/meminfo: memFree=166512248/395404608 swapFree=0/0
+[pid=2847108] ppid=2847102 vsize=1074123020 memory=56212 CPUtime=0.88 cores=82
+/proc/2847108/stat : 2847108 (conjure) S 2847102 2847108 2847049 0 -1 1077952512 15368 0 6 0 80 8 0 0 20 0 5 0 1622931915 1099901972480 14053 21474836480 4194304 75514512 140724048294928 0 0 0 0 0 528390 0 0 0 17 82 0 0 0 0 0 75522176 82032888 94900224 140724048296866 140724048297267 140724048297267 140724048306137 0
+/proc/2847108/statm: 268530755 14053 6384 17413 0 17301 0
+[pid=2847168] ppid=2847108 vsize=7264 memory=2688 CPUtime=0 cores=82
+/proc/2847168/stat : 2847168 (savilerow) S 2847108 2847108 2847049 0 -1 4210688 232 252 0 0 0 0 0 0 20 0 1 0 1622932128 7438336 672 21474836480 93918295236608 93918296131141 140729586672784 0 0 0 65536 4 65538 1 0 0 17 82 0 0 0 0 0 93918296370192 93918296417936 93918318022656 140729586677808 140729586679089 140729586679089 140729586687959 0
+/proc/2847168/statm: 1816 672 672 219 0 144 0
+[pid=2847182] ppid=2847168 vsize=71206628 memory=3892244 CPUtime=9.59 cores=82
+/proc/2847182/stat : 2847182 (java) S 2847168 2847108 2847049 0 -1 1077952512 33656 0 2 0 892 67 0 0 20 0 18 0 1622932129 72915587072 973061 21474836480 94292376969216 94292376970297 140721674510352 0 0 0 0 0 16800975 0 0 0 17 82 0 0 0 0 0 94292376980784 94292376981520 94292378386432 140721674512368 140721674513750 140721674513750 140721674522602 0
+/proc/2847182/statm: 17801657 973061 5040 1 0 8844098 0
+[pid=2847182/tid=2847185] ppid=2847168 vsize=71206628 memory=3664348 CPUtime=0.11 cores=82
+/proc/2847182/task/2847185/stat : 2847185 (java) S 2847168 2847108 2847049 0 -1 1077952576 2775 0 2 0 9 2 0 0 20 0 18 0 1622932129 72915587072 973061 21474836480 94292376969216 94292376970297 140721674510352 0 0 0 4 0 16800975 1 0 0 -1 82 0 0 0 0 0 94292376980784 94292376981520 94292378386432 140721674512368 140721674513750 140721674513750 140721674522602 0
+[pid=2847182/tid=2847221] ppid=2847168 vsize=71206628 memory=2688 CPUtime=0 cores=82
+/proc/2847182/task/2847221/stat : 2847221 (Finalizer) S 2847168 2847108 2847049 0 -1 1077952576 31 0 0 0 0 0 0 0 20 0 18 0 1622932131 72915587072 973061 21474836480 94292376969216 94292376970297 140721674510352 0 0 0 4 0 16800975 1 0 0 -1 82 0 0 0 0 0 94292376980784 94292376981520 94292378386432 140721674512368 140721674513750 140721674513750 140721674522602 0
+[pid=2847182/tid=2847285] ppid=2847168 vsize=71206628 memory=2688 CPUtime=0 cores=82
+/proc/2847182/task/2847285/stat : 2847285 (Common-Cleaner) S 2847168 2847108 2847049 0 -1 1077952576 22 0 0 0 0 0 0 0 20 0 18 0 1622932136 72915587072 973061 21474836480 94292376969216 94292376970297 140721674510352 0 0 0 4 0 16800975 1 0 0 -1 82 0 0 0 0 0 94292376980784 94292376981520 94292378386432 140721674512368 140721674513750 140721674513750 140721674522602 0
+[pid=2847182/tid=2847292] ppid=2847168 vsize=71206628 memory=3869716 CPUtime=5.1 cores=82
+/proc/2847182/task/2847292/stat : 2847292 (Thread-0) S 2847168 2847108 2847049 0 -1 1077952576 2447 0 0 0 470 40 0 0 20 0 18 0 1622932148 72915587072 973061 21474836480 94292376969216 94292376970297 140721674510352 0 0 0 4 0 16800975 1 0 0 -1 82 0 0 0 0 0 94292376980784 94292376981520 94292378386432 140721674512368 140721674513750 140721674513750 140721674522602 0
+[pid=2847108/tid=2847123] ppid=2847102 vsize=1074123020 memory=2688 CPUtime=0 cores=82
+/proc/2847108/task/2847123/stat : 2847123 (ghc_ticker) S 2847102 2847108 2847049 0 -1 1077952576 2 0 0 0 0 0 0 0 20 0 5 0 1622931924 1099901972480 14053 21474836480 4194304 75514512 140724048294928 0 0 0 2147221247 0 528390 1 0 0 -1 82 0 0 0 0 0 75522176 82032888 94900224 140724048296866 140724048297267 140724048297267 140724048306137 0
+[pid=2847108/tid=2847129] ppid=2847102 vsize=1074123020 memory=2688 CPUtime=0 cores=82
+/proc/2847108/task/2847129/stat : 2847129 (ghc_worker) S 2847102 2847108 2847049 0 -1 4210752 7 0 0 0 0 0 0 0 20 0 5 0 1622931930 1099901972480 14053 21474836480 4194304 75514512 140724048294928 0 0 0 0 0 528390 1 0 0 -1 82 0 0 0 0 0 75522176 82032888 94900224 140724048296866 140724048297267 140724048297267 140724048306137 0
+[pid=2847108/tid=2847137] ppid=2847102 vsize=1074123020 memory=3672572 CPUtime=0 cores=82
+/proc/2847108/task/2847137/stat : 2847137 (ghc_worker) S 2847102 2847108 2847049 0 -1 4210752 5 0 0 0 0 0 0 0 20 0 5 0 1622931930 1099901972480 14053 21474836480 4194304 75514512 140724048294928 0 0 0 0 0 528390 1 0 0 -1 82 0 0 0 0 0 75522176 82032888 94900224 140724048296866 140724048297267 140724048297267 140724048306137 0
+[pid=2847108/tid=2847149] ppid=2847102 vsize=1074123020 memory=2688 CPUtime=0.01 cores=82
+/proc/2847108/task/2847149/stat : 2847149 (ghc_worker) S 2847102 2847108 2847049 0 -1 1077952576 10 0 0 0 1 0 0 0 20 0 5 0 1622932038 1099901972480 14053 21474836480 4194304 75514512 140724048294928 0 0 0 0 0 528390 1 0 0 -1 82 0 0 0 0 0 75522176 82032888 94900224 140724048296866 140724048297267 140724048297267 140724048306137 0
+Current children cumulated CPU time: 10.47 s
+Current children cumulated vsize: 1145336912 KiB
+Current children cumulated memory: 3951144 KiB
+
+[startup+25.5004 s]
+/proc/loadavg: 152.26 152.94 153.71 153/3331 2847309
+/proc/meminfo: memFree=133180064/395404608 swapFree=0/0
+[pid=2847108] ppid=2847102 vsize=1074123020 memory=56212 CPUtime=0.88 cores=82
+/proc/2847108/stat : 2847108 (conjure) S 2847102 2847108 2847049 0 -1 1077952512 15368 0 6 0 80 8 0 0 20 0 5 0 1622931915 1099901972480 14053 21474836480 4194304 75514512 140724048294928 0 0 0 0 0 528390 0 0 0 17 82 0 0 0 0 0 75522176 82032888 94900224 140724048296866 140724048297267 140724048297267 140724048306137 0
+/proc/2847108/statm: 268530755 14053 6384 17413 0 17301 0
+[pid=2847168] ppid=2847108 vsize=7264 memory=2688 CPUtime=0 cores=82
+/proc/2847168/stat : 2847168 (savilerow) S 2847108 2847108 2847049 0 -1 4210688 232 252 0 0 0 0 0 0 20 0 1 0 1622932128 7438336 672 21474836480 93918295236608 93918296131141 140729586672784 0 0 0 65536 4 65538 1 0 0 17 82 0 0 0 0 0 93918296370192 93918296417936 93918318022656 140729586677808 140729586679089 140729586679089 140729586687959 0
+/proc/2847168/statm: 1816 672 672 219 0 144 0
+[pid=2847182] ppid=2847168 vsize=71206628 memory=8569552 CPUtime=21.32 cores=82
+/proc/2847182/stat : 2847182 (java) S 2847168 2847108 2847049 0 -1 1077952512 40530 0 2 0 2008 124 0 0 20 0 18 0 1622932129 72915587072 2142388 21474836480 94292376969216 94292376970297 140721674510352 0 0 0 0 0 16800975 0 0 0 17 82 0 0 0 0 0 94292376980784 94292376981520 94292378386432 140721674512368 140721674513750 140721674513750 140721674522602 0
+/proc/2847182/statm: 17801657 2142388 5040 1 0 14348443 0
+[pid=2847182/tid=2847185] ppid=2847168 vsize=71206628 memory=7840464 CPUtime=0.11 cores=82
+/proc/2847182/task/2847185/stat : 2847185 (java) S 2847168 2847108 2847049 0 -1 1077952576 2775 0 2 0 9 2 0 0 20 0 18 0 1622932129 72915587072 2142388 21474836480 94292376969216 94292376970297 140721674510352 0 0 0 4 0 16800975 1 0 0 -1 82 0 0 0 0 0 94292376980784 94292376981520 94292378386432 140721674512368 140721674513750 140721674513750 140721674522602 0
+[pid=2847182/tid=2847221] ppid=2847168 vsize=71206628 memory=2688 CPUtime=0 cores=82
+/proc/2847182/task/2847221/stat : 2847221 (Finalizer) S 2847168 2847108 2847049 0 -1 1077952576 31 0 0 0 0 0 0 0 20 0 18 0 1622932131 72915587072 2142388 21474836480 94292376969216 94292376970297 140721674510352 0 0 0 4 0 16800975 1 0 0 -1 82 0 0 0 0 0 94292376980784 94292376981520 94292378386432 140721674512368 140721674513750 140721674513750 140721674522602 0
+[pid=2847182/tid=2847285] ppid=2847168 vsize=71206628 memory=2688 CPUtime=0 cores=82
+/proc/2847182/task/2847285/stat : 2847285 (Common-Cleaner) S 2847168 2847108 2847049 0 -1 1077952576 22 0 0 0 0 0 0 0 20 0 18 0 1622932136 72915587072 2142388 21474836480 94292376969216 94292376970297 140721674510352 0 0 0 4 0 16800975 1 0 0 -1 82 0 0 0 0 0 94292376980784 94292376981520 94292378386432 140721674512368 140721674513750 140721674513750 140721674522602 0
+[pid=2847182/tid=2847292] ppid=2847168 vsize=71206628 memory=8309456 CPUtime=13.94 cores=82
+/proc/2847182/task/2847292/stat : 2847292 (Thread-0) R 2847168 2847108 2847049 0 -1 4210752 3917 0 0 0 1317 77 0 0 20 0 18 0 1622932148 72915587072 2142388 21474836480 94292376969216 94292376970297 140721674510352 0 0 0 4 0 16800975 0 0 0 -1 82 0 0 0 0 0 94292376980784 94292376981520 94292378386432 140721674512368 140721674513750 140721674513750 140721674522602 0
+[pid=2847108/tid=2847123] ppid=2847102 vsize=1074123020 memory=2688 CPUtime=0 cores=82
+/proc/2847108/task/2847123/stat : 2847123 (ghc_ticker) S 2847102 2847108 2847049 0 -1 1077952576 2 0 0 0 0 0 0 0 20 0 5 0 1622931924 1099901972480 14053 21474836480 4194304 75514512 140724048294928 0 0 0 2147221247 0 528390 1 0 0 -1 82 0 0 0 0 0 75522176 82032888 94900224 140724048296866 140724048297267 140724048297267 140724048306137 0
+[pid=2847108/tid=2847129] ppid=2847102 vsize=1074123020 memory=8078032 CPUtime=0 cores=82
+/proc/2847108/task/2847129/stat : 2847129 (ghc_worker) S 2847102 2847108 2847049 0 -1 4210752 7 0 0 0 0 0 0 0 20 0 5 0 1622931930 1099901972480 14053 21474836480 4194304 75514512 140724048294928 0 0 0 0 0 528390 1 0 0 -1 82 0 0 0 0 0 75522176 82032888 94900224 140724048296866 140724048297267 140724048297267 140724048306137 0
+[pid=2847108/tid=2847137] ppid=2847102 vsize=1074123020 memory=2688 CPUtime=0 cores=82
+/proc/2847108/task/2847137/stat : 2847137 (ghc_worker) S 2847102 2847108 2847049 0 -1 4210752 5 0 0 0 0 0 0 0 20 0 5 0 1622931930 1099901972480 14053 21474836480 4194304 75514512 140724048294928 0 0 0 0 0 528390 1 0 0 -1 82 0 0 0 0 0 75522176 82032888 94900224 140724048296866 140724048297267 140724048297267 140724048306137 0
+[pid=2847108/tid=2847149] ppid=2847102 vsize=1074123020 memory=4032 CPUtime=0.01 cores=82
+/proc/2847108/task/2847149/stat : 2847149 (ghc_worker) S 2847102 2847108 2847049 0 -1 1077952576 10 0 0 0 1 0 0 0 20 0 5 0 1622932038 1099901972480 14053 21474836480 4194304 75514512 140724048294928 0 0 0 0 0 528390 1 0 0 -1 82 0 0 0 0 0 75522176 82032888 94900224 140724048296866 140724048297267 140724048297267 140724048306137 0
+Current children cumulated CPU time: 22.2 s
+Current children cumulated vsize: 1145336912 KiB
+Current children cumulated memory: 8628452 KiB
+
+
+
+Maximum memory exceeded: sending SIGTERM then SIGKILL
+
+[startup+49.8004 s]*
+/proc/loadavg: 152.16 152.87 153.66 153/3284 2847342
+/proc/meminfo: memFree=85080064/395404608 swapFree=0/0
+[pid=2847108] ppid=2847102 vsize=1074123020 memory=56212 CPUtime=0.88 cores=82
+/proc/2847108/stat : 2847108 (conjure) S 2847102 2847108 2847049 0 -1 1077952512 15368 0 6 0 80 8 0 0 20 0 5 0 1622931915 1099901972480 14053 21474836480 4194304 75514512 140724048294928 0 0 0 0 0 528390 0 0 0 17 82 0 0 0 0 0 75522176 82032888 94900224 140724048296866 140724048297267 140724048297267 140724048306137 0
+/proc/2847108/statm: 268530755 14053 6384 17413 0 17301 0
+[pid=2847168] ppid=2847108 vsize=7264 memory=2688 CPUtime=0 cores=82
+/proc/2847168/stat : 2847168 (savilerow) S 2847108 2847108 2847049 0 -1 4210688 232 252 0 0 0 0 0 0 20 0 1 0 1622932128 7438336 672 21474836480 93918295236608 93918296131141 140729586672784 0 0 0 65536 4 65538 1 0 0 17 82 0 0 0 0 0 93918296370192 93918296417936 93918318022656 140729586677808 140729586679089 140729586679089 140729586687959 0
+/proc/2847168/statm: 1816 672 672 219 0 144 0
+[pid=2847182] ppid=2847168 vsize=71206628 memory=18393016 CPUtime=43.7 cores=82
+/proc/2847182/stat : 2847182 (java) S 2847168 2847108 2847049 0 -1 1077952512 661800 0 2 0 4005 365 0 0 20 0 18 0 1622932129 72915587072 4598254 21474836480 94292376969216 94292376970297 140721674510352 0 0 0 0 0 16800975 0 0 0 17 82 0 0 0 0 0 94292376980784 94292376981520 94292378386432 140721674512368 140721674513750 140721674513750 140721674522602 0
+/proc/2847182/statm: 17801657 4598254 5040 1 0 16252649 0
+[pid=2847182/tid=2847185] ppid=2847168 vsize=71206628 memory=3833466227909735765 CPUtime=0.11 cores=82
+/proc/2847182/task/2847185/stat : 2847185 (java) S 2847168 2847108 2847049 0 -1 1077952576 2775 0 2 0 9 2 0 0 20 0 18 0 1622932129 72915587072 4598254 21474836480 94292376969216 94292376970297 140721674510352 0 0 0 4 0 16800975 1 0 0 -1 82 0 0 0 0 0 94292376980784 94292376981520 94292378386432 140721674512368 140721674513750 140721674513750 140721674522602 0
+[pid=2847182/tid=2847221] ppid=2847168 vsize=71206628 memory=3618700786336544856 CPUtime=0 cores=82
+/proc/2847182/task/2847221/stat : 2847221 (Finalizer) S 2847168 2847108 2847049 0 -1 1077952576 31 0 0 0 0 0 0 0 20 0 18 0 1622932131 72915587072 4598254 21474836480 94292376969216 94292376970297 140721674510352 0 0 0 4 0 16800975 1 0 0 -1 82 0 0 0 0 0 94292376980784 94292376981520 94292378386432 140721674512368 140721674513750 140721674513750 140721674522602 0
+[pid=2847182/tid=2847285] ppid=2847168 vsize=71206628 memory=3833183648807663185 CPUtime=0 cores=82
+/proc/2847182/task/2847285/stat : 2847285 (Common-Cleaner) S 2847168 2847108 2847049 0 -1 1077952576 22 0 0 0 0 0 0 0 20 0 18 0 1622932136 72915587072 4598254 21474836480 94292376969216 94292376970297 140721674510352 0 0 0 4 0 16800975 1 0 0 -1 82 0 0 0 0 0 94292376980784 94292376981520 94292378386432 140721674512368 140721674513750 140721674513750 140721674522602 0
+[pid=2847182/tid=2847292] ppid=2847168 vsize=71206628 memory=3546360647539505233 CPUtime=30.81 cores=82
+/proc/2847182/task/2847292/stat : 2847292 (Thread-0) R 2847168 2847108 2847049 0 -1 4210752 561046 0 0 0 2810 271 0 0 20 0 18 0 1622932148 72915587072 4598254 21474836480 94292376969216 94292376970297 140721674510352 0 0 0 4 0 16800975 0 0 0 -1 82 0 0 0 0 0 94292376980784 94292376981520 94292378386432 140721674512368 140721674513750 140721674513750 140721674522602 0
+[pid=2847108/tid=2847123] ppid=2847102 vsize=1074123020 memory=3473182625701835600 CPUtime=0 cores=82
+/proc/2847108/task/2847123/stat : 2847123 (ghc_ticker) S 2847102 2847108 2847049 0 -1 1077952576 2 0 0 0 0 0 0 0 20 0 5 0 1622931924 1099901972480 14053 21474836480 4194304 75514512 140724048294928 0 0 0 2147221247 0 528390 1 0 0 -1 82 0 0 0 0 0 75522176 82032888 94900224 140724048296866 140724048297267 140724048297267 140724048306137 0
+[pid=2847108/tid=2847129] ppid=2847102 vsize=1074123020 memory=3760559784789816657 CPUtime=0 cores=82
+/proc/2847108/task/2847129/stat : 2847129 (ghc_worker) S 2847102 2847108 2847049 0 -1 4210752 7 0 0 0 0 0 0 0 20 0 5 0 1622931930 1099901972480 14053 21474836480 4194304 75514512 140724048294928 0 0 0 0 0 528390 1 0 0 -1 82 0 0 0 0 0 75522176 82032888 94900224 140724048296866 140724048297267 140724048297267 140724048306137 0
+[pid=2847108/tid=2847137] ppid=2847102 vsize=1074123020 memory=3762533425341542998 CPUtime=0 cores=82
+/proc/2847108/task/2847137/stat : 2847137 (ghc_worker) S 2847102 2847108 2847049 0 -1 4210752 5 0 0 0 0 0 0 0 20 0 5 0 1622931930 1099901972480 14053 21474836480 4194304 75514512 140724048294928 0 0 0 0 0 528390 1 0 0 -1 82 0 0 0 0 0 75522176 82032888 94900224 140724048296866 140724048297267 140724048297267 140724048306137 0
+[pid=2847108/tid=2847149] ppid=2847102 vsize=1074123020 memory=3761408633871807320 CPUtime=0.01 cores=82
+/proc/2847108/task/2847149/stat : 2847149 (ghc_worker) S 2847102 2847108 2847049 0 -1 1077952576 10 0 0 0 1 0 0 0 20 0 5 0 1622932038 1099901972480 14053 21474836480 4194304 75514512 140724048294928 0 0 0 0 0 528390 1 0 0 -1 82 0 0 0 0 0 75522176 82032888 94900224 140724048296866 140724048297267 140724048297267 140724048306137 0
+Current children cumulated CPU time: 44.58 s
+Current children cumulated vsize: 1145336912 KiB
+Current children cumulated memory: 18451916 KiB
+
+Sending SIGTERM to process tree (bottom up)
+Sleeping 2 seconds
+
+[startup+49.9651 s]
+# the end of solver process 2847108 was just reported to runsolver
+# cumulated CPU time of all completed processes:  user=0.807855 s, system=0.088149 s
+
+[startup+49.9651 s]
+# the end of solver process 2847168 was just reported to runsolver
+# cumulated CPU time of all completed processes:  user=0.810049 s, system=0.090187 s
+# this solver process was not waited by its parent and was adopted by runsolver
+
+[startup+50.307 s]
+# the end of solver process 2847182 was just reported to runsolver
+# cumulated CPU time of all completed processes:  user=40.8764 s, system=4.00072 s
+# this solver process was not waited by its parent and was adopted by runsolver
+
+Solver just ended.
+??? end of watcher thread
+Dumping a history of the last processes samples
+
+[startup+50.2487 s]
+/proc/loadavg: 152.16 152.87 153.66 153/3256 2847343
+/proc/meminfo: memFree=100945080/395404608 swapFree=0/0
+Current cumulated CPU time of completed processes: 0.900236 s
+Current children cumulated CPU time: 0 s
+Current children cumulated vsize: 0 KiB
+Current children cumulated memory: 0 KiB
+
+[startup+50.3002 s]
+/proc/loadavg: 152.16 152.87 153.66 153/3256 2847343
+/proc/meminfo: memFree=100945080/395404608 swapFree=0/0
+Current cumulated CPU time of completed processes: 0.900236 s
+Current children cumulated CPU time: 0 s
+Current children cumulated vsize: 0 KiB
+Current children cumulated memory: 0 KiB
+
+Child status: 143
+Real time (s): 50.3071
+CPU time (s): 44.8771
+CPU user time (s): 40.8764
+CPU system time (s): 4.00072
+CPU usage (%): 89.2064
+Max. virtual memory (cumulated for all children) (KiB): 1145336912
+Max. memory (cumulated for all children) (KiB): 18451916
+
+getrusage(RUSAGE_CHILDREN,...) data:
+user time used= 40.8764
+system time used= 4.00072
+maximum resident set size= 18411832
+integral shared memory size= 0
+integral unshared data size= 0
+integral unshared stack size= 0
+page reclaims= 682393
+page faults= 8
+swaps= 0
+block input operations= 264
+block output operations= 376
+messages sent= 0
+messages received= 0
+signals received= 0
+voluntary context switches= 10695
+involuntary context switches= 3836
+
+
+# summary of solver processes directly reported to runsolver:
+#   pid: 2847108,2847168,2847182
+#   total CPU time (s): 44.8771
+#   total CPU user time (s): 40.8764
+#   total CPU system time (s): 4.00072
+
+??? end of timestamper thread
+runsolver used 0.833606 second user time and 3.60749 second system time
+
+The end

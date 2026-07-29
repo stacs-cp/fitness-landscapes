@@ -1,0 +1,711 @@
+runsolver version 3.4.1 (svn: 3018) Copyright (C) 2010-2013 Olivier ROUSSEL
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+NUMA information:
+  number of nodes: 2
+  memory of node 0: 192684 MiB (85525 MiB free)
+  memory of node 1: 193452 MiB (122752 MiB free)
+  node distances:
+     10  32
+     32  10
+
+command line: /home/rh347/.local/bin/runsolver -W 3600 -R 18000 conjure solve models/essence-edge-branching/edge.essence input/peaks-to-RSE-dimension-4-peaks-8-count-21.param --use-existing-models=output/raw/count-essence-edge-branching/model000001.eprime --savilerow-options=-O1 --solver=cadical --number-of-solutions=all --copy-solutions=no --solutions-in-one-file --output-format=json -o output/raw/count-essence-edge-branching-cadical-full-sym-2026-07-20-10-15 
+
+running on 1 cores: 0
+
+Enforcing wall clock limit (soft limit, will send SIGTERM then SIGKILL): 3600 seconds
+Enforcing RSS+Swap limit (soft limit, will send SIGTERM then SIGKILL): 18432000 KiB
+Linux 5.14.0-427.24.1.el9_4.x86_64
+solver pid=1430261, runsolver pid=1430255
+Current StackSize limit: 8192 KiB
+
+
+[startup+0.100068 s]*
+/proc/loadavg: 155.01 154.55 153.29 156/3306 1430267
+/proc/meminfo: memFree=213193936/395404544 swapFree=0/0
+[pid=1430261] ppid=1430255 vsize=1074123020 memory=37632 CPUtime=0.16 cores=0
+/proc/1430261/stat : 1430261 (conjure) R 1430255 1430261 1430238 0 -1 4210688 10369 0 0 0 14 2 0 0 20 0 5 0 1622722314 1099901972480 9408 21474836480 4194304 75514512 140728208189328 0 0 0 2 0 528390 0 0 0 17 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+/proc/1430261/statm: 268530755 9408 6048 17413 0 13717 0
+[pid=1430261/tid=1430263] ppid=1430255 vsize=1074123020 memory=123723129 CPUtime=0 cores=0
+/proc/1430261/task/1430263/stat : 1430263 (ghc_ticker) S 1430255 1430261 1430238 0 -1 4210752 2 0 0 0 0 0 0 0 20 0 5 0 1622722314 1099901972480 9744 21474836480 4194304 75514512 140728208189328 0 0 0 2147221247 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430264] ppid=1430255 vsize=1074123020 memory=4122542111121997906 CPUtime=0 cores=0
+/proc/1430261/task/1430264/stat : 1430264 (ghc_worker) S 1430255 1430261 1430238 0 -1 4210752 7 0 0 0 0 0 0 0 20 0 5 0 1622722314 1099901972480 9744 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430265] ppid=1430255 vsize=1074123020 memory=3833243207958016594 CPUtime=0 cores=0
+/proc/1430261/task/1430265/stat : 1430265 (ghc_worker) S 1430255 1430261 1430238 0 -1 4210752 7 0 0 0 0 0 0 0 20 0 5 0 1622722314 1099901972480 9744 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430267] ppid=1430255 vsize=1074123020 memory=3473518209213411667 CPUtime=0 cores=0
+/proc/1430261/task/1430267/stat : 1430267 (ghc_worker) S 1430255 1430261 1430238 0 -1 1077952576 3 0 0 0 0 0 0 0 20 0 5 0 1622722317 1099901972480 9744 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+Current children cumulated CPU time: 0.16 s
+Current children cumulated vsize: 1074123020 KiB
+Current children cumulated memory: 37632 KiB
+
+[startup+0.37483 s]*
+/proc/loadavg: 155.01 154.55 153.29 156/3306 1430267
+/proc/meminfo: memFree=213003044/395404544 swapFree=0/0
+[pid=1430261] ppid=1430255 vsize=1074123020 memory=43008 CPUtime=0.34 cores=0
+/proc/1430261/stat : 1430261 (conjure) R 1430255 1430261 1430238 0 -1 4210688 11450 0 0 0 32 2 0 0 20 0 5 0 1622722314 1099901972480 10752 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 0 0 0 17 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+/proc/1430261/statm: 268530755 10752 6384 17413 0 14741 0
+[pid=1430261/tid=1430263] ppid=1430255 vsize=1074123020 memory=4123098455537680472 CPUtime=0 cores=0
+/proc/1430261/task/1430263/stat : 1430263 (ghc_ticker) S 1430255 1430261 1430238 0 -1 4210752 2 0 0 0 0 0 0 0 20 0 5 0 1622722314 1099901972480 10752 21474836480 4194304 75514512 140728208189328 0 0 0 2147221247 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430264] ppid=1430255 vsize=1074123020 memory=123758263 CPUtime=0 cores=0
+/proc/1430261/task/1430264/stat : 1430264 (ghc_worker) S 1430255 1430261 1430238 0 -1 4210752 7 0 0 0 0 0 0 0 20 0 5 0 1622722314 1099901972480 10752 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430265] ppid=1430255 vsize=1074123020 memory=123632919 CPUtime=0 cores=0
+/proc/1430261/task/1430265/stat : 1430265 (ghc_worker) S 1430255 1430261 1430238 0 -1 4210752 7 0 0 0 0 0 0 0 20 0 5 0 1622722314 1099901972480 10752 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430267] ppid=1430255 vsize=1074123020 memory=125105523 CPUtime=0 cores=0
+/proc/1430261/task/1430267/stat : 1430267 (ghc_worker) S 1430255 1430261 1430238 0 -1 1077952576 3 0 0 0 0 0 0 0 20 0 5 0 1622722317 1099901972480 10752 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+Current children cumulated CPU time: 0.34 s
+Current children cumulated vsize: 1074123020 KiB
+Current children cumulated memory: 43008 KiB
+
+[startup+0.575446 s]*
+/proc/loadavg: 155.01 154.55 153.29 158/3306 1430267
+/proc/meminfo: memFree=212883552/395404544 swapFree=0/0
+[pid=1430261] ppid=1430255 vsize=1074123020 memory=43008 CPUtime=0.44 cores=0
+/proc/1430261/stat : 1430261 (conjure) R 1430255 1430261 1430238 0 -1 4210688 11497 0 0 0 42 2 0 0 20 0 5 0 1622722314 1099901972480 10752 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 0 0 0 17 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+/proc/1430261/statm: 268530755 10752 6384 17413 0 14741 0
+[pid=1430261/tid=1430263] ppid=1430255 vsize=1074123020 memory=3834594326722445399 CPUtime=0 cores=0
+/proc/1430261/task/1430263/stat : 1430263 (ghc_ticker) S 1430255 1430261 1430238 0 -1 4210752 2 0 0 0 0 0 0 0 20 0 5 0 1622722314 1099901972480 10752 21474836480 4194304 75514512 140728208189328 0 0 0 2147221247 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430264] ppid=1430255 vsize=1074123020 memory=3762254141033087062 CPUtime=0 cores=0
+/proc/1430261/task/1430264/stat : 1430264 (ghc_worker) S 1430255 1430261 1430238 0 -1 4210752 7 0 0 0 0 0 0 0 20 0 5 0 1622722314 1099901972480 10752 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430265] ppid=1430255 vsize=1074123020 memory=3546362833896013909 CPUtime=0 cores=0
+/proc/1430261/task/1430265/stat : 1430265 (ghc_worker) S 1430255 1430261 1430238 0 -1 4210752 7 0 0 0 0 0 0 0 20 0 5 0 1622722314 1099901972480 10752 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430267] ppid=1430255 vsize=1074123020 memory=3833182515020183127 CPUtime=0 cores=0
+/proc/1430261/task/1430267/stat : 1430267 (ghc_worker) S 1430255 1430261 1430238 0 -1 1077952576 3 0 0 0 0 0 0 0 20 0 5 0 1622722317 1099901972480 10752 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+Current children cumulated CPU time: 0.44 s
+Current children cumulated vsize: 1074123020 KiB
+Current children cumulated memory: 43008 KiB
+
+[startup+0.761643 s]*
+/proc/loadavg: 155.01 154.55 153.29 158/3306 1430267
+/proc/meminfo: memFree=212876180/395404544 swapFree=0/0
+[pid=1430261] ppid=1430255 vsize=1074123020 memory=44352 CPUtime=0.54 cores=0
+/proc/1430261/stat : 1430261 (conjure) R 1430255 1430261 1430238 0 -1 4210688 11874 0 0 0 52 2 0 0 20 0 5 0 1622722314 1099901972480 11088 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 0 0 0 17 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+/proc/1430261/statm: 268530755 11088 6384 17413 0 14741 0
+[pid=1430261/tid=1430263] ppid=1430255 vsize=1074123020 memory=4123098455537680472 CPUtime=0 cores=0
+/proc/1430261/task/1430263/stat : 1430263 (ghc_ticker) S 1430255 1430261 1430238 0 -1 4210752 2 0 0 0 0 0 0 0 20 0 5 0 1622722314 1099901972480 11088 21474836480 4194304 75514512 140728208189328 0 0 0 2147221247 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430264] ppid=1430255 vsize=1074123020 memory=123758263 CPUtime=0 cores=0
+/proc/1430261/task/1430264/stat : 1430264 (ghc_worker) S 1430255 1430261 1430238 0 -1 4210752 7 0 0 0 0 0 0 0 20 0 5 0 1622722314 1099901972480 11088 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430265] ppid=1430255 vsize=1074123020 memory=123632919 CPUtime=0 cores=0
+/proc/1430261/task/1430265/stat : 1430265 (ghc_worker) S 1430255 1430261 1430238 0 -1 4210752 7 0 0 0 0 0 0 0 20 0 5 0 1622722314 1099901972480 11088 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430267] ppid=1430255 vsize=1074123020 memory=125105523 CPUtime=0 cores=0
+/proc/1430261/task/1430267/stat : 1430267 (ghc_worker) S 1430255 1430261 1430238 0 -1 1077952576 3 0 0 0 0 0 0 0 20 0 5 0 1622722317 1099901972480 11088 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+Current children cumulated CPU time: 0.54 s
+Current children cumulated vsize: 1074123020 KiB
+Current children cumulated memory: 44352 KiB
+
+[startup+1.50024 s]*
+/proc/loadavg: 155.01 154.55 153.29 157/3342 1430310
+/proc/meminfo: memFree=212793788/395404544 swapFree=0/0
+[pid=1430261] ppid=1430255 vsize=1074123020 memory=53760 CPUtime=0.92 cores=0
+/proc/1430261/stat : 1430261 (conjure) S 1430255 1430261 1430238 0 -1 1077952512 15358 0 0 0 89 3 0 0 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 0 0 0 17 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+/proc/1430261/statm: 268530755 13440 6384 17413 0 17301 0
+[pid=1430289] ppid=1430261 vsize=7264 memory=2688 CPUtime=0 cores=0
+/proc/1430289/stat : 1430289 (savilerow) S 1430261 1430261 1430238 0 -1 4210688 231 249 0 0 0 0 0 0 20 0 1 0 1622722455 7438336 672 21474836480 94157220368384 94157221262917 140721589891824 0 0 0 65536 4 65538 1 0 0 17 0 0 0 0 0 0 94157221501968 94157221549712 94157229019136 140721589901361 140721589902642 140721589902642 140721589911511 0
+/proc/1430289/statm: 1816 672 672 219 0 144 0
+[pid=1430292] ppid=1430289 vsize=71135972 memory=54308 CPUtime=0.18 cores=0
+/proc/1430292/stat : 1430292 (java) S 1430289 1430261 1430238 0 -1 1077952512 4455 0 0 0 16 2 0 0 20 0 17 0 1622722456 72843235328 13577 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 0 0 16800975 0 0 0 17 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+/proc/1430292/statm: 17783993 13577 4704 1 0 563626 0
+[pid=1430292/tid=1430293] ppid=1430289 vsize=71135972 memory=8086601689756611417 CPUtime=0.11 cores=0
+/proc/1430292/task/1430293/stat : 1430293 (java) R 1430289 1430261 1430238 0 -1 4210752 2731 0 0 0 10 1 0 0 20 0 17 0 1622722456 72843235328 13577 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 4 0 16800975 0 0 0 -1 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+[pid=1430292/tid=1430303] ppid=1430289 vsize=71135972 memory=-6252849623874654122 CPUtime=0 cores=0
+/proc/1430292/task/1430303/stat : 1430303 (Finalizer) S 1430289 1430261 1430238 0 -1 1077952576 31 0 0 0 0 0 0 0 20 0 17 0 1622722458 72843235328 13577 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 4 0 16800975 1 0 0 -1 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+[pid=1430292/tid=1430310] ppid=1430289 vsize=71135972 memory=3618134546236847957 CPUtime=0 cores=0
+/proc/1430292/task/1430310/stat : 1430310 (Common-Cleaner) S 1430289 1430261 1430238 0 -1 1077952576 22 0 0 0 0 0 0 0 20 0 17 0 1622722462 72843235328 13577 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 4 0 16800975 1 0 0 -1 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+[pid=1430261/tid=1430263] ppid=1430255 vsize=1074123020 memory=3833470591395168337 CPUtime=0 cores=0
+/proc/1430261/task/1430263/stat : 1430263 (ghc_ticker) S 1430255 1430261 1430238 0 -1 4210752 2 0 0 0 0 0 0 0 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 2147221247 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430264] ppid=1430255 vsize=1074123020 memory=3834311735071014994 CPUtime=0 cores=0
+/proc/1430261/task/1430264/stat : 1430264 (ghc_worker) S 1430255 1430261 1430238 0 -1 4210752 7 0 0 0 0 0 0 0 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430265] ppid=1430255 vsize=1074123020 memory=3618420427933941844 CPUtime=0 cores=0
+/proc/1430261/task/1430265/stat : 1430265 (ghc_worker) S 1430255 1430261 1430238 0 -1 4210752 7 0 0 0 0 0 0 0 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430267] ppid=1430255 vsize=1074123020 memory=7220510904440598865 CPUtime=0 cores=0
+/proc/1430261/task/1430267/stat : 1430267 (ghc_worker) S 1430255 1430261 1430238 0 -1 1077952576 4 0 0 0 0 0 0 0 20 0 5 0 1622722317 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+Current children cumulated CPU time: 1.1 s
+Current children cumulated vsize: 1145266256 KiB
+Current children cumulated memory: 110756 KiB
+
+[startup+3.14609 s]
+/proc/loadavg: 155.17 154.59 153.31 159/3344 1430312
+/proc/meminfo: memFree=212299184/395404544 swapFree=0/0
+[pid=1430261] ppid=1430255 vsize=1074123020 memory=53760 CPUtime=0.97 cores=0
+/proc/1430261/stat : 1430261 (conjure) S 1430255 1430261 1430238 0 -1 1077952512 15366 0 0 0 93 4 0 0 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 0 0 0 17 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+/proc/1430261/statm: 268530755 13440 6384 17413 0 17301 0
+[pid=1430289] ppid=1430261 vsize=7264 memory=2688 CPUtime=0 cores=0
+/proc/1430289/stat : 1430289 (savilerow) S 1430261 1430261 1430238 0 -1 4210688 231 249 0 0 0 0 0 0 20 0 1 0 1622722455 7438336 672 21474836480 94157220368384 94157221262917 140721589891824 0 0 0 65536 4 65538 1 0 0 17 0 0 0 0 0 0 94157221501968 94157221549712 94157229019136 140721589901361 140721589902642 140721589902642 140721589911511 0
+/proc/1430289/statm: 1816 672 672 219 0 144 0
+[pid=1430292] ppid=1430289 vsize=71206628 memory=166148 CPUtime=1.48 cores=0
+/proc/1430292/stat : 1430292 (java) S 1430289 1430261 1430238 0 -1 1077952512 9147 0 0 0 139 9 0 0 20 0 18 0 1622722456 72915587072 41537 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 0 0 16800975 0 0 0 17 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+/proc/1430292/statm: 17801657 41537 5040 1 0 566710 0
+[pid=1430292/tid=1430293] ppid=1430289 vsize=71206628 memory=18816 CPUtime=0.12 cores=0
+/proc/1430292/task/1430293/stat : 1430293 (java) S 1430289 1430261 1430238 0 -1 1077952576 2765 0 0 0 11 1 0 0 20 0 18 0 1622722456 72915587072 41537 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 4 0 16800975 1 0 0 -1 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+[pid=1430292/tid=1430303] ppid=1430289 vsize=71206628 memory=2688 CPUtime=0 cores=0
+/proc/1430292/task/1430303/stat : 1430303 (Finalizer) S 1430289 1430261 1430238 0 -1 1077952576 31 0 0 0 0 0 0 0 20 0 18 0 1622722458 72915587072 41537 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 4 0 16800975 1 0 0 -1 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+[pid=1430292/tid=1430310] ppid=1430289 vsize=71206628 memory=139516 CPUtime=0 cores=0
+/proc/1430292/task/1430310/stat : 1430310 (Common-Cleaner) S 1430289 1430261 1430238 0 -1 1077952576 22 0 0 0 0 0 0 0 20 0 18 0 1622722462 72915587072 41537 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 4 0 16800975 1 0 0 -1 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+[pid=1430292/tid=1430312] ppid=1430289 vsize=71206628 memory=134848 CPUtime=0.45 cores=0
+/proc/1430292/task/1430312/stat : 1430312 (Thread-0) R 1430289 1430261 1430238 0 -1 4210752 895 0 0 0 42 3 0 0 20 0 18 0 1622722490 72915587072 41537 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 4 0 16800975 0 0 0 -1 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+[pid=1430261/tid=1430263] ppid=1430255 vsize=1074123020 memory=2688 CPUtime=0 cores=0
+/proc/1430261/task/1430263/stat : 1430263 (ghc_ticker) S 1430255 1430261 1430238 0 -1 1077952576 2 0 0 0 0 0 0 0 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 2147221247 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430264] ppid=1430255 vsize=1074123020 memory=124168 CPUtime=0 cores=0
+/proc/1430261/task/1430264/stat : 1430264 (ghc_worker) S 1430255 1430261 1430238 0 -1 4210752 7 0 0 0 0 0 0 0 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430265] ppid=1430255 vsize=1074123020 memory=0 CPUtime=0 cores=0
+/proc/1430261/task/1430265/stat : 1430265 (ghc_worker) S 1430255 1430261 1430238 0 -1 4210752 7 0 0 0 0 0 0 0 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430267] ppid=1430255 vsize=1074123020 memory=281160102693616 CPUtime=0.03 cores=0
+/proc/1430261/task/1430267/stat : 1430267 (ghc_worker) S 1430255 1430261 1430238 0 -1 1077952576 11 0 0 0 3 0 0 0 20 0 5 0 1622722317 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+Current children cumulated CPU time: 2.45 s
+Current children cumulated vsize: 1145336912 KiB
+Current children cumulated memory: 222596 KiB
+heavy processes:
+  %CPU=99 pid=956605 uid=1822200073 cmd=
+  %CPU=99 pid=956606 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956607 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956608 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956609 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956610 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956611 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956612 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956613 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956614 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956615 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956616 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956617 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956618 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956619 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956620 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956621 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956622 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956623 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956624 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956625 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956626 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956627 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956628 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956629 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956630 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956631 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956632 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956633 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956634 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956635 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956636 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956637 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956638 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956639 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956640 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956641 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956642 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956643 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956644 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956645 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956646 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956647 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956648 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956649 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956650 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956651 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956652 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956653 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956654 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956655 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956656 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956657 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956658 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956659 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956660 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956661 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956662 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956663 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956664 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956665 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956666 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956667 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956668 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956669 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956670 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956671 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956672 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956673 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956674 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956675 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956676 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956677 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956678 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956679 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956680 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956681 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956682 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956683 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956684 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956685 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956686 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956687 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956688 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956689 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956690 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956691 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956692 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956693 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956694 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956695 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956696 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956697 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956698 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956699 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956700 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956701 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956702 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956703 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956704 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956705 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956706 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956707 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956708 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956709 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956710 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956711 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956712 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956713 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956714 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956715 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956716 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956717 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956718 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956719 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956720 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956721 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956722 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956723 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956724 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956725 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956726 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956727 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956728 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956729 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956730 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956731 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956732 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956733 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956734 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956735 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956736 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956737 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956738 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956739 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956740 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956741 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956742 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956743 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956744 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956745 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956746 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956747 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+  %CPU=99 pid=956748 uid=1822200073 cmd=/software/GCC/OpenMPI/cp2k-2025.1/exe/local/cp2k.psmp -i ir_II_ponop_ethene_h_down_m1_ethyl_2_D_freq.inp 
+
+[startup+6.30044 s]
+/proc/loadavg: 155.17 154.59 153.31 160/3345 1430324
+/proc/meminfo: memFree=210414860/395404544 swapFree=0/0
+[pid=1430261] ppid=1430255 vsize=1074123020 memory=53760 CPUtime=0.97 cores=0
+/proc/1430261/stat : 1430261 (conjure) S 1430255 1430261 1430238 0 -1 1077952512 15366 0 0 0 93 4 0 0 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 0 0 0 17 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+/proc/1430261/statm: 268530755 13440 6384 17413 0 17301 0
+[pid=1430289] ppid=1430261 vsize=7264 memory=2688 CPUtime=0 cores=0
+/proc/1430289/stat : 1430289 (savilerow) S 1430261 1430261 1430238 0 -1 4210688 231 249 0 0 0 0 0 0 20 0 1 0 1622722455 7438336 672 21474836480 94157220368384 94157221262917 140721589891824 0 0 0 65536 4 65538 1 0 0 17 0 0 0 0 0 0 94157221501968 94157221549712 94157229019136 140721589901361 140721589902642 140721589902642 140721589911511 0
+/proc/1430289/statm: 1816 672 672 219 0 144 0
+[pid=1430292] ppid=1430289 vsize=71206628 memory=1084424 CPUtime=4.35 cores=0
+/proc/1430292/stat : 1430292 (java) S 1430289 1430261 1430238 0 -1 1077952512 23956 0 0 0 414 21 0 0 20 0 18 0 1622722456 72915587072 271106 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 0 0 16800975 0 0 0 17 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+/proc/1430292/statm: 17801657 271106 5040 1 0 2062898 0
+[pid=1430292/tid=1430293] ppid=1430289 vsize=71206628 memory=2688 CPUtime=0.12 cores=0
+/proc/1430292/task/1430293/stat : 1430293 (java) S 1430289 1430261 1430238 0 -1 1077952576 2765 0 0 0 11 1 0 0 20 0 18 0 1622722456 72915587072 271106 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 4 0 16800975 1 0 0 -1 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+[pid=1430292/tid=1430303] ppid=1430289 vsize=71206628 memory=2688 CPUtime=0 cores=0
+/proc/1430292/task/1430303/stat : 1430303 (Finalizer) S 1430289 1430261 1430238 0 -1 1077952576 31 0 0 0 0 0 0 0 20 0 18 0 1622722458 72915587072 271106 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 4 0 16800975 1 0 0 -1 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+[pid=1430292/tid=1430310] ppid=1430289 vsize=71206628 memory=2688 CPUtime=0 cores=0
+/proc/1430292/task/1430310/stat : 1430310 (Common-Cleaner) S 1430289 1430261 1430238 0 -1 1077952576 22 0 0 0 0 0 0 0 20 0 18 0 1622722462 72915587072 271106 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 4 0 16800975 1 0 0 -1 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+[pid=1430292/tid=1430312] ppid=1430289 vsize=71206628 memory=2688 CPUtime=1.8 cores=0
+/proc/1430292/task/1430312/stat : 1430312 (Thread-0) R 1430289 1430261 1430238 0 -1 4210752 1393 0 0 0 172 8 0 0 20 0 18 0 1622722490 72915587072 271106 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 4 0 16800975 0 0 0 -1 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+[pid=1430261/tid=1430263] ppid=1430255 vsize=1074123020 memory=53760 CPUtime=0 cores=0
+/proc/1430261/task/1430263/stat : 1430263 (ghc_ticker) S 1430255 1430261 1430238 0 -1 1077952576 2 0 0 0 0 0 0 0 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 2147221247 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430264] ppid=1430255 vsize=1074123020 memory=1039340 CPUtime=0 cores=0
+/proc/1430261/task/1430264/stat : 1430264 (ghc_worker) S 1430255 1430261 1430238 0 -1 4210752 7 0 0 0 0 0 0 0 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430265] ppid=1430255 vsize=1074123020 memory=3461297986951446554 CPUtime=0 cores=0
+/proc/1430261/task/1430265/stat : 1430265 (ghc_worker) S 1430255 1430261 1430238 0 -1 4210752 7 0 0 0 0 0 0 0 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430267] ppid=1430255 vsize=1074123020 memory=-8929676449648655775 CPUtime=0.03 cores=0
+/proc/1430261/task/1430267/stat : 1430267 (ghc_worker) S 1430255 1430261 1430238 0 -1 1077952576 11 0 0 0 3 0 0 0 20 0 5 0 1622722317 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+Current children cumulated CPU time: 5.32 s
+Current children cumulated vsize: 1145336912 KiB
+Current children cumulated memory: 1140872 KiB
+
+[startup+12.7004 s]
+/proc/loadavg: 155.29 154.63 153.33 155/3345 1430349
+/proc/meminfo: memFree=204755120/395404544 swapFree=0/0
+[pid=1430261] ppid=1430255 vsize=1074123020 memory=53760 CPUtime=0.97 cores=0
+/proc/1430261/stat : 1430261 (conjure) S 1430255 1430261 1430238 0 -1 1077952512 15366 0 0 0 93 4 0 0 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 0 0 0 17 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+/proc/1430261/statm: 268530755 13440 6384 17413 0 17301 0
+[pid=1430289] ppid=1430261 vsize=7264 memory=2688 CPUtime=0 cores=0
+/proc/1430289/stat : 1430289 (savilerow) S 1430261 1430261 1430238 0 -1 4210688 231 249 0 0 0 0 0 0 20 0 1 0 1622722455 7438336 672 21474836480 94157220368384 94157221262917 140721589891824 0 0 0 65536 4 65538 1 0 0 17 0 0 0 0 0 0 94157221501968 94157221549712 94157229019136 140721589901361 140721589902642 140721589902642 140721589911511 0
+/proc/1430289/statm: 1816 672 672 219 0 144 0
+[pid=1430292] ppid=1430289 vsize=71206628 memory=4431244 CPUtime=10.15 cores=0
+/proc/1430292/stat : 1430292 (java) S 1430289 1430261 1430238 0 -1 1077952512 34542 0 0 0 945 70 0 0 20 0 18 0 1622722456 72915587072 1107811 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 0 0 16800975 0 0 0 17 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+/proc/1430292/statm: 17801657 1107811 5040 1 0 10148472 0
+[pid=1430292/tid=1430293] ppid=1430289 vsize=71206628 memory=2688 CPUtime=0.12 cores=0
+/proc/1430292/task/1430293/stat : 1430293 (java) S 1430289 1430261 1430238 0 -1 1077952576 2765 0 0 0 11 1 0 0 20 0 18 0 1622722456 72915587072 1107811 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 4 0 16800975 1 0 0 -1 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+[pid=1430292/tid=1430303] ppid=1430289 vsize=71206628 memory=3591564 CPUtime=0 cores=0
+/proc/1430292/task/1430303/stat : 1430303 (Finalizer) S 1430289 1430261 1430238 0 -1 1077952576 31 0 0 0 0 0 0 0 20 0 18 0 1622722458 72915587072 1107811 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 4 0 16800975 1 0 0 -1 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+[pid=1430292/tid=1430310] ppid=1430289 vsize=71206628 memory=0 CPUtime=0 cores=0
+/proc/1430292/task/1430310/stat : 1430310 (Common-Cleaner) S 1430289 1430261 1430238 0 -1 1077952576 22 0 0 0 0 0 0 0 20 0 18 0 1622722462 72915587072 1107811 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 4 0 16800975 1 0 0 -1 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+[pid=1430292/tid=1430312] ppid=1430289 vsize=71206628 memory=-6517102902069810590 CPUtime=5.56 cores=0
+/proc/1430292/task/1430312/stat : 1430312 (Thread-0) R 1430289 1430261 1430238 0 -1 4210752 2644 0 0 0 516 40 0 0 20 0 18 0 1622722490 72915587072 1107811 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 4 0 16800975 0 0 0 -1 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+[pid=1430261/tid=1430263] ppid=1430255 vsize=1074123020 memory=0 CPUtime=0 cores=0
+/proc/1430261/task/1430263/stat : 1430263 (ghc_ticker) S 1430255 1430261 1430238 0 -1 1077952576 2 0 0 0 0 0 0 0 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 2147221247 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430264] ppid=1430255 vsize=1074123020 memory=0 CPUtime=0 cores=0
+/proc/1430261/task/1430264/stat : 1430264 (ghc_worker) S 1430255 1430261 1430238 0 -1 4210752 7 0 0 0 0 0 0 0 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430265] ppid=1430255 vsize=1074123020 memory=0 CPUtime=0 cores=0
+/proc/1430261/task/1430265/stat : 1430265 (ghc_worker) S 1430255 1430261 1430238 0 -1 4210752 7 0 0 0 0 0 0 0 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430267] ppid=1430255 vsize=1074123020 memory=4449 CPUtime=0.03 cores=0
+/proc/1430261/task/1430267/stat : 1430267 (ghc_worker) S 1430255 1430261 1430238 0 -1 1077952576 11 0 0 0 3 0 0 0 20 0 5 0 1622722317 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+Current children cumulated CPU time: 11.12 s
+Current children cumulated vsize: 1145336912 KiB
+Current children cumulated memory: 4487692 KiB
+
+[startup+25.5004 s]*
+/proc/loadavg: 155.56 154.71 153.37 156/3341 1430376
+/proc/meminfo: memFree=187324188/395404544 swapFree=0/0
+[pid=1430261] ppid=1430255 vsize=1074123020 memory=53760 CPUtime=0.97 cores=0
+/proc/1430261/stat : 1430261 (conjure) S 1430255 1430261 1430238 0 -1 1077952512 15366 0 0 0 93 4 0 0 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 0 0 0 17 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+/proc/1430261/statm: 268530755 13440 6384 17413 0 17301 0
+[pid=1430289] ppid=1430261 vsize=7264 memory=2688 CPUtime=0 cores=0
+/proc/1430289/stat : 1430289 (savilerow) S 1430261 1430261 1430238 0 -1 4210688 231 249 0 0 0 0 0 0 20 0 1 0 1622722455 7438336 672 21474836480 94157220368384 94157221262917 140721589891824 0 0 0 65536 4 65538 1 0 0 17 0 0 0 0 0 0 94157221501968 94157221549712 94157229019136 140721589901361 140721589902642 140721589902642 140721589911511 0
+/proc/1430289/statm: 1816 672 672 219 0 144 0
+[pid=1430292] ppid=1430289 vsize=71206628 memory=9194876 CPUtime=21.86 cores=0
+/proc/1430292/stat : 1430292 (java) S 1430289 1430261 1430238 0 -1 1077952512 39654 0 0 0 2041 145 0 0 20 0 18 0 1622722456 72915587072 2298719 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 0 0 16800975 0 0 0 17 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+/proc/1430292/statm: 17801657 2298719 5040 1 0 13064290 0
+[pid=1430292/tid=1430293] ppid=1430289 vsize=71206628 memory=125493332 CPUtime=0.12 cores=0
+/proc/1430292/task/1430293/stat : 1430293 (java) S 1430289 1430261 1430238 0 -1 1077952576 2765 0 0 0 11 1 0 0 20 0 18 0 1622722456 72915587072 2298719 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 4 0 16800975 1 0 0 -1 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+[pid=1430292/tid=1430303] ppid=1430289 vsize=71206628 memory=125653796 CPUtime=0 cores=0
+/proc/1430292/task/1430303/stat : 1430303 (Finalizer) S 1430289 1430261 1430238 0 -1 1077952576 31 0 0 0 0 0 0 0 20 0 18 0 1622722458 72915587072 2298719 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 4 0 16800975 1 0 0 -1 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+[pid=1430292/tid=1430310] ppid=1430289 vsize=71206628 memory=103834634 CPUtime=0 cores=0
+/proc/1430292/task/1430310/stat : 1430310 (Common-Cleaner) S 1430289 1430261 1430238 0 -1 1077952576 22 0 0 0 0 0 0 0 20 0 18 0 1622722462 72915587072 2298719 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 4 0 16800975 1 0 0 -1 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+[pid=1430292/tid=1430312] ppid=1430289 vsize=71206628 memory=105352166 CPUtime=13.44 cores=0
+/proc/1430292/task/1430312/stat : 1430312 (Thread-0) R 1430289 1430261 1430238 0 -1 4210752 3859 0 0 0 1264 80 0 0 20 0 18 0 1622722490 72915587072 2298719 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 4 0 16800975 0 0 0 -1 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+[pid=1430261/tid=1430263] ppid=1430255 vsize=1074123020 memory=123379478 CPUtime=0 cores=0
+/proc/1430261/task/1430263/stat : 1430263 (ghc_ticker) S 1430255 1430261 1430238 0 -1 1077952576 2 0 0 0 0 0 0 0 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 2147221247 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430264] ppid=1430255 vsize=1074123020 memory=123693340 CPUtime=0 cores=0
+/proc/1430261/task/1430264/stat : 1430264 (ghc_worker) S 1430255 1430261 1430238 0 -1 4210752 7 0 0 0 0 0 0 0 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430265] ppid=1430255 vsize=1074123020 memory=123693428 CPUtime=0 cores=0
+/proc/1430261/task/1430265/stat : 1430265 (ghc_worker) S 1430255 1430261 1430238 0 -1 4210752 7 0 0 0 0 0 0 0 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430267] ppid=1430255 vsize=1074123020 memory=101881672 CPUtime=0.03 cores=0
+/proc/1430261/task/1430267/stat : 1430267 (ghc_worker) S 1430255 1430261 1430238 0 -1 1077952576 11 0 0 0 3 0 0 0 20 0 5 0 1622722317 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+Current children cumulated CPU time: 22.83 s
+Current children cumulated vsize: 1145336912 KiB
+Current children cumulated memory: 9251324 KiB
+
+[startup+51.265 s]
+/proc/loadavg: 155.85 154.85 153.46 155/3276 1430482
+/proc/meminfo: memFree=192381160/395404544 swapFree=0/0
+[pid=1430261] ppid=1430255 vsize=1074123020 memory=53760 CPUtime=0.98 cores=0
+/proc/1430261/stat : 1430261 (conjure) S 1430255 1430261 1430238 0 -1 1077952512 15366 0 0 0 94 4 0 0 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 0 0 0 17 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+/proc/1430261/statm: 268530755 13440 6384 17413 0 17301 0
+[pid=1430289] ppid=1430261 vsize=7264 memory=2688 CPUtime=0 cores=0
+/proc/1430289/stat : 1430289 (savilerow) S 1430261 1430261 1430238 0 -1 4210688 231 249 0 0 0 0 0 0 20 0 1 0 1622722455 7438336 672 21474836480 94157220368384 94157221262917 140721589891824 0 0 0 65536 4 65538 1 0 0 17 0 0 0 0 0 0 94157221501968 94157221549712 94157229019136 140721589901361 140721589902642 140721589902642 140721589911511 0
+/proc/1430289/statm: 1816 672 672 219 0 144 0
+[pid=1430292] ppid=1430289 vsize=71206628 memory=13486688 CPUtime=45.24 cores=0
+/proc/1430292/stat : 1430292 (java) S 1430289 1430261 1430238 0 -1 1077952512 50434 0 0 0 4302 222 0 0 20 0 18 0 1622722456 72915587072 3371672 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 0 0 16800975 0 0 0 17 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+/proc/1430292/statm: 17801657 3371672 5040 1 0 14819800 0
+[pid=1430292/tid=1430293] ppid=1430289 vsize=71206628 memory=0 CPUtime=0.12 cores=0
+/proc/1430292/task/1430293/stat : 1430293 (java) S 1430289 1430261 1430238 0 -1 1077952576 2765 0 0 0 11 1 0 0 20 0 18 0 1622722456 72915587072 3371672 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 4 0 16800975 1 0 0 -1 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+[pid=1430292/tid=1430303] ppid=1430289 vsize=71206628 memory=0 CPUtime=0 cores=0
+/proc/1430292/task/1430303/stat : 1430303 (Finalizer) S 1430289 1430261 1430238 0 -1 1077952576 31 0 0 0 0 0 0 0 20 0 18 0 1622722458 72915587072 3371672 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 4 0 16800975 1 0 0 -1 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+[pid=1430292/tid=1430310] ppid=1430289 vsize=71206628 memory=2688 CPUtime=0 cores=0
+/proc/1430292/task/1430310/stat : 1430310 (Common-Cleaner) S 1430289 1430261 1430238 0 -1 1077952576 22 0 0 0 0 0 0 0 20 0 18 0 1622722462 72915587072 3371672 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 4 0 16800975 1 0 0 -1 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+[pid=1430292/tid=1430312] ppid=1430289 vsize=71206628 memory=13486688 CPUtime=25.25 cores=0
+/proc/1430292/task/1430312/stat : 1430312 (Thread-0) R 1430289 1430261 1430238 0 -1 4210752 5842 0 0 0 2404 121 0 0 20 0 18 0 1622722490 72915587072 3371672 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 4 0 16800975 0 0 0 -1 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+[pid=1430261/tid=1430263] ppid=1430255 vsize=1074123020 memory=2688 CPUtime=0 cores=0
+/proc/1430261/task/1430263/stat : 1430263 (ghc_ticker) S 1430255 1430261 1430238 0 -1 1077952576 2 0 0 0 0 0 0 0 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 2147221247 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430264] ppid=1430255 vsize=1074123020 memory=2688 CPUtime=0 cores=0
+/proc/1430261/task/1430264/stat : 1430264 (ghc_worker) S 1430255 1430261 1430238 0 -1 4210752 7 0 0 0 0 0 0 0 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430265] ppid=1430255 vsize=1074123020 memory=13486688 CPUtime=0 cores=0
+/proc/1430261/task/1430265/stat : 1430265 (ghc_worker) S 1430255 1430261 1430238 0 -1 4210752 7 0 0 0 0 0 0 0 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430267] ppid=1430255 vsize=1074123020 memory=2688 CPUtime=0.04 cores=0
+/proc/1430261/task/1430267/stat : 1430267 (ghc_worker) S 1430255 1430261 1430238 0 -1 1077952576 11 0 0 0 4 0 0 0 20 0 5 0 1622722317 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+Current children cumulated CPU time: 46.22 s
+Current children cumulated vsize: 1145336912 KiB
+Current children cumulated memory: 13543136 KiB
+Using existing models.
+Savile Row: output/raw/count-essence-edge-branching/model000001.eprime input/peaks-to-RSE-dimension-4-peaks-8-count-21.param
+Running solver: cadical
+No solutions found.
+
+[startup+76.1464 s]
+# the end of solver process 1430261 was just reported to runsolver
+# cumulated CPU time of all completed processes:  user=66.4376 s, system=2.52517 s
+
+Solver just ended.
+??? end of watcher thread
+Dumping a history of the last processes samples
+
+[startup+59.1005 s]
+/proc/loadavg: 155.42 154.79 153.45 153/3243 1430532
+/proc/meminfo: memFree=207503304/395404544 swapFree=0/0
+[pid=1430261] ppid=1430255 vsize=1074123020 memory=53760 CPUtime=0.98 cores=0
+/proc/1430261/stat : 1430261 (conjure) S 1430255 1430261 1430238 0 -1 1077952512 15366 0 0 0 94 4 0 0 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 0 0 0 17 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+/proc/1430261/statm: 268530755 13440 6384 17413 0 17301 0
+[pid=1430289] ppid=1430261 vsize=7264 memory=2688 CPUtime=0 cores=0
+/proc/1430289/stat : 1430289 (savilerow) S 1430261 1430261 1430238 0 -1 4210688 231 249 0 0 0 0 0 0 20 0 1 0 1622722455 7438336 672 21474836480 94157220368384 94157221262917 140721589891824 0 0 0 65536 4 65538 1 0 0 17 0 0 0 0 0 0 94157221501968 94157221549712 94157229019136 140721589901361 140721589902642 140721589902642 140721589911511 0
+/proc/1430289/statm: 1816 672 672 219 0 144 0
+[pid=1430292] ppid=1430289 vsize=71206628 memory=13496016 CPUtime=52.37 cores=0
+/proc/1430292/stat : 1430292 (java) S 1430289 1430261 1430238 0 -1 1077952512 50527 0 0 0 5014 223 0 0 20 0 18 0 1622722456 72915587072 3374004 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 0 0 16800975 0 0 0 17 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+/proc/1430292/statm: 17801657 3374004 5040 1 0 14819801 0
+[pid=1430292/tid=1430293] ppid=1430289 vsize=71206628 memory=164 CPUtime=0.12 cores=0
+/proc/1430292/task/1430293/stat : 1430293 (java) S 1430289 1430261 1430238 0 -1 1077952576 2765 0 0 0 11 1 0 0 20 0 18 0 1622722456 72915587072 3374004 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 4 0 16800975 1 0 0 -1 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+[pid=1430292/tid=1430303] ppid=1430289 vsize=71206628 memory=13496016 CPUtime=0 cores=0
+/proc/1430292/task/1430303/stat : 1430303 (Finalizer) S 1430289 1430261 1430238 0 -1 1077952576 31 0 0 0 0 0 0 0 20 0 18 0 1622722458 72915587072 3374004 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 4 0 16800975 1 0 0 -1 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+[pid=1430292/tid=1430310] ppid=1430289 vsize=71206628 memory=2688 CPUtime=0 cores=0
+/proc/1430292/task/1430310/stat : 1430310 (Common-Cleaner) S 1430289 1430261 1430238 0 -1 1077952576 22 0 0 0 0 0 0 0 20 0 18 0 1622722462 72915587072 3374004 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 4 0 16800975 1 0 0 -1 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+[pid=1430292/tid=1430312] ppid=1430289 vsize=71206628 memory=2688 CPUtime=25.86 cores=0
+/proc/1430292/task/1430312/stat : 1430312 (Thread-0) S 1430289 1430261 1430238 0 -1 1077952576 5851 0 0 0 2465 121 0 0 20 0 18 0 1622722490 72915587072 3374004 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 4 0 16800975 1 0 0 -1 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+[pid=1430261/tid=1430263] ppid=1430255 vsize=1074123020 memory=5295528 CPUtime=0 cores=0
+/proc/1430261/task/1430263/stat : 1430263 (ghc_ticker) S 1430255 1430261 1430238 0 -1 1077952576 2 0 0 0 0 0 0 0 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 2147221247 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430264] ppid=1430255 vsize=1074123020 memory=28224 CPUtime=0 cores=0
+/proc/1430261/task/1430264/stat : 1430264 (ghc_worker) S 1430255 1430261 1430238 0 -1 4210752 7 0 0 0 0 0 0 0 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430265] ppid=1430255 vsize=1074123020 memory=18816 CPUtime=0 cores=0
+/proc/1430261/task/1430265/stat : 1430265 (ghc_worker) S 1430255 1430261 1430238 0 -1 4210752 7 0 0 0 0 0 0 0 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430267] ppid=1430255 vsize=1074123020 memory=4032 CPUtime=0.04 cores=0
+/proc/1430261/task/1430267/stat : 1430267 (ghc_worker) S 1430255 1430261 1430238 0 -1 1077952576 11 0 0 0 4 0 0 0 20 0 5 0 1622722317 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+Current children cumulated CPU time: 53.35 s
+Current children cumulated vsize: 1145336912 KiB
+Current children cumulated memory: 13552464 KiB
+
+[startup+66.6005 s]
+/proc/loadavg: 155.62 154.84 153.48 163/3338 1430674
+/proc/meminfo: memFree=205140648/395404544 swapFree=0/0
+[pid=1430261] ppid=1430255 vsize=1074123020 memory=53760 CPUtime=0.98 cores=0
+/proc/1430261/stat : 1430261 (conjure) S 1430255 1430261 1430238 0 -1 1077952512 15366 0 0 0 94 4 0 0 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 0 0 0 17 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+/proc/1430261/statm: 268530755 13440 6384 17413 0 17301 0
+[pid=1430289] ppid=1430261 vsize=7264 memory=2688 CPUtime=0 cores=0
+/proc/1430289/stat : 1430289 (savilerow) S 1430261 1430261 1430238 0 -1 4210688 231 249 0 0 0 0 0 0 20 0 1 0 1622722455 7438336 672 21474836480 94157220368384 94157221262917 140721589891824 0 0 0 65536 4 65538 1 0 0 17 0 0 0 0 0 0 94157221501968 94157221549712 94157229019136 140721589901361 140721589902642 140721589902642 140721589911511 0
+/proc/1430289/statm: 1816 672 672 219 0 144 0
+[pid=1430292] ppid=1430289 vsize=71206628 memory=13799632 CPUtime=59.25 cores=0
+/proc/1430292/stat : 1430292 (java) S 1430289 1430261 1430238 0 -1 1077952512 54261 0 0 0 5695 230 0 0 20 0 18 0 1622722456 72915587072 3449908 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 0 0 16800975 0 0 0 17 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+/proc/1430292/statm: 17801657 3449908 5040 1 0 14821631 0
+[pid=1430292/tid=1430293] ppid=1430289 vsize=71206628 memory=21784 CPUtime=0.12 cores=0
+/proc/1430292/task/1430293/stat : 1430293 (java) S 1430289 1430261 1430238 0 -1 1077952576 2765 0 0 0 11 1 0 0 20 0 18 0 1622722456 72915587072 3449908 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 4 0 16800975 1 0 0 -1 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+[pid=1430292/tid=1430303] ppid=1430289 vsize=71206628 memory=13798288 CPUtime=0 cores=0
+/proc/1430292/task/1430303/stat : 1430303 (Finalizer) S 1430289 1430261 1430238 0 -1 1077952576 31 0 0 0 0 0 0 0 20 0 18 0 1622722458 72915587072 3449908 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 4 0 16800975 1 0 0 -1 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+[pid=1430292/tid=1430310] ppid=1430289 vsize=71206628 memory=0 CPUtime=0 cores=0
+/proc/1430292/task/1430310/stat : 1430310 (Common-Cleaner) S 1430289 1430261 1430238 0 -1 1077952576 43 0 0 0 0 0 0 0 20 0 18 0 1622722462 72915587072 3449908 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 4 0 16800975 1 0 0 -1 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+[pid=1430292/tid=1430312] ppid=1430289 vsize=71206628 memory=82729359 CPUtime=27.63 cores=0
+/proc/1430292/task/1430312/stat : 1430312 (Thread-0) R 1430289 1430261 1430238 0 -1 4210752 6150 0 0 0 2642 121 0 0 20 0 18 0 1622722490 72915587072 3449908 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 4 0 16800975 0 0 0 -1 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+[pid=1430261/tid=1430263] ppid=1430255 vsize=1074123020 memory=6283477025936117 CPUtime=0 cores=0
+/proc/1430261/task/1430263/stat : 1430263 (ghc_ticker) S 1430255 1430261 1430238 0 -1 1077952576 2 0 0 0 0 0 0 0 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 2147221247 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430264] ppid=1430255 vsize=1074123020 memory=6283502795739893 CPUtime=0 cores=0
+/proc/1430261/task/1430264/stat : 1430264 (ghc_worker) S 1430255 1430261 1430238 0 -1 4210752 7 0 0 0 0 0 0 0 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430265] ppid=1430255 vsize=1074123020 memory=6283623054824181 CPUtime=0 cores=0
+/proc/1430261/task/1430265/stat : 1430265 (ghc_worker) S 1430255 1430261 1430238 0 -1 4210752 7 0 0 0 0 0 0 0 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430267] ppid=1430255 vsize=1074123020 memory=4032 CPUtime=0.04 cores=0
+/proc/1430261/task/1430267/stat : 1430267 (ghc_worker) S 1430255 1430261 1430238 0 -1 1077952576 11 0 0 0 4 0 0 0 20 0 5 0 1622722317 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+Current children cumulated CPU time: 60.23 s
+Current children cumulated vsize: 1145336912 KiB
+Current children cumulated memory: 13856080 KiB
+
+[startup+70.6005 s]
+/proc/loadavg: 155.81 154.89 153.50 156/3339 1430696
+/proc/meminfo: memFree=200845904/395404544 swapFree=0/0
+[pid=1430261] ppid=1430255 vsize=1074123020 memory=53760 CPUtime=0.98 cores=0
+/proc/1430261/stat : 1430261 (conjure) S 1430255 1430261 1430238 0 -1 1077952512 15366 0 0 0 94 4 0 0 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 0 0 0 17 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+/proc/1430261/statm: 268530755 13440 6384 17413 0 17301 0
+[pid=1430289] ppid=1430261 vsize=7264 memory=2688 CPUtime=0 cores=0
+/proc/1430289/stat : 1430289 (savilerow) S 1430261 1430261 1430238 0 -1 4210688 231 249 0 0 0 0 0 0 20 0 1 0 1622722455 7438336 672 21474836480 94157220368384 94157221262917 140721589891824 0 0 0 65536 4 65538 1 0 0 17 0 0 0 0 0 0 94157221501968 94157221549712 94157229019136 140721589901361 140721589902642 140721589902642 140721589911511 0
+/proc/1430289/statm: 1816 672 672 219 0 144 0
+[pid=1430292] ppid=1430289 vsize=71206628 memory=13800976 CPUtime=62.93 cores=0
+/proc/1430292/stat : 1430292 (java) S 1430289 1430261 1430238 0 -1 1077952512 54841 0 0 0 6062 231 0 0 20 0 18 0 1622722456 72915587072 3450244 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 0 0 16800975 0 0 0 17 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+/proc/1430292/statm: 17801657 3450244 5040 1 0 14821789 0
+[pid=1430292/tid=1430293] ppid=1430289 vsize=71206628 memory=6720 CPUtime=0.12 cores=0
+/proc/1430292/task/1430293/stat : 1430293 (java) S 1430289 1430261 1430238 0 -1 1077952576 2765 0 0 0 11 1 0 0 20 0 18 0 1622722456 72915587072 3450244 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 4 0 16800975 1 0 0 -1 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+[pid=1430292/tid=1430303] ppid=1430289 vsize=71206628 memory=8064 CPUtime=0 cores=0
+/proc/1430292/task/1430303/stat : 1430303 (Finalizer) S 1430289 1430261 1430238 0 -1 1077952576 31 0 0 0 0 0 0 0 20 0 18 0 1622722458 72915587072 3450244 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 4 0 16800975 1 0 0 -1 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+[pid=1430292/tid=1430310] ppid=1430289 vsize=71206628 memory=1344 CPUtime=0 cores=0
+/proc/1430292/task/1430310/stat : 1430310 (Common-Cleaner) S 1430289 1430261 1430238 0 -1 1077952576 43 0 0 0 0 0 0 0 20 0 18 0 1622722462 72915587072 3450244 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 4 0 16800975 1 0 0 -1 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+[pid=1430292/tid=1430312] ppid=1430289 vsize=71206628 memory=34944 CPUtime=28.93 cores=0
+/proc/1430292/task/1430312/stat : 1430312 (Thread-0) R 1430289 1430261 1430238 0 -1 4210752 6205 0 0 0 2772 121 0 0 20 0 18 0 1622722490 72915587072 3450244 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 4 0 16800975 0 0 0 -1 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+[pid=1430261/tid=1430263] ppid=1430255 vsize=1074123020 memory=1344 CPUtime=0 cores=0
+/proc/1430261/task/1430263/stat : 1430263 (ghc_ticker) S 1430255 1430261 1430238 0 -1 1077952576 2 0 0 0 0 0 0 0 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 2147221247 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430264] ppid=1430255 vsize=1074123020 memory=13440 CPUtime=0 cores=0
+/proc/1430261/task/1430264/stat : 1430264 (ghc_worker) S 1430255 1430261 1430238 0 -1 4210752 7 0 0 0 0 0 0 0 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430265] ppid=1430255 vsize=1074123020 memory=4032 CPUtime=0 cores=0
+/proc/1430261/task/1430265/stat : 1430265 (ghc_worker) S 1430255 1430261 1430238 0 -1 4210752 7 0 0 0 0 0 0 0 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430267] ppid=1430255 vsize=1074123020 memory=36288 CPUtime=0.04 cores=0
+/proc/1430261/task/1430267/stat : 1430267 (ghc_worker) S 1430255 1430261 1430238 0 -1 1077952576 11 0 0 0 4 0 0 0 20 0 5 0 1622722317 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+Current children cumulated CPU time: 63.91 s
+Current children cumulated vsize: 1145336912 KiB
+Current children cumulated memory: 13857424 KiB
+
+[startup+72.7005 s]
+/proc/loadavg: 155.67 154.88 153.50 155/3292 1430739
+/proc/meminfo: memFree=214764504/395404544 swapFree=0/0
+[pid=1430261] ppid=1430255 vsize=1074123020 memory=53760 CPUtime=0.98 cores=0
+/proc/1430261/stat : 1430261 (conjure) S 1430255 1430261 1430238 0 -1 1077952512 15366 0 0 0 94 4 0 0 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 0 0 0 17 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+/proc/1430261/statm: 268530755 13440 6384 17413 0 17301 0
+[pid=1430289] ppid=1430261 vsize=7264 memory=2688 CPUtime=0 cores=0
+/proc/1430289/stat : 1430289 (savilerow) S 1430261 1430261 1430238 0 -1 4210688 231 249 0 0 0 0 0 0 20 0 1 0 1622722455 7438336 672 21474836480 94157220368384 94157221262917 140721589891824 0 0 0 65536 4 65538 1 0 0 17 0 0 0 0 0 0 94157221501968 94157221549712 94157229019136 140721589901361 140721589902642 140721589902642 140721589911511 0
+/proc/1430289/statm: 1816 672 672 219 0 144 0
+[pid=1430292] ppid=1430289 vsize=71206628 memory=13802320 CPUtime=64.83 cores=0
+/proc/1430292/stat : 1430292 (java) S 1430289 1430261 1430238 0 -1 1077952512 55124 0 0 0 6251 232 0 0 20 0 18 0 1622722456 72915587072 3450580 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 0 0 16800975 0 0 0 17 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+/proc/1430292/statm: 17801657 3450580 5040 1 0 14821930 0
+[pid=1430292/tid=1430293] ppid=1430289 vsize=71206628 memory=36288 CPUtime=0.12 cores=0
+/proc/1430292/task/1430293/stat : 1430293 (java) S 1430289 1430261 1430238 0 -1 1077952576 2765 0 0 0 11 1 0 0 20 0 18 0 1622722456 72915587072 3450580 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 4 0 16800975 1 0 0 -1 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+[pid=1430292/tid=1430303] ppid=1430289 vsize=71206628 memory=21784 CPUtime=0 cores=0
+/proc/1430292/task/1430303/stat : 1430303 (Finalizer) S 1430289 1430261 1430238 0 -1 1077952576 31 0 0 0 0 0 0 0 20 0 18 0 1622722458 72915587072 3450580 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 4 0 16800975 1 0 0 -1 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+[pid=1430292/tid=1430310] ppid=1430289 vsize=71206628 memory=4780 CPUtime=0 cores=0
+/proc/1430292/task/1430310/stat : 1430310 (Common-Cleaner) S 1430289 1430261 1430238 0 -1 1077952576 43 0 0 0 0 0 0 0 20 0 18 0 1622722462 72915587072 3450580 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 4 0 16800975 1 0 0 -1 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+[pid=1430292/tid=1430312] ppid=1430289 vsize=71206628 memory=13802320 CPUtime=29.56 cores=0
+/proc/1430292/task/1430312/stat : 1430312 (Thread-0) R 1430289 1430261 1430238 0 -1 4210752 6238 0 0 0 2834 122 0 0 20 0 18 0 1622722490 72915587072 3450580 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 4 0 16800975 0 0 0 -1 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+[pid=1430261/tid=1430263] ppid=1430255 vsize=1074123020 memory=2688 CPUtime=0 cores=0
+/proc/1430261/task/1430263/stat : 1430263 (ghc_ticker) S 1430255 1430261 1430238 0 -1 1077952576 2 0 0 0 0 0 0 0 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 2147221247 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430264] ppid=1430255 vsize=1074123020 memory=13800976 CPUtime=0 cores=0
+/proc/1430261/task/1430264/stat : 1430264 (ghc_worker) S 1430255 1430261 1430238 0 -1 4210752 7 0 0 0 0 0 0 0 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430265] ppid=1430255 vsize=1074123020 memory=53760 CPUtime=0 cores=0
+/proc/1430261/task/1430265/stat : 1430265 (ghc_worker) S 1430255 1430261 1430238 0 -1 4210752 7 0 0 0 0 0 0 0 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430267] ppid=1430255 vsize=1074123020 memory=2688 CPUtime=0.04 cores=0
+/proc/1430261/task/1430267/stat : 1430267 (ghc_worker) S 1430255 1430261 1430238 0 -1 1077952576 11 0 0 0 4 0 0 0 20 0 5 0 1622722317 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+Current children cumulated CPU time: 65.81 s
+Current children cumulated vsize: 1145336912 KiB
+Current children cumulated memory: 13858768 KiB
+
+[startup+74.5005 s]*
+/proc/loadavg: 155.67 154.88 153.50 159/3292 1430745
+/proc/meminfo: memFree=213097452/395404544 swapFree=0/0
+[pid=1430261] ppid=1430255 vsize=1074123020 memory=53760 CPUtime=0.98 cores=0
+/proc/1430261/stat : 1430261 (conjure) S 1430255 1430261 1430238 0 -1 1077952512 15366 0 0 0 94 4 0 0 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 0 0 0 17 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+/proc/1430261/statm: 268530755 13440 6384 17413 0 17301 0
+[pid=1430289] ppid=1430261 vsize=7264 memory=2688 CPUtime=0 cores=0
+/proc/1430289/stat : 1430289 (savilerow) S 1430261 1430261 1430238 0 -1 4210688 231 249 0 0 0 0 0 0 20 0 1 0 1622722455 7438336 672 21474836480 94157220368384 94157221262917 140721589891824 0 0 0 65536 4 65538 1 0 0 17 0 0 0 0 0 0 94157221501968 94157221549712 94157229019136 140721589901361 140721589902642 140721589902642 140721589911511 0
+/proc/1430289/statm: 1816 672 672 219 0 144 0
+[pid=1430292] ppid=1430289 vsize=71206628 memory=13805008 CPUtime=66.59 cores=0
+/proc/1430292/stat : 1430292 (java) S 1430289 1430261 1430238 0 -1 1077952512 55709 0 0 0 6426 233 0 0 20 0 18 0 1622722456 72915587072 3451252 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 0 0 16800975 0 0 0 17 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+/proc/1430292/statm: 17801657 3451252 5040 1 0 14822196 0
+[pid=1430292/tid=1430293] ppid=1430289 vsize=71206628 memory=6720 CPUtime=0.12 cores=0
+/proc/1430292/task/1430293/stat : 1430293 (java) S 1430289 1430261 1430238 0 -1 1077952576 2765 0 0 0 11 1 0 0 20 0 18 0 1622722456 72915587072 3451252 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 4 0 16800975 1 0 0 -1 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+[pid=1430292/tid=1430303] ppid=1430289 vsize=71206628 memory=27022001497178202 CPUtime=0 cores=0
+/proc/1430292/task/1430303/stat : 1430303 (Finalizer) S 1430289 1430261 1430238 0 -1 1077952576 31 0 0 0 0 0 0 0 20 0 18 0 1622722458 72915587072 3451252 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 4 0 16800975 1 0 0 -1 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+[pid=1430292/tid=1430310] ppid=1430289 vsize=71206628 memory=1344 CPUtime=0 cores=0
+/proc/1430292/task/1430310/stat : 1430310 (Common-Cleaner) S 1430289 1430261 1430238 0 -1 1077952576 43 0 0 0 0 0 0 0 20 0 18 0 1622722462 72915587072 3451252 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 4 0 16800975 1 0 0 -1 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+[pid=1430292/tid=1430312] ppid=1430289 vsize=71206628 memory=20624 CPUtime=30.37 cores=0
+/proc/1430292/task/1430312/stat : 1430312 (Thread-0) R 1430289 1430261 1430238 0 -1 4210752 6466 0 0 0 2915 122 0 0 20 0 18 0 1622722490 72915587072 3451252 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 4 0 16800975 0 0 0 -1 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+[pid=1430261/tid=1430263] ppid=1430255 vsize=1074123020 memory=1399376634402323046 CPUtime=0 cores=0
+/proc/1430261/task/1430263/stat : 1430263 (ghc_ticker) S 1430255 1430261 1430238 0 -1 1077952576 2 0 0 0 0 0 0 0 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 2147221247 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430264] ppid=1430255 vsize=1074123020 memory=-8929676449648655775 CPUtime=0 cores=0
+/proc/1430261/task/1430264/stat : 1430264 (ghc_worker) S 1430255 1430261 1430238 0 -1 4210752 7 0 0 0 0 0 0 0 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430265] ppid=1430255 vsize=1074123020 memory=2688 CPUtime=0 cores=0
+/proc/1430261/task/1430265/stat : 1430265 (ghc_worker) S 1430255 1430261 1430238 0 -1 4210752 7 0 0 0 0 0 0 0 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430267] ppid=1430255 vsize=1074123020 memory=2688 CPUtime=0.04 cores=0
+/proc/1430261/task/1430267/stat : 1430267 (ghc_worker) S 1430255 1430261 1430238 0 -1 1077952576 11 0 0 0 4 0 0 0 20 0 5 0 1622722317 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+Current children cumulated CPU time: 67.57 s
+Current children cumulated vsize: 1145336912 KiB
+Current children cumulated memory: 13861456 KiB
+
+[startup+75.4005 s]
+/proc/loadavg: 155.67 154.88 153.50 159/3292 1430745
+/proc/meminfo: memFree=213097452/395404544 swapFree=0/0
+[pid=1430261] ppid=1430255 vsize=1074123020 memory=53760 CPUtime=0.98 cores=0
+/proc/1430261/stat : 1430261 (conjure) S 1430255 1430261 1430238 0 -1 1077952512 15366 0 0 0 94 4 0 0 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 0 0 0 17 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+/proc/1430261/statm: 268530755 13440 6384 17413 0 17301 0
+[pid=1430289] ppid=1430261 vsize=7264 memory=2688 CPUtime=0 cores=0
+/proc/1430289/stat : 1430289 (savilerow) S 1430261 1430261 1430238 0 -1 4210688 231 249 0 0 0 0 0 0 20 0 1 0 1622722455 7438336 672 21474836480 94157220368384 94157221262917 140721589891824 0 0 0 65536 4 65538 1 0 0 17 0 0 0 0 0 0 94157221501968 94157221549712 94157229019136 140721589901361 140721589902642 140721589902642 140721589911511 0
+/proc/1430289/statm: 1816 672 672 219 0 144 0
+[pid=1430292] ppid=1430289 vsize=71206628 memory=13806352 CPUtime=67.33 cores=0
+/proc/1430292/stat : 1430292 (java) S 1430289 1430261 1430238 0 -1 1077952512 56077 0 0 0 6499 234 0 0 20 0 18 0 1622722456 72915587072 3451588 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 0 0 16800975 0 0 0 17 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+/proc/1430292/statm: 17801657 3451588 5040 1 0 14822479 0
+[pid=1430292/tid=1430293] ppid=1430289 vsize=71206628 memory=13440 CPUtime=0.12 cores=0
+/proc/1430292/task/1430293/stat : 1430293 (java) S 1430289 1430261 1430238 0 -1 1077952576 2765 0 0 0 11 1 0 0 20 0 18 0 1622722456 72915587072 3451588 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 4 0 16800975 1 0 0 -1 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+[pid=1430292/tid=1430303] ppid=1430289 vsize=71206628 memory=4032 CPUtime=0 cores=0
+/proc/1430292/task/1430303/stat : 1430303 (Finalizer) S 1430289 1430261 1430238 0 -1 1077952576 31 0 0 0 0 0 0 0 20 0 18 0 1622722458 72915587072 3451588 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 4 0 16800975 1 0 0 -1 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+[pid=1430292/tid=1430310] ppid=1430289 vsize=71206628 memory=5376 CPUtime=0 cores=0
+/proc/1430292/task/1430310/stat : 1430310 (Common-Cleaner) S 1430289 1430261 1430238 0 -1 1077952576 43 0 0 0 0 0 0 0 20 0 18 0 1622722462 72915587072 3451588 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 4 0 16800975 1 0 0 -1 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+[pid=1430292/tid=1430312] ppid=1430289 vsize=71206628 memory=1344 CPUtime=30.68 cores=0
+/proc/1430292/task/1430312/stat : 1430312 (Thread-0) R 1430289 1430261 1430238 0 -1 4210752 6480 0 0 0 2946 122 0 0 20 0 18 0 1622722490 72915587072 3451588 21474836480 94159723655168 94159723656249 140729522078768 0 0 0 4 0 16800975 0 0 0 -1 0 0 0 0 0 0 94159723666736 94159723667472 94159756328960 140729522087921 140729522089303 140729522089303 140729522098154 0
+[pid=1430261/tid=1430263] ppid=1430255 vsize=1074123020 memory=8064 CPUtime=0 cores=0
+/proc/1430261/task/1430263/stat : 1430263 (ghc_ticker) S 1430255 1430261 1430238 0 -1 1077952576 2 0 0 0 0 0 0 0 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 2147221247 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430264] ppid=1430255 vsize=1074123020 memory=2688 CPUtime=0 cores=0
+/proc/1430261/task/1430264/stat : 1430264 (ghc_worker) S 1430255 1430261 1430238 0 -1 4210752 7 0 0 0 0 0 0 0 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430265] ppid=1430255 vsize=1074123020 memory=5376 CPUtime=0 cores=0
+/proc/1430261/task/1430265/stat : 1430265 (ghc_worker) S 1430255 1430261 1430238 0 -1 4210752 7 0 0 0 0 0 0 0 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430267] ppid=1430255 vsize=1074123020 memory=53760 CPUtime=0.04 cores=0
+/proc/1430261/task/1430267/stat : 1430267 (ghc_worker) S 1430255 1430261 1430238 0 -1 1077952576 11 0 0 0 4 0 0 0 20 0 5 0 1622722317 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+Current children cumulated CPU time: 68.31 s
+Current children cumulated vsize: 1145336912 KiB
+Current children cumulated memory: 13862800 KiB
+
+[startup+76.0004 s]
+/proc/loadavg: 155.67 154.88 153.50 158/3296 1430752
+/proc/meminfo: memFree=210570804/395404544 swapFree=0/0
+[pid=1430261] ppid=1430255 vsize=1074123020 memory=53760 CPUtime=68.65 cores=0
+/proc/1430261/stat : 1430261 (conjure) S 1430255 1430261 1430238 0 -1 1077952512 15370 59982 0 0 94 4 6525 242 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 0 0 0 17 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+/proc/1430261/statm: 268530755 13440 6384 17413 0 17301 0
+[pid=1430261/tid=1430263] ppid=1430255 vsize=1074123020 memory=2688 CPUtime=67.67 cores=0
+/proc/1430261/task/1430263/stat : 1430263 (ghc_ticker) S 1430255 1430261 1430238 0 -1 4210752 2 59982 0 0 0 0 6525 242 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 2147221247 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430264] ppid=1430255 vsize=1074123020 memory=2688 CPUtime=67.67 cores=0
+/proc/1430261/task/1430264/stat : 1430264 (ghc_worker) S 1430255 1430261 1430238 0 -1 4210752 7 59982 0 0 0 0 6525 242 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430265] ppid=1430255 vsize=1074123020 memory=2688 CPUtime=67.67 cores=0
+/proc/1430261/task/1430265/stat : 1430265 (ghc_worker) S 1430255 1430261 1430238 0 -1 4210752 7 59982 0 0 0 0 6525 242 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430267] ppid=1430255 vsize=1074123020 memory=13806352 CPUtime=67.71 cores=0
+/proc/1430261/task/1430267/stat : 1430267 (ghc_worker) S 1430255 1430261 1430238 0 -1 1077952576 11 59982 0 0 4 0 6525 242 20 0 5 0 1622722317 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+Current children cumulated CPU time: 68.65 s
+Current children cumulated vsize: 1074123020 KiB
+Current children cumulated memory: 53760 KiB
+
+[startup+76.1004 s]
+/proc/loadavg: 155.67 154.88 153.50 158/3296 1430752
+/proc/meminfo: memFree=210570804/395404544 swapFree=0/0
+[pid=1430261] ppid=1430255 vsize=1074123020 memory=53760 CPUtime=68.65 cores=0
+/proc/1430261/stat : 1430261 (conjure) S 1430255 1430261 1430238 0 -1 1077952512 15370 59982 0 0 94 4 6525 242 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 0 0 0 17 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+/proc/1430261/statm: 268530755 13440 6384 17413 0 17301 0
+[pid=1430261/tid=1430263] ppid=1430255 vsize=1074123020 memory=2688 CPUtime=67.67 cores=0
+/proc/1430261/task/1430263/stat : 1430263 (ghc_ticker) S 1430255 1430261 1430238 0 -1 4210752 2 59982 0 0 0 0 6525 242 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 2147221247 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430264] ppid=1430255 vsize=1074123020 memory=13803664 CPUtime=67.67 cores=0
+/proc/1430261/task/1430264/stat : 1430264 (ghc_worker) S 1430255 1430261 1430238 0 -1 4210752 7 59982 0 0 0 0 6525 242 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430265] ppid=1430255 vsize=1074123020 memory=13805008 CPUtime=67.67 cores=0
+/proc/1430261/task/1430265/stat : 1430265 (ghc_worker) S 1430255 1430261 1430238 0 -1 4210752 7 59982 0 0 0 0 6525 242 20 0 5 0 1622722314 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+[pid=1430261/tid=1430267] ppid=1430255 vsize=1074123020 memory=2688 CPUtime=67.71 cores=0
+/proc/1430261/task/1430267/stat : 1430267 (ghc_worker) S 1430255 1430261 1430238 0 -1 1077952576 11 59982 0 0 4 0 6525 242 20 0 5 0 1622722317 1099901972480 13440 21474836480 4194304 75514512 140728208189328 0 0 0 0 0 528390 1 0 0 -1 0 0 0 0 0 0 75522176 82032888 96391168 140728208198563 140728208198964 140728208198964 140728208207833 0
+Current children cumulated CPU time: 68.65 s
+Current children cumulated vsize: 1074123020 KiB
+Current children cumulated memory: 53760 KiB
+
+Child status: 0
+Real time (s): 76.1465
+CPU time (s): 68.9627
+CPU user time (s): 66.4376
+CPU system time (s): 2.52517
+CPU usage (%): 90.5659
+Max. virtual memory (cumulated for all children) (KiB): 1145403608
+Max. memory (cumulated for all children) (KiB): 13862800
+
+getrusage(RUSAGE_CHILDREN,...) data:
+user time used= 66.4376
+system time used= 2.52517
+maximum resident set size= 13806352
+integral shared memory size= 0
+integral unshared data size= 0
+integral unshared stack size= 0
+page reclaims= 80456
+page faults= 0
+swaps= 0
+block input operations= 0
+block output operations= 552
+messages sent= 0
+messages received= 0
+signals received= 0
+voluntary context switches= 9488
+involuntary context switches= 10712
+
+
+# summary of solver processes directly reported to runsolver:
+#   pid: 1430261
+#   total CPU time (s): 68.9627
+#   total CPU user time (s): 66.4376
+#   total CPU system time (s): 2.52517
+
+??? end of timestamper thread
+runsolver used 1.08273 second user time and 5.58703 second system time
+
+The end
