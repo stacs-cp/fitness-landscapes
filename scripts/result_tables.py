@@ -616,13 +616,23 @@ def _relative_to_root(path: Path) -> Path:
         return path
 
 
-def cp_command(param: Path, *, output_dir: str | None = None, solver: str) -> str:
-    parts: list[str | Path] = [
+def runsolver_parts(result_path: Path) -> list[str | Path]:
+    return [
         "/home/rh347/.local/bin/runsolver",
         "-W",
         "3600",
         "-R",
         "18000",
+        "-v",
+        result_path.with_suffix(result_path.suffix + ".runsolver"),
+    ]
+
+
+def cp_command(param: Path, *, output_dir: str | None = None, solver: str) -> str:
+    result_dir = Path(output_dir) if output_dir else ROOT / "conjure-output"
+    result_path = result_dir / f"model000001-{param.stem}.stats.json"
+    parts: list[str | Path] = [
+        *runsolver_parts(result_path),
         "conjure",
         "solve",
         "models/essence-edge-branching/edge.essence",
@@ -652,12 +662,9 @@ def sat_command(
     output_dir: str,
     enumerate_all: bool,
 ) -> str:
+        result_path = Path(output_dir) / sat_result_filename(dimension, nb_peaks, prop, face_count)
         parts: list[str | Path] = [
-            "/home/rh347/.local/bin/runsolver",
-            "-W",
-            "3600",
-            "-R",
-            "18000",
+            *runsolver_parts(result_path),
             "python",
             "models/sat/bio.py",
             "-n",
@@ -686,12 +693,9 @@ def yewpar_command(
     *,
     output_dir: str,
 ) -> str:
+        result_path = Path(output_dir) / sat_result_filename(dimension, nb_peaks, prop, face_count)
         parts: list[str | Path] = [
-            "/home/rh347/.local/bin/runsolver",
-            "-W",
-            "3600",
-            "-R",
-            "18000",
+            *runsolver_parts(result_path),
             "../YewPar/build/install/bin/fitness-landscape",
             "-n",
             str(dimension),
@@ -708,4 +712,4 @@ def yewpar_command(
         # else:
         #     parts.append("--complete-sym-break")
         parts.extend(["--skeleton", "budget", "-b", str(100000)])
-        return quote_command(parts) + f" > {output_dir}/dim-{dimension}-peak-{nb_peaks}-{prop}-{face_count}.txt"
+        return quote_command(parts) + f" > {shlex.quote(str(result_path))}"
