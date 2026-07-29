@@ -19,6 +19,10 @@ ROOT = Path(__file__).resolve().parent.parent
 SAT_RESULT_RE = re.compile(r"dim-(\d+)-peak-(\d+)-(RSE|SE)-(\d+)\.txt$")
 CP_STATS_RE = re.compile(r"model000001-peaks-to-(RSE|SE)-dimension-(\d+)-peaks-(\d+)-count-(\d+)\.stats\.json$")
 YEWPAR_RESULT_RE = re.compile(r"dim-(\d+)-peak-(\d+)-(RSE|SE)-(\d+)\.txt$")
+SAT_COMMAND_RE = re.compile(r"-n\s+(\d+).*?--peak-count\s+(\d+).*?--(RSE|SE)-count\s+(\d+)")
+CP_COMMAND_RE = re.compile(
+    r"peaks-to-(RSE|SE)-dimension-(\d+)-peaks-(\d+)-count-(\d+)\.param"
+)
 
 
 CellKind = Literal["decision", "exact", "known_at_least", "time"]
@@ -420,6 +424,231 @@ def parse_sat_result_file(path: Path) -> dict[str, str]:
     except OSError:
         return {}
     return result
+
+
+def parse_runsolver_output_file(path: Path) -> dict[str, str]:
+    try:
+        text = path.read_text(encoding="utf8", errors="replace")
+    except OSError:
+        return {}
+
+    result: dict[str, str] = {}
+    patterns = {
+        "real_time_seconds": (
+            r"^WCTIME=(\S+)",
+            r"^Real time \(s\):\s*(\S+)",
+        ),
+        "cpu_time_seconds": (
+            r"^CPUTIME=(\S+)",
+            r"^CPU time \(s\):\s*(\S+)",
+        ),
+        "user_time_seconds": (
+            r"^USERTIME=(\S+)",
+            r"^CPU user time \(s\):\s*(\S+)",
+        ),
+        "system_time_seconds": (
+            r"^SYSTEMTIME=(\S+)",
+            r"^CPU system time \(s\):\s*(\S+)",
+        ),
+        "cpu_usage_percent": (
+            r"^CPUUSAGE=(\S+)",
+            r"^CPU usage \(%\):\s*(\S+)",
+        ),
+        "max_virtual_memory_kib": (
+            r"^MAXVM=(\d+)",
+            r"^Max\. virtual memory .*?\(KiB\):\s*(\d+)",
+        ),
+        "max_memory_kib": (
+            r"^MAXMEM=(\d+)",
+            r"^Max\. memory .*?\(KiB\):\s*(\d+)",
+        ),
+        "max_rss_kib": (
+            r"^MAXRSS=(\d+)",
+            r"^maximum resident set size=\s*(\d+)",
+        ),
+        "child_status": (
+            r"^CHILDSTATUS=(\S+)",
+            r"^Child status:\s*(\S+)",
+        ),
+    }
+    for key, alternatives in patterns.items():
+        for pattern in alternatives:
+            match = re.search(pattern, text, flags=re.MULTILINE)
+            if match is not None:
+                result[key] = match.group(1)
+                break
+
+    command_match = SAT_COMMAND_RE.search(text)
+    if command_match is not None:
+        dimension, nb_peaks, prop, face_count = command_match.groups()
+        result["backend"] = "sat"
+        result["dimension"] = dimension
+        result["nb_peaks"] = nb_peaks
+        result["prop"] = prop
+        result["face_count"] = face_count
+    elif command_match := CP_COMMAND_RE.search(text):
+        prop, dimension, nb_peaks, face_count = command_match.groups()
+        result["backend"] = "cp"
+        result["dimension"] = dimension
+        result["nb_peaks"] = nb_peaks
+        result["prop"] = prop
+        result["face_count"] = face_count
+    elif path.name.endswith(".txt.runsolver"):
+        filename_match = SAT_RESULT_RE.match(path.name.removesuffix(".runsolver"))
+        if filename_match is not None:
+            dimension, nb_peaks, prop, face_count = filename_match.groups()
+            result["backend"] = "sat"
+            result["dimension"] = dimension
+            result["nb_peaks"] = nb_peaks
+            result["prop"] = prop
+            result["face_count"] = face_count
+    elif path.name.endswith(".stats.json.runsolver"):
+        filename_match = CP_STATS_RE.match(path.name.removesuffix(".runsolver"))
+        if filename_match is not None:
+            prop, dimension, nb_peaks, face_count = filename_match.groups()
+            result["backend"] = "cp"
+            result["dimension"] = dimension
+            result["nb_peaks"] = nb_peaks
+            result["prop"] = prop
+            result["face_count"] = face_count
+
+    if "TIMEOUT=true" in text or "Maximum wall clock time exceeded" in text:
+        result["status"] = "timeout"
+    elif "MEMOUT=true" in text or "Maximum memory exceeded" in text:
+        result["status"] = "memory-out"
+    elif "TIMEOUT=false" in text and "MEMOUT=false" in text:
+        result["status"] = "completed"
+    elif result.get("child_status") == "0":
+        result["status"] = "completed"
+    else:
+        result["status"] = "unknown"
+
+    return result
+
+
+RUNSOLVER_RECORD_FIELDS = [
+    "status",
+    "runsolver_real_time_seconds",
+    "runsolver_cpu_time_seconds",
+    "runsolver_max_rss_kib",
+    "runsolver_max_memory_kib",
+    "runsolver_max_virtual_memory_kib",
+]
+RUNSOLVER_REQUIRED_FIELDS = [
+    "status",
+    "runsolver_real_time_seconds",
+    "runsolver_cpu_time_seconds",
+    "runsolver_max_virtual_memory_kib",
+]
+
+
+def add_runsolver_records(
+    records: dict[tuple[str, int, int, int], dict[str, str]],
+    input_dirs: Iterable[str],
+    dimensions: set[int],
+    props: set[str],
+) -> None:
+    for raw_dir in input_dirs:
+        root = Path(raw_dir)
+        for path in root.rglob("*.runsolver"):
+            parsed = parse_runsolver_output_file(path)
+            if not all(key in parsed for key in ("dimension", "nb_peaks", "prop", "face_count")):
+                continue
+            dimension = int(parsed["dimension"])
+            nb_peaks = int(parsed["nb_peaks"])
+            prop = parsed["prop"]
+            face_count = int(parsed["face_count"])
+            if dimension not in dimensions or prop not in props:
+                continue
+            record = records.setdefault((prop, dimension, nb_peaks, face_count), {})
+            record.update(
+                {
+                    "status": parsed.get("status", ""),
+                    "runsolver_real_time_seconds": parsed.get("real_time_seconds", ""),
+                    "runsolver_cpu_time_seconds": parsed.get("cpu_time_seconds", ""),
+                    "runsolver_max_rss_kib": parsed.get("max_rss_kib", ""),
+                    "runsolver_max_memory_kib": parsed.get("max_memory_kib", ""),
+                    "runsolver_max_virtual_memory_kib": parsed.get("max_virtual_memory_kib", ""),
+                    "runsolver_file": str(path),
+                }
+            )
+
+
+def write_combined_stats(
+    path: Path,
+    records: dict[tuple[str, int, int, int], dict[str, str]],
+    result_fields: list[str],
+) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    fieldnames = [
+        "dimension",
+        "nb_peaks",
+        "prop",
+        "face_count",
+        *result_fields,
+        *RUNSOLVER_RECORD_FIELDS,
+        "result_file",
+        "runsolver_file",
+    ]
+    with path.open("w", encoding="utf8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=fieldnames, lineterminator="\n")
+        writer.writeheader()
+        for (prop, dimension, nb_peaks, face_count), record in sorted(
+            records.items(),
+            key=lambda item: (item[0][1], item[0][0], item[0][2], item[0][3]),
+        ):
+            writer.writerow(
+                {
+                    "dimension": dimension,
+                    "nb_peaks": nb_peaks,
+                    "prop": prop,
+                    "face_count": face_count,
+                    **record,
+                }
+            )
+
+
+def write_missing_stats(
+    path: Path,
+    records: dict[tuple[str, int, int, int], dict[str, str]],
+    required_fields: list[str],
+) -> int:
+    missing_rows: list[dict[str, str | int]] = []
+    for (prop, dimension, nb_peaks, face_count), record in sorted(
+        records.items(),
+        key=lambda item: (item[0][1], item[0][0], item[0][2], item[0][3]),
+    ):
+        missing = [field for field in required_fields if not record.get(field)]
+        if missing:
+            missing_rows.append(
+                {
+                    "dimension": dimension,
+                    "nb_peaks": nb_peaks,
+                    "prop": prop,
+                    "face_count": face_count,
+                    "status": record.get("status", ""),
+                    "missing_fields": ",".join(missing),
+                    "result_file": record.get("result_file", ""),
+                    "runsolver_file": record.get("runsolver_file", ""),
+                }
+            )
+
+    path.parent.mkdir(parents=True, exist_ok=True)
+    fieldnames = [
+        "dimension",
+        "nb_peaks",
+        "prop",
+        "face_count",
+        "status",
+        "missing_fields",
+        "result_file",
+        "runsolver_file",
+    ]
+    with path.open("w", encoding="utf8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=fieldnames, lineterminator="\n")
+        writer.writeheader()
+        writer.writerows(missing_rows)
+    return len(missing_rows)
 
 
 def parse_cp_stats_file(path: Path) -> dict[str, str]:
