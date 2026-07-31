@@ -51,6 +51,7 @@ def main() -> None:
                                 out_dir = out_dir + "-0-source-sym-" + timestamp
                             else:
                                 out_dir = out_dir + "-full-sym-" + timestamp
+                        Path(out_dir).mkdir(parents=True, exist_ok=True)
                         print(cp_command(param, output_dir=out_dir, solver=args.solver), file=handle)
                         emitted += 1
 
