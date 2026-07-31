@@ -857,7 +857,7 @@ def runsolver_parts(result_path: Path) -> list[str | Path]:
     ]
 
 
-def cp_command(param: Path, *, output_dir: str | None = None, solver: str) -> str:
+def cp_command(param: Path, dec: bool, *, output_dir: str | None = None, solver: str) -> str:
     result_dir = Path(output_dir) if output_dir else ROOT / "conjure-output"
     result_path = result_dir / f"model000001-{param.stem}.stats.json"
     parts: list[str | Path] = [
@@ -869,12 +869,12 @@ def cp_command(param: Path, *, output_dir: str | None = None, solver: str) -> st
         f"--use-existing-models=output/raw/count-essence-edge-branching/model000001.eprime",
         "--savilerow-options=-O1",
         f"--solver={solver}",
-        "--number-of-solutions=all",
         "--copy-solutions=no",
         "--solutions-in-one-file",
         "--output-format=json",
-        
     ]
+    if not dec:
+        parts.append("--number-of-solutions=all"),
     if output_dir:
         parts.extend(["-o", output_dir])
     return quote_command(parts)

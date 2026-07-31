@@ -21,7 +21,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--no-skip", action="store_true", help="Generate every command, ignoring stored data.")
     parser.add_argument("--source-sym", action="store_true", help="Use the 0 being source symmetry handling only.")
-    #parser.add_argument("--decision", default="store_true", help="Solve decision problem.")
+    parser.add_argument("--decision", action="store_true", help="Solve decision problem.")
     parser.add_argument("--solver", default="minion", help="Choose the solver.")
 
     return parser.parse_args()
@@ -46,13 +46,16 @@ def main() -> None:
                         
                         out_dir = args.output_dir
                         if args.output_dir == f"output/raw/count-essence-edge-branching":
+                            if args.decision:
+                                out_dir = f"output/raw/decision-essence-edge-branching"
+
                             out_dir = out_dir + "-" + args.solver
                             if args.source_sym:              
                                 out_dir = out_dir + "-0-source-sym-" + timestamp
                             else:
                                 out_dir = out_dir + "-full-sym-" + timestamp
                         Path(out_dir).mkdir(parents=True, exist_ok=True)
-                        print(cp_command(param, output_dir=out_dir, solver=args.solver), file=handle)
+                        print(cp_command(param, dec=args.decision, output_dir=out_dir, solver=args.solver), file=handle)
                         emitted += 1
 
     print(f"Wrote {emitted} CP/Conjure exact commands to {args.commands_file}; skipped {skipped}.", file=sys.stderr)
